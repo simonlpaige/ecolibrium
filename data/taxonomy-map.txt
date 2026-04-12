@@ -1,0 +1,203 @@
+
+╔══════════════════════════════════════════════════════════════════════════════════════════════╗
+║           ECOLIBRIUM CIVIL SOCIETY TAXONOMY                                                  ║
+║           Recovered from WiserEarth (2007–2014) · Extended 2026                             ║
+║           47 original categories · 381+ sub-issues · CC0 Public Domain                      ║
+║           Source: wiser.org · Paul Hawken / Natural Capital Institute                        ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════╝
+
+  ┌─────────────────────────────────────────────────────────────────────────────────────────┐
+  │  LAND & FOOD                                                                            │
+  ├─────────────────────────────────────────────────────────────────────────────────────────┤
+  │  Agriculture & Farming      Air                    Water                                │
+  │  ├─ Agricultural Policy     ├─ Acid Rain           ├─ Dams                             │
+  │  ├─ Agroecology             ├─ Indoor Air Quality  ├─ Groundwater                      │
+  │  ├─ Biological Control      └─ Ozone Layer         ├─ Water Rights                     │
+  │  ├─ Composting                                     ├─ Watershed Management              │
+  │  ├─ Gardening               Forestry               ├─ Water Law & Policy               │
+  │  ├─ Organic Farming         ├─ Agroforestry        ├─ Water & Energy                   │
+  │  ├─ Permaculture            ├─ Logging             ├─ Water as Commons ✦               │
+  │  ├─ Precision Farming       ├─ Plantations         └─ Water Pollution                  │
+  │  └─ Regenerative Agri. ✦   ├─ Sustainable Forestry                                    │
+  │                             └─ Urban Forestry      Food & Nourishment                  │
+  │  Fisheries                                         ├─ Food Aid                         │
+  │  ├─ Aquaculture             Conservation           ├─ Food Literacy                    │
+  │  ├─ Aquarium Trade          ├─ Conservation Biology├─ Food Supply                      │
+  │  └─ Sustainable Fishing     ├─ Conservation Policy ├─ Local Food Systems               │
+  │                             ├─ Land Restoration    └─ Food Sovereignty ✦               │
+  │                             ├─ Land Stewardship                                        │
+  │                             ├─ Wilderness                                              │
+  │                             └─ Rewilding ✦                                             │
+  └─────────────────────────────────────────────────────────────────────────────────────────┘
+
+  ┌─────────────────────────────────────────────────────────────────────────────────────────┐
+  │  ECOSYSTEMS & LIVING WORLD                                                              │
+  ├─────────────────────────────────────────────────────────────────────────────────────────┤
+  │  Animalia                   Ecology                Biodiversity                         │
+  │  ├─ Amphibians              ├─ Evolutionary        ├─ Biocultural Diversity             │
+  │  ├─ Birds (1,918 orgs)      ├─ Fire Ecology        └─ Seed Conservation                │
+  │  ├─ Cetaceans               ├─ Landscape                                                │
+  │  ├─ Fish                    ├─ Microbial            Plants                              │
+  │  ├─ Insects                 ├─ Mycology            ├─ Ethnobotany                      │
+  │  ├─ Primates                ├─ Pollination          └─ Plant Ecology                   │
+  │  ├─ Raptors                 ├─ Restoration                                              │
+  │  ├─ Reptiles                └─ Soil                 Terrestrial Ecosystems             │
+  │  ├─ Wildlife Ecology                               ├─ Shrublands                       │
+  │  ├─ Wildlife Management     Inland Water            └─ Tundra                          │
+  │  └─ [+9 more species]       ├─ Lakes & Ponds                                           │
+  │                             ├─ Rivers & Creeks      Coastal & Marine                   │
+  │                             └─ Wetlands             └─ Coastal Ecology                 │
+  └─────────────────────────────────────────────────────────────────────────────────────────┘
+
+  ┌─────────────────────────────────────────────────────────────────────────────────────────┐
+  │  CLIMATE & ENVIRONMENT                                                                  │
+  ├─────────────────────────────────────────────────────────────────────────────────────────┤
+  │  Global Climate Change      Pollution               Mining                              │
+  │  ├─ Climate Change          ├─ Chemical Pollution  ├─ Fossil Fuels                     │
+  │  ├─ Emissions Trading       ├─ Energy Pollution    └─ Mountaintop Removal              │
+  │  ├─ Greenhouse Gases        ├─ Global Pollution                                        │
+  │  ├─ Climate Migration ✦     ├─ Water Pollution      Greening of Industry               │
+  │  └─ Climate Adaptation ✦   └─ Plastic Pollution ✦ ├─ Ecological Footprint             │
+  │                                                    ├─ Industrial Ecology               │
+  │  Religion, Ecology &        Sustainable Design     ├─ Recycling & Reuse                │
+  │  Sustainability             ├─ Biomimicry          └─ Circular Economy ✦               │
+  │  ├─ Ecopsychology           ├─ Green Roofs                                             │
+  │  ├─ Environmental Ethics    ├─ Sustainable Building                                    │
+  │  ├─ Religion & Ecology      └─ Sustainable Materials                                   │
+  │  ├─ Sustainable Living                                                                 │
+  │  ├─ Degrowth ✦                                                                         │
+  │  └─ Solarpunk ✦                                                                        │
+  └─────────────────────────────────────────────────────────────────────────────────────────┘
+
+  ┌─────────────────────────────────────────────────────────────────────────────────────────┐
+  │  PEOPLE & JUSTICE                                                                       │
+  ├─────────────────────────────────────────────────────────────────────────────────────────┤
+  │  Human Rights &             Women                  Children & Youth                     │
+  │  Social Justice             ├─ Gender Equality     ├─ Child Labor                      │
+  │  ├─ Climate Justice         ├─ Women's Empowerment ├─ Children's Health                │
+  │  ├─ Disability Equality     ├─ Women's Education   ├─ Rights of the Child              │
+  │  ├─ Environmental Justice   ├─ Women's Health      ├─ Youth Leadership                 │
+  │  ├─ Ethnic Equality         ├─ Women's Rights      ├─ Youth Participation              │
+  │  ├─ LGBTQ+ Rights ✦        ├─ Reproductive Rts ✦  └─ Juvenile Justice                 │
+  │  └─ Housing Rights ✦       └─ Trafficking                                              │
+  │                                                    Indigenous Peoples                  │
+  │  Health                     Poverty Eradication   ├─ Indigenous Lands                  │
+  │  ├─ Health Care Access      ├─ Affordable Housing  ├─ Indigenous Rights                │
+  │  ├─ Public Health           ├─ Poverty Alleviation └─ Land Return ✦                   │
+  │  ├─ Environmental Health    ├─ Squatter Communities                                    │
+  │  ├─ Health Education        └─ Guaranteed Income ✦ Seniors                             │
+  │  ├─ Mental Health ✦                               ├─ Seniors' Health                  │
+  │  ├─ Community Health Wkrs ✦ Law, Policy &          └─ Eldercare Commons ✦             │
+  │  ├─ HIV/AIDS                Property Rights                                            │
+  │  ├─ Infectious Diseases     ├─ Restorative Justice Men                                 │
+  │  ├─ Sanitation              ├─ Land Reform        ├─ Men & Violence                   │
+  │  ├─ Alternative Medicine    ├─ Land Use Policy     ├─ Men's Health                     │
+  │  └─ [+5 more]              ├─ Property Rights     └─ Male Circumcision                │
+  │                             ├─ Biological Patents                                      │
+  │                             ├─ Crime & Policing                                        │
+  │                             └─ Digital Rights ✦                                        │
+  └─────────────────────────────────────────────────────────────────────────────────────────┘
+
+  ┌─────────────────────────────────────────────────────────────────────────────────────────┐
+  │  ECONOMY & WORK                                                                         │
+  ├─────────────────────────────────────────────────────────────────────────────────────────┤
+  │  Business & Economics       Work                   Globalization                        │
+  │  ├─ Corporate Ethics        ├─ Employment          ├─ Fair Trade                       │
+  │  ├─ Ecological Economics    ├─ Living Wages        ├─ Globalization Impacts             │
+  │  ├─ Ecosystem Services      ├─ Worker Rights       ├─ International Debt               │
+  │  ├─ Natural Capitalism      ├─ Worker Centers      ├─ Trade Balance                    │
+  │  ├─ Microfinance            ├─ Global Labor        └─ Currency Exchange                │
+  │  ├─ Microcredit             ├─ Informal Economy                                        │
+  │  ├─ Ecotourism              ├─ Vocational Training  Sustainable Development            │
+  │  ├─ Worker Cooperatives ✦  ├─ Post-Work ✦         ├─ Economic Development             │
+  │  ├─ Platform Cooperativism ✦└─ Care Work ✦         ├─ Rural Development               │
+  │  ├─ Universal Basic Income ✦                       ├─ Social Development               │
+  │  └─ Doughnut Economics ✦   Civil Society Orgs      └─ Community Wealth Building ✦     │
+  │                             ├─ Philanthropy                                            │
+  │  Community Development      └─ Nonprofit Law       Population                         │
+  │  ├─ Community Enterprise                           ├─ Demographics                     │
+  │  ├─ Community Resources     Peace, War & Security  ├─ Family Planning                  │
+  │  ├─ Community Training      ├─ Conflict Resolution └─ Global Migration                 │
+  │  ├─ Leadership Training     ├─ Military Disarmament                                    │
+  │  ├─ Fundraising             ├─ Nuclear Disarmament                                     │
+  │  ├─ Mutual Aid ✦           ├─ Arms Trading                                            │
+  │  └─ Community Land Trusts ✦└─ Weapons                                                 │
+  └─────────────────────────────────────────────────────────────────────────────────────────┘
+
+  ┌─────────────────────────────────────────────────────────────────────────────────────────┐
+  │  GOVERNANCE & DEMOCRACY                                                                 │
+  ├─────────────────────────────────────────────────────────────────────────────────────────┤
+  │  Democracy & Voting         Governance              Systems Thinking                    │
+  │  ├─ Democracy Education     ├─ Global Governance   ├─ Whole Systems Change             │
+  │  ├─ Democratic Reform       ├─ Good Governance     └─ Complexity & Emergence ✦        │
+  │  ├─ Liquid Democracy ✦     ├─ Commons Governance ✦                                    │
+  │  ├─ Sortition & Citizens    └─ AI Governance ✦     Sustainable Cities                 │
+  │  │  Assemblies ✦                                   ├─ EcoVillages                      │
+  │  └─ Participatory           Cultural Heritage      ├─ Transition Towns                 │
+  │     Budgeting ✦             ├─ Cultural Diversity  ├─ Urban Ecology                    │
+  │                             └─ Traditional Culture ├─ Urban Revitalization             │
+  │                                                    ├─ Infrastructure                   │
+  │                                                    ├─ Waste Management                 │
+  │                                                    └─ Neighborhood Governance ✦        │
+  └─────────────────────────────────────────────────────────────────────────────────────────┘
+
+  ┌─────────────────────────────────────────────────────────────────────────────────────────┐
+  │  CULTURE, MEDIA & KNOWLEDGE                                                             │
+  ├─────────────────────────────────────────────────────────────────────────────────────────┤
+  │  Arts                       Media                  Education                            │
+  │  ├─ Arts Activism           ├─ Internet            ├─ Access to Education              │
+  │  ├─ Arts Education          ├─ Film                ├─ Green Schools                    │
+  │  ├─ Arts Therapy            ├─ Publishing          ├─ Literacy                         │
+  │  ├─ Art & Sculpture         ├─ Radio & Audio       ├─ Open Source Curricula ✦         │
+  │  ├─ Literature              ├─ Photography         └─ Critical Pedagogy ✦             │
+  │  └─ Performing Arts         ├─ Television                                              │
+  │                             ├─ Video                                                   │
+  │                             ├─ Advertising                                             │
+  │                             ├─ Social Media ✦                                          │
+  │                             └─ Open Source Journalism ✦                               │
+  └─────────────────────────────────────────────────────────────────────────────────────────┘
+
+  ┌─────────────────────────────────────────────────────────────────────────────────────────┐
+  │  TECHNOLOGY  ✦ NEW IN 2026 (not in original WiserEarth taxonomy)                       │
+  ├─────────────────────────────────────────────────────────────────────────────────────────┤
+  │  Technology                 AI & Automation ✦      Digital Commons ✦                   │
+  │  ├─ Biotechnology           ├─ AI Governance       ├─ Internet Access as a Right       │
+  │  ├─ Technology Transfer     ├─ AI for Social Good  ├─ Data Sovereignty                 │
+  │  ├─ Open Source Tech ✦     ├─ Automation &        ├─ Federated Networks               │
+  │  └─ Appropriate Tech ✦     │  Labor Displacement  ├─ Open Hardware                    │
+  │                             ├─ Open Source AI      └─ Cryptographic Identity           │
+  │                             └─ AI Safety                                               │
+  └─────────────────────────────────────────────────────────────────────────────────────────┘
+
+╔══════════════════════════════════════════════════════════════════════════════════════════════╗
+║  SCALE AT WISEREARTH CLOSURE (April 2014)                                                    ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════╣
+║                                                                                              ║
+║   114,994 organizations  ·  79,651 members  ·  3,273 groups  ·  243 countries               ║
+║                                                                                              ║
+║   Largest nodes by org count:                                                                ║
+║   Social Development   16,213  ████████████████████░░░░░░░░░░░░░░░░░░░░                     ║
+║   Poverty Alleviation  13,758  █████████████████░░░░░░░░░░░░░░░░░░░░░░                      ║
+║   Community Resources  10,691  █████████████░░░░░░░░░░░░░░░░░░░░░░░░░░                      ║
+║   Economic Development  8,720  ███████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░                      ║
+║   Women's Rights        7,926  ██████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░                      ║
+║   Gender Equality       7,707  █████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░                      ║
+║   Access to Education   7,006  █████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░                      ║
+║   Rights of the Child   6,822  ████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░                      ║
+║   Cultural Diversity    6,138  ████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░                      ║
+║   Health Care Access    6,344  ████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░                      ║
+║                                                                                              ║
+║   Most active communities (by users + events):                                               ║
+║   Climate Change        8,112 users · 3,081 events  ← most active node in the network       ║
+║   Organic Farming       8,668 users · 1,049 events                                           ║
+║   Permaculture          8,153 users · 1,911 events                                           ║
+║   Renewable Energy      7,190 users · 1,650 events                                           ║
+║   Sustainable Living    5,231 users · 1,545 events                                           ║
+║   Local Food Systems    4,729 users · 1,361 events                                           ║
+║                                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════╝
+
+  ✦ = Added in 2026 (not in original WiserEarth taxonomy)
+  Full machine-readable data: data/taxonomy.yaml (CC0)
+  Full WiserEarth analysis: WISEREARTH.md
+  Source: web.archive.org/web/20140411042711/http://wiser.org/issues
