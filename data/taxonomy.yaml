@@ -1,0 +1,1034 @@
+# WiserEarth Civil Society Taxonomy — Recovered & Extended
+# Source: web.archive.org/web/20140411042711/http://wiser.org/issues
+# Original: WiserEarth / Wiser.org (2007-2014), Natural Capital Institute, Paul Hawken
+# Recovered: 2026-04-12 by Ecolibrium contributors
+# License: CC0 (original was community-built, free, open)
+#
+# Stats at closure (April 2014):
+#   47 major categories, 381 sub-issues
+#   114,994 organizations | 79,651 members | 3,273 groups
+#
+# Format per sub-issue:
+#   name: string
+#   wiserearth_id: integer (original aof/ ID)
+#   stats_2014: { orgs, users, resources, jobs, events, groups }
+#   ecolibrium_2026: optional extensions, additions, notes
+#
+# Categories marked [EXTENDED] have additions beyond the original WiserEarth taxonomy.
+# Categories marked [DEPRECATED] were removed as obsolete.
+# Categories marked [NEW_2026] did not exist in the original taxonomy.
+
+schema_version: "1.0"
+source: "WiserEarth/Wiser.org (2007-2014)"
+archive_url: "https://web.archive.org/web/20140411042711/http://wiser.org/issues"
+recovered_date: "2026-04-12"
+license: "CC0"
+
+categories:
+
+  - name: "Agriculture and Farming"
+    wiserearth_id: 3
+    sub_issues:
+      - name: "Agricultural Policy"
+        wiserearth_id: 315
+        stats_2014: { orgs: 684, users: 4383, resources: 292, jobs: 8, events: 1095, groups: 110 }
+      - name: "Agroecology"
+        wiserearth_id: 140
+        stats_2014: { orgs: 443, users: 2847, resources: 192, jobs: 9, events: 484, groups: 98 }
+      - name: "Biological Control"
+        wiserearth_id: 19
+        stats_2014: { orgs: 248, users: 1507, resources: 67, jobs: 5, events: 92, groups: 45 }
+      - name: "Composting"
+        wiserearth_id: 28
+        stats_2014: { orgs: 480, users: 4611, resources: 182, jobs: 9, events: 625, groups: 131 }
+      - name: "Gardening"
+        wiserearth_id: 196
+        stats_2014: { orgs: 1638, users: 7079, resources: 365, jobs: 18, events: 1076, groups: 181 }
+      - name: "Organic Farming"
+        wiserearth_id: 192
+        stats_2014: { orgs: 1682, users: 8668, resources: 412, jobs: 28, events: 1049, groups: 217 }
+      - name: "Permaculture"
+        wiserearth_id: 113
+        stats_2014: { orgs: 883, users: 8153, resources: 512, jobs: 30, events: 1911, groups: 348 }
+      - name: "Precision Farming"
+        wiserearth_id: 686
+        stats_2014: { orgs: 64, users: 602, resources: 24, jobs: 1, events: 37, groups: 27 }
+      - name: "Regenerative Agriculture"
+        wiserearth_id: null
+        note: "[NEW_2026] Not in original taxonomy. Critical expansion of agroecology toward soil carbon sequestration and ecosystem restoration."
+
+  - name: "Air"
+    wiserearth_id: 316
+    sub_issues:
+      - name: "Acid Rain"
+        wiserearth_id: 1
+        stats_2014: { orgs: 61, users: 641, resources: 52, jobs: 2, events: 33, groups: 21 }
+      - name: "Indoor Air Quality"
+        wiserearth_id: 7
+        stats_2014: { orgs: 131, users: 1456, resources: 42, jobs: 2, events: 64, groups: 27 }
+      - name: "Ozone Layer"
+        wiserearth_id: 111
+        stats_2014: { orgs: 92, users: 1433, resources: 48, jobs: 2, events: 55, groups: 24 }
+
+  - name: "Animalia"
+    wiserearth_id: 211
+    sub_issues:
+      - name: "Amphibians"
+        wiserearth_id: 215
+        stats_2014: { orgs: 150, users: 481, resources: 18, jobs: 1, events: 22, groups: 15 }
+      - name: "Artiodactyls"
+        wiserearth_id: 676
+        stats_2014: { orgs: 262, users: 125, resources: 9, jobs: 2, events: 11, groups: 11 }
+      - name: "Bats"
+        wiserearth_id: 342
+        stats_2014: { orgs: 129, users: 461, resources: 16, jobs: 2, events: 17, groups: 14 }
+      - name: "Birds"
+        wiserearth_id: 216
+        stats_2014: { orgs: 1918, users: 1484, resources: 54, jobs: 6, events: 88, groups: 25 }
+      - name: "Canids"
+        wiserearth_id: 16
+        stats_2014: { orgs: 130, users: 348, resources: 10, jobs: 1, events: 14, groups: 12 }
+      - name: "Cetaceans"
+        wiserearth_id: 213
+        stats_2014: { orgs: 295, users: 502, resources: 12, jobs: 2, events: 20, groups: 12 }
+      - name: "Elephants"
+        wiserearth_id: 100
+        stats_2014: { orgs: 62, users: 630, resources: 7, jobs: 1, events: 17, groups: 14 }
+      - name: "Felids"
+        wiserearth_id: 214
+        stats_2014: { orgs: 148, users: 386, resources: 7, jobs: 1, events: 15, groups: 11 }
+      - name: "Fish"
+        wiserearth_id: 218
+        stats_2014: { orgs: 782, users: 1059, resources: 102, jobs: 3, events: 74, groups: 27 }
+      - name: "Insects"
+        wiserearth_id: 219
+        stats_2014: { orgs: 158, users: 523, resources: 20, jobs: 1, events: 36, groups: 21 }
+      - name: "Lagomorphs"
+        wiserearth_id: 682
+        stats_2014: { orgs: 23, users: 108, resources: 3, jobs: 1, events: 8, groups: 10 }
+      - name: "Lepidoptera"
+        wiserearth_id: 257
+        stats_2014: { orgs: 133, users: 167, resources: 10, jobs: 1, events: 16, groups: 10 }
+      - name: "Marsupials"
+        wiserearth_id: 324
+        stats_2014: { orgs: 63, users: 155, resources: 11, jobs: 1, events: 7, groups: 10 }
+      - name: "Perissodactyls"
+        wiserearth_id: 292
+        stats_2014: { orgs: 67, users: 97, resources: 4, jobs: 1, events: 4, groups: 12 }
+      - name: "Pinnipeds"
+        wiserearth_id: 678
+        stats_2014: { orgs: 63, users: 156, resources: 6, jobs: 1, events: 9, groups: 9 }
+      - name: "Primates"
+        wiserearth_id: 212
+        stats_2014: { orgs: 192, users: 445, resources: 13, jobs: 1, events: 11, groups: 14 }
+      - name: "Raptors"
+        wiserearth_id: 258
+        stats_2014: { orgs: 299, users: 374, resources: 8, jobs: 1, events: 16, groups: 10 }
+      - name: "Reptiles"
+        wiserearth_id: 217
+        stats_2014: { orgs: 274, users: 411, resources: 12, jobs: 1, events: 25, groups: 14 }
+      - name: "Rodents"
+        wiserearth_id: 239
+        stats_2014: { orgs: 52, users: 169, resources: 7, jobs: 1, events: 8, groups: 10 }
+      - name: "Sirenians"
+        wiserearth_id: 341
+        stats_2014: { orgs: 23, users: 119, resources: 6, jobs: 1, events: 7, groups: 9 }
+      - name: "Ursids"
+        wiserearth_id: 323
+        stats_2014: { orgs: 74, users: 130, resources: 15, jobs: 1, events: 5, groups: 8 }
+      - name: "Wildlife Ecology"
+        wiserearth_id: 160
+        stats_2014: { orgs: 1916, users: 2996, resources: 110, jobs: 5, events: 197, groups: 79 }
+      - name: "Wildlife Management"
+        wiserearth_id: 727
+        stats_2014: { orgs: 1063, users: 1355, resources: 71, jobs: 2, events: 103, groups: 43 }
+
+  - name: "Arts"
+    wiserearth_id: 240
+    sub_issues:
+      - name: "Art and Sculpture"
+        wiserearth_id: 287
+        stats_2014: { orgs: 448, users: 3548, resources: 86, jobs: 6, events: 250, groups: 74 }
+      - name: "Arts Activism"
+        wiserearth_id: 97
+        stats_2014: { orgs: 1246, users: 4481, resources: 393, jobs: 9, events: 923, groups: 194 }
+      - name: "Arts Education"
+        wiserearth_id: 14
+        stats_2014: { orgs: 971, users: 3317, resources: 217, jobs: 8, events: 318, groups: 108 }
+      - name: "Arts Therapy"
+        wiserearth_id: 29
+        stats_2014: { orgs: 262, users: 2454, resources: 153, jobs: 2, events: 130, groups: 71 }
+      - name: "Literature"
+        wiserearth_id: 288
+        stats_2014: { orgs: 247, users: 3669, resources: 95, jobs: 3, events: 139, groups: 47 }
+      - name: "Performing Arts"
+        wiserearth_id: 226
+        stats_2014: { orgs: 915, users: 3882, resources: 123, jobs: 6, events: 439, groups: 102 }
+
+  - name: "Biodiversity"
+    wiserearth_id: 689
+    sub_issues:
+      - name: "Biocultural Diversity"
+        wiserearth_id: 811
+        stats_2014: { orgs: 360, users: 3471, resources: 219, jobs: 6, events: 566, groups: 169 }
+      - name: "Seed Conservation"
+        wiserearth_id: 322
+        stats_2014: { orgs: 474, users: 3374, resources: 146, jobs: 8, events: 425, groups: 110 }
+
+  - name: "Business and Economics"
+    wiserearth_id: 44
+    sub_issues:
+      - name: "Corporate Ethics"
+        wiserearth_id: 5
+        stats_2014: { orgs: 798, users: 4498, resources: 331, jobs: 11, events: 363, groups: 139 }
+      - name: "Ecological Economics"
+        wiserearth_id: 809
+        stats_2014: { orgs: 533, users: 5238, resources: 413, jobs: 8, events: 732, groups: 191 }
+      - name: "Ecosystem Services"
+        wiserearth_id: 205
+        stats_2014: { orgs: 557, users: 2221, resources: 181, jobs: 5, events: 233, groups: 80 }
+      - name: "Ecotourism"
+        wiserearth_id: 146
+        stats_2014: { orgs: 1799, users: 4588, resources: 95, jobs: 29, events: 187, groups: 108 }
+      - name: "Microcredit"
+        wiserearth_id: 799
+        stats_2014: { orgs: 389, users: 2278, resources: 91, jobs: 3, events: 89, groups: 68 }
+      - name: "Microfinance"
+        wiserearth_id: 293
+        stats_2014: { orgs: 1785, users: 2479, resources: 143, jobs: 5, events: 123, groups: 81 }
+      - name: "Natural Capitalism"
+        wiserearth_id: 51
+        stats_2014: { orgs: 596, users: 4164, resources: 259, jobs: 12, events: 330, groups: 143 }
+      - name: "Worker Cooperatives"
+        wiserearth_id: null
+        note: "[NEW_2026] Not explicitly in original taxonomy. Worker ownership models (Mondragon-style) became significantly more prominent post-2014."
+      - name: "Platform Cooperativism"
+        wiserearth_id: null
+        note: "[NEW_2026] Emerged post-2014. Digital platforms owned and governed by their users/workers."
+      - name: "Universal Basic Income"
+        wiserearth_id: null
+        note: "[NEW_2026] Major policy movement with 100+ pilots globally since 2014. Belongs under Business/Economics and Poverty Eradication."
+      - name: "Doughnut Economics"
+        wiserearth_id: null
+        note: "[NEW_2026] Kate Raworth's framework (2017) for economics within planetary boundaries. Now a major policy movement."
+
+  - name: "Children and Youth"
+    wiserearth_id: 164
+    sub_issues:
+      - name: "Child Labor"
+        wiserearth_id: 327
+        stats_2014: { orgs: 1908, users: 1737, resources: 34, jobs: 4, events: 39, groups: 40 }
+      - name: "Children's Health"
+        wiserearth_id: 220
+        stats_2014: { orgs: 4478, users: 2703, resources: 561, jobs: 17, events: 169, groups: 98 }
+      - name: "Juvenile Justice"
+        wiserearth_id: 228
+        stats_2014: { orgs: 741, users: 899, resources: 17, jobs: 2, events: 18, groups: 32 }
+      - name: "Rights of the Child"
+        wiserearth_id: 179
+        stats_2014: { orgs: 6822, users: 2517, resources: 433, jobs: 19, events: 87, groups: 84 }
+      - name: "Youth Leadership"
+        wiserearth_id: 336
+        stats_2014: { orgs: 2419, users: 3409, resources: 117, jobs: 44, events: 397, groups: 153 }
+      - name: "Youth Participation"
+        wiserearth_id: 337
+        stats_2014: { orgs: 3179, users: 2531, resources: 165, jobs: 25, events: 824, groups: 159 }
+
+  - name: "Civil Society Organizations: Nonprofits, Philanthropy, and Social Entrepreneurs"
+    wiserearth_id: 250
+    sub_issues:
+      - name: "Nonprofit Law"
+        wiserearth_id: 800
+        stats_2014: { orgs: 147, users: 1226, resources: 176, jobs: 1, events: 87, groups: 56 }
+      - name: "Philanthropy"
+        wiserearth_id: 801
+        stats_2014: { orgs: 2485, users: 2370, resources: 360, jobs: 20, events: 391, groups: 131 }
+
+  - name: "Coastal and Marine Ecosystems"
+    wiserearth_id: 677
+    sub_issues:
+      - name: "Coastal Ecology"
+        wiserearth_id: 178
+        stats_2014: { orgs: 662, users: 1407, resources: 110, jobs: 2, events: 133, groups: 48 }
+
+  - name: "Community Development"
+    wiserearth_id: 185
+    sub_issues:
+      - name: "Community Enterprise"
+        wiserearth_id: 80
+        stats_2014: { orgs: 3617, users: 3346, resources: 371, jobs: 15, events: 584, groups: 192 }
+      - name: "Community Resources"
+        wiserearth_id: 172
+        stats_2014: { orgs: 10691, users: 2594, resources: 863, jobs: 17, events: 1016, groups: 247 }
+      - name: "Community Training"
+        wiserearth_id: 297
+        stats_2014: { orgs: 5496, users: 2743, resources: 269, jobs: 11, events: 674, groups: 196 }
+      - name: "Fundraising"
+        wiserearth_id: 187
+        stats_2014: { orgs: 3461, users: 2576, resources: 114, jobs: 25, events: 303, groups: 105 }
+      - name: "Leadership Training"
+        wiserearth_id: 334
+        stats_2014: { orgs: 2158, users: 4084, resources: 260, jobs: 9, events: 638, groups: 187 }
+      - name: "Mutual Aid"
+        wiserearth_id: null
+        note: "[NEW_2026] Mutual aid networks exploded in visibility post-2020. Distinct from community enterprise — informal, reciprocal, non-hierarchical."
+      - name: "Community Land Trusts"
+        wiserearth_id: null
+        note: "[NEW_2026] 300+ in US, 250+ in UK. Not present in original taxonomy despite being a major commons model."
+
+  - name: "Conservation"
+    wiserearth_id: 10
+    sub_issues:
+      - name: "Conservation Biology"
+        wiserearth_id: 72
+        stats_2014: { orgs: 1483, users: 1202, resources: 112, jobs: 10, events: 124, groups: 43 }
+      - name: "Conservation Policy"
+        wiserearth_id: 279
+        stats_2014: { orgs: 1643, users: 960, resources: 122, jobs: 5, events: 141, groups: 42 }
+      - name: "Land Restoration"
+        wiserearth_id: 9
+        stats_2014: { orgs: 1172, users: 1848, resources: 166, jobs: 4, events: 281, groups: 84 }
+      - name: "Land Stewardship"
+        wiserearth_id: 92
+        stats_2014: { orgs: 3073, users: 2136, resources: 275, jobs: 11, events: 393, groups: 116 }
+      - name: "Wilderness"
+        wiserearth_id: 272
+        stats_2014: { orgs: 1128, users: 2608, resources: 175, jobs: 6, events: 133, groups: 59 }
+      - name: "Rewilding"
+        wiserearth_id: null
+        note: "[NEW_2026] Major conservation movement since ~2015. Large-scale ecological restoration beyond preservation."
+
+  - name: "Cultural Heritage"
+    wiserearth_id: 241
+    sub_issues:
+      - name: "Cultural Diversity"
+        wiserearth_id: 32
+        stats_2014: { orgs: 6138, users: 4280, resources: 348, jobs: 11, events: 814, groups: 225 }
+      - name: "Traditional Culture"
+        wiserearth_id: 344
+        stats_2014: { orgs: 1247, users: 2571, resources: 259, jobs: 6, events: 746, groups: 111 }
+
+  - name: "Democracy and Voting"
+    wiserearth_id: 152
+    sub_issues:
+      - name: "Democracy Education"
+        wiserearth_id: 270
+        stats_2014: { orgs: 2837, users: 1439, resources: 182, jobs: 1, events: 135, groups: 86 }
+      - name: "Democratic Reform"
+        wiserearth_id: 269
+        stats_2014: { orgs: 3916, users: 1575, resources: 122, jobs: 2, events: 94, groups: 77 }
+      - name: "Liquid Democracy"
+        wiserearth_id: null
+        note: "[NEW_2026] Delegative voting systems that allow voters to assign their vote to trusted representatives per issue."
+      - name: "Sortition and Citizens Assemblies"
+        wiserearth_id: null
+        note: "[NEW_2026] Randomly-selected citizen assemblies (Irish model, French climate assembly, etc.) have become major democratic innovation since 2014."
+      - name: "Participatory Budgeting"
+        wiserearth_id: null
+        note: "[NEW_2026] Over 3,000 cities now use participatory budgeting. Not in original taxonomy."
+
+  - name: "Ecology"
+    wiserearth_id: 40
+    sub_issues:
+      - name: "Evolutionary Ecology"
+        wiserearth_id: 59
+        stats_2014: { orgs: 249, users: 1762, resources: 122, jobs: 6, events: 155, groups: 91 }
+      - name: "Fire Ecology"
+        wiserearth_id: 62
+        stats_2014: { orgs: 132, users: 467, resources: 111, jobs: 1, events: 64, groups: 38 }
+      - name: "Landscape Ecology"
+        wiserearth_id: 88
+        stats_2014: { orgs: 532, users: 1337, resources: 86, jobs: 3, events: 165, groups: 52 }
+      - name: "Microbial Ecology"
+        wiserearth_id: 99
+        stats_2014: { orgs: 63, users: 384, resources: 21, jobs: 2, events: 53, groups: 11 }
+      - name: "Molecular Ecology"
+        wiserearth_id: 103
+        stats_2014: { orgs: 39, users: 269, resources: 13, jobs: 1, events: 15, groups: 10 }
+      - name: "Mycology"
+        wiserearth_id: 679
+        stats_2014: { orgs: 102, users: 613, resources: 26, jobs: 1, events: 65, groups: 20 }
+      - name: "Pollination Ecology"
+        wiserearth_id: 184
+        stats_2014: { orgs: 76, users: 470, resources: 31, jobs: 1, events: 75, groups: 21 }
+      - name: "Restoration Ecology"
+        wiserearth_id: 131
+        stats_2014: { orgs: 875, users: 1703, resources: 173, jobs: 6, events: 277, groups: 79 }
+      - name: "Soil Ecology"
+        wiserearth_id: 135
+        stats_2014: { orgs: 242, users: 1114, resources: 112, jobs: 1, events: 421, groups: 53 }
+
+  - name: "Education"
+    wiserearth_id: 198
+    sub_issues:
+      - name: "Access To Education"
+        wiserearth_id: 202
+        stats_2014: { orgs: 7006, users: 4125, resources: 254, jobs: 39, events: 328, groups: 151 }
+      - name: "Green Schools"
+        wiserearth_id: 36
+        stats_2014: { orgs: 511, users: 3877, resources: 133, jobs: 13, events: 769, groups: 119 }
+      - name: "Literacy"
+        wiserearth_id: 176
+        stats_2014: { orgs: 1657, users: 1875, resources: 373, jobs: 9, events: 67, groups: 59 }
+      - name: "Open Source Curricula"
+        wiserearth_id: null
+        note: "[NEW_2026] Khan Academy, Wikipedia Education, Kolibri, etc. Open educational resources movement grew enormously post-2014."
+      - name: "Critical Pedagogy"
+        wiserearth_id: null
+        note: "[NEW_2026] Freire-based education as liberation. Not in original taxonomy despite being a foundational movement concept."
+
+  - name: "Energy"
+    wiserearth_id: 81
+    sub_issues:
+      - name: "Alternative Fuels"
+        wiserearth_id: 161
+        stats_2014: { orgs: 657, users: 4691, resources: 288, jobs: 8, events: 488, groups: 145 }
+      - name: "Electric Power"
+        wiserearth_id: 703
+        stats_2014: { orgs: 177, users: 1469, resources: 141, jobs: 5, events: 177, groups: 54 }
+      - name: "Energy Policy"
+        wiserearth_id: 209
+        stats_2014: { orgs: 734, users: 1673, resources: 247, jobs: 4, events: 502, groups: 61 }
+      - name: "Nuclear Power"
+        wiserearth_id: 313
+        stats_2014: { orgs: 234, users: 707, resources: 65, jobs: 2, events: 92, groups: 23 }
+      - name: "Renewable Energy"
+        wiserearth_id: 50
+        stats_2014: { orgs: 2020, users: 7190, resources: 673, jobs: 20, events: 1650, groups: 228 }
+      - name: "Community Energy"
+        wiserearth_id: null
+        note: "[NEW_2026] Community-owned energy grids and cooperatives. Rural Electric Cooperative model (900+ in US). Not in original taxonomy."
+      - name: "Energy Storage"
+        wiserearth_id: null
+        note: "[NEW_2026] Battery technology and grid-scale storage became central to renewable transition post-2014."
+
+  - name: "Fisheries"
+    wiserearth_id: 63
+    sub_issues:
+      - name: "Aquaculture"
+        wiserearth_id: 11
+        stats_2014: { orgs: 523, users: 875, resources: 71, jobs: 2, events: 116, groups: 43 }
+      - name: "Aquarium Trade"
+        wiserearth_id: 742
+        stats_2014: { orgs: 13, users: 161, resources: 27, jobs: 1, events: 16, groups: 10 }
+      - name: "Sustainable Fishing"
+        wiserearth_id: 234
+        stats_2014: { orgs: 1023, users: 1284, resources: 134, jobs: 3, events: 107, groups: 52 }
+
+  - name: "Food and Nourishment"
+    wiserearth_id: 190
+    sub_issues:
+      - name: "Food Aid"
+        wiserearth_id: 744
+        stats_2014: { orgs: 576, users: 901, resources: 46, jobs: 6, events: 61, groups: 33 }
+      - name: "Food Literacy"
+        wiserearth_id: 191
+        stats_2014: { orgs: 469, users: 1528, resources: 181, jobs: 8, events: 203, groups: 84 }
+      - name: "Food Supply"
+        wiserearth_id: 65
+        stats_2014: { orgs: 2288, users: 1127, resources: 266, jobs: 6, events: 404, groups: 88 }
+      - name: "Local Food Systems"
+        wiserearth_id: 339
+        stats_2014: { orgs: 1424, users: 4729, resources: 571, jobs: 30, events: 1361, groups: 260 }
+      - name: "Food Sovereignty"
+        wiserearth_id: null
+        note: "[NEW_2026] Political framing of food as a right controlled by communities rather than corporations. La Via Campesina movement. Not in original taxonomy."
+
+  - name: "Forestry"
+    wiserearth_id: 94
+    sub_issues:
+      - name: "Agroforestry"
+        wiserearth_id: 4
+        stats_2014: { orgs: 499, users: 1165, resources: 133, jobs: 10, events: 289, groups: 65 }
+      - name: "Logging"
+        wiserearth_id: 282
+        stats_2014: { orgs: 349, users: 383, resources: 50, jobs: 1, events: 37, groups: 16 }
+      - name: "Plantations"
+        wiserearth_id: 747
+        stats_2014: { orgs: 87, users: 415, resources: 36, jobs: 1, events: 29, groups: 19 }
+      - name: "Sustainable Forestry"
+        wiserearth_id: 142
+        stats_2014: { orgs: 2136, users: 2484, resources: 237, jobs: 4, events: 250, groups: 96 }
+      - name: "Urban Forestry"
+        wiserearth_id: 151
+        stats_2014: { orgs: 302, users: 962, resources: 31, jobs: 9, events: 131, groups: 33 }
+
+  - name: "Global Climate Change"
+    wiserearth_id: 134
+    sub_issues:
+      - name: "Climate Change"
+        wiserearth_id: 25
+        stats_2014: { orgs: 2477, users: 8112, resources: 1395, jobs: 21, events: 3081, groups: 379 }
+      - name: "Emissions Trading"
+        wiserearth_id: 46
+        stats_2014: { orgs: 256, users: 1469, resources: 117, jobs: 1, events: 119, groups: 36 }
+      - name: "Greenhouse Gases"
+        wiserearth_id: 6
+        stats_2014: { orgs: 500, users: 1743, resources: 301, jobs: 5, events: 365, groups: 84 }
+      - name: "Climate Migration"
+        wiserearth_id: null
+        note: "[NEW_2026] Climate-driven displacement is a major human rights and humanitarian crisis. Absent from 2014 taxonomy."
+      - name: "Climate Adaptation"
+        wiserearth_id: null
+        note: "[NEW_2026] Building community resilience for climate impacts already in motion. Distinct from mitigation."
+
+  - name: "Globalization"
+    wiserearth_id: 244
+    sub_issues:
+      - name: "Currency Exchange"
+        wiserearth_id: 720
+        stats_2014: { orgs: 79, users: 617, resources: 59, jobs: 1, events: 37, groups: 25 }
+      - name: "Fair Trade"
+        wiserearth_id: 61
+        stats_2014: { orgs: 796, users: 3907, resources: 155, jobs: 5, events: 319, groups: 133 }
+      - name: "Globalization Impacts"
+        wiserearth_id: 74
+        stats_2014: { orgs: 849, users: 3126, resources: 440, jobs: 23, events: 380, groups: 114 }
+      - name: "International Debt"
+        wiserearth_id: 721
+        stats_2014: { orgs: 58, users: 824, resources: 88, jobs: 1, events: 30, groups: 26 }
+      - name: "Trade Balance"
+        wiserearth_id: 718
+        stats_2014: { orgs: 47, users: 505, resources: 73, jobs: 1, events: 29, groups: 29 }
+
+  - name: "Governance"
+    wiserearth_id: 246
+    sub_issues:
+      - name: "Global Governance"
+        wiserearth_id: 752
+        stats_2014: { orgs: 323, users: 1842, resources: 355, jobs: 2, events: 341, groups: 130 }
+      - name: "Good Governance"
+        wiserearth_id: 286
+        stats_2014: { orgs: 1413, users: 1818, resources: 232, jobs: 4, events: 272, groups: 127 }
+      - name: "Commons Governance"
+        wiserearth_id: null
+        note: "[NEW_2026] Governing shared resources (Elinor Ostrom's framework). Not in original taxonomy despite being foundational to this movement."
+      - name: "AI Governance"
+        wiserearth_id: null
+        note: "[NEW_2026] Algorithmic accountability, AI rights, governance of automated systems that affect human lives."
+
+  - name: "Greening of Industry"
+    wiserearth_id: 764
+    sub_issues:
+      - name: "Ecological Footprint"
+        wiserearth_id: 182
+        stats_2014: { orgs: 442, users: 2936, resources: 381, jobs: 4, events: 548, groups: 132 }
+      - name: "Industrial Ecology"
+        wiserearth_id: 319
+        stats_2014: { orgs: 3553, users: 1105, resources: 142, jobs: 1, events: 113, groups: 54 }
+      - name: "Recycling and Reuse"
+        wiserearth_id: 127
+        stats_2014: { orgs: 5198, users: 4038, resources: 252, jobs: 5, events: 555, groups: 132 }
+      - name: "Circular Economy"
+        wiserearth_id: null
+        note: "[NEW_2026] Zero-waste industrial design. Ellen MacArthur Foundation model. Major movement since ~2013 but not in original taxonomy."
+
+  - name: "Health"
+    wiserearth_id: 193
+    sub_issues:
+      - name: "Alternative Medicine"
+        wiserearth_id: 8
+        stats_2014: { orgs: 541, users: 5664, resources: 183, jobs: 9, events: 377, groups: 147 }
+      - name: "Asthma"
+        wiserearth_id: 264
+        stats_2014: { orgs: 86, users: 468, resources: 17, jobs: 2, events: 18, groups: 13 }
+      - name: "Cancer"
+        wiserearth_id: 756
+        stats_2014: { orgs: 141, users: 835, resources: 85, jobs: 2, events: 55, groups: 29 }
+      - name: "Environmental Health"
+        wiserearth_id: 54
+        stats_2014: { orgs: 2770, users: 2093, resources: 489, jobs: 8, events: 335, groups: 90 }
+      - name: "Health Care Access"
+        wiserearth_id: 78
+        stats_2014: { orgs: 6344, users: 1645, resources: 139, jobs: 7, events: 88, groups: 61 }
+      - name: "Health Education"
+        wiserearth_id: 203
+        stats_2014: { orgs: 3548, users: 1885, resources: 353, jobs: 10, events: 200, groups: 100 }
+      - name: "HIV/AIDS"
+        wiserearth_id: 256
+        stats_2014: { orgs: 4204, users: 1476, resources: 94, jobs: 13, events: 98, groups: 58 }
+      - name: "Infectious Diseases"
+        wiserearth_id: 757
+        stats_2014: { orgs: 533, users: 592, resources: 78, jobs: 1, events: 45, groups: 22 }
+      - name: "Malaria"
+        wiserearth_id: 754
+        stats_2014: { orgs: 154, users: 417, resources: 37, jobs: 2, events: 28, groups: 18 }
+      - name: "Pesticides"
+        wiserearth_id: 321
+        stats_2014: { orgs: 427, users: 572, resources: 60, jobs: 2, events: 72, groups: 31 }
+      - name: "Public Health"
+        wiserearth_id: 232
+        stats_2014: { orgs: 5118, users: 1947, resources: 895, jobs: 9, events: 244, groups: 88 }
+      - name: "Sanitation"
+        wiserearth_id: 133
+        stats_2014: { orgs: 1335, users: 598, resources: 79, jobs: 6, events: 67, groups: 31 }
+      - name: "Tuberculosis"
+        wiserearth_id: 755
+        stats_2014: { orgs: 312, users: 272, resources: 23, jobs: 1, events: 18, groups: 15 }
+      - name: "Mental Health"
+        wiserearth_id: null
+        note: "[NEW_2026] Largely absent from original taxonomy despite being a major health equity issue. Post-2020 visibility dramatically increased."
+      - name: "Community Health Workers"
+        wiserearth_id: null
+        note: "[NEW_2026] CHW networks (Cuba model, Community Health Toolkit, 40,000+ workers globally). Critical infrastructure for universal healthcare."
+
+  - name: "Human Rights and Social Justice"
+    wiserearth_id: 222
+    sub_issues:
+      - name: "Climate Justice"
+        wiserearth_id: 251
+        stats_2014: { orgs: 368, users: 1632, resources: 236, jobs: 17, events: 378, groups: 106 }
+      - name: "Disability Equality"
+        wiserearth_id: 84
+        stats_2014: { orgs: 3227, users: 847, resources: 77, jobs: 5, events: 52, groups: 29 }
+      - name: "Environmental Justice"
+        wiserearth_id: 55
+        stats_2014: { orgs: 3069, users: 2640, resources: 597, jobs: 11, events: 686, groups: 157 }
+      - name: "Ethnic Equality"
+        wiserearth_id: 314
+        stats_2014: { orgs: 5892, users: 1296, resources: 206, jobs: 2, events: 167, groups: 85 }
+      - name: "LGBTQ+ Rights"
+        wiserearth_id: null
+        note: "[NEW_2026] Not in original taxonomy. Major human rights movement globally since 2014."
+      - name: "Housing Rights"
+        wiserearth_id: null
+        note: "[NEW_2026] Right to housing as distinct from affordable housing programs. Anti-eviction, tenant rights, housing as commons."
+
+  - name: "Indigenous Peoples and Rights"
+    wiserearth_id: 238
+    sub_issues:
+      - name: "Indigenous Lands"
+        wiserearth_id: 110
+        stats_2014: { orgs: 432, users: 1498, resources: 206, jobs: 4, events: 153, groups: 69 }
+      - name: "Indigenous Rights"
+        wiserearth_id: 64
+        stats_2014: { orgs: 1956, users: 2328, resources: 229, jobs: 6, events: 251, groups: 107 }
+      - name: "Land Return"
+        wiserearth_id: null
+        note: "[NEW_2026] Return of stolen indigenous lands as a foundational justice act. Growing global movement post-2014."
+
+  - name: "Inland Water Ecosystems"
+    wiserearth_id: 778
+    sub_issues:
+      - name: "Lakes and Ponds"
+        wiserearth_id: 780
+        stats_2014: { orgs: 139, users: 590, resources: 84, jobs: 3, events: 94, groups: 32 }
+      - name: "Rivers and Creeks"
+        wiserearth_id: 779
+        stats_2014: { orgs: 205, users: 917, resources: 107, jobs: 3, events: 132, groups: 38 }
+      - name: "Wetlands"
+        wiserearth_id: 157
+        stats_2014: { orgs: 1061, users: 1079, resources: 113, jobs: 1, events: 150, groups: 41 }
+
+  - name: "Law, Policy and Property Rights"
+    wiserearth_id: 56
+    sub_issues:
+      - name: "Biological Patents"
+        wiserearth_id: 245
+        stats_2014: { orgs: 59, users: 429, resources: 69, jobs: 1, events: 41, groups: 22 }
+      - name: "Crime and Policing"
+        wiserearth_id: 91
+        stats_2014: { orgs: 745, users: 401, resources: 185, jobs: 3, events: 14, groups: 21 }
+      - name: "Land Reform"
+        wiserearth_id: 673
+        stats_2014: { orgs: 123, users: 505, resources: 48, jobs: 1, events: 43, groups: 30 }
+      - name: "Land Tenure"
+        wiserearth_id: 774
+        stats_2014: { orgs: 51, users: 351, resources: 42, jobs: 2, events: 36, groups: 22 }
+      - name: "Land Use Policy"
+        wiserearth_id: 229
+        stats_2014: { orgs: 899, users: 777, resources: 107, jobs: 1, events: 113, groups: 54 }
+      - name: "Property Rights"
+        wiserearth_id: 775
+        stats_2014: { orgs: 96, users: 523, resources: 64, jobs: 2, events: 42, groups: 29 }
+      - name: "Restorative Justice"
+        wiserearth_id: 808
+        stats_2014: { orgs: 113, users: 666, resources: 45, jobs: 3, events: 93, groups: 46 }
+      - name: "Digital Rights"
+        wiserearth_id: null
+        note: "[NEW_2026] Data sovereignty, internet freedom, surveillance, platform regulation. Not in 2014 taxonomy."
+
+  - name: "Media"
+    wiserearth_id: 249
+    sub_issues:
+      - name: "Advertising"
+        wiserearth_id: 761
+        stats_2014: { orgs: 145, users: 1756, resources: 90, jobs: 13, events: 98, groups: 64 }
+      - name: "Film"
+        wiserearth_id: 43
+        stats_2014: { orgs: 412, users: 2534, resources: 196, jobs: 6, events: 325, groups: 122 }
+      - name: "Internet"
+        wiserearth_id: 261
+        stats_2014: { orgs: 1468, users: 4400, resources: 490, jobs: 27, events: 465, groups: 189 }
+      - name: "Photography"
+        wiserearth_id: 266
+        stats_2014: { orgs: 241, users: 2850, resources: 65, jobs: 5, events: 118, groups: 73 }
+      - name: "Publishing"
+        wiserearth_id: 259
+        stats_2014: { orgs: 1587, users: 1475, resources: 105, jobs: 2, events: 96, groups: 72 }
+      - name: "Radio and Audio"
+        wiserearth_id: 260
+        stats_2014: { orgs: 454, users: 1242, resources: 68, jobs: 1, events: 105, groups: 65 }
+      - name: "Television"
+        wiserearth_id: 254
+        stats_2014: { orgs: 304, users: 1173, resources: 60, jobs: 9, events: 84, groups: 71 }
+      - name: "Video"
+        wiserearth_id: 262
+        stats_2014: { orgs: 431, users: 1728, resources: 164, jobs: 9, events: 197, groups: 122 }
+      - name: "Social Media and Platforms"
+        wiserearth_id: null
+        note: "[NEW_2026] Social media as civic infrastructure and as threat to democracy. Not in 2014 taxonomy."
+      - name: "Open Source Journalism"
+        wiserearth_id: null
+        note: "[NEW_2026] Community-owned media, investigative commons (ProPublica model), combating information monopolies."
+
+  - name: "Men"
+    wiserearth_id: 804
+    sub_issues:
+      - name: "Male Circumcision"
+        wiserearth_id: 805
+        stats_2014: { orgs: 19, users: 235, resources: 4, jobs: 1, events: 6, groups: 9 }
+      - name: "Men and Violence"
+        wiserearth_id: 806
+        stats_2014: { orgs: 98, users: 480, resources: 19, jobs: 1, events: 34, groups: 21 }
+      - name: "Men's Health"
+        wiserearth_id: 807
+        stats_2014: { orgs: 186, users: 778, resources: 77, jobs: 2, events: 82, groups: 38 }
+
+  - name: "Mining"
+    wiserearth_id: 128
+    sub_issues:
+      - name: "Fossil Fuels"
+        wiserearth_id: 284
+        stats_2014: { orgs: 162, users: 573, resources: 112, jobs: 2, events: 234, groups: 28 }
+      - name: "Mountaintop Removal"
+        wiserearth_id: 104
+        stats_2014: { orgs: 58, users: 462, resources: 19, jobs: 1, events: 15, groups: 17 }
+
+  - name: "Peace, War and Security"
+    wiserearth_id: 237
+    sub_issues:
+      - name: "Arms Trading"
+        wiserearth_id: 70
+        stats_2014: { orgs: 255, users: 472, resources: 21, jobs: 2, events: 51, groups: 14 }
+      - name: "Conflict Resolution"
+        wiserearth_id: 177
+        stats_2014: { orgs: 4159, users: 2583, resources: 279, jobs: 5, events: 717, groups: 152 }
+      - name: "Military Disarmament"
+        wiserearth_id: 225
+        stats_2014: { orgs: 2078, users: 604, resources: 66, jobs: 1, events: 383, groups: 27 }
+      - name: "Nuclear Disarmament"
+        wiserearth_id: 733
+        stats_2014: { orgs: 317, users: 747, resources: 44, jobs: 1, events: 391, groups: 26 }
+      - name: "Weapons"
+        wiserearth_id: 732
+        stats_2014: { orgs: 230, users: 307, resources: 32, jobs: 1, events: 93, groups: 15 }
+
+  - name: "Plants"
+    wiserearth_id: 147
+    sub_issues:
+      - name: "Ethnobotany"
+        wiserearth_id: 674
+        stats_2014: { orgs: 203, users: 1456, resources: 82, jobs: 4, events: 105, groups: 41 }
+      - name: "Plant Ecology"
+        wiserearth_id: 115
+        stats_2014: { orgs: 1050, users: 1229, resources: 96, jobs: 1, events: 272, groups: 44 }
+
+  - name: "Pollution"
+    wiserearth_id: 117
+    sub_issues:
+      - name: "Chemical Pollution"
+        wiserearth_id: 713
+        stats_2014: { orgs: 173, users: 900, resources: 88, jobs: 1, events: 70, groups: 30 }
+      - name: "Energy Pollution"
+        wiserearth_id: 714
+        stats_2014: { orgs: 188, users: 878, resources: 125, jobs: 1, events: 171, groups: 43 }
+      - name: "Global Pollution"
+        wiserearth_id: 715
+        stats_2014: { orgs: 245, users: 1563, resources: 214, jobs: 2, events: 177, groups: 55 }
+      - name: "Water Pollution"
+        wiserearth_id: 717
+        stats_2014: { orgs: 521, users: 1751, resources: 209, jobs: 5, events: 183, groups: 58 }
+      - name: "Plastic Pollution"
+        wiserearth_id: null
+        note: "[NEW_2026] Ocean plastic became a major global movement after ~2015. Not in original taxonomy."
+
+  - name: "Population"
+    wiserearth_id: 207
+    sub_issues:
+      - name: "Demographics"
+        wiserearth_id: 711
+        stats_2014: { orgs: 151, users: 796, resources: 71, jobs: 2, events: 44, groups: 30 }
+      - name: "Family Planning"
+        wiserearth_id: 712
+        stats_2014: { orgs: 1112, users: 860, resources: 52, jobs: 1, events: 42, groups: 28 }
+      - name: "Global Migration"
+        wiserearth_id: 101
+        stats_2014: { orgs: 1162, users: 815, resources: 101, jobs: 8, events: 63, groups: 37 }
+
+  - name: "Poverty Eradication"
+    wiserearth_id: 201
+    sub_issues:
+      - name: "Affordable Housing"
+        wiserearth_id: 171
+        stats_2014: { orgs: 4554, users: 1985, resources: 382, jobs: 4, events: 123, groups: 58 }
+      - name: "Poverty Alleviation"
+        wiserearth_id: 120
+        stats_2014: { orgs: 13758, users: 2733, resources: 393, jobs: 15, events: 272, groups: 128 }
+      - name: "Squatter Communities"
+        wiserearth_id: 766
+        stats_2014: { orgs: 161, users: 660, resources: 31, jobs: 1, events: 25, groups: 30 }
+      - name: "Guaranteed Income"
+        wiserearth_id: null
+        note: "[NEW_2026] 100+ UBI pilots globally since 2014. Major evidence base now exists. Should be a primary sub-issue."
+
+  - name: "Religion, Ecology, and Sustainability"
+    wiserearth_id: 248
+    sub_issues:
+      - name: "Ecopsychology"
+        wiserearth_id: 329
+        stats_2014: { orgs: 288, users: 1942, resources: 252, jobs: 4, events: 288, groups: 78 }
+      - name: "Environmental Ethics"
+        wiserearth_id: 53
+        stats_2014: { orgs: 1308, users: 2213, resources: 238, jobs: 13, events: 333, groups: 101 }
+      - name: "Religion and Ecology"
+        wiserearth_id: 741
+        stats_2014: { orgs: 216, users: 1666, resources: 93, jobs: 3, events: 137, groups: 55 }
+      - name: "Sustainable Living"
+        wiserearth_id: 143
+        stats_2014: { orgs: 7308, users: 5231, resources: 785, jobs: 22, events: 1545, groups: 300 }
+      - name: "Degrowth"
+        wiserearth_id: null
+        note: "[NEW_2026] Economic degrowth movement (post-GDP, voluntary simplicity at system scale). Not in 2014 taxonomy."
+      - name: "Solarpunk"
+        wiserearth_id: null
+        note: "[NEW_2026] Aesthetics + praxis of ecological optimism. Growing cultural and organizing framework post-2014."
+
+  - name: "Seniors"
+    wiserearth_id: 320
+    sub_issues:
+      - name: "Seniors' Health"
+        wiserearth_id: 186
+        stats_2014: { orgs: 538, users: 599, resources: 100, jobs: 4, events: 40, groups: 24 }
+      - name: "Eldercare Commons"
+        wiserearth_id: null
+        note: "[NEW_2026] Community-owned eldercare (co-housing models, cooperative care). Not in original taxonomy."
+
+  - name: "Sustainable Cities"
+    wiserearth_id: 243
+    sub_issues:
+      - name: "EcoVillages"
+        wiserearth_id: 331
+        stats_2014: { orgs: 550, users: 4862, resources: 243, jobs: 8, events: 589, groups: 178 }
+      - name: "Infrastructure"
+        wiserearth_id: 317
+        stats_2014: { orgs: 1207, users: 1257, resources: 141, jobs: 2, events: 239, groups: 64 }
+      - name: "Transition Towns"
+        wiserearth_id: 832
+        stats_2014: { orgs: 41, users: 553, resources: 62, jobs: 5, events: 517, groups: 90 }
+      - name: "Urban Communications"
+        wiserearth_id: 792
+        stats_2014: { orgs: 145, users: 789, resources: 57, jobs: 3, events: 94, groups: 45 }
+      - name: "Urban Ecology"
+        wiserearth_id: 310
+        stats_2014: { orgs: 513, users: 2343, resources: 205, jobs: 9, events: 841, groups: 109 }
+      - name: "Urban Revitalization"
+        wiserearth_id: 285
+        stats_2014: { orgs: 531, users: 1520, resources: 140, jobs: 3, events: 349, groups: 96 }
+      - name: "Waste Management"
+        wiserearth_id: 289
+        stats_2014: { orgs: 2152, users: 1900, resources: 137, jobs: 5, events: 324, groups: 89 }
+      - name: "Neighborhood Governance"
+        wiserearth_id: null
+        note: "[NEW_2026] Hyperlocal civic AI, neighborhood associations as democratic infrastructure, 311/civic tech."
+
+  - name: "Sustainable Design"
+    wiserearth_id: 803
+    sub_issues:
+      - name: "Biomimicry"
+        wiserearth_id: 22
+        stats_2014: { orgs: 169, users: 2410, resources: 100, jobs: 2, events: 198, groups: 78 }
+      - name: "Green Roofs"
+        wiserearth_id: 303
+        stats_2014: { orgs: 264, users: 2080, resources: 70, jobs: 1, events: 373, groups: 60 }
+      - name: "Sustainable Building"
+        wiserearth_id: 77
+        stats_2014: { orgs: 1123, users: 4699, resources: 421, jobs: 13, events: 1078, groups: 171 }
+      - name: "Sustainable Materials"
+        wiserearth_id: 95
+        stats_2014: { orgs: 578, users: 2917, resources: 242, jobs: 3, events: 562, groups: 107 }
+
+  - name: "Sustainable Development"
+    wiserearth_id: 82
+    sub_issues:
+      - name: "Economic Development"
+        wiserearth_id: 41
+        stats_2014: { orgs: 8720, users: 2580, resources: 665, jobs: 9, events: 485, groups: 151 }
+      - name: "Rural Development"
+        wiserearth_id: 180
+        stats_2014: { orgs: 5079, users: 2144, resources: 178, jobs: 13, events: 237, groups: 103 }
+      - name: "Social Development"
+        wiserearth_id: 125
+        stats_2014: { orgs: 16213, users: 3170, resources: 492, jobs: 11, events: 527, groups: 196 }
+      - name: "Community Wealth Building"
+        wiserearth_id: null
+        note: "[NEW_2026] Preston Model, anchor institution strategy, local procurement policies. Not in original taxonomy."
+
+  - name: "Systems Thinking"
+    wiserearth_id: 83
+    sub_issues:
+      - name: "Whole Systems Change"
+        wiserearth_id: 831
+        stats_2014: { orgs: 71, users: 938, resources: 64, jobs: 2, events: 162, groups: 31 }
+      - name: "Complexity and Emergence"
+        wiserearth_id: null
+        note: "[NEW_2026] Complexity theory applied to social change. Relates to Ecolibrium's mycelial strategy."
+
+  - name: "Technology"
+    wiserearth_id: 694
+    sub_issues:
+      - name: "Biotechnology"
+        wiserearth_id: 21
+        stats_2014: { orgs: 281, users: 963, resources: 105, jobs: 2, events: 82, groups: 33 }
+      - name: "Technology Transfer"
+        wiserearth_id: 786
+        stats_2014: { orgs: 182, users: 1108, resources: 101, jobs: 1, events: 137, groups: 46 }
+      - name: "Open Source Technology"
+        wiserearth_id: null
+        note: "[NEW_2026] Free and open source software/hardware as commons infrastructure. Not in original taxonomy."
+      - name: "Appropriate Technology"
+        wiserearth_id: null
+        note: "[NEW_2026] Low-cost, locally maintainable technology for underserved communities. E.F. Schumacher lineage."
+
+  - name: "Terrestrial Ecosystems"
+    wiserearth_id: 767
+    sub_issues:
+      - name: "Shrublands"
+        wiserearth_id: 768
+        stats_2014: { orgs: 36, users: 271, resources: 14, jobs: 1, events: 19, groups: 19 }
+      - name: "Tundra"
+        wiserearth_id: 340
+        stats_2014: { orgs: 47, users: 255, resources: 18, jobs: 1, events: 5, groups: 12 }
+
+  - name: "Water"
+    wiserearth_id: 13
+    sub_issues:
+      - name: "Dams"
+        wiserearth_id: 15
+        stats_2014: { orgs: 396, users: 564, resources: 110, jobs: 3, events: 60, groups: 26 }
+      - name: "Groundwater"
+        wiserearth_id: 782
+        stats_2014: { orgs: 257, users: 955, resources: 134, jobs: 3, events: 130, groups: 47 }
+      - name: "Water and Energy"
+        wiserearth_id: 785
+        stats_2014: { orgs: 279, users: 1446, resources: 251, jobs: 5, events: 283, groups: 68 }
+      - name: "Water Law and Policy"
+        wiserearth_id: 210
+        stats_2014: { orgs: 720, users: 804, resources: 291, jobs: 3, events: 341, groups: 45 }
+      - name: "Water Rights"
+        wiserearth_id: 35
+        stats_2014: { orgs: 513, users: 1173, resources: 218, jobs: 3, events: 151, groups: 57 }
+      - name: "Watershed Management"
+        wiserearth_id: 156
+        stats_2014: { orgs: 3213, users: 1610, resources: 217, jobs: 8, events: 514, groups: 87 }
+      - name: "Water as Commons"
+        wiserearth_id: null
+        note: "[NEW_2026] Legal and governance frameworks for water as a common right rather than a commodity."
+
+  - name: "Women"
+    wiserearth_id: 183
+    sub_issues:
+      - name: "Gender Equality"
+        wiserearth_id: 69
+        stats_2014: { orgs: 7707, users: 2506, resources: 351, jobs: 4, events: 362, groups: 80 }
+      - name: "Trafficking of Women"
+        wiserearth_id: 298
+        stats_2014: { orgs: 967, users: 928, resources: 35, jobs: 1, events: 27, groups: 19 }
+      - name: "Women's Education"
+        wiserearth_id: 304
+        stats_2014: { orgs: 4906, users: 1514, resources: 331, jobs: 11, events: 289, groups: 68 }
+      - name: "Women's Empowerment"
+        wiserearth_id: 346
+        stats_2014: { orgs: 4704, users: 2953, resources: 530, jobs: 6, events: 512, groups: 121 }
+      - name: "Women's Health"
+        wiserearth_id: 271
+        stats_2014: { orgs: 3695, users: 1697, resources: 479, jobs: 4, events: 297, groups: 78 }
+      - name: "Women's Rights"
+        wiserearth_id: 267
+        stats_2014: { orgs: 7926, users: 1960, resources: 402, jobs: 4, events: 357, groups: 64 }
+      - name: "Reproductive Rights"
+        wiserearth_id: null
+        note: "[NEW_2026] Reproductive justice as a distinct movement frame. Not in original taxonomy."
+
+  - name: "Work"
+    wiserearth_id: 116
+    sub_issues:
+      - name: "Employment"
+        wiserearth_id: 47
+        stats_2014: { orgs: 2869, users: 2344, resources: 486, jobs: 15, events: 190, groups: 84 }
+      - name: "Global Labor"
+        wiserearth_id: 722
+        stats_2014: { orgs: 347, users: 1013, resources: 70, jobs: 7, events: 88, groups: 56 }
+      - name: "Informal Economy"
+        wiserearth_id: 725
+        stats_2014: { orgs: 148, users: 1078, resources: 92, jobs: 1, events: 86, groups: 65 }
+      - name: "Living Wages"
+        wiserearth_id: 107
+        stats_2014: { orgs: 1499, users: 1519, resources: 122, jobs: 8, events: 107, groups: 62 }
+      - name: "Vocational Training"
+        wiserearth_id: 148
+        stats_2014: { orgs: 4070, users: 1197, resources: 70, jobs: 11, events: 211, groups: 67 }
+      - name: "Worker Centers"
+        wiserearth_id: 723
+        stats_2014: { orgs: 111, users: 381, resources: 36, jobs: 7, events: 35, groups: 32 }
+      - name: "Worker Rights"
+        wiserearth_id: 90
+        stats_2014: { orgs: 1386, users: 1302, resources: 100, jobs: 7, events: 83, groups: 52 }
+      - name: "Post-Work"
+        wiserearth_id: null
+        note: "[NEW_2026] Automation, AI displacement, and the transition away from wage labor as the basis of survival. André Gorz lineage."
+      - name: "Care Work"
+        wiserearth_id: null
+        note: "[NEW_2026] Recognition and compensation of unpaid care labor (childcare, eldercare, disability support). Feminist economics."
+
+# NEW TOP-LEVEL CATEGORIES (2026 additions, not in original WiserEarth taxonomy)
+
+  - name: "Artificial Intelligence and Automation"
+    wiserearth_id: null
+    note: "[NEW_2026] Entirely new domain since WiserEarth closed. Critical for Ecolibrium's governance and transition framework."
+    sub_issues:
+      - name: "AI Governance"
+        wiserearth_id: null
+        note: "[NEW_2026] Algorithmic accountability, bias, public auditing of systems that affect lives."
+      - name: "AI for Social Good"
+        wiserearth_id: null
+        note: "[NEW_2026] Open-source AI tools for civil society, healthcare, education, governance."
+      - name: "Automation and Labor Displacement"
+        wiserearth_id: null
+        note: "[NEW_2026] Policy and organizing responses to technology-driven unemployment."
+      - name: "Open Source AI"
+        wiserearth_id: null
+        note: "[NEW_2026] Community-owned AI models and infrastructure. Ollama, Hugging Face ecosystem."
+      - name: "AI Safety and Alignment"
+        wiserearth_id: null
+        note: "[NEW_2026] Ensuring AI systems serve human and ecological wellbeing."
+
+  - name: "Digital Commons and Infrastructure"
+    wiserearth_id: null
+    note: "[NEW_2026] Entire domain emerged after WiserEarth closed."
+    sub_issues:
+      - name: "Internet Access as a Right"
+        wiserearth_id: null
+        note: "[NEW_2026] Universal broadband as public utility."
+      - name: "Data Sovereignty"
+        wiserearth_id: null
+        note: "[NEW_2026] Personal data as personal property; collective data as commons."
+      - name: "Federated Networks"
+        wiserearth_id: null
+        note: "[NEW_2026] ActivityPub, Mastodon, Matrix — decentralized alternatives to corporate platforms."
+      - name: "Open Hardware"
+        wiserearth_id: null
+        note: "[NEW_2026] Open Source Ecology, RISC-V, community-built computing infrastructure."
+      - name: "Cryptographic Identity"
+        wiserearth_id: null
+        note: "[NEW_2026] Self-sovereign identity systems. No platform controls your identity."
