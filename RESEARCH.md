@@ -4,6 +4,39 @@
 
 ---
 
+## 0. WiserEarth (2007-2014): The Direct Precedent
+
+**WiserEarth** (later Wiser.org) was a free, open-source global civil society coordination network launched Earth Day 2007 by Paul Hawken (Natural Capital Institute) and closed April 10, 2014. It was the digital expression of Hawken's book *Blessed Unrest* (Viking Press, 2007, ISBN 978-0-670-03852-7), which argued that the world's largest movement -- for social justice, indigenous rights, and ecological sustainability -- already existed, leaderless and invisible to itself, across over a million organizations worldwide.
+
+At peak (2013-2014):
+- **114,994 NGOs and socially responsible organizations** in 243 countries
+- **79,651 registered members**
+- **3,273 community groups**
+- **47 major issue areas, 381 sub-issue areas** -- the most detailed civil society taxonomy ever assembled
+- Fully open-source (WiserPlatform, released SourceForge 2008), ad-free, non-commercial
+- Women-led from 2009 (Executive Director: Peggy Duvette)
+
+**What it got right:**
+- Leaderless, horizontally organized, no single point of human failure
+- Transparency as the core security model (everything open to public scrutiny)
+- Demonstrated at scale: visibility enables coordination
+- Community co-evolution: features grew with users, not ahead of them
+- Cross-cultural adaptation: 243 countries, multilingual
+
+**What it got wrong (and what Ecolibrium must fix):**
+- Centralized hosting + philanthropic dependency = fatal single point of failure
+- The WiserPlatform was released open-source in 2008, but no distributed self-hosting ecosystem formed in time
+- Visibility without interoperability: 114,994 organizations existed but supply chains and coordination still siloed by issue area
+
+**Key quote from the final About page (April 2014):**
+> "What was missing was a map and directory of the flourishing network, one that included the necessary resources for communication and cooperation; in essence, an infrastructure through which we could coordinate the efforts of civil society."
+
+**For the full analysis and section-by-section application to Ecolibrium, see [WISEREARTH.md](WISEREARTH.md).**
+
+*Sources: WiserEarth History (web.archive.org/web/20110107132858/http://www.wiserearth.org/article/history); Wiser.org About (web.archive.org/web/20140411055408/http://wiser.org/article/About); WiserEarth Principles (web.archive.org/web/20110109113633/http://www.wiserearth.org/article/45ffd940b3d2cb1127e90fce3e47cc19); Wikipedia/Wiser.org; Paul Hawken, Blessed Unrest, Viking Press, 2007.*
+
+---
+
 ## 1. Democratic Infrastructure & Voting Systems
 
 ### What Already Exists

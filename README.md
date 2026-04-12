@@ -265,6 +265,7 @@ This framework belongs to no one — and to everyone.
 > *We are not starting from zero. Many have thought deeply about these problems.*
 
 ### Thinkers and Theorists
+- **Paul Hawken** — *Blessed Unrest* (2007): the largest movement in the world already exists, leaderless, without ideology, and no one has seen it. WiserEarth was the mirror he built so it could.
 - **Murray Bookchin** — Social ecology, libertarian municipalism
 - **Elinor Ostrom** — Governing the commons without privatization or state control
 - **André Gorz** — Post-work society, reclaiming time from capital
@@ -283,6 +284,9 @@ This framework belongs to no one — and to everyone.
 - **Rural Electric Cooperatives** — 900+ member-owned utilities serving 42M Americans
 - **Common Justice** — Restorative justice for violent felonies (New York City)
 - **Barcelona Superblocks** — Reclaiming streets for people, play, and community
+
+### Historical Precedents
+- **WiserEarth / Wiser.org** (2007-2014) — The first large-scale civil society coordination network. 114,994 NGOs in 243 countries, 79,651 members, 3,273 groups, 381 sub-issue taxonomy. Leaderless, open-source, ad-free, women-led. Direct precedent for the Mycelial Strategy. Closed 2014 due to centralized funding failure -- the key cautionary lesson. See [WISEREARTH.md](WISEREARTH.md) for full analysis. (Paul Hawken / Natural Capital Institute)
 
 ### Allied Open-Source Projects
 - **Decidim** — Participatory democracy framework (github.com/decidim)
