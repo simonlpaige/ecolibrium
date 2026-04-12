@@ -289,6 +289,34 @@
 - **AI as neutral integrator** — Not a ruler, not an oracle, but a shared reflective layer that surfaces consensus while preserving minority views.
 - **Source:** github.com/AshmanRoonz/OpenDemocracy
 
+### From HumanityOS / United Humanity
+**HumanityOS** (united-humanity.us, github.com/Shaostoul/Humanity) is a free, public-domain (CC0) cooperative platform and game engine built to end poverty through capability, not charity. Launched May 2023 by Michael Boisson. Several design decisions are directly relevant to Ecolibrium:
+
+- **Self-custody cryptographic identity** — Each user's Ed25519 keypair *is* their identity and their wallet. No accounts, no passwords, no home servers. No platform controls access. This is the pattern Ecolibrium should adopt for all commons participation systems — identity as a personal sovereign good, not a corporate credential.
+  - *Source: united-humanity.us — "Your Ed25519 key is your identity AND your wallet. No accounts. No passwords. No home servers."*
+
+- **Federated, local-first architecture** — HumanityOS servers discover each other via Phase 1 federation. The desktop app works 100% offline from first launch. This is the correct infrastructure model for a resilient digital commons that must function in low-connectivity, high-censorship, or crisis environments.
+  - *Source: github.com/Shaostoul/Humanity — "Works 100% offline from first launch. The desktop app bundles everything locally. Background sync pulls updates when connected."*
+
+- **Poverty as capability deficit, not money deficit** — The project's core framing: "Poverty is lack of capability. Not just lack of money. People trapped in systems they can't understand, knowledge they can't access, skills they never learned." This reframes Ecolibrium's approach to economic transition — the goal isn't redistribution alone, but capability infrastructure.
+  - *Source: united-humanity.us — Mission section*
+
+- **The Humanity Accord** — A model constitution for sovereign nations: voluntary compact, individual dignity as inviolable, survival and basic dignity unconditional, all governmental power auditable by those affected, 100/1,000/10,000-year decision horizons required, diversity protected, framework remains revisable. Key principle: "The single greatest enabler of tyranny, corruption, fraud, scams, evil, and persistent poverty is the voluntary surrender of individual judgment."
+  - *Source: github.com/Shaostoul/Humanity/blob/main/docs/accord/humanity_accord.md*
+  - This is a strong reference for Ecolibrium's democratic infrastructure section — particularly the long-term horizon requirement and the anti-charisma provisions.
+
+- **Integrated learning through play** — Project Universe (the game layer of HumanityOS) teaches practical skills (homesteading, agriculture, building, health) using the same underlying data layer as the real platform. In-game skills reflect real-world capability. This demonstrates that capability-building can be intrinsically motivating — directly relevant to Ecolibrium's education and values transformation sections.
+  - *Source: github.com/Shaostoul/Humanity — "Both share the same server, identity system, and data layer. The game is how people learn to use the tools for real."*
+
+- **Peer-to-peer marketplace without rent-seeking** — The platform includes a marketplace for goods, services, and skills with donation pricing presets and no extractive intermediary. Direct model for Phase 1 commons-based exchange infrastructure.
+  - *Source: united-humanity.us — Platform feature list*
+
+**Recommendation for Ecolibrium:**
+1. Add HumanityOS to the Allied Open-Source Projects section of README.md with explicit note that it is a deployment-ready implementation of several Phase 1 infrastructure components.
+2. Adopt the Humanity Accord's long-horizon governance requirement (100/1,000/10,000-year decision windows) as a formal principle — Ecolibrium's framework lacks explicit inter-generational timeframe requirements.
+3. The cryptographic identity model (keypair = identity = wallet = commons participation token) resolves several open questions in democratic infrastructure — one key per person, sovereign, unrevokable by any platform.
+4. Flag HumanityOS as a potential technical collaborator, not just a reference — their infrastructure is CC0 and deployment-ready.
+
 ### From Community Land Trust Movement
 - **Tripartite governance** — Board structure balancing leaseholders, community residents, and public interest representatives. Applicable beyond land to all commons governance.
 - **Permanent affordability through ground leases** — Legal mechanism preventing re-commodification.

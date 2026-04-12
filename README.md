@@ -293,6 +293,7 @@ This framework belongs to no one — and to everyone.
 - **Open Source Ecology** — 50 open-source industrial machines (github.com/OpenSourceEcology)
 - **Liquid Democracy e.V.** — Participatory governance tools (github.com/liqd)
 - **OpenDemocracy AI** — AI-powered participatory democracy (github.com/AshmanRoonz/OpenDemocracy)
+- **HumanityOS** — Free, public-domain (CC0) cooperative platform + game engine for ending poverty through capability. Self-custody identity, federated, local-first, peer marketplace, offline-first. The Humanity Accord is a model constitution with strong alignment to Ecolibrium's principles. (united-humanity.us, github.com/Shaostoul/Humanity)
 - **Kolibri** — Offline-first education platform (learningequality.org)
 - **Belenios** — Verifiable online voting system (belenios.org)
 
