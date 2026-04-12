@@ -209,6 +209,56 @@ The transfer is not a single event — it is a **phase shift**. Like water reach
 
 ---
 
+## Tensions and Tradeoffs
+
+> *The core principles are in tension with each other. Pretending otherwise would be dishonest. These tensions are not bugs — they are the hardest design problems. They do not have clean answers.*
+
+### Democratic Sovereignty vs. Ecological Equilibrium
+
+What happens when a democratic majority votes to allow resource extraction that violates planetary boundaries? This is not hypothetical — it is the story of every coal-dependent community that votes to keep mines open, every fishing village that votes against catch limits.
+
+**The framework's position:** Ecological limits function like constitutional rights — they are not subject to majority override. Just as a majority vote cannot legally strip a minority of civil rights in a constitutional democracy, a majority vote cannot strip future generations of a livable planet. Planetary boundaries are pre-political: they exist whether or not anyone votes for them.
+
+This means democratic sovereignty is real but bounded. You may govern how you live within the limits of what the earth can sustain. You may not vote to exceed those limits.
+
+**Open problem:** Who defines the planetary boundaries, and who enforces them when democratic institutions disagree? This requires a body of scientific governance that is itself democratically accountable but insulated from short-term political pressure. No such body currently exists at adequate scale. (See Issue #35)
+
+---
+
+### Voluntary Contribution vs. Universal Sufficiency
+
+If contribution is truly voluntary, who does the unglamorous work? Sewage treatment. Garbage collection. Elder care at 3 AM. Slaughterhouse labor. Psychiatric emergency response.
+
+Every intentional community, commune, and cooperative in history has confronted this. The kibbutz movement developed elaborate systems for task rotation, compensation differentials, and eventually re-introduced wage labor for roles voluntarism couldn't reliably fill.
+
+**The framework's position:** Voluntary contribution means work is not performed under threat of starvation. It does not mean all work is equally pleasant. Mechanisms for necessary-but-unpleasant work, in order of preference:
+1. **Automation** — priority target. If a task is necessary and undesirable, automate it first.
+2. **Rotation** — shared burden distributed on a schedule.
+3. **Compensation premiums** — additional resources for roles that remain undesirable after automation.
+4. **Genuine voluntarism** — some people find meaning in work others find unpleasant. This is real.
+
+**Open problem:** Free-rider dynamics are documented in every commons. Ostrom's design principles (monitoring, graduated sanctions, conflict resolution) are the best available framework but require enforcement mechanisms not yet fully specified here. (See Issue #35)
+
+---
+
+### Common Ownership vs. Cultural Adaptation
+
+The framework says the commons belongs to everyone and that local implementation is culturally adapted. These conflict the moment a community uses "cultural adaptation" to exclude someone from the commons.
+
+**The framework's position:** Local communities may govern *how* resources are distributed and *what* governance processes look like. They may not govern *whether* a person is entitled to food, shelter, healthcare, or safety. Cultural adaptation is permitted within the commons. Using cultural adaptation to deny commons access is not.
+
+**Open problem:** Who decides when a local community has crossed from adaptation into exclusion, and with what enforcement authority? This is the federalism problem in its oldest form. (See Issue #35)
+
+---
+
+### On Human Nature
+
+The framework does not assume humans are angels. It assumes systems designed for the full range of human behavior — including free-riding, status competition, in-group formation, and apathy — will produce better outcomes than systems that punish people for surviving under coercive conditions.
+
+Ostrom's design principles for commons governance are the most empirically grounded framework for managing realistic human behavior: clear boundaries, proportional rules, collective choice, monitoring, graduated sanctions, conflict resolution, external recognition. Not idealistic — operational. See RESEARCH.md.
+
+---
+
 ## Open Questions
 
 > *These are unresolved. They need many minds.*
@@ -309,6 +359,8 @@ This framework belongs to no one — and to everyone.
 
 > For a comprehensive deep dive into existing work in each framework area, see **[RESEARCH.md](RESEARCH.md)**.
 > For the collaboration outreach plan, see **[OUTREACH.md](OUTREACH.md)**.
+> For explicit governance, decision-making, and accountability structures, see **[GOVERNANCE.md](GOVERNANCE.md)**.
+> For the honest section-by-section critique of this framework, see **[CRITIQUE.md](CRITIQUE.md)**.
 
 ---
 
