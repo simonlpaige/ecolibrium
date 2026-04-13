@@ -6,117 +6,116 @@
 <title>Ecolibrium Directory — World Map</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{height:100%;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a100a;color:#cce8b0}
+html,body{height:100%;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#060d06;color:#cce8b0}
 
-/* ── Desktop layout ── */
 #app{display:flex;height:100vh;flex-direction:row}
-#sidebar{width:260px;min-width:260px;background:#121d12;border-right:1px solid #1a2a1a;display:flex;flex-direction:column;overflow-y:auto;z-index:10;flex-shrink:0}
-#sidebar::-webkit-scrollbar{width:5px}
-#sidebar::-webkit-scrollbar-track{background:#121d12}
-#sidebar::-webkit-scrollbar-thumb{background:#253825;border-radius:3px}
-#sidebar-header{padding:20px 18px 14px;border-bottom:1px solid #1a2a1a}
-#sidebar-header h1{font-size:16px;font-weight:700;color:#cce8b0;letter-spacing:-0.2px}
-#sidebar-header p{font-size:11px;color:#4a7040;margin-top:3px;line-height:1.4}
-#count{font-size:12px;color:#5e8a52;padding:10px 18px 6px;font-weight:500}
-#filters{padding:4px 10px 16px;display:flex;flex-direction:column;gap:3px}
-.filter-btn{display:flex;align-items:center;gap:9px;padding:7px 10px;border:1.5px solid transparent;border-radius:7px;background:transparent;cursor:pointer;transition:all .15s;font-size:12px;color:#8aaa7a;font-family:inherit;text-align:left}
-.filter-btn:hover{background:#192819;color:#cce8b0}
-.filter-btn.active{background:#192819;border-color:var(--clr);color:#cce8b0;box-shadow:0 0 10px -3px var(--clr)}
-.filter-btn .dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
-.filter-btn .label{flex:1;line-height:1.3}
-.filter-btn .cnt{font-size:10px;color:#3d5e35;min-width:18px;text-align:right}
-.filter-btn.active .cnt{color:#5e8a52}
+#sidebar{width:260px;min-width:260px;background:#0d1a0d;border-right:1px solid #152015;display:flex;flex-direction:column;overflow-y:auto;z-index:10;flex-shrink:0}
+#sidebar::-webkit-scrollbar{width:4px}
+#sidebar::-webkit-scrollbar-track{background:#0d1a0d}
+#sidebar::-webkit-scrollbar-thumb{background:#1a2a1a;border-radius:3px}
+#sidebar-header{padding:18px 16px 12px;border-bottom:1px solid #152015}
+#sidebar-header h1{font-size:15px;font-weight:700;color:#cce8b0;letter-spacing:-.2px}
+#sidebar-header p{font-size:11px;color:#3d5e35;margin-top:3px;line-height:1.4}
+#count{font-size:11px;color:#4a6e42;padding:8px 16px 4px;font-weight:500}
+#filters{padding:4px 10px 10px;display:flex;flex-direction:column;gap:2px}
+.filter-btn{display:flex;align-items:center;gap:8px;padding:6px 10px;border:1.5px solid transparent;border-radius:7px;background:transparent;cursor:pointer;transition:all .15s;font-size:11.5px;color:#7a9a6a;font-family:inherit;text-align:left}
+.filter-btn:hover{background:#131f13;color:#cce8b0}
+.filter-btn.active{background:#131f13;border-color:var(--clr);color:#cce8b0;box-shadow:0 0 12px -4px var(--clr)}
+.filter-btn .glow-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.filter-btn .lbl{flex:1;line-height:1.3}
+.filter-btn .cnt{font-size:10px;color:#3a5535;min-width:22px;text-align:right}
+.filter-btn.active .cnt{color:#4d7544}
 
-/* ── Mobile: chips across top ── */
+/* Regions */
+#regions-section{padding:8px 10px 10px;border-top:1px solid #152015}
+#regions-section h3{font-size:10px;color:#3d5e35;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:4px 2px 8px}
+#regions-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.region-btn{padding:5px 8px;background:#0f1a0f;border:1px solid #1a2a1a;border-radius:5px;color:#5a7a4a;font-size:10.5px;font-family:inherit;cursor:pointer;transition:all .15s;text-align:center}
+.region-btn:hover{background:#152015;border-color:#253825;color:#9dc890}
+
+/* Zoom hint */
+#zoom-hint{padding:10px 14px 16px;border-top:1px solid #152015;margin-top:auto}
+#zoom-hint p{font-size:10px;color:#2e4a2a;line-height:1.7;text-align:center}
+
+/* Mobile chip bar */
 #chip-bar{display:none}
 
 @media(max-width:640px){
   #app{flex-direction:column}
   #sidebar{display:none}
-  #chip-bar{
-    display:flex;overflow-x:auto;gap:6px;
-    padding:8px 10px;background:#121d12;
-    border-bottom:1px solid #1a2a1a;
-    flex-shrink:0;z-index:10;
-    scrollbar-width:none;
-  }
+  #chip-bar{display:flex;overflow-x:auto;gap:6px;padding:7px 10px;background:#0d1a0d;border-bottom:1px solid #152015;flex-shrink:0;z-index:10;scrollbar-width:none}
   #chip-bar::-webkit-scrollbar{display:none}
-  .chip{
-    display:inline-flex;align-items:center;gap:5px;
-    padding:5px 11px;border-radius:20px;
-    border:1.5px solid #253825;background:#192819;
-    font-size:11px;font-weight:600;color:#7aaa6a;
-    white-space:nowrap;cursor:pointer;flex-shrink:0;
-    font-family:inherit;transition:all .15s;
-  }
+  .chip{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:20px;border:1.5px solid #1a2a1a;background:#131f13;font-size:11px;font-weight:600;color:#6a9a5a;white-space:nowrap;cursor:pointer;flex-shrink:0;font-family:inherit;transition:all .15s}
   .chip.active{border-color:var(--clr);color:#cce8b0;box-shadow:0 0 8px -2px var(--clr)}
   .chip-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
   #map-container{flex:1;min-height:0}
+  #count-mobile{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);background:#0d1a0dcc;backdrop-filter:blur(6px);border:1px solid #1a2a1a;border-radius:20px;padding:3px 12px;font-size:11px;color:#4a6e42;pointer-events:none;z-index:5;white-space:nowrap}
   #reset-btn{top:8px;right:8px;padding:5px 10px;font-size:11px}
-  #count-mobile{
-    position:absolute;bottom:6px;left:50%;transform:translateX(-50%);
-    background:#121d12cc;backdrop-filter:blur(6px);
-    border:1px solid #253825;border-radius:20px;
-    padding:3px 12px;font-size:11px;color:#5e8a52;
-    pointer-events:none;z-index:5;white-space:nowrap;
-  }
-  #tooltip{max-width:calc(100vw - 24px);font-size:12px}
 }
 
-#map-container{flex:1;position:relative;background:#0a100a;overflow:hidden}
+/* Map */
+#map-container{flex:1;position:relative;background:#060d06;overflow:hidden}
 svg{display:block}
-#reset-btn{position:absolute;top:12px;right:12px;background:#162016dd;backdrop-filter:blur(4px);border:1px solid #253825;color:#6b9e5e;padding:6px 13px;border-radius:6px;cursor:pointer;font-size:12px;font-family:inherit;z-index:5;transition:all .15s}
-#reset-btn:hover{background:#253825;color:#cce8b0}
-#tooltip{position:absolute;pointer-events:none;background:#162016f0;backdrop-filter:blur(8px);border:1px solid #253825;border-radius:10px;padding:12px 14px;max-width:280px;font-size:13px;line-height:1.45;z-index:20;display:none;box-shadow:0 8px 32px #0009}
-#tooltip .t-name{font-weight:700;font-size:14px;margin-bottom:2px}
-#tooltip .t-meta{font-size:11px;color:#4a7040;margin-bottom:6px}
-#tooltip .t-desc{color:#8aaa7a;margin-bottom:6px}
-#tooltip .t-link{font-size:11px;color:#78c87a;text-decoration:none;pointer-events:auto}
-#tooltip .t-link:hover{text-decoration:underline}
-.graticule{fill:none;stroke:#162016;stroke-width:.4}
-.country{fill:#1a2a1a;stroke:#253825;stroke-width:.5}
+#reset-btn{position:absolute;top:12px;right:12px;background:#0d1a0ddd;backdrop-filter:blur(4px);border:1px solid #1a2a1a;color:#5d8e50;padding:6px 12px;border-radius:6px;cursor:pointer;font-size:12px;font-family:inherit;z-index:5;transition:all .15s}
+#reset-btn:hover{background:#162416;color:#cce8b0}
+#count-in-view{position:absolute;bottom:12px;right:12px;background:#0d1a0dcc;backdrop-filter:blur(6px);border:1px solid #1a2a1a;border-radius:20px;padding:3px 12px;font-size:11px;color:#4a6e42;pointer-events:none;z-index:5;display:none}
 
-/* Loading spinner */
-#loading{
-  position:absolute;inset:0;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;z-index:50;
-  background:#0a100a;gap:14px;
-}
-#loading .spinner{
-  width:36px;height:36px;border:3px solid #1a2a1a;
-  border-top-color:#4ade80;border-radius:50%;
-  animation:spin .8s linear infinite;
-}
+/* Tooltip */
+#tooltip{position:absolute;pointer-events:none;background:#0d1a0df0;backdrop-filter:blur(8px);border:1px solid #1a2a1a;border-radius:10px;padding:11px 13px;max-width:280px;font-size:13px;line-height:1.45;z-index:20;display:none;box-shadow:0 8px 32px #0009}
+#tooltip .t-name{font-weight:700;font-size:14px;margin-bottom:2px}
+#tooltip .t-meta{font-size:10.5px;color:#3d5e35;margin-bottom:5px}
+#tooltip .t-desc{color:#7a9a6a;margin-bottom:6px;font-size:12px}
+#tooltip .t-link{font-size:11px;color:#6dc870;text-decoration:none;pointer-events:auto}
+#tooltip .t-link:hover{text-decoration:underline}
+
+/* Map geometry */
+.graticule{fill:none;stroke:#0f1a0f;stroke-width:.3}
+.country{fill:#0d1a0d;stroke:#152015;stroke-width:.4}
+
+/* Loading */
+#loading{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:50;background:#060d06;gap:12px}
+#loading .spinner{width:32px;height:32px;border:2.5px solid #1a2a1a;border-top-color:#4ade80;border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-#loading p{color:#4a7040;font-size:13px}
+#loading p{color:#3d5e35;font-size:13px}
 </style>
 </head>
 <body>
 <div id="chip-bar"></div>
 <div id="app">
-<div id="sidebar">
-<div id="sidebar-header">
-<h1>Ecolibrium Directory</h1>
-<p>Interactive map of organizations building<br>a more equitable world</p>
+  <div id="sidebar">
+    <div id="sidebar-header">
+      <h1>Ecolibrium Directory</h1>
+      <p>Organizations building a more<br>equitable, ecological world</p>
+    </div>
+    <div id="count"></div>
+    <div id="filters"></div>
+    <div id="regions-section">
+      <h3>Jump to Region</h3>
+      <div id="regions-grid"></div>
+    </div>
+    <div id="zoom-hint">
+      <p>🔭 Scroll to explore<br>Zoom in to reveal organizations<br>Hover to see connections</p>
+    </div>
+  </div>
+  <div id="map-container">
+    <div id="loading"><div class="spinner"></div><p>Loading organizations…</p></div>
+    <button id="reset-btn">↻ World View</button>
+    <div id="count-mobile"></div>
+    <div id="count-in-view"></div>
+    <div id="tooltip">
+      <div class="t-name"></div>
+      <div class="t-meta"></div>
+      <div class="t-desc"></div>
+      <a class="t-link" target="_blank" rel="noopener"></a>
+    </div>
+  </div>
 </div>
-<div id="count"></div>
-<div id="filters"></div>
-</div>
-<div id="map-container">
-<div id="loading"><div class="spinner"></div><p>Loading organizations…</p></div>
-<button id="reset-btn">↻ Reset</button>
-<div id="count-mobile"></div>
-<div id="tooltip">
-<div class="t-name"></div>
-<div class="t-meta"></div>
-<div class="t-desc"></div>
-<a class="t-link" target="_blank" rel="noopener"></a>
-</div>
-</div>
-</div>
+
 <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-hexbin@0.2.2/build/d3-hexbin.min.js"></script>
 <script>
+// ── Constants ──────────────────────────────────────────────────────────────
 const AREA_COLORS = {
   democracy:'#60a5fa', cooperatives:'#34d399', healthcare:'#f472b6',
   food:'#fb923c', education:'#a78bfa', housing_land:'#fbbf24',
@@ -133,209 +132,447 @@ const AREA_NAMES = {
   ecology:'Ecological Restoration'
 };
 
+const REGIONS = [
+  {name:'N. America', lat:45, lon:-100, zoom:3},
+  {name:'Europe',     lat:52, lon:12,   zoom:4},
+  {name:'L. America', lat:-5, lon:-65,  zoom:3},
+  {name:'Africa',     lat:5,  lon:22,   zoom:3},
+  {name:'S. Asia',    lat:20, lon:80,   zoom:4},
+  {name:'SE Asia',    lat:8,  lon:115,  zoom:4},
+  {name:'Oceania',    lat:-25,lon:140,  zoom:4},
+];
+
+const THRESHOLD = 2.5; // zoom scale at which we switch hexbin ↔ dots
+
 function getColor(f){ return AREA_COLORS[f] || DEFAULT_COLOR; }
 
-function dotRadius(d){
-  if(d.m === 'research') return 3;
-  if(d.r && d.r > 1000000) return 4;
-  if(d.r && d.r > 100000) return 3;
-  return 2;
+function rgba(hex, a){
+  const r=parseInt(hex.slice(1,3),16), g=parseInt(hex.slice(3,5),16), b=parseInt(hex.slice(5,7),16);
+  return `rgba(${r},${g},${b},${a})`;
 }
 
-function darken(hex){
-  const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);
-  return `rgb(${r*.5|0},${g*.5|0},${b*.5|0})`;
+// ── Seeded deterministic jitter ──────────────────────────────────────────
+function jitterCoord(lat, lon, name, spread) {
+  let seed = 0;
+  for (let i = 0; i < name.length; i++) {
+    seed = (Math.imul(seed, 31) + name.charCodeAt(i)) | 0;
+  }
+  seed = seed >>> 0;
+  const s1 = (Math.imul(seed, 1664525) + 1013904223) >>> 0;
+  const s2 = (Math.imul(s1,  22695477) + 1)          >>> 0;
+  return [
+    lat + (s1 / 4294967295 - 0.5) * spread * 2,
+    lon + (s2 / 4294967295 - 0.5) * spread * 2
+  ];
 }
 
-// ── D3 Map setup (start before data loads) ──
+function preprocessOrgs(orgs) {
+  // Count stacked coordinates to detect state centroids
+  const coordCount = {};
+  orgs.forEach(o => {
+    const key = `${+(o.la||0).toFixed(2)},${+(o.lo||0).toFixed(2)}`;
+    coordCount[key] = (coordCount[key] || 0) + 1;
+  });
+
+  return orgs.map(o => {
+    const lat = o.la || 0, lon = o.lo || 0;
+    const key = `${+lat.toFixed(2)},${+lon.toFixed(2)}`;
+    const n   = coordCount[key] || 1;
+    const cc  = o.cc || 'US';
+
+    // Determine jitter spread:
+    // >15 US orgs at same spot → state centroid → wide spread
+    // >3 US orgs → small city cluster → medium spread
+    // few US orgs → precise city → tiny spread
+    // non-US → country-level → moderate spread
+    let spread;
+    if      (cc === 'US' && n > 15) spread = 2.5;
+    else if (cc === 'US' && n > 3)  spread = 0.5;
+    else if (cc === 'US')           spread = 0.12;
+    else                            spread = 0.8;
+
+    const [jla, jlo] = jitterCoord(lat, lon, o.n || '', spread);
+    return { ...o, jla, jlo };
+  });
+}
+
+// ── D3 scaffold ──────────────────────────────────────────────────────────
 const container = document.getElementById('map-container');
 let w = container.clientWidth, h = container.clientHeight;
+
 const svg = d3.select(container).append('svg').attr('width', w).attr('height', h);
+
+// SVG filters
+const defs = svg.append('defs');
+defs.html(`
+  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blur"/>
+    <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+  </filter>
+  <filter id="glow-strong" x="-100%" y="-100%" width="300%" height="300%">
+    <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur"/>
+    <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+  </filter>
+`);
+
 const projection = d3.geoNaturalEarth1().scale(w / 5.8).translate([w / 2, h / 2]);
-const path = d3.geoPath(projection);
-const g = svg.append('g');
+const geoPath   = d3.geoPath(projection);
 
-// Graticule
-g.append('path').datum(d3.geoGraticule()()).attr('class','graticule').attr('d',path);
+// Layer order: hexbins (screen-space, outside transform group) → base map → dots
+const hexLayer  = svg.append('g').attr('class', 'hex-layer')
+                     .attr('filter', 'url(#glow-strong)')
+                     .style('pointer-events', 'none');
 
-// Zoom
-const zoom = d3.zoom().scaleExtent([1,12]).on('zoom', e => { g.attr('transform', e.transform); });
+const g         = svg.append('g'); // main zoom-transformed group
+const graticuleG = g.append('g');
+const countriesG = g.append('g');
+const tendrilG   = g.append('g').style('pointer-events', 'none');
+const dotsG      = g.append('g').attr('filter', 'url(#glow)');
+
+// ── Zoom ─────────────────────────────────────────────────────────────────
+const zoom = d3.zoom().scaleExtent([1, 12]).on('zoom', onZoom);
 svg.call(zoom);
+
 document.getElementById('reset-btn').onclick = () =>
-  svg.transition().duration(600).call(zoom.transform, d3.zoomIdentity);
+  svg.transition().duration(700).call(zoom.transform, d3.zoomIdentity);
 
-// Tooltip
+function flyTo(lat, lon, k) {
+  // D3 pattern: translate center → scale → translate to target projection point
+  const [px, py] = projection([lon, lat]);
+  svg.transition().duration(900).call(
+    zoom.transform,
+    d3.zoomIdentity.translate(w / 2, h / 2).scale(k).translate(-px, -py)
+  );
+}
+
+// ── Tooltip ───────────────────────────────────────────────────────────────
 const tip = document.getElementById('tooltip');
-const tipName = tip.querySelector('.t-name');
-const tipMeta = tip.querySelector('.t-meta');
-const tipDesc = tip.querySelector('.t-desc');
-const tipLink = tip.querySelector('.t-link');
-
-function showTip(ev, d){
+function showTip(ev, d) {
   const color = getColor(d.f);
-  const areaName = AREA_NAMES[d.f] || d.f || '';
-  const country = d.cc || 'US';
-  tipName.textContent = d.n;
-  tipName.style.color = color;
-  tipMeta.textContent = `${country} · ${areaName}`;
-  tipDesc.textContent = (d.d || '').length > 130 ? (d.d).slice(0,127)+'...' : (d.d || '');
-  if(d.w){
-    tipLink.style.display = 'inline';
-    tipLink.textContent = d.w;
-    tipLink.href = d.w.startsWith('http') ? d.w : 'https://'+d.w;
+  tip.querySelector('.t-name').textContent = d.n;
+  tip.querySelector('.t-name').style.color = color;
+  tip.querySelector('.t-meta').textContent = [d.cc || 'US', AREA_NAMES[d.f] || d.f].filter(Boolean).join(' · ');
+  const desc = d.d || '';
+  tip.querySelector('.t-desc').textContent = desc.length > 130 ? desc.slice(0, 127) + '…' : desc;
+  const link = tip.querySelector('.t-link');
+  if (d.w) {
+    link.style.display = 'inline';
+    link.textContent = d.w;
+    link.href = d.w.startsWith('http') ? d.w : 'https://' + d.w;
   } else {
-    tipLink.style.display = 'none';
+    link.style.display = 'none';
   }
   tip.style.display = 'block';
-  positionTip(ev);
+  posTip(ev);
 }
-function positionTip(ev){
+function posTip(ev) {
   const r = container.getBoundingClientRect();
   let x = ev.clientX - r.left + 16, y = ev.clientY - r.top + 16;
-  if(x + 290 > r.width) x = ev.clientX - r.left - 296;
-  if(y + 170 > r.height) y = ev.clientY - r.top - 180;
-  tip.style.left = x + 'px'; tip.style.top = y + 'px';
+  if (x + 290 > r.width)  x = ev.clientX - r.left - 296;
+  if (y + 160 > r.height) y = ev.clientY - r.top  - 170;
+  tip.style.left = x + 'px';
+  tip.style.top  = y + 'px';
 }
-function hideTip(){ tip.style.display = 'none'; }
+function hideTip() { tip.style.display = 'none'; }
 
-// State
-let activeFilter = null;
-let orgs = [];
+// ── State ─────────────────────────────────────────────────────────────────
+let activeFilter    = null;
+let orgs            = [];
+let currentTransform = d3.zoomIdentity;
+let hexTimer = null, countTimer = null;
 
-function setFilter(id){
+// ── Filter logic ──────────────────────────────────────────────────────────
+function setFilter(id) {
   activeFilter = id;
-  document.querySelectorAll('.filter-btn').forEach(b => {
-    b.classList.toggle('active', b.dataset.filter === (id === null ? '__all' : id));
-  });
-  document.querySelectorAll('.chip').forEach(c => {
-    c.classList.toggle('active', c.dataset.id === (id === null ? '__all' : id));
-  });
-  updateDots();
+  document.querySelectorAll('.filter-btn').forEach(b =>
+    b.classList.toggle('active', b.dataset.filter === (id === null ? '__all' : id)));
+  document.querySelectorAll('.chip').forEach(c =>
+    c.classList.toggle('active', c.dataset.id === (id === null ? '__all' : id)));
+  updateDotOpacity();
+  if (currentTransform.k < THRESHOLD) scheduleHexUpdate();
+  updateCountDisplay();
 }
 
-function updateDots(){
-  const vis = activeFilter === null ? orgs.length : orgs.filter(o => o.f === activeFilter).length;
-  const countEl = document.getElementById('count');
-  const countMobile = document.getElementById('count-mobile');
-  countEl.textContent = `Showing ${vis.toLocaleString()} of ${orgs.length.toLocaleString()} organizations`;
-  if(countMobile) countMobile.textContent = `${vis.toLocaleString()} organizations`;
-  d3.selectAll('.org-dot').transition().duration(300)
-    .attr('opacity', d => activeFilter === null || d.f === activeFilter ? 0.85 : 0.07)
-    .attr('r', d => activeFilter === null || d.f === activeFilter ? dotRadius(d) + 1 : dotRadius(d));
+function dotBaseR(k) { return k >= 5 ? 4.5 : 2.5; }
+
+function updateDotOpacity() {
+  const r = dotBaseR(currentTransform.k);
+  dotsG.selectAll('.org-dot').transition().duration(250)
+    .attr('opacity', d => (activeFilter === null || d.f === activeFilter) ? 0.8  : 0.04)
+    .attr('r',       d => (activeFilter === null || d.f === activeFilter) ? r     : 1.2);
 }
 
-function buildUI(meta){
+// ── Build sidebar UI ──────────────────────────────────────────────────────
+function buildUI(meta) {
   const filtersEl = document.getElementById('filters');
-  const chipBar = document.getElementById('chip-bar');
-  const byArea = meta.by_area || {};
+  const chipBar   = document.getElementById('chip-bar');
+  const byArea    = meta.by_area || {};
 
-  // All button
-  const allBtn = document.createElement('button');
-  allBtn.className = 'filter-btn active';
-  allBtn.dataset.filter = '__all';
-  allBtn.style.setProperty('--clr', '#78c87a');
-  allBtn.innerHTML = `<span class="dot" style="background:#78c87a"></span><span class="label">All</span><span class="cnt">${meta.total.toLocaleString()}</span>`;
-  allBtn.onclick = () => setFilter(null);
-  filtersEl.appendChild(allBtn);
-
-  // All chip
-  const allChip = document.createElement('button');
-  allChip.className = 'chip active';
-  allChip.dataset.id = '__all';
-  allChip.style.setProperty('--clr', '#78c87a');
-  allChip.innerHTML = `<span class="chip-dot" style="background:#78c87a"></span>All`;
-  allChip.onclick = () => setFilter(null);
-  chipBar.appendChild(allChip);
-
-  // Per-area buttons
-  const areas = Object.keys(AREA_NAMES);
-  areas.forEach(area => {
-    const color = AREA_COLORS[area] || DEFAULT_COLOR;
-    const cnt = byArea[area] || 0;
-    if(!cnt) return;
-
+  function makeBtn(areaId, color, label, cnt) {
     const btn = document.createElement('button');
-    btn.className = 'filter-btn';
-    btn.dataset.filter = area;
+    btn.className    = 'filter-btn' + (areaId === '__all' ? ' active' : '');
+    btn.dataset.filter = areaId;
     btn.style.setProperty('--clr', color);
-    btn.innerHTML = `<span class="dot" style="background:${color}"></span><span class="label">${AREA_NAMES[area]}</span><span class="cnt">${cnt.toLocaleString()}</span>`;
-    btn.onclick = () => setFilter(area);
-    filtersEl.appendChild(btn);
+    btn.innerHTML = `<span class="glow-dot" style="background:${color};box-shadow:0 0 6px 2px ${rgba(color,0.5)}"></span>`
+                  + `<span class="lbl">${label}</span><span class="cnt">${cnt}</span>`;
+    btn.onclick = () => setFilter(areaId === '__all' ? null : areaId);
+    return btn;
+  }
 
+  function makeChip(areaId, color, label) {
     const chip = document.createElement('button');
-    chip.className = 'chip';
-    chip.dataset.id = area;
+    chip.className  = 'chip' + (areaId === '__all' ? ' active' : '');
+    chip.dataset.id  = areaId;
     chip.style.setProperty('--clr', color);
-    const shortName = AREA_NAMES[area].split(' &')[0].split(' /')[0];
-    chip.innerHTML = `<span class="chip-dot" style="background:${color}"></span>${shortName}`;
-    chip.onclick = () => setFilter(area);
-    chipBar.appendChild(chip);
+    chip.innerHTML = `<span class="chip-dot" style="background:${color};box-shadow:0 0 4px 1px ${rgba(color,0.5)}"></span>${label}`;
+    chip.onclick = () => setFilter(areaId === '__all' ? null : areaId);
+    return chip;
+  }
+
+  filtersEl.appendChild(makeBtn('__all', '#78c87a', 'All Areas', meta.total.toLocaleString()));
+  chipBar.appendChild(makeChip('__all', '#78c87a', 'All'));
+
+  Object.keys(AREA_NAMES).forEach(area => {
+    const color = AREA_COLORS[area] || DEFAULT_COLOR;
+    const cnt   = byArea[area] || 0;
+    if (!cnt) return;
+    const short = AREA_NAMES[area].split(' &')[0].split(' /')[0].split(' (')[0];
+    filtersEl.appendChild(makeBtn(area, color, AREA_NAMES[area], cnt.toLocaleString()));
+    chipBar.appendChild(makeChip(area, color, short));
+  });
+
+  // Region jump buttons
+  const grid = document.getElementById('regions-grid');
+  REGIONS.forEach(r => {
+    const btn = document.createElement('button');
+    btn.className  = 'region-btn';
+    btn.textContent = r.name;
+    btn.onclick = () => flyTo(r.lat, r.lon, r.zoom);
+    grid.appendChild(btn);
   });
 }
 
-function renderDots(data){
-  g.selectAll('.org-dot').data(data).join('circle')
-    .attr('class','org-dot')
-    .attr('cx', d => projection([d.lo, d.la])[0])
-    .attr('cy', d => projection([d.lo, d.la])[1])
-    .attr('r', d => dotRadius(d) + 1)
-    .attr('fill', d => getColor(d.f))
-    .attr('opacity', 0.85)
-    .attr('stroke', d => darken(getColor(d.f)))
-    .attr('stroke-width', 1)
-    .style('cursor','pointer')
-    .on('mouseenter', function(ev, d){
-      d3.select(this).transition().duration(100).attr('r', dotRadius(d) + 4);
-      showTip(ev, d);
-    })
-    .on('mousemove', ev => positionTip(ev))
-    .on('mouseleave', function(ev, d){
-      const isActive = activeFilter === null || d.f === activeFilter;
-      d3.select(this).transition().duration(100).attr('r', isActive ? dotRadius(d)+1 : dotRadius(d));
-      hideTip();
-    });
-  updateDots();
+function updateCountDisplay() {
+  const n = activeFilter ? orgs.filter(o => o.f === activeFilter).length : orgs.length;
+  document.getElementById('count').textContent           = `${n.toLocaleString()} organizations`;
+  document.getElementById('count-mobile').textContent    = `${n.toLocaleString()} orgs`;
 }
 
-// ── Load world topology and data ──
+// ── Hexbin rendering ──────────────────────────────────────────────────────
+function scheduleHexUpdate() {
+  clearTimeout(hexTimer);
+  hexTimer = setTimeout(() => renderHexbins(currentTransform), 80);
+}
+
+function renderHexbins(transform) {
+  const k = transform.k;
+  if (k >= THRESHOLD) {
+    hexLayer.style('display', 'none');
+    dotsG.style('display', null);
+    return;
+  }
+  hexLayer.style('display', null);
+  dotsG.style('display', 'none');
+
+  // Build screen-space points for this transform
+  const pts = [];
+  orgs.forEach(o => {
+    if (activeFilter && o.f !== activeFilter) return;
+    pts.push({
+      x: transform.applyX(o.px),
+      y: transform.applyY(o.py),
+      org: o
+    });
+  });
+
+  // Hexbin in screen space, radius 18px
+  const hb   = d3.hexbin().x(p => p.x).y(p => p.y).radius(18);
+  const bins  = hb(pts);
+
+  const binData = bins.map(bin => {
+    const ac = {};
+    bin.forEach(p => { ac[p.org.f] = (ac[p.org.f] || 0) + 1; });
+    const dominant = Object.entries(ac).sort((a, b) => b[1] - a[1])[0]?.[0] || 'other';
+    const cnt = bin.length;
+    const r   = Math.max(5, Math.min(26, 5 + Math.log(cnt + 1) * 5));
+    return { x: bin.x, y: bin.y, color: getColor(dominant), r };
+  });
+
+  hexLayer.selectAll('circle').data(binData).join('circle')
+    .attr('cx',           d => d.x)
+    .attr('cy',           d => d.y)
+    .attr('r',            d => d.r)
+    .attr('fill',         d => rgba(d.color, 0.5))
+    .attr('stroke',       d => rgba(d.color, 0.22))
+    .attr('stroke-width', 1.5);
+}
+
+// ── Dot rendering ─────────────────────────────────────────────────────────
+function renderDots(data) {
+  dotsG.selectAll('.org-dot').data(data, d => d.n + d.jla).join(
+    enter => enter.append('circle')
+      .attr('class',   'org-dot')
+      .attr('cx',      d => d.px)
+      .attr('cy',      d => d.py)
+      .attr('r',       2.5)
+      .attr('fill',    d => getColor(d.f))
+      .attr('opacity', 0.8)
+      .style('cursor', 'pointer')
+      .on('mouseenter', function(ev, d) { onDotEnter(ev, d, this); })
+      .on('mousemove',  ev => posTip(ev))
+      .on('mouseleave', function(ev, d) { onDotLeave(ev, d, this); }),
+    update => update,
+    exit   => exit.remove()
+  );
+}
+
+// ── Hover + mycelium tendrils ─────────────────────────────────────────────
+function onDotEnter(ev, d, el) {
+  const r = dotBaseR(currentTransform.k);
+  d3.select(el).raise().transition().duration(100).attr('r', r + 3).attr('opacity', 1);
+  showTip(ev, d);
+  drawTendrils(d);
+}
+
+function onDotLeave(ev, d, el) {
+  const active = activeFilter === null || d.f === activeFilter;
+  const r      = active ? dotBaseR(currentTransform.k) : 1.2;
+  d3.select(el).transition().duration(150).attr('r', r).attr('opacity', active ? 0.8 : 0.04);
+  hideTip();
+  tendrilG.selectAll('*').remove();
+}
+
+function drawTendrils(hovered) {
+  tendrilG.selectAll('*').remove();
+  const color = getColor(hovered.f);
+  const hx    = currentTransform.applyX(hovered.px);
+  const hy    = currentTransform.applyY(hovered.py);
+
+  // Find same-area dots within 80px screen distance
+  const nearby = [];
+  dotsG.selectAll('.org-dot').each(function(d) {
+    if (d === hovered || d.f !== hovered.f) return;
+    const dx   = currentTransform.applyX(d.px) - hx;
+    const dy   = currentTransform.applyY(d.py) - hy;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+    if (dist < 80 && dist > 1) nearby.push({ d, dist });
+  });
+
+  // Draw up to 5 nearest tendrils (fade in)
+  nearby.sort((a, b) => a.dist - b.dist).slice(0, 5).forEach(({ d }) => {
+    tendrilG.append('line')
+      .attr('x1', hovered.px).attr('y1', hovered.py)
+      .attr('x2', d.px).attr('y2', d.py)
+      .attr('stroke',       rgba(color, 0))
+      .attr('stroke-width', 0.6)
+      .attr('stroke-dasharray', '4 3')
+      .transition().duration(280)
+      .attr('stroke', rgba(color, 0.38));
+  });
+}
+
+// ── Count in view ─────────────────────────────────────────────────────────
+function scheduleCountUpdate() {
+  clearTimeout(countTimer);
+  countTimer = setTimeout(updateCountInView, 300);
+}
+
+function updateCountInView() {
+  const k  = currentTransform.k;
+  const el = document.getElementById('count-in-view');
+  if (k < THRESHOLD) { el.style.display = 'none'; return; }
+
+  let count = 0;
+  dotsG.selectAll('.org-dot').each(function(d) {
+    if (activeFilter && d.f !== activeFilter) return;
+    const sx = currentTransform.applyX(d.px);
+    const sy = currentTransform.applyY(d.py);
+    if (sx >= 0 && sx <= w && sy >= 0 && sy <= h) count++;
+  });
+
+  el.style.display = 'block';
+  el.textContent   = `${count.toLocaleString()} in view`;
+}
+
+// ── Zoom handler ──────────────────────────────────────────────────────────
+function onZoom(e) {
+  currentTransform = e.transform;
+  g.attr('transform', e.transform);
+  const k = e.transform.k;
+
+  if (k < THRESHOLD) {
+    dotsG.style('display', 'none');
+    document.getElementById('count-in-view').style.display = 'none';
+    scheduleHexUpdate();
+  } else {
+    hexLayer.style('display', 'none');
+    dotsG.style('display', null);
+    // Adjust dot radius per zoom level
+    const r = dotBaseR(k);
+    dotsG.selectAll('.org-dot')
+      .attr('r', d => (activeFilter === null || d.f === activeFilter) ? r : 1.2);
+    scheduleCountUpdate();
+  }
+}
+
+// ── Load and initialize ───────────────────────────────────────────────────
 Promise.all([
   d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json'),
   fetch('./data/search/map_points.json').then(r => r.json()),
   fetch('./data/search/map_meta.json').then(r => r.json()),
 ]).then(([world, points, meta]) => {
-  orgs = points;
 
-  // Draw countries
+  // Preprocess + project
+  orgs = preprocessOrgs(points);
+  orgs.forEach(o => {
+    const [px, py] = projection([o.jlo, o.jla]);
+    o.px = px; o.py = py;
+  });
+
+  // Base map
   const countries = topojson.feature(world, world.objects.countries);
-  g.selectAll('.country').data(countries.features).join('path')
-    .attr('class','country').attr('d',path);
+  countriesG.selectAll('.country').data(countries.features).join('path')
+    .attr('class', 'country').attr('d', geoPath);
+  graticuleG.append('path').datum(d3.geoGraticule()())
+    .attr('class', 'graticule').attr('d', geoPath);
 
-  // Build UI
+  // Build sidebar UI
   buildUI(meta);
 
-  // Render dots
+  // Render all dots (start hidden — world view shows hexbins)
   renderDots(orgs);
+  dotsG.style('display', 'none');
 
-  // Hide loader
+  // Initial hexbin
+  renderHexbins(d3.zoomIdentity);
+
   document.getElementById('loading').style.display = 'none';
 
 }).catch(err => {
   console.error('Load error:', err);
-  const loadEl = document.getElementById('loading');
-  loadEl.querySelector('p').textContent = 'Error loading data. Check console.';
-  loadEl.querySelector('.spinner').style.display = 'none';
+  const el = document.getElementById('loading');
+  el.querySelector('p').textContent = 'Error loading data — check console.';
+  el.querySelector('.spinner').style.display = 'none';
 });
 
-// ── Resize handler ──
+// ── Resize ────────────────────────────────────────────────────────────────
 window.addEventListener('resize', () => {
-  w = container.clientWidth; h = container.clientHeight;
+  w = container.clientWidth;
+  h = container.clientHeight;
   svg.attr('width', w).attr('height', h);
   projection.scale(w / 5.8).translate([w / 2, h / 2]);
-  g.selectAll('.country').attr('d', path);
-  g.selectAll('.graticule').attr('d', path);
-  g.selectAll('.org-dot')
-    .attr('cx', d => projection([d.lo, d.la])[0])
-    .attr('cy', d => projection([d.lo, d.la])[1]);
+
+  if (orgs.length) {
+    orgs.forEach(o => {
+      const [px, py] = projection([o.jlo, o.jla]);
+      o.px = px; o.py = py;
+    });
+    countriesG.selectAll('.country').attr('d', geoPath);
+    graticuleG.selectAll('.graticule').attr('d', geoPath);
+    dotsG.selectAll('.org-dot').attr('cx', d => d.px).attr('cy', d => d.py);
+    if (currentTransform.k < THRESHOLD) scheduleHexUpdate();
+    else scheduleCountUpdate();
+  }
 });
 </script>
 </body>
