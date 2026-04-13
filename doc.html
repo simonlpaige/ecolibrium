@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ecolibrium</title>
+<meta name="description" content="Ecolibrium framework documentation">
+<script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
+<style>
+/* ── Reset & tokens ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:      #0d1a0d;
+  --surface: #132013;
+  --s2:      #192819;
+  --s3:      #1f321f;
+  --border:  #253825;
+  --border2: #30483a;
+  --text:    #cce8b0;
+  --muted:   #5e8a52;
+  --dim:     #3d5e35;
+  --accent:  #78c87a;
+  --a2:      #56a85a;
+  --warm:    #a8c87e;
+  --teal:    #4fc4b0;
+  --earth:   #c4a55d;
+  --focus:   #4fc4b0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+/* ── Skip link (ADA) ── */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  background: var(--accent);
+  color: #081208;
+  padding: 8px 16px;
+  border-radius: 0 0 8px 8px;
+  font-weight: 700;
+  font-size: 14px;
+  z-index: 200;
+  text-decoration: none;
+  transition: top 0.15s;
+}
+.skip-link:focus { top: 0; outline: 3px solid var(--focus); }
+
+/* ── Focus styles ── */
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+a { color: var(--accent); }
+a:hover { color: var(--warm); }
+a:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+/* ── Nav ── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(13,26,13,0.95);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 28px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 52px;
+}
+
+.nav-logo {
+  font-size: 14px; font-weight: 800;
+  letter-spacing: 0.06em; text-transform: lowercase;
+  color: var(--accent); text-decoration: none;
+}
+.nav-logo:hover { color: var(--warm); text-decoration: none; }
+.nav-logo:focus-visible { outline: 2px solid var(--focus); border-radius: 3px; }
+
+.nav-links { display: flex; gap: 0; }
+.nav-links a {
+  padding: 0 13px; height: 52px;
+  display: flex; align-items: center;
+  font-size: 13px; color: var(--muted);
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+  text-decoration: none;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; border-bottom-color: var(--accent); }
+.nav-links a[aria-current="page"] { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* ── Breadcrumb ── */
+.breadcrumb {
+  max-width: 860px; margin: 0 auto;
+  padding: 16px 28px 0;
+  font-size: 12px; color: var(--dim);
+  display: flex; gap: 6px; align-items: center;
+  flex-wrap: wrap;
+}
+.breadcrumb a { color: var(--muted); text-decoration: none; }
+.breadcrumb a:hover { color: var(--accent); }
+.breadcrumb span { color: var(--dim); }
+
+/* ── Main layout ── */
+main {
+  max-width: 860px; margin: 0 auto;
+  padding: 32px 28px 80px;
+}
+
+/* ── Loading / error ── */
+#loading {
+  text-align: center; padding: 80px 28px;
+  color: var(--muted); font-size: 15px;
+}
+.error-box {
+  background: var(--surface); border: 1px solid var(--border2);
+  border-left: 3px solid var(--earth); border-radius: 10px;
+  padding: 24px; margin: 40px 0;
+}
+.error-box h2 { color: var(--earth); margin-bottom: 10px; font-size: 18px; }
+.error-box p { color: var(--muted); font-size: 14px; }
+
+/* ── Markdown content styles ── */
+#content h1 {
+  font-size: clamp(24px, 4vw, 38px);
+  font-weight: 800; line-height: 1.1;
+  letter-spacing: -0.02em; color: #dff5c0;
+  margin-bottom: 20px; margin-top: 0;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+#content h2 {
+  font-size: clamp(18px, 2.5vw, 24px);
+  font-weight: 700; color: #c8e0a8;
+  margin: 48px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+#content h3 {
+  font-size: 18px; font-weight: 700;
+  color: var(--warm); margin: 32px 0 12px;
+}
+
+#content h4 {
+  font-size: 15px; font-weight: 700;
+  color: var(--muted); margin: 24px 0 8px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+
+#content p {
+  color: #7aaa6a;
+  margin-bottom: 18px;
+  font-size: 16px; line-height: 1.8;
+}
+
+#content p strong { color: var(--text); font-weight: 600; }
+#content p em { color: var(--warm); font-style: italic; }
+
+#content a { color: var(--accent); }
+#content a:hover { color: var(--warm); }
+
+/* Lists */
+#content ul, #content ol {
+  margin: 0 0 20px 0;
+  padding-left: 24px;
+}
+#content li {
+  color: #7aaa6a;
+  font-size: 16px; line-height: 1.75;
+  margin-bottom: 6px;
+}
+#content li strong { color: var(--text); }
+
+/* Nested lists */
+#content li > ul, #content li > ol { margin: 8px 0 4px; }
+
+/* Checkboxes */
+#content input[type="checkbox"] {
+  accent-color: var(--accent);
+  margin-right: 6px;
+}
+
+/* Blockquotes */
+#content blockquote {
+  border-left: 3px solid var(--earth);
+  background: var(--surface);
+  margin: 24px 0;
+  padding: 16px 20px;
+  border-radius: 0 8px 8px 0;
+}
+#content blockquote p {
+  color: var(--muted); font-style: italic;
+  margin-bottom: 0; font-size: 15px;
+}
+
+/* Code */
+#content code {
+  background: var(--s2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-size: 14px;
+  color: var(--teal);
+  font-family: 'SF Mono', 'Fira Code', Consolas, monospace;
+}
+#content pre {
+  background: var(--s2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  overflow-x: auto;
+  margin: 20px 0;
+}
+#content pre code {
+  background: none; border: none; padding: 0;
+  font-size: 13px; line-height: 1.6;
+  color: var(--warm);
+}
+
+/* Tables -- wrapped for mobile scroll */
+.table-wrap {
+  width: 100%; overflow-x: auto;
+  margin: 24px 0;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  -webkit-overflow-scrolling: touch;
+}
+.table-wrap:focus-within { outline: 2px solid var(--focus); }
+
+#content table {
+  width: 100%; border-collapse: collapse;
+  font-size: 14px; min-width: 500px;
+}
+#content thead { background: var(--s2); }
+#content th {
+  padding: 10px 14px; text-align: left;
+  font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--muted); border-bottom: 1px solid var(--border2);
+  white-space: nowrap;
+}
+#content td {
+  padding: 10px 14px; color: #7aaa6a;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top; line-height: 1.55;
+}
+#content tr:last-child td { border-bottom: none; }
+#content tr:hover td { background: var(--surface); }
+#content td strong { color: var(--text); }
+#content td a { color: var(--accent); font-size: 12px; }
+
+/* HR */
+#content hr {
+  border: none; border-top: 1px solid var(--border);
+  margin: 40px 0;
+}
+
+/* Images */
+#content img { max-width: 100%; border-radius: 8px; }
+
+/* ── TOC sidebar (desktop) ── */
+.doc-layout {
+  display: flex; gap: 40px; align-items: flex-start;
+}
+#toc {
+  position: sticky; top: 72px;
+  width: 220px; min-width: 220px;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto; flex-shrink: 0;
+  padding: 0 0 20px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+#toc::-webkit-scrollbar { width: 4px; }
+#toc::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+#toc h2 {
+  font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--dim); margin-bottom: 12px; padding-bottom: 0;
+  border-bottom: none; margin-top: 0;
+}
+#toc ul { list-style: none; padding: 0; margin: 0; }
+#toc li { margin: 0; }
+#toc a {
+  display: block; padding: 4px 8px;
+  font-size: 12px; color: var(--muted);
+  border-left: 2px solid var(--border);
+  text-decoration: none; line-height: 1.5;
+  transition: color 0.15s, border-color 0.15s;
+  border-radius: 0 4px 4px 0;
+}
+#toc a:hover { color: var(--accent); border-left-color: var(--accent); }
+#toc a.toc-h3 { padding-left: 18px; font-size: 11px; color: var(--dim); }
+#toc a.toc-h3:hover { color: var(--muted); }
+#toc a.toc-active { color: var(--accent); border-left-color: var(--accent); }
+
+/* ── Doc nav bottom ── */
+.doc-nav {
+  display: flex; justify-content: space-between; flex-wrap: wrap;
+  gap: 12px; margin-top: 60px; padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+.doc-nav a {
+  display: flex; align-items: center; gap: 6px;
+  padding: 10px 18px; border-radius: 8px;
+  background: var(--surface); border: 1px solid var(--border);
+  font-size: 13px; font-weight: 600; color: var(--text);
+  text-decoration: none; transition: all 0.15s;
+}
+.doc-nav a:hover { background: var(--s2); border-color: var(--border2); color: var(--accent); text-decoration: none; }
+
+/* ── Footer ── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 24px 28px; text-align: center;
+  font-size: 11px; color: var(--dim);
+}
+footer a { color: var(--dim); }
+footer a:hover { color: var(--muted); }
+
+/* ── Mobile ── */
+@media (max-width: 900px) {
+  #toc { display: none; }
+  .doc-layout { display: block; }
+}
+@media (max-width: 640px) {
+  nav { padding: 0 16px; }
+  .nav-links a { padding: 0 9px; font-size: 12px; }
+  main { padding: 24px 16px 60px; }
+  .breadcrumb { padding: 12px 16px 0; }
+  #content h1 { font-size: 24px; }
+  #content h2 { font-size: 19px; }
+  #content p, #content li { font-size: 15px; }
+}
+
+/* ── Print ── */
+@media print {
+  nav, .breadcrumb, #toc, .doc-nav, footer { display: none; }
+  body { background: white; color: black; font-size: 12pt; }
+  #content h1, #content h2, #content h3 { color: black; }
+  #content p, #content li { color: #333; }
+  a::after { content: " (" attr(href) ")"; font-size: 10pt; color: #666; }
+}
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<nav role="navigation" aria-label="Site navigation">
+  <a href="/ecolibrium/" class="nav-logo" aria-label="Ecolibrium home">ecolibrium</a>
+  <div class="nav-links" role="list">
+    <a href="/ecolibrium/#map" role="listitem">Map</a>
+    <a href="/ecolibrium/doc.html?file=README" role="listitem" id="nav-framework">Framework</a>
+    <a href="/ecolibrium/doc.html?file=DIRECTORY" role="listitem" id="nav-directory">Directory</a>
+    <a href="/ecolibrium/#docs" role="listitem">All Docs</a>
+  </div>
+</nav>
+
+<nav aria-label="Breadcrumb" class="breadcrumb">
+  <a href="/ecolibrium/">Home</a>
+  <span aria-hidden="true">/</span>
+  <span id="breadcrumb-current" aria-current="page">Loading...</span>
+</nav>
+
+<div class="doc-layout">
+  <aside id="toc" aria-label="Table of contents" role="navigation">
+    <h2>On this page</h2>
+    <ul id="toc-list"></ul>
+  </aside>
+
+  <main id="main-content" tabindex="-1">
+    <div id="loading" role="status" aria-live="polite" aria-label="Loading document">
+      <p>Loading...</p>
+    </div>
+    <article id="content" aria-live="polite"></article>
+    <nav class="doc-nav" aria-label="Document navigation" id="doc-nav" style="display:none"></nav>
+  </main>
+</div>
+
+<footer role="contentinfo">
+  <p>
+    <a href="https://github.com/simonlpaige/ecolibrium" target="_blank" rel="noopener">github.com/simonlpaige/ecolibrium</a>
+    &middot; Data: <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a>
+    &middot; Framework: <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>
+    &middot; Inspired by <a href="https://web.archive.org/web/20140411042711/http://wiser.org/" target="_blank" rel="noopener">WiserEarth</a> (2007&ndash;2014)
+  </p>
+</footer>
+
+<script>
+// ── Doc registry ──
+const DOCS = {
+  README:       { title: "The Framework",           prev: null,           next: "DIRECTORY" },
+  DIRECTORY:    { title: "Organization Directory",  prev: "README",       next: "DEEP-DIVE" },
+  "DEEP-DIVE":  { title: "Deep Research",           prev: "DIRECTORY",    next: "CRITIQUE" },
+  CRITIQUE:     { title: "Honest Critique",         prev: "DEEP-DIVE",    next: "GOVERNANCE" },
+  GOVERNANCE:   { title: "Governance",              prev: "CRITIQUE",     next: "SUSTAINABILITY" },
+  SUSTAINABILITY:{ title: "Sustainability",         prev: "GOVERNANCE",   next: "WISEREARTH" },
+  WISEREARTH:   { title: "WiserEarth Analysis",     prev: "SUSTAINABILITY",next: null },
+};
+
+// ── Parse query param ──
+const params = new URLSearchParams(location.search);
+const file = params.get("file") || "README";
+const meta = DOCS[file] || { title: file, prev: null, next: null };
+
+// Set page title
+document.title = `${meta.title} — Ecolibrium`;
+
+// Breadcrumb
+document.getElementById("breadcrumb-current").textContent = meta.title;
+
+// Highlight nav
+const navEl = document.getElementById("nav-" + file.toLowerCase().replace(/-/g,""));
+if (navEl) navEl.setAttribute("aria-current", "page");
+
+// Mark active nav link
+document.querySelectorAll(".nav-links a").forEach(a => {
+  if (a.href.includes(file)) a.setAttribute("aria-current", "page");
+});
+
+// ── Fetch and render ──
+const mdUrl = `./${file}.md`;
+
+marked.setOptions({
+  gfm: true,
+  breaks: false,
+});
+
+// Custom renderer: wrap tables
+const renderer = new marked.Renderer();
+renderer.table = function(header, body) {
+  return `<div class="table-wrap" role="region" aria-label="Data table" tabindex="0"><table><thead>${header}</thead><tbody>${body}</tbody></table></div>`;
+};
+// Open external links in new tab
+renderer.link = function(href, title, text) {
+  const isExternal = href && (href.startsWith("http") || href.startsWith("//"));
+  const attrs = isExternal
+    ? ` target="_blank" rel="noopener noreferrer" aria-label="${text}${title ? ': ' + title : ''} (opens in new tab)"`
+    : ``;
+  const titleAttr = title ? ` title="${title}"` : "";
+  return `<a href="${href}"${titleAttr}${attrs}>${text}</a>`;
+};
+
+marked.use({ renderer });
+
+fetch(mdUrl)
+  .then(r => {
+    if (!r.ok) throw new Error(`${r.status} ${r.statusText}`);
+    return r.text();
+  })
+  .then(md => {
+    document.getElementById("loading").style.display = "none";
+    const contentEl = document.getElementById("content");
+    contentEl.innerHTML = marked.parse(md);
+
+    // Fix checkbox inputs -- mark readonly for ADA
+    contentEl.querySelectorAll("input[type=checkbox]").forEach(cb => {
+      cb.setAttribute("readonly", "");
+      cb.setAttribute("aria-readonly", "true");
+      cb.setAttribute("tabindex", "-1");
+    });
+
+    // Add id anchors to all headings if missing
+    contentEl.querySelectorAll("h1,h2,h3,h4").forEach(h => {
+      if (!h.id) {
+        h.id = h.textContent.toLowerCase()
+          .replace(/[^\w\s-]/g, "")
+          .replace(/\s+/g, "-")
+          .replace(/-+/g, "-")
+          .slice(0, 60);
+      }
+      h.setAttribute("tabindex", "-1"); // allow focus for skip links
+    });
+
+    // Build TOC
+    buildTOC(contentEl);
+
+    // Doc nav
+    buildDocNav();
+
+    // Scroll spy
+    initScrollSpy();
+  })
+  .catch(err => {
+    document.getElementById("loading").style.display = "none";
+    document.getElementById("content").innerHTML = `
+      <div class="error-box" role="alert">
+        <h2>Document not found</h2>
+        <p>Could not load <code>${file}.md</code>. ${err.message}</p>
+        <p style="margin-top:12px"><a href="/ecolibrium/">Back to home</a></p>
+      </div>`;
+  });
+
+// ── Build TOC ──
+function buildTOC(contentEl) {
+  const headings = [...contentEl.querySelectorAll("h2, h3")];
+  if (headings.length < 3) { document.getElementById("toc").style.display = "none"; return; }
+  const list = document.getElementById("toc-list");
+  headings.forEach(h => {
+    const li = document.createElement("li");
+    const a = document.createElement("a");
+    a.href = "#" + h.id;
+    a.textContent = h.textContent;
+    a.className = h.tagName === "H3" ? "toc-h3" : "toc-h2";
+    a.addEventListener("click", e => {
+      e.preventDefault();
+      h.focus();
+      h.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    li.appendChild(a);
+    list.appendChild(li);
+  });
+}
+
+// ── Build doc nav (prev/next) ──
+function buildDocNav() {
+  const nav = document.getElementById("doc-nav");
+  const items = [];
+  if (meta.prev) {
+    const p = DOCS[meta.prev];
+    items.push(`<a href="doc.html?file=${meta.prev}" aria-label="Previous document: ${p.title}">&larr; ${p.title}</a>`);
+  }
+  if (meta.next) {
+    const n = DOCS[meta.next];
+    items.push(`<a href="doc.html?file=${meta.next}" aria-label="Next document: ${n.title}">${n.title} &rarr;</a>`);
+  }
+  if (items.length) {
+    nav.innerHTML = items.join("");
+    nav.style.display = "flex";
+  }
+}
+
+// ── Scroll spy for TOC ──
+function initScrollSpy() {
+  const headings = [...document.getElementById("content").querySelectorAll("h2,h3")];
+  if (!headings.length) return;
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const id = entry.target.id;
+      const link = document.querySelector(`#toc-list a[href="#${id}"]`);
+      if (!link) return;
+      if (entry.isIntersecting) {
+        document.querySelectorAll("#toc-list a").forEach(a => a.classList.remove("toc-active"));
+        link.classList.add("toc-active");
+      }
+    });
+  }, { rootMargin: "-20% 0px -70% 0px" });
+  headings.forEach(h => observer.observe(h));
+}
+</script>
+</body>
+</html>

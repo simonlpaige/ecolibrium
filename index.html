@@ -30,6 +30,23 @@
 
 html { scroll-behavior: smooth; }
 
+/* Focus */
+:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute; top: -100px; left: 16px;
+  background: var(--accent); color: #081208;
+  padding: 8px 16px; border-radius: 0 0 8px 8px;
+  font-weight: 700; font-size: 14px; z-index: 200;
+  text-decoration: none; transition: top 0.15s;
+}
+.skip-link:focus { top: 0; outline: 3px solid var(--teal); }
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, sans-serif;
   background: var(--bg);
@@ -301,19 +318,21 @@ footer a:hover { color: var(--muted); }
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
-<nav>
-  <span class="nav-logo">ecolibrium</span>
-  <div class="nav-links">
+<nav role="navigation" aria-label="Site navigation">
+  <a href="/ecolibrium/" class="nav-logo" aria-label="Ecolibrium home">ecolibrium</a>
+  <div class="nav-links" role="list">
     <a href="#map">Map</a>
     <a href="#sections">Sections</a>
     <a href="#docs">Docs</a>
     <a href="#about">About</a>
-    <a href="https://github.com/simonlpaige/ecolibrium/blob/master/DIRECTORY.md" target="_blank" class="nav-cta">Directory &rarr;</a>
+    <a href="doc.html?file=DIRECTORY" target="_blank" class="nav-cta">Directory &rarr;</a>
   </div>
 </nav>
 
 <!-- HERO -->
+<main id="main-content" tabindex="-1">
 <section class="hero">
   <div class="pill">Open Source &middot; CC0 &middot; No leaders</div>
   <h1>The movement already exists.<br>Nobody named it <em>yet.</em></h1>
@@ -321,7 +340,7 @@ footer a:hover { color: var(--muted); }
   <p class="hero-sub">This is the continuation -- with the infrastructure problem taken seriously this time.</p>
   <div class="btn-row">
     <a href="#map" class="btn btn-green">&#x1F30D; Explore the Map</a>
-    <a href="https://github.com/simonlpaige/ecolibrium/blob/master/DIRECTORY.md" target="_blank" class="btn btn-ghost">Browse the Directory &rarr;</a>
+    <a href="doc.html?file=DIRECTORY" target="_blank" class="btn btn-ghost">Browse the Directory &rarr;</a>
     <a href="https://github.com/simonlpaige/ecolibrium" target="_blank" class="btn btn-ghost">Read the Framework &rarr;</a>
   </div>
 </section>
@@ -334,31 +353,31 @@ footer a:hover { color: var(--muted); }
     <div class="doc-desc">~170 organizations plotted on a filterable world map. Zoom, pan, hover for details. Filter by section.</div>
     <div class="doc-arrow">Open full screen &rarr;</div>
   </a>
-  <a class="doc-card" href="https://github.com/simonlpaige/ecolibrium/blob/master/DIRECTORY.md" target="_blank">
+  <a class="doc-card" href="doc.html?file=DIRECTORY" target="_blank">
     <div class="doc-icon">📋</div>
     <div class="doc-title">Organization Directory</div>
     <div class="doc-desc">300+ real operating organizations across 12 sections. Tables with descriptions, regions, and links.</div>
     <div class="doc-arrow">View DIRECTORY.md &rarr;</div>
   </a>
-  <a class="doc-card" href="https://github.com/simonlpaige/ecolibrium/blob/master/README.md" target="_blank">
+  <a class="doc-card" href="doc.html?file=README" target="_blank">
     <div class="doc-icon">📐</div>
     <div class="doc-title">The Framework</div>
     <div class="doc-desc">The full phased blueprint: democratic infrastructure, resource distribution, the mycelial strategy, the transfer.</div>
     <div class="doc-arrow">Read README.md &rarr;</div>
   </a>
-  <a class="doc-card" href="https://github.com/simonlpaige/ecolibrium/blob/master/DEEP-DIVE.md" target="_blank">
+  <a class="doc-card" href="doc.html?file=DEEP-DIVE" target="_blank">
     <div class="doc-icon">🔬</div>
     <div class="doc-title">Deep Research</div>
     <div class="doc-desc">Section-by-section historical evidence, empirical data, failure modes, and Ostrom's design principles.</div>
     <div class="doc-arrow">Read DEEP-DIVE.md &rarr;</div>
   </a>
-  <a class="doc-card" href="https://github.com/simonlpaige/ecolibrium/blob/master/CRITIQUE.md" target="_blank">
+  <a class="doc-card" href="doc.html?file=CRITIQUE" target="_blank">
     <div class="doc-icon">🔍</div>
     <div class="doc-title">Honest Critique</div>
     <div class="doc-desc">Where the framework's logic breaks down, what it doesn't say, and what would need to be true for it to work.</div>
     <div class="doc-arrow">Read CRITIQUE.md &rarr;</div>
   </a>
-  <a class="doc-card" href="https://github.com/simonlpaige/ecolibrium/blob/master/WISEREARTH.md" target="_blank">
+  <a class="doc-card" href="doc.html?file=WISEREARTH" target="_blank">
     <div class="doc-icon">🌱</div>
     <div class="doc-title">WiserEarth Analysis</div>
     <div class="doc-desc">Full history of the project that came before, what it built, why it failed, and what it leaves behind.</div>
@@ -369,7 +388,7 @@ footer a:hover { color: var(--muted); }
 <!-- WISEREARTH CALLOUT -->
 <div class="wiser-wrap">
   <div class="wiser-card">
-    <strong>On the shoulders of WiserEarth.</strong> From 2007 to 2014, wiser.org was the only place that tried to map the civil society commons at global scale -- 114,994 NGOs in 243 countries, a 381-node taxonomy, women-led, ad-free, genuinely beautiful. It closed because it depended on one organization's philanthropy. The data is mostly gone. The structural lesson is documented in <a href="https://github.com/simonlpaige/ecolibrium/blob/master/SUSTAINABILITY.md" target="_blank">SUSTAINABILITY.md</a>.
+    <strong>On the shoulders of WiserEarth.</strong> From 2007 to 2014, wiser.org was the only place that tried to map the civil society commons at global scale -- 114,994 NGOs in 243 countries, a 381-node taxonomy, women-led, ad-free, genuinely beautiful. It closed because it depended on one organization's philanthropy. The data is mostly gone. The structural lesson is documented in <a href="doc.html?file=SUSTAINABILITY" target="_blank">SUSTAINABILITY.md</a>.
   </div>
 </div>
 
@@ -390,7 +409,7 @@ footer a:hover { color: var(--muted); }
   <div class="map-box">
     <iframe src="map.html" title="Ecolibrium Global Directory Map" loading="lazy"></iframe>
     <div class="map-footer">
-      <span>~170 plotted organizations across 12 sections &mdash; data: <a href="https://github.com/simonlpaige/ecolibrium/blob/master/DIRECTORY.md" target="_blank">DIRECTORY.md</a> (CC0)</span>
+      <span>~170 plotted organizations across 12 sections &mdash; data: <a href="doc.html?file=DIRECTORY" target="_blank">DIRECTORY.md</a> (CC0)</span>
       <a href="map.html" target="_blank">Open full screen &rarr;</a>
     </div>
   </div>
@@ -400,7 +419,7 @@ footer a:hover { color: var(--muted); }
 <div id="sections" class="sections-wrap">
   <div class="section-hed" style="margin-bottom:24px;">
     <h2>12 sections &mdash; 300+ organizations</h2>
-    <p>Each section maps organizations already building that piece of the answer. <a href="https://github.com/simonlpaige/ecolibrium/blob/master/DIRECTORY.md" target="_blank">Browse the full directory &rarr;</a></p>
+    <p>Each section maps organizations already building that piece of the answer. <a href="doc.html?file=DIRECTORY" target="_blank">Browse the full directory &rarr;</a></p>
   </div>
   <div class="sections-grid">
     <div class="sec-card" style="--card-color:#60a5fa">
@@ -493,49 +512,49 @@ footer a:hover { color: var(--muted); }
   <h2>All documents</h2>
   <p class="sub">Everything is public, CC0 or CC BY-SA. Read it, fork it, disagree with it in a pull request.</p>
   <div class="docs-grid">
-    <a class="docs-card" href="https://github.com/simonlpaige/ecolibrium/blob/master/README.md" target="_blank">
+    <a class="docs-card" href="doc.html?file=README" target="_blank">
       <div class="docs-card-icon">📐</div>
       <div class="docs-card-body">
         <div class="docs-card-title">README.md &mdash; The Framework</div>
         <div class="docs-card-desc">Three-phase blueprint. Democratic infrastructure, resource distribution, the mycelial strategy, the transfer, post-transfer society.</div>
       </div>
     </a>
-    <a class="docs-card" href="https://github.com/simonlpaige/ecolibrium/blob/master/DIRECTORY.md" target="_blank">
+    <a class="docs-card" href="doc.html?file=DIRECTORY" target="_blank">
       <div class="docs-card-icon">📋</div>
       <div class="docs-card-body">
         <div class="docs-card-title">DIRECTORY.md &mdash; 300+ Organizations</div>
         <div class="docs-card-desc">Comprehensive global directory of organizations across all 12 sections. Tables with descriptions, regions, links.</div>
       </div>
     </a>
-    <a class="docs-card" href="https://github.com/simonlpaige/ecolibrium/blob/master/DEEP-DIVE.md" target="_blank">
+    <a class="docs-card" href="doc.html?file=DEEP-DIVE" target="_blank">
       <div class="docs-card-icon">🔬</div>
       <div class="docs-card-body">
         <div class="docs-card-title">DEEP-DIVE.md &mdash; Evidence &amp; History</div>
         <div class="docs-card-desc">Historical evidence, empirical data, failure modes, honest answers to 13 open questions. Ostrom's 8 design principles.</div>
       </div>
     </a>
-    <a class="docs-card" href="https://github.com/simonlpaige/ecolibrium/blob/master/CRITIQUE.md" target="_blank">
+    <a class="docs-card" href="doc.html?file=CRITIQUE" target="_blank">
       <div class="docs-card-icon">🔍</div>
       <div class="docs-card-body">
         <div class="docs-card-title">CRITIQUE.md &mdash; Where It Breaks</div>
         <div class="docs-card-desc">Section-by-section audit of logic flaws, magical thinking, and blind spots. With concrete fixes.</div>
       </div>
     </a>
-    <a class="docs-card" href="https://github.com/simonlpaige/ecolibrium/blob/master/GOVERNANCE.md" target="_blank">
+    <a class="docs-card" href="doc.html?file=GOVERNANCE" target="_blank">
       <div class="docs-card-icon">⚖️</div>
       <div class="docs-card-body">
         <div class="docs-card-title">GOVERNANCE.md &mdash; How Decisions Get Made</div>
         <div class="docs-card-desc">Rough consensus and running code. No founder authority. How maintainers work and how that changes over time.</div>
       </div>
     </a>
-    <a class="docs-card" href="https://github.com/simonlpaige/ecolibrium/blob/master/SUSTAINABILITY.md" target="_blank">
+    <a class="docs-card" href="doc.html?file=SUSTAINABILITY" target="_blank">
       <div class="docs-card-icon">💧</div>
       <div class="docs-card-body">
         <div class="docs-card-title">SUSTAINABILITY.md &mdash; Anti-WiserEarth Plan</div>
         <div class="docs-card-desc">How this project survives past its funding. Federated hosting, Open Collective, wind-down procedure, five hard constraints.</div>
       </div>
     </a>
-    <a class="docs-card" href="https://github.com/simonlpaige/ecolibrium/blob/master/WISEREARTH.md" target="_blank">
+    <a class="docs-card" href="doc.html?file=WISEREARTH" target="_blank">
       <div class="docs-card-icon">🌱</div>
       <div class="docs-card-body">
         <div class="docs-card-title">WISEREARTH.md &mdash; The Predecessor</div>
@@ -557,7 +576,7 @@ footer a:hover { color: var(--muted); }
   <div class="honesty-box">
     <h3>A note on what this isn't</h3>
     <p>This framework has real weaknesses. The post-scarcity premise is doing too much work. The transfer mechanism is underspecified. Animal agriculture is conspicuously absent from the food section. The mycelial strategy needs a funding model or it dies the same death WiserEarth did.</p>
-    <p>These aren't reasons to abandon the project. They're the problems to solve. <a href="https://github.com/simonlpaige/ecolibrium/blob/master/CRITIQUE.md" target="_blank">CRITIQUE.md</a> and <a href="https://github.com/simonlpaige/ecolibrium/blob/master/DEEP-DIVE.md" target="_blank">DEEP-DIVE.md</a> engage with all of them directly. A framework that can't survive scrutiny from its own supporters isn't worth building.</p>
+    <p>These aren't reasons to abandon the project. They're the problems to solve. <a href="doc.html?file=CRITIQUE" target="_blank">CRITIQUE.md</a> and <a href="doc.html?file=DEEP-DIVE" target="_blank">DEEP-DIVE.md</a> engage with all of them directly. A framework that can't survive scrutiny from its own supporters isn't worth building.</p>
   </div>
 </div>
 
@@ -567,13 +586,13 @@ footer a:hover { color: var(--muted); }
   <p>The data is CC0. Fork it, extend it, add organizations, correct errors. The framework is open, anonymous, no center. If you know something it doesn't, that's what the pull requests are for.</p>
   <div class="btn-row">
     <a href="https://github.com/simonlpaige/ecolibrium" target="_blank" class="btn btn-green">Contribute on GitHub</a>
-    <a href="https://github.com/simonlpaige/ecolibrium/blob/master/DIRECTORY.md" target="_blank" class="btn btn-ghost">Browse the Directory &rarr;</a>
+    <a href="doc.html?file=DIRECTORY" target="_blank" class="btn btn-ghost">Browse the Directory &rarr;</a>
   </div>
 </div>
 
 <footer>
   <p>
-    Data: <a href="https://github.com/simonlpaige/ecolibrium/blob/master/DIRECTORY.md" target="_blank">DIRECTORY.md</a>
+    Data: <a href="doc.html?file=DIRECTORY" target="_blank">DIRECTORY.md</a>
     &middot; Framework: <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a>
     &middot; Data: <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a>
     &middot; Inspired by <a href="https://web.archive.org/web/20140411042711/http://wiser.org/" target="_blank">WiserEarth</a> (2007&ndash;2014)
