@@ -32,7 +32,7 @@
 |---|---|---|---|
 | **ElectionGuard** | Microsoft-backed open-source SDK using homomorphic encryption for end-to-end verifiable elections. MIT licensed. | Global | github.com/Election-Tech-Initiative/electionguard |
 | **VotingWorks** | Nonprofit building open-source voting machines; piloted in Mississippi and New Hampshire. | USA | votingworks.com |
-| **VoteSecure** | First open-source SDK for end-to-end encrypted mobile voting, released Nov 2025 by the Mobile Voting Foundation. Election vendors Sequent and Democracy Live committed to implementing in 2026. | USA / Global | mobilevoting.org |
+| **VoteSecure** | First open-source SDK for end-to-end encrypted mobile voting, released Nov 2025 by the Mobile Voting Foundation. Election vendors Sequent and Democracy Live committed to implementing in 2026. | USA / Global | mobilevoting.org [VERIFY] |
 | **Belenios** | French open-source online voting system providing vote privacy via encryption and public verifiability. | France / Europe | belenios.org |
 | **VotoSocial** | Blockchain-based voting with no central servers, publicly traceable votes, voter anonymity. Born from post-election fraud concerns in Honduras (2013). | Honduras / Latin America | votosocial.github.io |
 | **OSET Institute / TrustTheVote** | Developing ElectOS, an open-source election technology platform. | USA | trustthevote.org |
@@ -95,7 +95,7 @@
 | **Mayors for a Guaranteed Income** | Coalition of 100+ US mayors advocating for guaranteed income programs. | USA | mayorsforagi.org |
 | **Basic Income Today** | News aggregator and resource hub for global UBI developments. | Global | basicincometoday.com |
 | **UBI Lab Network** | Community of local UBI labs exploring implementation across the UK. | UK | ubilabnetwork.org |
-| **Basic Income Pilots** | Dashboard tracking 136+ pilots globally (62 active, 74 concluded as of 2026). | Global | basicincomepilots.com |
+| **Basic Income Pilots** | Dashboard tracking US guaranteed income pilots (62 active, 74 concluded as of 2026). Note: US-focused, not global. | USA | basicincomepilots.com |
 | **Mein Grundeinkommen** | German nonprofit that has raffled off 1,100+ basic incomes; ran major RCT. | Germany | mein-grundeinkommen.de |
 | **Basic Income Grant Coalition** | Ran Namibia's Otjivero BIG pilot (2008-2009), one of Africa's first. | Namibia | — |
 
