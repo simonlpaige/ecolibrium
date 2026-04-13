@@ -19,15 +19,16 @@
   }
 
   #layout {
-    display: flex;
+    position: relative;
     height: 100vh;
     width: 100vw;
   }
 
   /* ── Sidebar ── */
   #sidebar {
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
     width: 260px;
-    flex-shrink: 0;
     background: #0d160d;
     border-right: 1px solid #1e2e1e;
     display: flex;
@@ -321,7 +322,7 @@
     <div class="sb-hint">scroll to zoom · click clusters to expand · click orgs for details</div>
   </div>
 
-  <div id="map"></div>
+  <div id="map" style="position:absolute;top:0;bottom:0;left:260px;right:0;"></div>
 </div>
 
 <!-- Mobile bottom bar -->
@@ -386,9 +387,35 @@ let dataReady = false;
 
 // ── Map init ───────────────────────────────────────────────────────────────
 
+// Inline dark style using Stadia dark tiles (reliable, no key for open use)
+const DARK_STYLE = {
+  version: 8,
+  name: 'Ecolibrium Dark',
+  sources: {
+    'stadia-dark': {
+      type: 'raster',
+      tiles: ['https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}.png'],
+      tileSize: 256,
+      attribution: '© <a href="https://stadiamaps.com/">Stadia Maps</a> © <a href="https://openmaptiles.org/">OpenMapTiles</a> © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      maxzoom: 20
+    }
+  },
+  layers: [{
+    id: 'background',
+    type: 'background',
+    paint: { 'background-color': '#060d06' }
+  }, {
+    id: 'stadia-tiles',
+    type: 'raster',
+    source: 'stadia-dark',
+    paint: { 'raster-opacity': 1.0 }
+  }],
+  glyphs: 'https://fonts.openmaptiles.org/{fontstack}/{range}.pbf'
+};
+
 const map = new maplibregl.Map({
   container: 'map',
-  style: 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json',
+  style: DARK_STYLE,
   center: [0, 20],
   zoom: 1.5,
   minZoom: 1,
@@ -501,7 +528,7 @@ function addLayers(geojson) {
     filter: ['has', 'point_count'],
     layout: {
       'text-field': ['get', 'point_count_abbreviated'],
-      'text-font': ['Open Sans Bold', 'Arial Unicode MS Bold'],
+      'text-font': ['Open Sans Semibold', 'Arial Unicode MS Regular'],
       'text-size': 11
     },
     paint: {
