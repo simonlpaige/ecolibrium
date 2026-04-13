@@ -75,6 +75,20 @@ svg{display:block}
 #tooltip .t-link:hover{text-decoration:underline}
 .graticule{fill:none;stroke:#162016;stroke-width:.4}
 .country{fill:#1a2a1a;stroke:#253825;stroke-width:.5}
+
+/* Loading spinner */
+#loading{
+  position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;z-index:50;
+  background:#0a100a;gap:14px;
+}
+#loading .spinner{
+  width:36px;height:36px;border:3px solid #1a2a1a;
+  border-top-color:#4ade80;border-radius:50%;
+  animation:spin .8s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+#loading p{color:#4a7040;font-size:13px}
 </style>
 </head>
 <body>
@@ -89,6 +103,7 @@ svg{display:block}
 <div id="filters"></div>
 </div>
 <div id="map-container">
+<div id="loading"><div class="spinner"></div><p>Loading organizations…</p></div>
 <button id="reset-btn">↻ Reset</button>
 <div id="count-mobile"></div>
 <div id="tooltip">
@@ -102,359 +117,225 @@ svg{display:block}
 <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
 <script>
-// ── Section metadata ──
-const sections=[
-{id:1,name:"Democratic Infrastructure",color:"#60a5fa"},
-{id:2,name:"Wealth & Cooperatives",color:"#34d399"},
-{id:3,name:"Healthcare",color:"#f472b6"},
-{id:4,name:"Food",color:"#fb923c"},
-{id:5,name:"Education",color:"#a78bfa"},
-{id:6,name:"Land & Housing",color:"#fbbf24"},
-{id:7,name:"Conflict Resolution",color:"#f87171"},
-{id:8,name:"Energy & Digital Commons",color:"#22d3ee"},
-{id:9,name:"Recreation & Arts",color:"#e879f9"},
-{id:10,name:"Wellbeing Economics",color:"#4ade80"},
-{id:11,name:"Allied Projects",color:"#94a3b8"},
-{id:12,name:"Networks",color:"#ffffff"}
-];
-const sectionMap=Object.fromEntries(sections.map(s=>[s.id,s]));
+const AREA_COLORS = {
+  democracy:'#60a5fa', cooperatives:'#34d399', healthcare:'#f472b6',
+  food:'#fb923c', education:'#a78bfa', housing_land:'#fbbf24',
+  conflict:'#f87171', energy_digital:'#22d3ee', recreation_arts:'#e879f9',
+  ecology:'#4ade80'
+};
+const DEFAULT_COLOR = '#94a3b8';
 
-// ── Jitter helper (seeded by index for determinism) ──
-function jitter(i){const a=Math.sin(i*9301+49297)%1,b=Math.sin(i*1301+7927)%1;return[a*4-2,b*4-2]}
+const AREA_NAMES = {
+  democracy:'Democratic Infrastructure', cooperatives:'Cooperatives & Solidarity Economy',
+  healthcare:'Healthcare', food:'Food & Agriculture', education:'Education',
+  housing_land:'Housing & Land', conflict:'Conflict Resolution',
+  energy_digital:'Energy & Digital Commons', recreation_arts:'Recreation & Arts',
+  ecology:'Ecological Restoration'
+};
 
-// ── All organizations ──
-const orgs=[
-// Section 1
-{name:"ElectionGuard",s:1,r:"Global",lat:38,lng:-97,url:"github.com/Election-Tech-Initiative/electionguard",d:"Microsoft-backed open-source SDK for end-to-end verifiable elections"},
-{name:"VotingWorks",s:1,r:"USA",lat:38,lng:-97,url:"votingworks.com",d:"Nonprofit building open-source voting machines"},
-{name:"Belenios",s:1,r:"France",lat:46,lng:2,url:"belenios.org",d:"Open-source online voting with encryption and public verifiability"},
-{name:"VotoSocial",s:1,r:"Honduras",lat:15,lng:-87,url:"votosocial.github.io",d:"Blockchain-based voting born from post-election fraud concerns in Honduras"},
-{name:"Sequent",s:1,r:"Spain",lat:40,lng:-3,url:"sequentech.io",d:"Open-source end-to-end verifiable online voting platform"},
-{name:"Helios Voting",s:1,r:"Global",lat:51,lng:10,url:"heliosvoting.org",d:"Open-source web-based voting using homomorphic tallying"},
-{name:"Agora",s:1,r:"Switzerland",lat:47,lng:8,url:"agora.vote",d:"Blockchain-verified digital voting piloted in Sierra Leone"},
-{name:"Decidim",s:1,r:"Spain",lat:41,lng:2,url:"decidim.org",d:"Participatory democracy framework used in 30+ countries"},
-{name:"Consul",s:1,r:"Spain",lat:40,lng:-4,url:"consuldemocracy.org",d:"Open-source citizen participation tool used by 100+ cities"},
-{name:"Loomio",s:1,r:"New Zealand",lat:-41,lng:174,url:"loomio.com",d:"Collaborative decision-making for groups of any size"},
-{name:"Liquid Democracy e.V.",s:1,r:"Germany",lat:51,lng:10,url:"liqd.net",d:"Powers participation processes across Germany"},
-{name:"DemocracyOS",s:1,r:"Argentina",lat:-34,lng:-64,url:"democracyos.org",d:"Open platform for deliberation and voting on political proposals"},
-{name:"Pol.is",s:1,r:"Taiwan",lat:23,lng:121,url:"pol.is",d:"ML-powered consensus analysis used in Taiwan's vTaiwan process"},
-{name:"Concorder",s:1,r:"Canada",lat:56,lng:-96,url:"concorder.net",d:"Collaborative drafting with transparent multilingual voting"},
-{name:"Your Priorities",s:1,r:"Iceland",lat:65,lng:-18,url:"citizens.is",d:"Open-source citizen engagement platform"},
-{name:"mySociety",s:1,r:"UK",lat:51.5,lng:-0.1,url:"mysociety.org",d:"Civic tech nonprofit behind FixMyStreet and TheyWorkForYou"},
-{name:"Sortition Foundation",s:1,r:"UK",lat:52,lng:-1,url:"sortitionfoundation.org",d:"Promotes citizens' assemblies selected by civic lottery"},
-{name:"MASS LBP",s:1,r:"Canada",lat:54,lng:-94,url:"masslbp.com",d:"Designs and runs citizens' reference panels for governments"},
-{name:"newDemocracy Foundation",s:1,r:"Australia",lat:-25,lng:133,url:"newdemocracy.com.au",d:"Research and development for deliberative democracy"},
-{name:"Ireland's Citizens' Assembly",s:1,r:"Ireland",lat:53,lng:-8,url:"citizensassembly.ie",d:"Led to constitutional reforms on marriage equality and abortion"},
-{name:"Ostbelgien Model",s:1,r:"Belgium",lat:50,lng:4,url:"",d:"World's first permanent citizens' council with legislative influence"},
-// Section 2
-{name:"BIEN",s:2,r:"Global",lat:20,lng:0,url:"basicincome.org",d:"Global network promoting Universal Basic Income since 1986"},
-{name:"Stanford Basic Income Lab",s:2,r:"USA",lat:37,lng:-122,url:"basicincome.stanford.edu",d:"Academic research on UBI; tracks 160+ experiments globally"},
-{name:"GiveDirectly",s:2,r:"Kenya",lat:-1,lng:37,url:"givedirectly.org",d:"Large-scale unconditional cash transfers in East Africa and USA"},
-{name:"OpenResearch",s:2,r:"USA",lat:40,lng:-100,url:"openresearchlab.org",d:"Ran the largest US UBI study: 1000 people, $1000/month, 3 years"},
-{name:"Mein Grundeinkommen",s:2,r:"Germany",lat:52,lng:13,url:"mein-grundeinkommen.de",d:"German nonprofit that has raffled 1100+ basic incomes"},
-{name:"Mondragon Corporation",s:2,r:"Spain",lat:43,lng:-2,url:"mondragon-corporation.com",d:"World's largest worker cooperative: 80000+ worker-owners"},
-{name:"Sistema Unimed",s:2,r:"Brazil",lat:-10,lng:-55,url:"unimed.coop.br",d:"Brazilian worker cooperative of doctors; world's largest health co-op"},
-{name:"SACMI",s:2,r:"Italy",lat:44,lng:11,url:"sacmi.com",d:"Major Italian worker cooperative in industrial machinery"},
-{name:"ULCCS Ltd",s:2,r:"India (Kerala)",lat:10,lng:76,url:"ulccsltd.com",d:"Major Indian worker cooperative; one of the largest in Asia"},
-{name:"SEWA",s:2,r:"India",lat:23,lng:72,url:"sewa.org",d:"2.5 million member women's cooperative and union in India"},
-{name:"Seikatsu Club",s:2,r:"Japan",lat:36,lng:138,url:"seikatsuclub.coop",d:"Japanese consumer cooperative with 400000+ members"},
-{name:"Cooperative Home Care Associates",s:2,r:"USA",lat:41,lng:-74,url:"chcany.org",d:"Largest worker cooperative in the US; 2000+ home care workers"},
-{name:"Evergreen Cooperatives",s:2,r:"USA",lat:41,lng:-82,url:"evgoh.com",d:"Network of worker-owned green businesses anchored by Cleveland institutions"},
-{name:"USFWC",s:2,r:"USA",lat:38,lng:-95,url:"usworker.coop",d:"National membership org for worker cooperatives"},
-{name:"Cooperatives UK",s:2,r:"UK",lat:53,lng:-2,url:"uk.coop",d:"National apex body for UK cooperatives"},
-{name:"Legacoop",s:2,r:"Italy",lat:43,lng:12,url:"legacoop.coop",d:"Italian cooperative league representing 15000+ cooperatives"},
-{name:"Desjardins Group",s:2,r:"Canada",lat:46,lng:-72,url:"desjardins.com",d:"Largest cooperative financial group in North America"},
-{name:"International Cooperative Alliance",s:2,r:"Global",lat:46,lng:6,url:"ica.coop",d:"Global apex body representing 1 billion+ cooperative members"},
-{name:"Democracy Collaborative",s:2,r:"USA",lat:39,lng:-77,url:"democracycollaborative.org",d:"Think tank advancing community wealth building"},
-{name:"New Economy Coalition",s:2,r:"USA",lat:42,lng:-71,url:"neweconomy.net",d:"US network of 200+ solidarity economy organizations"},
-{name:"The Working World",s:2,r:"Argentina",lat:-34,lng:-58,url:"theworkingworld.org",d:"Non-extractive cooperative finance organization"},
-// Section 3
-{name:"OpenMRS",s:3,r:"Global",lat:0,lng:30,url:"openmrs.org",d:"Open-source medical records system in 40+ countries with no license fees"},
-{name:"Community Health Toolkit",s:3,r:"Africa",lat:0,lng:20,url:"communityhealthtoolkit.org",d:"Digital tools for 40000+ community health workers in 15 countries"},
-{name:"DHIS2",s:3,r:"Global",lat:60,lng:10,url:"dhis2.org",d:"Open-source health info system used by 100+ countries"},
-{name:"GNU Health",s:3,r:"Global",lat:20,lng:77,url:"gnuhealth.org",d:"Libre digital health ecosystem for Social Medicine"},
-{name:"Medicines Patent Pool",s:3,r:"Global",lat:46,lng:6,url:"medicinespatentpool.org",d:"Licenses patents for essential medicines to improve access in LMICs"},
-{name:"Cuba's Polyclinic Model",s:3,r:"Cuba",lat:22,lng:-80,url:"",d:"Neighborhood-embedded family doctors; one of world's best primary care systems"},
-{name:"Rwanda CHW Program",s:3,r:"Rwanda",lat:-2,lng:30,url:"",d:"60000+ community health workers providing primary care in every village"},
-{name:"Brazil SUS",s:3,r:"Brazil",lat:-12,lng:-53,url:"",d:"Largest public health system in the world; universal free access for 210M people"},
-{name:"Partners in Health",s:3,r:"Global",lat:19,lng:-72,url:"pih.org",d:"Community-based healthcare in Haiti, Rwanda, Peru, Sierra Leone and beyond"},
-{name:"Barefoot College (Health)",s:3,r:"India",lat:27,lng:74,url:"barefootcollege.org",d:"Trains rural grandmothers as solar engineers and health workers"},
-{name:"BRAC Health",s:3,r:"Bangladesh",lat:24,lng:90,url:"brac.net",d:"World's largest NGO; community health programs in 12 countries"},
-{name:"Ethiopia Health Extension",s:3,r:"Ethiopia",lat:9,lng:40,url:"",d:"42000+ health extension workers; largest CHW program in sub-Saharan Africa"},
-{name:"Kerala Public Health",s:3,r:"India (Kerala)",lat:10,lng:76,url:"",d:"High health outcomes on low GDP through primary care investment"},
-{name:"Sri Lanka Free Healthcare",s:3,r:"Sri Lanka",lat:7,lng:81,url:"",d:"Universal free public healthcare since the 1930s"},
-{name:"Thailand UCS",s:3,r:"Thailand",lat:15,lng:101,url:"",d:"Near-universal health coverage achieved through community-based systems since 2002"},
-// Section 4
-{name:"Open Food Network",s:4,r:"Global",lat:-33,lng:151,url:"openfoodnetwork.org",d:"Open-source platform connecting 6000+ farmers across 15+ countries"},
-{name:"La Via Campesina",s:4,r:"Global",lat:4,lng:-72,url:"viacampesina.org",d:"200 million peasant farmers across 81 countries; coined food sovereignty"},
-{name:"Navdanya",s:4,r:"India",lat:30,lng:78,url:"navdanya.org",d:"Vandana Shiva's seed saving network; 150000+ farmers"},
-{name:"Slow Food International",s:4,r:"Italy",lat:44,lng:8,url:"slowfood.com",d:"Global movement linking food, culture and biodiversity; 100000+ members"},
-{name:"IPES-Food",s:4,r:"Global",lat:50,lng:4,url:"ipes-food.org",d:"International Panel of Experts on Sustainable Food Systems"},
-{name:"MASIPAG",s:4,r:"Philippines",lat:13,lng:122,url:"masipag.org",d:"Farmer-led network for sustainable agriculture in the Philippines"},
-{name:"African Centre for Biodiversity",s:4,r:"South Africa",lat:-26,lng:28,url:"acbio.org.za",d:"Research and advocacy for seed and food sovereignty in Africa"},
-{name:"Urgenci",s:4,r:"Global",lat:43,lng:5,url:"urgenci.net",d:"International CSA network connecting food sovereignty movements"},
-{name:"GRAIN",s:4,r:"Global",lat:41,lng:2,url:"grain.org",d:"Supports small farmers and social movements for food sovereignty"},
-{name:"AFSA",s:4,r:"Africa",lat:1,lng:32,url:"afsafrica.org",d:"Pan-African network for food sovereignty and agroecology"},
-{name:"Landworkers' Alliance",s:4,r:"UK",lat:51,lng:-2,url:"landworkersalliance.org.uk",d:"UK union for farmers and land workers; member of La Via Campesina"},
-{name:"FarmOS",s:4,r:"USA",lat:44,lng:-73,url:"farmos.org",d:"Open-source farm management platform"},
-{name:"Open Food Facts",s:4,r:"Global",lat:48,lng:2,url:"openfoodfacts.org",d:"Collaborative open database of 3M+ food products worldwide"},
-// Section 5
-{name:"Khan Academy",s:5,r:"USA",lat:37,lng:-122,url:"khanacademy.org",d:"Free education serving 150M+ registered learners globally"},
-{name:"Kolibri",s:5,r:"Global",lat:0,lng:-10,url:"learningequality.org",d:"Offline-first open-source education for low-connectivity environments"},
-{name:"Moodle",s:5,r:"Australia",lat:-32,lng:116,url:"moodle.org",d:"Most widely used open-source LMS; 300M+ users, 200+ countries"},
-{name:"Wikipedia / Wikimedia",s:5,r:"Global",lat:45,lng:-90,url:"wikimedia.org",d:"Largest collaboratively-built knowledge commons; 60M+ articles"},
-{name:"Creative Commons (Education)",s:5,r:"Global",lat:37,lng:-122,url:"creativecommons.org",d:"Legal infrastructure for 2B+ openly-licensed works"},
-{name:"OpenStax",s:5,r:"USA",lat:30,lng:-95,url:"openstax.org",d:"Free peer-reviewed open textbooks; 60+ titles"},
-{name:"African Virtual University",s:5,r:"Africa",lat:-1,lng:37,url:"avu.org",d:"Pan-African open distance learning network"},
-{name:"Escuela Nueva",s:5,r:"Colombia",lat:4,lng:-74,url:"escuelanueva.org",d:"Scalable model for rural democratic education in 16+ countries"},
-{name:"Reggio Emilia",s:5,r:"Italy",lat:44,lng:11,url:"reggiochildren.it",d:"Child-led project-based early childhood education model"},
-{name:"Summerhill School",s:5,r:"UK",lat:52,lng:1,url:"summerhillschool.co.uk",d:"World's oldest democratic free school, founded 1921"},
-{name:"Paulo Freire Institute",s:5,r:"Brazil",lat:-23,lng:-46,url:"paulofreire.org",d:"Carries forward critical pedagogy globally"},
-{name:"Pratham / ASER",s:5,r:"India",lat:19,lng:73,url:"pratham.org",d:"Largest non-governmental education provider in India"},
-{name:"BRAC Education",s:5,r:"Bangladesh",lat:24,lng:90,url:"brac.net",d:"1M+ students in community-based schooling"},
-{name:"P2PU",s:5,r:"Global",lat:34,lng:-118,url:"p2pu.org",d:"Free open learning using libraries as peer study hubs"},
-{name:"Finnish Education Model",s:5,r:"Finland",lat:62,lng:26,url:"",d:"No standardized testing until 16; emphasis on play and creativity"},
-// Section 6
-{name:"Champlain Housing Trust",s:6,r:"USA",lat:44,lng:-73,url:"champlainhousingtrust.org",d:"Largest CLT in the world; 3000+ permanently affordable homes in Vermont"},
-{name:"Community Land Scotland",s:6,r:"Scotland",lat:57,lng:-4,url:"communitylandscotland.org.uk",d:"Collectively manages 500000+ acres through community land ownership"},
-{name:"Caño Martín Peña CLT",s:6,r:"Puerto Rico",lat:18,lng:-66,url:"enlacepr.org",d:"Protects 2000+ families in Puerto Rico's first urban CLT"},
-{name:"Vienna Social Housing",s:6,r:"Austria",lat:48,lng:16,url:"",d:"60% of Vienna residents live in subsidized housing; 100+ years of public housing"},
-{name:"Grounded Solutions Network",s:6,r:"USA",lat:45,lng:-122,url:"groundedsolutions.org",d:"Network for permanently affordable housing through shared equity models"},
-{name:"National CLT Network UK",s:6,r:"UK",lat:52,lng:-2,url:"communitylandtrusts.org.uk",d:"Support and advocacy for UK community land trusts"},
-{name:"CLT Network Belgium",s:6,r:"Belgium",lat:50,lng:5,url:"cltnb.be",d:"Growing Belgian CLT movement"},
-{name:"World Habitat",s:6,r:"UK",lat:53,lng:-1,url:"worldhabitat.org.uk",d:"Documents and promotes innovative housing solutions globally"},
-// Section 7
-{name:"Common Justice",s:7,r:"USA",lat:40,lng:-74,url:"commonjustice.org",d:"Restorative justice for violent felonies in New York; 41.5% recidivism reduction"},
-{name:"Insight Prison Project",s:7,r:"USA",lat:37,lng:-122,url:"insightprisonproject.org",d:"Restorative justice programs inside California prisons"},
-{name:"Restorative Justice International",s:7,r:"Global",lat:43,lng:-79,url:"restorativejusticeinternational.com",d:"Global network promoting restorative practices"},
-{name:"Community Justice Exchange",s:7,r:"USA",lat:41,lng:-74,url:"communityjusticeexchange.org",d:"Supports community-based alternatives to incarceration"},
-{name:"Rwanda Gacaca Courts",s:7,r:"Rwanda",lat:-2,lng:29,url:"",d:"Community-based transitional justice for 1.9M genocide cases"},
-{name:"South Africa TRC",s:7,r:"South Africa",lat:-29,lng:26,url:"",d:"Model truth and reconciliation process (1995-2002)"},
-{name:"Mediators Beyond Borders",s:7,r:"Global",lat:38,lng:-77,url:"mediatorsbeyondborders.org",d:"International volunteer mediators for conflict transformation"},
-{name:"IIRP",s:7,r:"USA",lat:40,lng:-75,url:"iirp.edu",d:"Training and research in restorative practices worldwide"},
-// Section 8
-{name:"REScoop.eu",s:8,r:"Europe",lat:50,lng:4,url:"rescoop.eu",d:"Federates 2250+ citizen energy cooperatives across Europe"},
-{name:"Rural Electric Cooperatives (NRECA)",s:8,r:"USA",lat:39,lng:-90,url:"electric.coop",d:"900+ rural electric cooperatives serving 42M Americans"},
-{name:"Energy4All",s:8,r:"UK",lat:54,lng:-2,url:"energy4all.co.uk",d:"Develops and supports renewable energy cooperatives in the UK"},
-{name:"Mastodon / Fediverse",s:8,r:"Global",lat:49,lng:8,url:"joinmastodon.org",d:"Federated open-source social media; largest decentralized network"},
-{name:"Signal",s:8,r:"USA",lat:37,lng:-122,url:"signal.org",d:"End-to-end encrypted private messaging; 100M+ users"},
-{name:"Internet Archive",s:8,r:"USA",lat:37,lng:-122,url:"archive.org",d:"Digital library preserving the open web; 700B+ pages archived"},
-{name:"Open Source Initiative",s:8,r:"USA",lat:37,lng:-120,url:"opensource.org",d:"Stewards the open-source definition; certifies open licenses"},
-{name:"Free Software Foundation",s:8,r:"USA",lat:42,lng:-71,url:"fsf.org",d:"Advocates for software freedom; maintains GNU"},
-{name:"Wikimedia Foundation",s:8,r:"USA",lat:37,lng:-122,url:"wikimedia.org",d:"Hosts Wikipedia and 12 other open knowledge projects"},
-{name:"Nextcloud",s:8,r:"Germany",lat:48,lng:9,url:"nextcloud.com",d:"Open-source self-hosted cloud; alternative to Google Drive"},
-{name:"Matrix / Element",s:8,r:"UK",lat:51,lng:-0.1,url:"matrix.org",d:"Open federated protocol for decentralized secure communication"},
-{name:"Tor Project",s:8,r:"USA",lat:43,lng:-70,url:"torproject.org",d:"Free and open anonymity network protecting privacy globally"},
-{name:"IPFS / Protocol Labs",s:8,r:"USA",lat:37,lng:-121,url:"ipfs.tech",d:"Distributed file system for the permanent decentralized web"},
-// Section 9
-{name:"Ireland Basic Income for the Arts",s:9,r:"Ireland",lat:53,lng:-8,url:"gov.ie",d:"€325/week for 2000 artists; becoming permanent in 2026"},
-{name:"Creative Commons",s:9,r:"Global",lat:37,lng:-122,url:"creativecommons.org",d:"Legal infrastructure enabling free sharing of culture globally"},
-{name:"Wikimedia Commons",s:9,r:"Global",lat:47,lng:8,url:"commons.wikimedia.org",d:"Free media repository with 90M+ freely licensed files"},
-{name:"Open Library",s:9,r:"USA",lat:37,lng:-122,url:"openlibrary.org",d:"Free access to 4M+ books for borrowing online"},
-{name:"Europeana",s:9,r:"Europe",lat:52,lng:5,url:"europeana.eu",d:"Digital platform providing access to 50M+ European cultural heritage items"},
-{name:"OpenGLAM",s:9,r:"Global",lat:51,lng:-0.1,url:"openglam.org",d:"Open access to galleries, libraries, archives and museums"},
-{name:"Itch.io",s:9,r:"USA",lat:37,lng:-122,url:"itch.io",d:"Open marketplace for independent games with flexible revenue sharing"},
-// Section 10
-{name:"Bhutan GNH Commission",s:10,r:"Global",lat:27,lng:90,url:"gnhc.gov.bt",d:"Gross National Happiness as national policy framework since 2008"},
-{name:"Wellbeing Economy Governments (WEGo)",s:10,r:"Global",lat:56,lng:-4,url:"weall.org",d:"Scotland, Iceland, New Zealand, Wales, Finland, Canada moving beyond GDP"},
-{name:"Doughnut Economics Action Lab",s:10,r:"UK",lat:51,lng:-0.1,url:"doughnuteconomics.org",d:"Economics within planetary and social boundaries"},
-{name:"Wellbeing Economy Alliance",s:10,r:"Global",lat:55,lng:-3,url:"weall.org",d:"Global network promoting wellbeing economies"},
-{name:"New Economics Foundation",s:10,r:"UK",lat:51.5,lng:-0.1,url:"neweconomics.org",d:"Independent think tank promoting real economic wellbeing"},
-{name:"OECD Better Life Index",s:10,r:"Global",lat:48,lng:2,url:"oecdbetterlifeindex.org",d:"Comparative wellbeing data for 40 countries"},
-{name:"Post Growth Institute",s:10,r:"Global",lat:44,lng:-123,url:"postgrowth.org",d:"Research and advocacy for a post-growth economy"},
-{name:"Club of Rome",s:10,r:"Global",lat:46,lng:8,url:"clubofrome.org",d:"Global think tank on long-term sustainability challenges"},
-{name:"Happy Planet Index",s:10,r:"UK",lat:51,lng:-0.1,url:"happyplanetindex.org",d:"Measures sustainable wellbeing: wellbeing x longevity / ecological footprint"},
-// Section 11
-{name:"HumanityOS",s:11,r:"USA",lat:45,lng:-93,url:"united-humanity.us",d:"Free CC0 cooperative platform and game engine for ending poverty"},
-{name:"OpenDemocracy AI",s:11,r:"Global",lat:40,lng:-100,url:"github.com/AshmanRoonz/OpenDemocracy",d:"AI-powered participatory democracy platform"},
-{name:"Solid (Tim Berners-Lee)",s:11,r:"UK",lat:51,lng:-1,url:"solidproject.org",d:"Decentralized data ownership protocol"},
-{name:"Open Source Ecology",s:11,r:"USA",lat:39,lng:-93,url:"opensourceecology.org",d:"50 open-source industrial machines including tractors and equipment"},
-{name:"Ushahidi",s:11,r:"Kenya",lat:-1,lng:37,url:"ushahidi.com",d:"Open-source crisis mapping and crowdsourced information platform"},
-{name:"Kobo Toolbox",s:11,r:"Global",lat:9,lng:40,url:"kobotoolbox.org",d:"Open-source data collection for humanitarian and development work"},
-{name:"OpenStreetMap",s:11,r:"UK",lat:51,lng:0,url:"openstreetmap.org",d:"Free editable map of the world; 10M+ contributors"},
-{name:"CKAN",s:11,r:"UK",lat:55,lng:-3,url:"ckan.org",d:"Open-source data portal platform powering data.gov and hundreds more"},
-{name:"Discourse",s:11,r:"USA",lat:37,lng:-121,url:"discourse.org",d:"Open-source community discussion platform"},
-{name:"Open Collective",s:11,r:"USA",lat:40,lng:-74,url:"opencollective.com",d:"Transparent fiscal hosting for open source and community projects"},
-// Section 12
-{name:"P2P Foundation",s:12,r:"Global",lat:52,lng:6,url:"p2pfoundation.net",d:"Research and advocacy for commons-based economics and peer production"},
-{name:"RIPESS",s:12,r:"Global",lat:45,lng:-73,url:"ripess.org",d:"Intercontinental network of social solidarity economy networks"},
-{name:"Global Assembly",s:12,r:"Global",lat:51,lng:-0.1,url:"globalassembly.org",d:"Global citizens' assembly on climate and ecological crisis"},
-{name:"Ashoka",s:12,r:"Global",lat:38,lng:-77,url:"ashoka.org",d:"World's largest network of social entrepreneurs; 3500+ fellows"},
-{name:"Global Ecovillage Network",s:12,r:"Global",lat:55,lng:13,url:"ecovillage.org",d:"Federation of 10000+ ecovillages across 100+ countries"},
-{name:"ICLEI",s:12,r:"Global",lat:49,lng:8,url:"iclei.org",d:"Network of 2500+ local governments committed to sustainability"},
-{name:"Transition Towns Network",s:12,r:"UK",lat:51,lng:-4,url:"transitionnetwork.org",d:"Global network of community-led sustainability transitions"},
-{name:"Skoll Foundation",s:12,r:"USA",lat:37,lng:-122,url:"skollfoundation.org",d:"Funds and supports social entrepreneurs globally"},
-];
+function getColor(f){ return AREA_COLORS[f] || DEFAULT_COLOR; }
 
-// Apply jitter
-orgs.forEach((o,i)=>{const j=jitter(i);o.lat+=j[0];o.lng+=j[1]});
-
-// ── Build sidebar ──
-const filtersEl=document.getElementById("filters");
-const countEl=document.getElementById("count");
-let activeFilter=null;
-
-function makeBtn(id,label,color,count){
-  const btn=document.createElement("button");
-  btn.className="filter-btn"+(id===null?" active":"");
-  btn.style.setProperty("--clr",color||"#94a3b8");
-  btn.innerHTML=`<span class="dot" style="background:${color||'#94a3b8'}"></span><span class="label">${label}</span><span class="cnt">${count}</span>`;
-  btn.onclick=()=>setFilter(id);
-  filtersEl.appendChild(btn);
-  return btn;
+function dotRadius(d){
+  if(d.m === 'research') return 3;
+  if(d.r && d.r > 1000000) return 4;
+  if(d.r && d.r > 100000) return 3;
+  return 2;
 }
 
-const sectionCounts=sections.map(s=>({...s,count:orgs.filter(o=>o.s===s.id).length}));
-const allBtn=makeBtn(null,"All","#78c87a",orgs.length);
-sectionCounts.forEach(s=>makeBtn(s.id,s.name,s.color,s.count));
-
-// Build mobile chip bar
-const chipBar=document.getElementById("chip-bar");
-const countMobile=document.getElementById("count-mobile");
-function makeChip(id,label,color){
-  const c=document.createElement("button");
-  c.className="chip"+(id===null?" active":"");
-  c.style.setProperty("--clr",color||"#78c87a");
-  c.dataset.id=id===null?"all":id;
-  c.innerHTML=`<span class="chip-dot" style="background:${color||'#78c87a'}"></span>${label}`;
-  c.onclick=()=>setFilter(id);
-  chipBar.appendChild(c);
+function darken(hex){
+  const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);
+  return `rgb(${r*.5|0},${g*.5|0},${b*.5|0})`;
 }
-makeChip(null,"All","#78c87a");
-sectionCounts.forEach(s=>makeChip(s.id,s.name.split(" &")[0].split(" /")[0],s.color));
+
+// ── D3 Map setup (start before data loads) ──
+const container = document.getElementById('map-container');
+let w = container.clientWidth, h = container.clientHeight;
+const svg = d3.select(container).append('svg').attr('width', w).attr('height', h);
+const projection = d3.geoNaturalEarth1().scale(w / 5.8).translate([w / 2, h / 2]);
+const path = d3.geoPath(projection);
+const g = svg.append('g');
+
+// Graticule
+g.append('path').datum(d3.geoGraticule()()).attr('class','graticule').attr('d',path);
+
+// Zoom
+const zoom = d3.zoom().scaleExtent([1,12]).on('zoom', e => { g.attr('transform', e.transform); });
+svg.call(zoom);
+document.getElementById('reset-btn').onclick = () =>
+  svg.transition().duration(600).call(zoom.transform, d3.zoomIdentity);
+
+// Tooltip
+const tip = document.getElementById('tooltip');
+const tipName = tip.querySelector('.t-name');
+const tipMeta = tip.querySelector('.t-meta');
+const tipDesc = tip.querySelector('.t-desc');
+const tipLink = tip.querySelector('.t-link');
+
+function showTip(ev, d){
+  const color = getColor(d.f);
+  const areaName = AREA_NAMES[d.f] || d.f || '';
+  const country = d.cc || 'US';
+  tipName.textContent = d.n;
+  tipName.style.color = color;
+  tipMeta.textContent = `${country} · ${areaName}`;
+  tipDesc.textContent = (d.d || '').length > 130 ? (d.d).slice(0,127)+'...' : (d.d || '');
+  if(d.w){
+    tipLink.style.display = 'inline';
+    tipLink.textContent = d.w;
+    tipLink.href = d.w.startsWith('http') ? d.w : 'https://'+d.w;
+  } else {
+    tipLink.style.display = 'none';
+  }
+  tip.style.display = 'block';
+  positionTip(ev);
+}
+function positionTip(ev){
+  const r = container.getBoundingClientRect();
+  let x = ev.clientX - r.left + 16, y = ev.clientY - r.top + 16;
+  if(x + 290 > r.width) x = ev.clientX - r.left - 296;
+  if(y + 170 > r.height) y = ev.clientY - r.top - 180;
+  tip.style.left = x + 'px'; tip.style.top = y + 'px';
+}
+function hideTip(){ tip.style.display = 'none'; }
+
+// State
+let activeFilter = null;
+let orgs = [];
 
 function setFilter(id){
-  activeFilter=id;
-  document.querySelectorAll(".filter-btn").forEach((b,i)=>{
-    b.classList.toggle("active",i===0?id===null:sections[i-1].id===id);
+  activeFilter = id;
+  document.querySelectorAll('.filter-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.filter === (id === null ? '__all' : id));
   });
-  document.querySelectorAll(".chip").forEach(c=>{
-    const cid=c.dataset.id;
-    c.classList.toggle("active",id===null?cid==="all":String(id)===cid);
+  document.querySelectorAll('.chip').forEach(c => {
+    c.classList.toggle('active', c.dataset.id === (id === null ? '__all' : id));
   });
   updateDots();
 }
 
 function updateDots(){
-  const vis=activeFilter===null?orgs.length:orgs.filter(o=>o.s===activeFilter).length;
-  countEl.textContent=`Showing ${vis} of ${orgs.length} organizations`;
-  if(countMobile)countMobile.textContent=`${vis} organizations`;
-  d3.selectAll(".org-dot").transition().duration(300)
-    .attr("opacity",d=>activeFilter===null||d.s===activeFilter?0.85:0.08)
-    .attr("r",d=>activeFilter===null||d.s===activeFilter?7:5);
+  const vis = activeFilter === null ? orgs.length : orgs.filter(o => o.f === activeFilter).length;
+  const countEl = document.getElementById('count');
+  const countMobile = document.getElementById('count-mobile');
+  countEl.textContent = `Showing ${vis.toLocaleString()} of ${orgs.length.toLocaleString()} organizations`;
+  if(countMobile) countMobile.textContent = `${vis.toLocaleString()} organizations`;
+  d3.selectAll('.org-dot').transition().duration(300)
+    .attr('opacity', d => activeFilter === null || d.f === activeFilter ? 0.85 : 0.07)
+    .attr('r', d => activeFilter === null || d.f === activeFilter ? dotRadius(d) + 1 : dotRadius(d));
 }
 
-// ── D3 Map ──
-const container=document.getElementById("map-container");
-const w=container.clientWidth,h=container.clientHeight;
-const svg=d3.select(container).append("svg").attr("width",w).attr("height",h);
-const projection=d3.geoNaturalEarth1().scale(w/5.8).translate([w/2,h/2]);
-const path=d3.geoPath(projection);
+function buildUI(meta){
+  const filtersEl = document.getElementById('filters');
+  const chipBar = document.getElementById('chip-bar');
+  const byArea = meta.by_area || {};
 
-const g=svg.append("g");
+  // All button
+  const allBtn = document.createElement('button');
+  allBtn.className = 'filter-btn active';
+  allBtn.dataset.filter = '__all';
+  allBtn.style.setProperty('--clr', '#78c87a');
+  allBtn.innerHTML = `<span class="dot" style="background:#78c87a"></span><span class="label">All</span><span class="cnt">${meta.total.toLocaleString()}</span>`;
+  allBtn.onclick = () => setFilter(null);
+  filtersEl.appendChild(allBtn);
 
-// Graticule
-g.append("path").datum(d3.geoGraticule()()).attr("class","graticule").attr("d",path);
+  // All chip
+  const allChip = document.createElement('button');
+  allChip.className = 'chip active';
+  allChip.dataset.id = '__all';
+  allChip.style.setProperty('--clr', '#78c87a');
+  allChip.innerHTML = `<span class="chip-dot" style="background:#78c87a"></span>All`;
+  allChip.onclick = () => setFilter(null);
+  chipBar.appendChild(allChip);
 
-// Zoom
-const zoom=d3.zoom().scaleExtent([1,12]).on("zoom",e=>{g.attr("transform",e.transform)});
-svg.call(zoom);
-document.getElementById("reset-btn").onclick=()=>svg.transition().duration(600).call(zoom.transform,d3.zoomIdentity);
+  // Per-area buttons
+  const areas = Object.keys(AREA_NAMES);
+  areas.forEach(area => {
+    const color = AREA_COLORS[area] || DEFAULT_COLOR;
+    const cnt = byArea[area] || 0;
+    if(!cnt) return;
 
-// Tooltip
-const tip=document.getElementById("tooltip");
-const tipName=tip.querySelector(".t-name");
-const tipMeta=tip.querySelector(".t-meta");
-const tipDesc=tip.querySelector(".t-desc");
-const tipLink=tip.querySelector(".t-link");
+    const btn = document.createElement('button');
+    btn.className = 'filter-btn';
+    btn.dataset.filter = area;
+    btn.style.setProperty('--clr', color);
+    btn.innerHTML = `<span class="dot" style="background:${color}"></span><span class="label">${AREA_NAMES[area]}</span><span class="cnt">${cnt.toLocaleString()}</span>`;
+    btn.onclick = () => setFilter(area);
+    filtersEl.appendChild(btn);
 
-function showTip(ev,d){
-  const sec=sectionMap[d.s];
-  tipName.textContent=d.name;
-  tipName.style.color=sec.color;
-  tipMeta.textContent=`${d.r} · ${sec.name}`;
-  tipDesc.textContent=d.d.length>130?d.d.slice(0,127)+"...":d.d;
-  if(d.url){
-    tipLink.style.display="inline";
-    tipLink.textContent=d.url;
-    tipLink.href=d.url.startsWith("http")?d.url:"https://"+d.url;
-  }else{tipLink.style.display="none"}
-  tip.style.display="block";
-  positionTip(ev);
+    const chip = document.createElement('button');
+    chip.className = 'chip';
+    chip.dataset.id = area;
+    chip.style.setProperty('--clr', color);
+    const shortName = AREA_NAMES[area].split(' &')[0].split(' /')[0];
+    chip.innerHTML = `<span class="chip-dot" style="background:${color}"></span>${shortName}`;
+    chip.onclick = () => setFilter(area);
+    chipBar.appendChild(chip);
+  });
 }
-function positionTip(ev){
-  const r=container.getBoundingClientRect();
-  let x=ev.clientX-r.left+16,y=ev.clientY-r.top+16;
-  if(x+290>r.width)x=ev.clientX-r.left-296;
-  if(y+160>r.height)y=ev.clientY-r.top-170;
-  tip.style.left=x+"px";tip.style.top=y+"px";
-}
-function hideTip(){tip.style.display="none"}
 
-// Load world
-d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json").then(world=>{
-  const countries=topojson.feature(world,world.objects.countries);
-  g.selectAll(".country").data(countries.features).join("path").attr("class","country").attr("d",path);
-
-  // Org dots
-  function darken(hex){
-    const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);
-    return `rgb(${r*.6|0},${g*.6|0},${b*.6|0})`;
-  }
-  g.selectAll(".org-dot").data(orgs).join("circle")
-    .attr("class","org-dot")
-    .attr("cx",d=>projection([d.lng,d.lat])[0])
-    .attr("cy",d=>projection([d.lng,d.lat])[1])
-    .attr("r",7)
-    .attr("fill",d=>sectionMap[d.s].color)
-    .attr("opacity",0.85)
-    .attr("stroke",d=>darken(sectionMap[d.s].color))
-    .attr("stroke-width",1.5)
-    .style("cursor","pointer")
-    .style("transition","transform .15s")
-    .on("mouseenter",function(ev,d){
-      d3.select(this).transition().duration(150).attr("r",10);
-      showTip(ev,d);
+function renderDots(data){
+  g.selectAll('.org-dot').data(data).join('circle')
+    .attr('class','org-dot')
+    .attr('cx', d => projection([d.lo, d.la])[0])
+    .attr('cy', d => projection([d.lo, d.la])[1])
+    .attr('r', d => dotRadius(d) + 1)
+    .attr('fill', d => getColor(d.f))
+    .attr('opacity', 0.85)
+    .attr('stroke', d => darken(getColor(d.f)))
+    .attr('stroke-width', 1)
+    .style('cursor','pointer')
+    .on('mouseenter', function(ev, d){
+      d3.select(this).transition().duration(100).attr('r', dotRadius(d) + 4);
+      showTip(ev, d);
     })
-    .on("mousemove",(ev)=>positionTip(ev))
-    .on("mouseleave",function(){
-      const isActive=activeFilter===null||d3.select(this).datum().s===activeFilter;
-      d3.select(this).transition().duration(150).attr("r",isActive?7:5);
+    .on('mousemove', ev => positionTip(ev))
+    .on('mouseleave', function(ev, d){
+      const isActive = activeFilter === null || d.f === activeFilter;
+      d3.select(this).transition().duration(100).attr('r', isActive ? dotRadius(d)+1 : dotRadius(d));
       hideTip();
     });
+  updateDots();
+}
 
-  updateDots();
-}).catch(err=>{
-  // Fallback: show dots without country shapes
-  console.warn("Could not load world topology:",err);
-  function darken(hex){
-    const r=parseInt(hex.slice(1,3),16),gg=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);
-    return `rgb(${r*.6|0},${gg*.6|0},${b*.6|0})`;
-  }
-  g.selectAll(".org-dot").data(orgs).join("circle")
-    .attr("class","org-dot")
-    .attr("cx",d=>projection([d.lng,d.lat])[0])
-    .attr("cy",d=>projection([d.lng,d.lat])[1])
-    .attr("r",7)
-    .attr("fill",d=>sectionMap[d.s].color)
-    .attr("opacity",0.85)
-    .attr("stroke",d=>darken(sectionMap[d.s].color))
-    .attr("stroke-width",1.5)
-    .style("cursor","pointer")
-    .on("mouseenter",function(ev,d){d3.select(this).transition().duration(150).attr("r",10);showTip(ev,d)})
-    .on("mousemove",(ev)=>positionTip(ev))
-    .on("mouseleave",function(){const isA=activeFilter===null||d3.select(this).datum().s===activeFilter;d3.select(this).transition().duration(150).attr("r",isA?7:5);hideTip()});
-  updateDots();
+// ── Load world topology and data ──
+Promise.all([
+  d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json'),
+  fetch('./data/search/map_points.json').then(r => r.json()),
+  fetch('./data/search/map_meta.json').then(r => r.json()),
+]).then(([world, points, meta]) => {
+  orgs = points;
+
+  // Draw countries
+  const countries = topojson.feature(world, world.objects.countries);
+  g.selectAll('.country').data(countries.features).join('path')
+    .attr('class','country').attr('d',path);
+
+  // Build UI
+  buildUI(meta);
+
+  // Render dots
+  renderDots(orgs);
+
+  // Hide loader
+  document.getElementById('loading').style.display = 'none';
+
+}).catch(err => {
+  console.error('Load error:', err);
+  const loadEl = document.getElementById('loading');
+  loadEl.querySelector('p').textContent = 'Error loading data. Check console.';
+  loadEl.querySelector('.spinner').style.display = 'none';
 });
 
-// Resize
-window.addEventListener("resize",()=>{
-  const nw=container.clientWidth,nh=container.clientHeight;
-  svg.attr("width",nw).attr("height",nh);
-  projection.scale(nw/5.8).translate([nw/2,nh/2]);
-  g.selectAll(".country").attr("d",path);
-  g.selectAll(".graticule").attr("d",path);
-  g.selectAll(".org-dot").attr("cx",d=>projection([d.lng,d.lat])[0]).attr("cy",d=>projection([d.lng,d.lat])[1]);
+// ── Resize handler ──
+window.addEventListener('resize', () => {
+  w = container.clientWidth; h = container.clientHeight;
+  svg.attr('width', w).attr('height', h);
+  projection.scale(w / 5.8).translate([w / 2, h / 2]);
+  g.selectAll('.country').attr('d', path);
+  g.selectAll('.graticule').attr('d', path);
+  g.selectAll('.org-dot')
+    .attr('cx', d => projection([d.lo, d.la])[0])
+    .attr('cy', d => projection([d.lo, d.la])[1]);
 });
 </script>
 </body>

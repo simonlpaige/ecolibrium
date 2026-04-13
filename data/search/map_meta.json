@@ -1,0 +1,37 @@
+{
+  "total": 13918,
+  "us_count": 13752,
+  "intl_count": 166,
+  "by_area": {
+    "healthcare": 2771,
+    "food": 2567,
+    "housing_land": 1884,
+    "education": 1809,
+    "recreation_arts": 1321,
+    "democracy": 1310,
+    "ecology": 986,
+    "cooperatives": 724,
+    "conflict": 534,
+    "energy_digital": 12
+  },
+  "by_country": {
+    "US": 13752,
+    "ZA": 58,
+    "KE": 51,
+    "SR": 32,
+    "VE": 13,
+    "HN": 12
+  },
+  "by_state": {
+    "CA": 1491,
+    "NY": 817,
+    "TX": 725,
+    "FL": 673,
+    "IL": 569,
+    "PA": 496,
+    "MI": 442,
+    "OH": 427,
+    "MA": 416,
+    "WA": 389
+  }
+}
