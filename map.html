@@ -6,35 +6,35 @@
 <title>Ecolibrium Directory — World Map</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{height:100%;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0d16;color:#e2e8f0}
+html,body{height:100%;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a100a;color:#e2e8f0}
 #app{display:flex;height:100vh}
-#sidebar{width:260px;min-width:260px;background:#131722;border-right:1px solid #1e2433;display:flex;flex-direction:column;overflow-y:auto;z-index:10}
+#sidebar{width:260px;min-width:260px;background:#121d12;border-right:1px solid #1a2a1a;display:flex;flex-direction:column;overflow-y:auto;z-index:10}
 #sidebar::-webkit-scrollbar{width:6px}
-#sidebar::-webkit-scrollbar-track{background:#131722}
-#sidebar::-webkit-scrollbar-thumb{background:#2a3147;border-radius:3px}
-#sidebar-header{padding:24px 20px 16px;border-bottom:1px solid #1e2433}
+#sidebar::-webkit-scrollbar-track{background:#121d12}
+#sidebar::-webkit-scrollbar-thumb{background:#253825;border-radius:3px}
+#sidebar-header{padding:24px 20px 16px;border-bottom:1px solid #1a2a1a}
 #sidebar-header h1{font-size:18px;font-weight:700;color:#fff;letter-spacing:-0.3px}
 #sidebar-header p{font-size:12px;color:#64748b;margin-top:4px}
 #count{font-size:13px;color:#94a3b8;padding:12px 20px 8px;font-weight:500}
 #filters{padding:4px 12px 20px;display:flex;flex-direction:column;gap:4px}
-.filter-btn{display:flex;align-items:center;gap:10px;padding:8px 12px;border:1.5px solid transparent;border-radius:8px;background:#1a1f2e;cursor:pointer;transition:all .15s;font-size:13px;color:#cbd5e1;font-family:inherit;text-align:left}
+.filter-btn{display:flex;align-items:center;gap:10px;padding:8px 12px;border:1.5px solid transparent;border-radius:8px;background:#162016;cursor:pointer;transition:all .15s;font-size:13px;color:#cbd5e1;font-family:inherit;text-align:left}
 .filter-btn:hover{background:#1e2838}
 .filter-btn.active{border-color:var(--clr);box-shadow:0 0 12px -2px var(--clr)}
 .filter-btn .dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
 .filter-btn .label{flex:1}
 .filter-btn .cnt{font-size:11px;color:#64748b;min-width:20px;text-align:right}
-#map-container{flex:1;position:relative;background:#0a0d16;overflow:hidden}
+#map-container{flex:1;position:relative;background:#0a100a;overflow:hidden}
 svg{display:block}
-#reset-btn{position:absolute;top:14px;right:14px;background:#1a1f2e;border:1px solid #2a3147;color:#94a3b8;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:12px;font-family:inherit;z-index:5;transition:all .15s}
-#reset-btn:hover{background:#2a3147;color:#fff}
-#tooltip{position:absolute;pointer-events:none;background:#1a1f2eee;border:1px solid #2a3147;border-radius:10px;padding:12px 14px;max-width:280px;font-size:13px;line-height:1.45;z-index:20;display:none;box-shadow:0 8px 32px #0008}
+#reset-btn{position:absolute;top:14px;right:14px;background:#162016;border:1px solid #253825;color:#94a3b8;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:12px;font-family:inherit;z-index:5;transition:all .15s}
+#reset-btn:hover{background:#253825;color:#fff}
+#tooltip{position:absolute;pointer-events:none;background:#162016ee;border:1px solid #253825;border-radius:10px;padding:12px 14px;max-width:280px;font-size:13px;line-height:1.45;z-index:20;display:none;box-shadow:0 8px 32px #0008}
 #tooltip .t-name{font-weight:700;font-size:14px;margin-bottom:2px}
 #tooltip .t-meta{font-size:11px;color:#64748b;margin-bottom:6px}
 #tooltip .t-desc{color:#cbd5e1;margin-bottom:6px}
 #tooltip .t-link{font-size:11px;color:#60a5fa;text-decoration:none;pointer-events:auto}
 #tooltip .t-link:hover{text-decoration:underline}
-.graticule{fill:none;stroke:#1a1f2e;stroke-width:.4}
-.country{fill:#1e2433;stroke:#2a3147;stroke-width:.5}
+.graticule{fill:none;stroke:#162016;stroke-width:.4}
+.country{fill:#1a2a1a;stroke:#253825;stroke-width:.5}
 </style>
 </head>
 <body>
