@@ -3,155 +3,196 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ecolibrium Directory — World Map</title>
+<title>Ecolibrium — Spore Map</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{height:100%;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#060d06;color:#cce8b0}
+html,body{height:100%;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#040904;color:#c8e0b8}
 
+/* ── Layout ── */
 #app{display:flex;height:100vh;flex-direction:row}
-#sidebar{width:260px;min-width:260px;background:#0d1a0d;border-right:1px solid #152015;display:flex;flex-direction:column;overflow-y:auto;z-index:10;flex-shrink:0}
-#sidebar::-webkit-scrollbar{width:4px}
-#sidebar::-webkit-scrollbar-track{background:#0d1a0d}
-#sidebar::-webkit-scrollbar-thumb{background:#1a2a1a;border-radius:3px}
-#sidebar-header{padding:18px 16px 12px;border-bottom:1px solid #152015}
-#sidebar-header h1{font-size:15px;font-weight:700;color:#cce8b0;letter-spacing:-.2px}
-#sidebar-header p{font-size:11px;color:#3d5e35;margin-top:3px;line-height:1.4}
-#count{font-size:11px;color:#4a6e42;padding:8px 16px 4px;font-weight:500}
-#filters{padding:4px 10px 10px;display:flex;flex-direction:column;gap:2px}
-.filter-btn{display:flex;align-items:center;gap:8px;padding:6px 10px;border:1.5px solid transparent;border-radius:7px;background:transparent;cursor:pointer;transition:all .15s;font-size:11.5px;color:#7a9a6a;font-family:inherit;text-align:left}
-.filter-btn:hover{background:#131f13;color:#cce8b0}
-.filter-btn.active{background:#131f13;border-color:var(--clr);color:#cce8b0;box-shadow:0 0 12px -4px var(--clr)}
-.filter-btn .glow-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
-.filter-btn .lbl{flex:1;line-height:1.3}
-.filter-btn .cnt{font-size:10px;color:#3a5535;min-width:22px;text-align:right}
-.filter-btn.active .cnt{color:#4d7544}
+#sidebar{width:270px;min-width:270px;background:#060d06;border-right:1px solid #0d180d;display:flex;flex-direction:column;overflow:hidden;z-index:10;flex-shrink:0}
+#map-container{flex:1;position:relative;background:#040904;overflow:hidden}
+
+/* ── Sidebar ── */
+#sidebar-header{padding:20px 18px 14px;border-bottom:1px solid #0d180d;flex-shrink:0}
+#sidebar-header h1{font-size:17px;font-weight:800;color:#b8e0a8;letter-spacing:.04em;text-transform:uppercase}
+#sidebar-header .tagline{font-size:10.5px;color:#2d4a25;margin-top:4px;letter-spacing:.03em;font-style:italic}
+#sidebar-header .count-badge{margin-top:10px;font-size:11px;color:#3a5a30;font-weight:500}
+
+/* Network Explorer section */
+#network-section{padding:12px 14px 8px;border-bottom:1px solid #0d180d;flex-shrink:0}
+#network-section h3{font-size:9px;font-weight:700;color:#1f3a1a;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+#network-svg-wrap{display:flex;justify-content:center}
+#network-svg{cursor:default;overflow:visible}
+
+.net-edge{stroke:#1a2e15;stroke-width:1;fill:none;transition:stroke-opacity .3s,stroke .3s}
+.net-node-circle{transition:r .2s,filter .2s}
+.net-node-label{font-size:8.5px;fill:#2d4a25;text-anchor:middle;pointer-events:none;transition:fill .2s}
+.net-node-group{cursor:pointer}
+.net-node-group:hover .net-node-label{fill:#8ab880}
+
+/* Mode indicator */
+#mode-indicator{padding:8px 18px;font-size:10px;color:#1f3a1a;border-bottom:1px solid #0d180d;flex-shrink:0;letter-spacing:.03em;transition:color .4s}
+#mode-indicator.active{color:#5a9a50}
 
 /* Regions */
-#regions-section{padding:8px 10px 10px;border-top:1px solid #152015}
-#regions-section h3{font-size:10px;color:#3d5e35;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:4px 2px 8px}
-#regions-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px}
-.region-btn{padding:5px 8px;background:#0f1a0f;border:1px solid #1a2a1a;border-radius:5px;color:#5a7a4a;font-size:10.5px;font-family:inherit;cursor:pointer;transition:all .15s;text-align:center}
-.region-btn:hover{background:#152015;border-color:#253825;color:#9dc890}
+#regions-section{padding:12px 16px 10px;flex-shrink:0}
+#regions-section h3{font-size:9px;font-weight:700;color:#1f3a1a;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
+#regions-row{display:flex;flex-wrap:wrap;gap:6px}
+.region-btn{background:none;border:none;color:#2a4020;font-size:11px;font-family:inherit;cursor:pointer;padding:2px 4px;transition:color .15s;line-height:1.4}
+.region-btn:hover{color:#8ab880}
 
-/* Zoom hint */
-#zoom-hint{padding:10px 14px 16px;border-top:1px solid #152015;margin-top:auto}
-#zoom-hint p{font-size:10px;color:#2e4a2a;line-height:1.7;text-align:center}
+/* Hint */
+#zoom-hint{margin-top:auto;padding:12px 16px 18px;border-top:1px solid #0a150a;flex-shrink:0}
+#zoom-hint p{font-size:9.5px;color:#1a2e15;line-height:1.9;text-align:center;letter-spacing:.02em}
 
-/* Mobile chip bar */
-#chip-bar{display:none}
-
-@media(max-width:640px){
-  #app{flex-direction:column}
-  #sidebar{display:none}
-  #chip-bar{display:flex;overflow-x:auto;gap:6px;padding:7px 10px;background:#0d1a0d;border-bottom:1px solid #152015;flex-shrink:0;z-index:10;scrollbar-width:none}
-  #chip-bar::-webkit-scrollbar{display:none}
-  .chip{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:20px;border:1.5px solid #1a2a1a;background:#131f13;font-size:11px;font-weight:600;color:#6a9a5a;white-space:nowrap;cursor:pointer;flex-shrink:0;font-family:inherit;transition:all .15s}
-  .chip.active{border-color:var(--clr);color:#cce8b0;box-shadow:0 0 8px -2px var(--clr)}
-  .chip-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
-  #map-container{flex:1;min-height:0}
-  #count-mobile{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);background:#0d1a0dcc;backdrop-filter:blur(6px);border:1px solid #1a2a1a;border-radius:20px;padding:3px 12px;font-size:11px;color:#4a6e42;pointer-events:none;z-index:5;white-space:nowrap}
-  #reset-btn{top:8px;right:8px;padding:5px 10px;font-size:11px}
-}
-
-/* Map */
-#map-container{flex:1;position:relative;background:#060d06;overflow:hidden}
+/* Map elements */
 svg{display:block}
-#reset-btn{position:absolute;top:12px;right:12px;background:#0d1a0ddd;backdrop-filter:blur(4px);border:1px solid #1a2a1a;color:#5d8e50;padding:6px 12px;border-radius:6px;cursor:pointer;font-size:12px;font-family:inherit;z-index:5;transition:all .15s}
-#reset-btn:hover{background:#162416;color:#cce8b0}
-#count-in-view{position:absolute;bottom:12px;right:12px;background:#0d1a0dcc;backdrop-filter:blur(6px);border:1px solid #1a2a1a;border-radius:20px;padding:3px 12px;font-size:11px;color:#4a6e42;pointer-events:none;z-index:5;display:none}
+.country{fill:#070f07;stroke:#0e1a0e;stroke-width:.4}
+#heatmap-canvas{position:absolute;top:0;left:0;pointer-events:none;mix-blend-mode:screen}
 
 /* Tooltip */
-#tooltip{position:absolute;pointer-events:none;background:#0d1a0df0;backdrop-filter:blur(8px);border:1px solid #1a2a1a;border-radius:10px;padding:11px 13px;max-width:280px;font-size:13px;line-height:1.45;z-index:20;display:none;box-shadow:0 8px 32px #0009}
-#tooltip .t-name{font-weight:700;font-size:14px;margin-bottom:2px}
-#tooltip .t-meta{font-size:10.5px;color:#3d5e35;margin-bottom:5px}
-#tooltip .t-desc{color:#7a9a6a;margin-bottom:6px;font-size:12px}
-#tooltip .t-link{font-size:11px;color:#6dc870;text-decoration:none;pointer-events:auto}
+#tooltip{position:absolute;pointer-events:none;background:#050d05ee;backdrop-filter:blur(12px);border:1px solid #152015;border-radius:10px;padding:12px 14px;max-width:290px;font-size:13px;line-height:1.45;z-index:30;display:none;box-shadow:0 8px 40px #000c}
+#tooltip .t-name{font-weight:700;font-size:14px;margin-bottom:3px}
+#tooltip .t-meta{font-size:10px;color:#2d4a25;margin-bottom:6px;line-height:1.5}
+#tooltip .t-orgs{font-size:11px;color:#5a7a50;margin-bottom:4px;line-height:1.6}
+#tooltip .t-desc{color:#6a8a60;font-size:11.5px;margin-bottom:6px}
+#tooltip .t-link{font-size:11px;color:#6de870;text-decoration:none;pointer-events:auto;word-break:break-all}
 #tooltip .t-link:hover{text-decoration:underline}
 
-/* Map geometry */
-.graticule{fill:none;stroke:#0f1a0f;stroke-width:.3}
-.country{fill:#0d1a0d;stroke:#152015;stroke-width:.4}
+/* Reset btn */
+#reset-btn{position:absolute;top:12px;right:12px;background:#050d05cc;backdrop-filter:blur(6px);border:1px solid #152015;color:#4a7a40;padding:6px 12px;border-radius:6px;cursor:pointer;font-size:11px;font-family:inherit;z-index:5;transition:all .15s}
+#reset-btn:hover{background:#0d1a0d;color:#8ab880}
 
 /* Loading */
-#loading{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:50;background:#060d06;gap:12px}
-#loading .spinner{width:32px;height:32px;border:2.5px solid #1a2a1a;border-top-color:#4ade80;border-radius:50%;animation:spin .8s linear infinite}
+#loading{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:50;background:#040904;gap:14px}
+#loading .spinner{width:36px;height:36px;border:2.5px solid #0d1a0d;border-top-color:#00e87a;border-radius:50%;animation:spin .9s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-#loading p{color:#3d5e35;font-size:13px}
+#loading p{color:#2d4a25;font-size:12.5px;letter-spacing:.03em}
+
+/* Mobile */
+#bottom-sheet-btn{display:none}
+#bottom-sheet{display:none}
+
+@media(max-width:640px){
+  #sidebar{display:none}
+  #app{flex-direction:column}
+  #map-container{flex:1}
+  #bottom-sheet-btn{
+    display:block;position:absolute;bottom:60px;left:50%;transform:translateX(-50%);
+    background:#060d06cc;backdrop-filter:blur(8px);border:1px solid #152015;
+    color:#5a9a50;padding:6px 18px;border-radius:20px;cursor:pointer;font-size:12px;
+    font-family:inherit;z-index:10
+  }
+  #bottom-sheet{
+    display:block;position:absolute;bottom:0;left:0;right:0;
+    background:#060d06f5;backdrop-filter:blur(12px);border-top:1px solid #152015;
+    padding:14px 16px;z-index:20;transform:translateY(100%);transition:transform .35s ease;
+    max-height:55vh;overflow-y:auto
+  }
+  #bottom-sheet.open{transform:translateY(0)}
+  #chip-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .chip{display:inline-flex;align-items:center;gap:5px;padding:5px 11px;border-radius:20px;
+    border:1.5px solid #152015;background:#0a140a;font-size:11px;color:#4a7040;
+    cursor:pointer;font-family:inherit;transition:all .15s}
+  .chip.active{border-color:var(--clr);color:#cce8b0;box-shadow:0 0 8px -2px var(--clr)}
+  .chip-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+}
 </style>
 </head>
 <body>
-<div id="chip-bar"></div>
+
 <div id="app">
   <div id="sidebar">
     <div id="sidebar-header">
-      <h1>Ecolibrium Directory</h1>
-      <p>Organizations building a more<br>equitable, ecological world</p>
+      <h1>Ecolibrium</h1>
+      <div class="tagline">mapping the networks of change</div>
+      <div class="count-badge" id="count-badge">~14,000 organizations · 24 countries</div>
     </div>
-    <div id="count"></div>
-    <div id="filters"></div>
+    <div id="network-section">
+      <h3>Network Explorer</h3>
+      <div id="network-svg-wrap">
+        <svg id="network-svg" width="260" height="185" viewBox="0 0 260 185"></svg>
+      </div>
+    </div>
+    <div id="mode-indicator">🌍 Exploring: All networks</div>
     <div id="regions-section">
       <h3>Jump to Region</h3>
-      <div id="regions-grid"></div>
+      <div id="regions-row">
+        <button class="region-btn" data-lat="40" data-lon="-100" data-zoom="3">🌎 Americas</button>
+        <button class="region-btn" data-lat="5" data-lon="22" data-zoom="3">🌍 Africa</button>
+        <button class="region-btn" data-lat="20" data-lon="90" data-zoom="3">🌏 Asia</button>
+        <button class="region-btn" data-lat="52" data-lon="12" data-zoom="4">🇪🇺 Europe</button>
+        <button class="region-btn" data-reset="1">🌐 Reset</button>
+      </div>
     </div>
     <div id="zoom-hint">
-      <p>🔭 Scroll to explore<br>Zoom in to reveal organizations<br>Hover to see connections</p>
+      <p>scroll to zoom · drag to pan · click to filter</p>
     </div>
   </div>
+
   <div id="map-container">
-    <div id="loading"><div class="spinner"></div><p>Loading organizations…</p></div>
+    <div id="loading"><div class="spinner"></div><p>Growing the network…</p></div>
+    <canvas id="heatmap-canvas"></canvas>
     <button id="reset-btn">↻ World View</button>
-    <div id="count-mobile"></div>
-    <div id="count-in-view"></div>
     <div id="tooltip">
       <div class="t-name"></div>
       <div class="t-meta"></div>
+      <div class="t-orgs"></div>
       <div class="t-desc"></div>
       <a class="t-link" target="_blank" rel="noopener"></a>
+    </div>
+    <button id="bottom-sheet-btn">▲ Filter Networks</button>
+    <div id="bottom-sheet">
+      <div style="font-size:11px;color:#2d4a25;font-weight:700;letter-spacing:.08em;text-transform:uppercase">Network Explorer</div>
+      <div id="chip-row"></div>
     </div>
   </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/d3-hexbin@0.2.2/build/d3-hexbin.min.js"></script>
 <script>
-// ── Constants ──────────────────────────────────────────────────────────────
+// ────────────────────────────────────────────────────────────────────────
+// CONSTANTS
+// ────────────────────────────────────────────────────────────────────────
 const AREA_COLORS = {
-  democracy:'#60a5fa', cooperatives:'#34d399', healthcare:'#f472b6',
-  food:'#fb923c', education:'#a78bfa', housing_land:'#fbbf24',
-  conflict:'#f87171', energy_digital:'#22d3ee', recreation_arts:'#e879f9',
-  ecology:'#4ade80'
+  democracy:      '#4da6ff',
+  cooperatives:   '#00e87a',
+  healthcare:     '#ff6eb4',
+  food:           '#ff9500',
+  education:      '#b388ff',
+  housing_land:   '#ffe066',
+  conflict:       '#ff6b6b',
+  energy_digital: '#00e5ff',
+  recreation_arts:'#e040fb',
+  ecology:        '#69ff47',
 };
-const DEFAULT_COLOR = '#94a3b8';
+const DEFAULT_COLOR = '#888888';
 
 const AREA_NAMES = {
-  democracy:'Democratic Infrastructure', cooperatives:'Cooperatives & Solidarity Economy',
-  healthcare:'Healthcare', food:'Food & Agriculture', education:'Education',
-  housing_land:'Housing & Land', conflict:'Conflict Resolution',
-  energy_digital:'Energy & Digital Commons', recreation_arts:'Recreation & Arts',
-  ecology:'Ecological Restoration'
+  democracy:      'Democratic Infrastructure',
+  cooperatives:   'Cooperatives & Solidarity Economy',
+  healthcare:     'Healthcare',
+  food:           'Food & Agriculture',
+  education:      'Education',
+  housing_land:   'Housing & Land',
+  conflict:       'Conflict Resolution',
+  energy_digital: 'Energy & Digital Commons',
+  recreation_arts:'Recreation & Arts',
+  ecology:        'Ecological Restoration',
 };
-
-const REGIONS = [
-  {name:'N. America', lat:45, lon:-100, zoom:3},
-  {name:'Europe',     lat:52, lon:12,   zoom:4},
-  {name:'L. America', lat:-5, lon:-65,  zoom:3},
-  {name:'Africa',     lat:5,  lon:22,   zoom:3},
-  {name:'S. Asia',    lat:20, lon:80,   zoom:4},
-  {name:'SE Asia',    lat:8,  lon:115,  zoom:4},
-  {name:'Oceania',    lat:-25,lon:140,  zoom:4},
-];
-
-const THRESHOLD = 2.5; // zoom scale at which we switch hexbin ↔ dots
 
 function getColor(f){ return AREA_COLORS[f] || DEFAULT_COLOR; }
 
-function rgba(hex, a){
+function hexToRgb(hex){
   const r=parseInt(hex.slice(1,3),16), g=parseInt(hex.slice(3,5),16), b=parseInt(hex.slice(5,7),16);
-  return `rgba(${r},${g},${b},${a})`;
+  return {r,g,b};
 }
 
-// ── Seeded deterministic jitter ──────────────────────────────────────────
+// ────────────────────────────────────────────────────────────────────────
+// JITTER (deterministic by org name)
+// ────────────────────────────────────────────────────────────────────────
 function jitterCoord(lat, lon, name, spread) {
   let seed = 0;
   for (let i = 0; i < name.length; i++) {
@@ -162,418 +203,783 @@ function jitterCoord(lat, lon, name, spread) {
   const s2 = (Math.imul(s1,  22695477) + 1)          >>> 0;
   return [
     lat + (s1 / 4294967295 - 0.5) * spread * 2,
-    lon + (s2 / 4294967295 - 0.5) * spread * 2
+    lon + (s2 / 4294967295 - 0.5) * spread * 2,
   ];
 }
 
 function preprocessOrgs(orgs) {
-  // Count stacked coordinates to detect state centroids
   const coordCount = {};
   orgs.forEach(o => {
     const key = `${+(o.la||0).toFixed(2)},${+(o.lo||0).toFixed(2)}`;
     coordCount[key] = (coordCount[key] || 0) + 1;
   });
-
   return orgs.map(o => {
     const lat = o.la || 0, lon = o.lo || 0;
     const key = `${+lat.toFixed(2)},${+lon.toFixed(2)}`;
     const n   = coordCount[key] || 1;
     const cc  = o.cc || 'US';
-
-    // Determine jitter spread:
-    // >15 US orgs at same spot → state centroid → wide spread
-    // >3 US orgs → small city cluster → medium spread
-    // few US orgs → precise city → tiny spread
-    // non-US → country-level → moderate spread
     let spread;
     if      (cc === 'US' && n > 15) spread = 2.5;
     else if (cc === 'US' && n > 3)  spread = 0.5;
     else if (cc === 'US')           spread = 0.12;
     else                            spread = 0.8;
-
     const [jla, jlo] = jitterCoord(lat, lon, o.n || '', spread);
     return { ...o, jla, jlo };
   });
 }
 
-// ── D3 scaffold ──────────────────────────────────────────────────────────
+// ────────────────────────────────────────────────────────────────────────
+// STATE
+// ────────────────────────────────────────────────────────────────────────
+let allOrgs = [];
+let currentMode = 'heatmap'; // 'heatmap' | 'clusters' | 'dots'
+let activeFilter = null;
+let currentTransform = d3.zoomIdentity;
+let renderDebounce = null;
+let meta = {};
+
+// ────────────────────────────────────────────────────────────────────────
+// SVG SETUP
+// ────────────────────────────────────────────────────────────────────────
 const container = document.getElementById('map-container');
-let w = container.clientWidth, h = container.clientHeight;
+let W = container.clientWidth, H = container.clientHeight;
 
-const svg = d3.select(container).append('svg').attr('width', w).attr('height', h);
+const svg = d3.select(container).append('svg')
+  .attr('width', W).attr('height', H)
+  .style('position','absolute').style('top',0).style('left',0);
 
-// SVG filters
+// SVG Filters
 const defs = svg.append('defs');
 defs.html(`
-  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-    <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blur"/>
-    <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+  <filter id="glow-soft" x="-100%" y="-100%" width="300%" height="300%">
+    <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
   </filter>
-  <filter id="glow-strong" x="-100%" y="-100%" width="300%" height="300%">
-    <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur"/>
-    <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+  <filter id="glow-cluster" x="-150%" y="-150%" width="400%" height="400%">
+    <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="glow-tendril" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
   </filter>
 `);
 
-const projection = d3.geoNaturalEarth1().scale(w / 5.8).translate([w / 2, h / 2]);
-const geoPath   = d3.geoPath(projection);
+const projection = d3.geoNaturalEarth1().scale(W / 5.8).translate([W / 2, H / 2]);
+const geoPath = d3.geoPath(projection);
 
-// Layer order: hexbins (screen-space, outside transform group) → base map → dots
-const hexLayer  = svg.append('g').attr('class', 'hex-layer')
-                     .attr('filter', 'url(#glow-strong)')
-                     .style('pointer-events', 'none');
+// Layer groups (render order: land → filaments → clusters/dots)
+const g = svg.append('g'); // main zoom-transformed group
+const landG = g.append('g').attr('class','land-layer');
+const filamentG = g.append('g').attr('class','filament-layer').style('pointer-events','none');
+const clusterG = g.append('g').attr('class','cluster-layer');
+const dotsG = g.append('g').attr('class','dots-layer');
+const tendrilG = g.append('g').attr('class','tendril-layer').style('pointer-events','none');
 
-const g         = svg.append('g'); // main zoom-transformed group
-const graticuleG = g.append('g');
-const countriesG = g.append('g');
-const tendrilG   = g.append('g').style('pointer-events', 'none');
-const dotsG      = g.append('g').attr('filter', 'url(#glow)');
+// Heatmap canvas (on top of svg, absolute positioned)
+const heatCanvas = document.getElementById('heatmap-canvas');
+heatCanvas.width = W; heatCanvas.height = H;
 
-// ── Zoom ─────────────────────────────────────────────────────────────────
-const zoom = d3.zoom().scaleExtent([1, 12]).on('zoom', onZoom);
+// ────────────────────────────────────────────────────────────────────────
+// ZOOM
+// ────────────────────────────────────────────────────────────────────────
+const zoom = d3.zoom().scaleExtent([1, 14]).on('zoom', onZoom);
 svg.call(zoom);
 
 document.getElementById('reset-btn').onclick = () =>
   svg.transition().duration(700).call(zoom.transform, d3.zoomIdentity);
 
 function flyTo(lat, lon, k) {
-  // D3 pattern: translate center → scale → translate to target projection point
   const [px, py] = projection([lon, lat]);
   svg.transition().duration(900).call(
     zoom.transform,
-    d3.zoomIdentity.translate(w / 2, h / 2).scale(k).translate(-px, -py)
+    d3.zoomIdentity.translate(W/2, H/2).scale(k).translate(-px, -py)
   );
 }
 
-// ── Tooltip ───────────────────────────────────────────────────────────────
+function onZoom(e) {
+  currentTransform = e.transform;
+  g.attr('transform', e.transform);
+  const k = e.transform.k;
+
+  // Reposition heatmap canvas elements based on transform
+  if (k < 2) {
+    setMode('heatmap');
+  } else if (k < 6) {
+    setMode('clusters');
+  } else {
+    setMode('dots');
+  }
+
+  clearTimeout(renderDebounce);
+  renderDebounce = setTimeout(() => rerenderCurrentMode(), 80);
+}
+
+function setMode(mode) {
+  if (mode === currentMode) return;
+  currentMode = mode;
+  updateModeUI();
+
+  if (mode === 'heatmap') {
+    heatCanvas.style.display = 'block';
+    filamentG.style('display','none');
+    clusterG.style('display','none');
+    dotsG.style('display','none');
+    tendrilG.style('display','none');
+  } else if (mode === 'clusters') {
+    heatCanvas.style.display = 'none';
+    filamentG.style('display','block');
+    clusterG.style('display','block');
+    dotsG.style('display','none');
+    tendrilG.style('display','none');
+  } else {
+    heatCanvas.style.display = 'none';
+    filamentG.style('display','none');
+    clusterG.style('display','none');
+    dotsG.style('display','block');
+    tendrilG.style('display','block');
+  }
+}
+
+function updateModeUI() {
+  const mi = document.getElementById('mode-indicator');
+  if (currentMode === 'heatmap') {
+    mi.textContent = activeFilter
+      ? `🌡 Heatmap: ${AREA_NAMES[activeFilter] || activeFilter}`
+      : '🌍 Exploring: All networks';
+    mi.className = 'active';
+  } else if (currentMode === 'clusters') {
+    mi.textContent = activeFilter
+      ? `🔬 Clusters: ${AREA_NAMES[activeFilter] || activeFilter}`
+      : '🔬 Region view — spore clusters';
+    mi.className = 'active';
+  } else {
+    mi.textContent = activeFilter
+      ? `🪱 Nodes: ${AREA_NAMES[activeFilter] || activeFilter}`
+      : '🪱 Local view — individual nodes';
+    mi.className = 'active';
+  }
+}
+
+function rerenderCurrentMode() {
+  if (currentMode === 'heatmap') renderHeatmap();
+  else if (currentMode === 'clusters') renderClusters();
+  else renderDots();
+}
+
+// ────────────────────────────────────────────────────────────────────────
+// FILTER
+// ────────────────────────────────────────────────────────────────────────
+function setFilter(area) {
+  activeFilter = (activeFilter === area) ? null : area;
+  updateNetworkExplorer();
+  updateModeUI();
+  rerenderCurrentMode();
+  // update chips
+  document.querySelectorAll('.chip').forEach(c => {
+    c.classList.toggle('active', c.dataset.area === activeFilter);
+  });
+}
+
+function filteredOrgs() {
+  if (!activeFilter) return allOrgs;
+  return allOrgs.filter(o => o.f === activeFilter);
+}
+
+// ────────────────────────────────────────────────────────────────────────
+// HEATMAP (Mode 1)
+// ────────────────────────────────────────────────────────────────────────
+function applyTransform(t, point) {
+  if (!point) return [null, null];
+  return [t.x + t.k * point[0], t.y + t.k * point[1]];
+}
+
+function renderHeatmap() {
+  const ctx = heatCanvas.getContext('2d');
+  ctx.clearRect(0, 0, W, H);
+  ctx.globalCompositeOperation = 'screen';
+
+  const pts = filteredOrgs();
+  const t = currentTransform;
+
+  pts.forEach(d => {
+    const proj = projection([d.jlo, d.jla]);
+    if (!proj) return;
+    const [sx, sy] = applyTransform(t, proj);
+    if (sx < -50 || sx > W+50 || sy < -50 || sy > H+50) return;
+
+    const color = getColor(d.f);
+    const rgb = hexToRgb(color);
+    const radius = 22;
+    const grad = ctx.createRadialGradient(sx, sy, 0, sx, sy, radius);
+    grad.addColorStop(0, `rgba(${rgb.r},${rgb.g},${rgb.b},0.065)`);
+    grad.addColorStop(0.5, `rgba(${rgb.r},${rgb.g},${rgb.b},0.025)`);
+    grad.addColorStop(1, `rgba(${rgb.r},${rgb.g},${rgb.b},0)`);
+    ctx.fillStyle = grad;
+    ctx.beginPath();
+    ctx.arc(sx, sy, radius, 0, Math.PI*2);
+    ctx.fill();
+  });
+}
+
+// ────────────────────────────────────────────────────────────────────────
+// CLUSTERS (Mode 2)
+// ────────────────────────────────────────────────────────────────────────
+function dominantArea(orgs) {
+  const counts = {};
+  orgs.forEach(o => { counts[o.f] = (counts[o.f]||0) + 1; });
+  return Object.entries(counts).sort((a,b)=>b[1]-a[1])[0]?.[0] || 'default';
+}
+
+function computeClusters(points, cellDegrees=0.8) {
+  const cells = new Map();
+  points.forEach(d => {
+    const key = `${Math.round(d.jla/cellDegrees)}_${Math.round(d.jlo/cellDegrees)}`;
+    if (!cells.has(key)) cells.set(key, {orgs:[], la:0, lo:0});
+    const cell = cells.get(key);
+    cell.orgs.push(d);
+    cell.la += d.jla;
+    cell.lo += d.jlo;
+  });
+  return Array.from(cells.values()).map(cell => ({
+    la: cell.la / cell.orgs.length,
+    lo: cell.lo / cell.orgs.length,
+    count: cell.orgs.length,
+    orgs: cell.orgs,
+    dominant: dominantArea(cell.orgs),
+  }));
+}
+
+function clusterScreenPos(cluster, transform) {
+  const proj = projection([cluster.lo, cluster.la]);
+  if (!proj) return null;
+  return applyTransform(transform, proj);
+}
+
+function renderClusters() {
+  const pts = filteredOrgs();
+  const clusters = computeClusters(pts);
+  const t = currentTransform;
+
+  // Compute screen positions
+  clusters.forEach(c => {
+    const pos = clusterScreenPos(c, t);
+    if (pos) { c.sx = pos[0]; c.sy = pos[1]; }
+    else { c.sx = null; c.sy = null; }
+  });
+
+  const visible = clusters.filter(c => c.sx !== null &&
+    c.sx > -50 && c.sx < W+50 && c.sy > -50 && c.sy < H+50);
+
+  // ── Filaments ──
+  const sameAreaPairs = [];
+  for (let i = 0; i < visible.length; i++) {
+    for (let j = i+1; j < visible.length; j++) {
+      const a = visible[i], b = visible[j];
+      if (a.dominant !== b.dominant) continue;
+      const dx = a.sx - b.sx, dy = a.sy - b.sy;
+      const dist = Math.sqrt(dx*dx + dy*dy);
+      if (dist > 220) continue;
+      sameAreaPairs.push({a, b, dist, area: a.dominant});
+    }
+  }
+  sameAreaPairs.sort((a,b) => a.dist - b.dist);
+  const drawPairs = sameAreaPairs.slice(0, 300);
+
+  const filamentData = filamentG.selectAll('path.filament').data(drawPairs, (d,i) => i);
+
+  filamentData.join(
+    enter => enter.append('path').attr('class','filament'),
+    update => update,
+    exit => exit.remove()
+  )
+  .attr('d', d => {
+    const x1=d.a.sx, y1=d.a.sy, x2=d.b.sx, y2=d.b.sy;
+    // perpendicular offset for bezier control point
+    const mx = (x1+x2)/2 + (y2-y1)*0.3;
+    const my = (y1+y2)/2 - (x2-x1)*0.3;
+    return `M ${x1} ${y1} Q ${mx} ${my} ${x2} ${y2}`;
+  })
+  .attr('stroke', d => getColor(d.area))
+  .attr('stroke-width', 0.8)
+  .attr('fill', 'none')
+  .attr('stroke-opacity', d => {
+    if (!activeFilter) return 0.12;
+    return d.area === activeFilter ? 0.35 : 0.02;
+  })
+  // convert to SVG user space (undo the g transform)
+  .attr('transform', `translate(${-t.x/t.k},${-t.y/t.k}) scale(${1/t.k})`)
+  .style('pointer-events','none');
+
+  // ── Cluster circles ──
+  const clusterSel = clusterG.selectAll('circle.cluster').data(visible, d => `${d.la.toFixed(3)}_${d.lo.toFixed(3)}`);
+
+  clusterSel.join(
+    enter => enter.append('circle').attr('class','cluster')
+      .on('mouseenter', (ev, d) => showClusterTip(ev, d))
+      .on('mousemove', (ev) => posTip(ev))
+      .on('mouseleave', hideTip),
+    update => update,
+    exit => exit.remove()
+  )
+  .attr('cx', d => (d.sx - t.x) / t.k)
+  .attr('cy', d => (d.sy - t.y) / t.k)
+  .attr('r', d => Math.min(5 + Math.sqrt(d.count) * 1.5, 35) / t.k)
+  .attr('fill', d => getColor(d.dominant))
+  .attr('fill-opacity', d => {
+    if (!activeFilter) return 0.75;
+    return d.dominant === activeFilter ? 0.9 : 0.04;
+  })
+  .attr('filter', 'url(#glow-cluster)')
+  .style('cursor', 'pointer');
+}
+
+// ────────────────────────────────────────────────────────────────────────
+// DOTS (Mode 3)
+// ────────────────────────────────────────────────────────────────────────
+let activeOrgDot = null;
+
+function renderDots() {
+  const pts = filteredOrgs();
+  const t = currentTransform;
+
+  // Only render orgs currently visible in viewport (with margin)
+  const visible = pts.filter(d => {
+    const proj = projection([d.jlo, d.jla]);
+    if (!proj) return false;
+    const [sx, sy] = applyTransform(t, proj);
+    return sx > -60 && sx < W+60 && sy > -60 && sy < H+60;
+  });
+
+  // Limit render to 3000 dots for performance
+  const rendered = visible.length > 3000 ? visible.slice(0, 3000) : visible;
+
+  const dotSel = dotsG.selectAll('circle.org-dot').data(rendered, d => d.n);
+
+  dotSel.join(
+    enter => enter.append('circle').attr('class','org-dot')
+      .attr('r', 4 / t.k)
+      .attr('fill-opacity', 0.8)
+      .on('mouseenter', (ev, d) => { showOrgTip(ev, d); activateOrgTendrils(d); })
+      .on('mousemove', (ev) => posTip(ev))
+      .on('mouseleave', () => { hideTip(); clearTendrils(); }),
+    update => update,
+    exit => exit.remove()
+  )
+  .attr('cx', d => {
+    const proj = projection([d.jlo, d.jla]);
+    return proj ? (applyTransform(t, proj)[0] - t.x) / t.k : 0;
+  })
+  .attr('cy', d => {
+    const proj = projection([d.jlo, d.jla]);
+    return proj ? (applyTransform(t, proj)[1] - t.y) / t.k : 0;
+  })
+  .attr('r', 4 / t.k)
+  .attr('fill', d => getColor(d.f))
+  .attr('fill-opacity', d => {
+    if (!activeFilter) return 0.82;
+    return d.f === activeFilter ? 0.95 : 0.08;
+  })
+  .attr('filter', 'url(#glow-soft)')
+  .style('cursor', 'pointer');
+
+  // Labels (only when zoomed far in, k > 8)
+  if (t.k > 8) {
+    const labelSel = dotsG.selectAll('text.org-label').data(rendered.slice(0,200), d => d.n);
+    labelSel.join(
+      enter => enter.append('text').attr('class','org-label')
+        .style('pointer-events','none')
+        .attr('text-anchor','start'),
+      update => update,
+      exit => exit.remove()
+    )
+    .attr('x', d => {
+      const proj = projection([d.jlo, d.jla]);
+      return proj ? (applyTransform(t, proj)[0] - t.x) / t.k + 6/t.k : 0;
+    })
+    .attr('y', d => {
+      const proj = projection([d.jlo, d.jla]);
+      return proj ? (applyTransform(t, proj)[1] - t.y) / t.k + 3/t.k : 0;
+    })
+    .attr('font-size', 10 / t.k)
+    .attr('fill', d => getColor(d.f))
+    .attr('fill-opacity', 0.7)
+    .text(d => d.n.length > 30 ? d.n.slice(0,28)+'…' : d.n);
+  } else {
+    dotsG.selectAll('text.org-label').remove();
+  }
+}
+
+function activateOrgTendrils(org) {
+  clearTendrils();
+  activeOrgDot = org;
+
+  const t = currentTransform;
+  const proj0 = projection([org.jlo, org.jla]);
+  if (!proj0) return;
+  const [sx0, sy0] = applyTransform(t, proj0);
+
+  // Find 5 nearest same-area orgs within 100px screen distance
+  const sameArea = allOrgs.filter(o => o.f === org.f && o.n !== org.n);
+  const withDist = sameArea.map(o => {
+    const proj = projection([o.jlo, o.jla]);
+    if (!proj) return null;
+    const [sx, sy] = applyTransform(t, proj);
+    const dx = sx - sx0, dy = sy - sy0;
+    const d = Math.sqrt(dx*dx + dy*dy);
+    return { o, sx, sy, d };
+  }).filter(x => x && x.d < 100 && x.d > 1);
+
+  withDist.sort((a,b) => a.d - b.d);
+  const nearest = withDist.slice(0, 5);
+
+  const x0 = (sx0 - t.x) / t.k;
+  const y0 = (sy0 - t.y) / t.k;
+
+  const tendrils = tendrilG.selectAll('path.tendril').data(nearest);
+  const color = getColor(org.f);
+  const totalLen = 200;
+
+  tendrils.join(
+    enter => enter.append('path').attr('class','tendril'),
+    update => update,
+    exit => exit.remove()
+  )
+  .attr('d', d => {
+    const x1 = (d.sx - t.x) / t.k;
+    const y1 = (d.sy - t.y) / t.k;
+    const mx = (x0+x1)/2 + (y1-y0)*0.25;
+    const my = (y0+y1)/2 - (x1-x0)*0.25;
+    return `M ${x0} ${y0} Q ${mx} ${my} ${x1} ${y1}`;
+  })
+  .attr('stroke', color)
+  .attr('stroke-width', 1.2 / t.k)
+  .attr('fill', 'none')
+  .attr('stroke-opacity', 0.6)
+  .attr('filter', 'url(#glow-tendril)')
+  .attr('stroke-dasharray', function() {
+    const len = this.getTotalLength ? this.getTotalLength() : totalLen;
+    return `${len} ${len}`;
+  })
+  .attr('stroke-dashoffset', function() {
+    const len = this.getTotalLength ? this.getTotalLength() : totalLen;
+    return len;
+  })
+  .transition().duration(500).ease(d3.easeQuadOut)
+  .attr('stroke-dashoffset', 0);
+}
+
+function clearTendrils() {
+  tendrilG.selectAll('path.tendril').remove();
+  activeOrgDot = null;
+}
+
+// ────────────────────────────────────────────────────────────────────────
+// TOOLTIP
+// ────────────────────────────────────────────────────────────────────────
 const tip = document.getElementById('tooltip');
-function showTip(ev, d) {
+
+function showClusterTip(ev, d) {
+  const color = getColor(d.dominant);
+  tip.querySelector('.t-name').textContent = `${d.count} organization${d.count===1?'':'s'}`;
+  tip.querySelector('.t-name').style.color = color;
+  tip.querySelector('.t-meta').textContent = AREA_NAMES[d.dominant] || d.dominant;
+  tip.querySelector('.t-meta').style.color = color + 'aa';
+  const top3 = d.orgs.slice(0,3).map(o=>o.n).join('\n');
+  tip.querySelector('.t-orgs').textContent = top3;
+  tip.querySelector('.t-desc').textContent = d.count > 3 ? `…and ${d.count-3} more` : '';
+  tip.querySelector('.t-link').style.display = 'none';
+  tip.style.display = 'block';
+  posTip(ev);
+}
+
+function showOrgTip(ev, d) {
   const color = getColor(d.f);
   tip.querySelector('.t-name').textContent = d.n;
   tip.querySelector('.t-name').style.color = color;
   tip.querySelector('.t-meta').textContent = [d.cc || 'US', AREA_NAMES[d.f] || d.f].filter(Boolean).join(' · ');
+  tip.querySelector('.t-meta').style.color = '#2d4a25';
+  tip.querySelector('.t-orgs').textContent = '';
   const desc = d.d || '';
-  tip.querySelector('.t-desc').textContent = desc.length > 130 ? desc.slice(0, 127) + '…' : desc;
+  tip.querySelector('.t-desc').textContent = desc.length > 130 ? desc.slice(0,127)+'…' : desc;
   const link = tip.querySelector('.t-link');
   if (d.w) {
     link.style.display = 'inline';
     link.textContent = d.w;
-    link.href = d.w.startsWith('http') ? d.w : 'https://' + d.w;
+    link.href = d.w.startsWith('http') ? d.w : 'https://'+d.w;
   } else {
     link.style.display = 'none';
   }
   tip.style.display = 'block';
   posTip(ev);
 }
+
 function posTip(ev) {
-  const r = container.getBoundingClientRect();
-  let x = ev.clientX - r.left + 16, y = ev.clientY - r.top + 16;
-  if (x + 290 > r.width)  x = ev.clientX - r.left - 296;
-  if (y + 160 > r.height) y = ev.clientY - r.top  - 170;
-  tip.style.left = x + 'px';
-  tip.style.top  = y + 'px';
+  const rect = container.getBoundingClientRect();
+  let x = ev.clientX - rect.left + 16;
+  let y = ev.clientY - rect.top  + 16;
+  if (x + 300 > rect.width)  x = ev.clientX - rect.left - 306;
+  if (y + 180 > rect.height) y = ev.clientY - rect.top  - 190;
+  tip.style.left = x+'px';
+  tip.style.top  = y+'px';
 }
+
 function hideTip() { tip.style.display = 'none'; }
 
-// ── State ─────────────────────────────────────────────────────────────────
-let activeFilter    = null;
-let orgs            = [];
-let currentTransform = d3.zoomIdentity;
-let hexTimer = null, countTimer = null;
+// ────────────────────────────────────────────────────────────────────────
+// NETWORK EXPLORER WIDGET
+// ────────────────────────────────────────────────────────────────────────
+const NET_NODES = {
+  democracy:      {x: 90,  y: 45},
+  cooperatives:   {x: 155, y: 30},
+  healthcare:     {x: 205, y: 72},
+  food:           {x: 185, y: 130},
+  education:      {x: 130, y: 160},
+  ecology:        {x: 60,  y: 140},
+  housing_land:   {x: 22,  y: 88},
+  conflict:       {x: 42,  y: 157},
+  energy_digital: {x: 222, y: 138},
+  recreation_arts:{x: 242, y: 92},
+};
 
-// ── Filter logic ──────────────────────────────────────────────────────────
-function setFilter(id) {
-  activeFilter = id;
-  document.querySelectorAll('.filter-btn').forEach(b =>
-    b.classList.toggle('active', b.dataset.filter === (id === null ? '__all' : id)));
-  document.querySelectorAll('.chip').forEach(c =>
-    c.classList.toggle('active', c.dataset.id === (id === null ? '__all' : id)));
-  updateDotOpacity();
-  if (currentTransform.k < THRESHOLD) scheduleHexUpdate();
-  updateCountDisplay();
+const NET_EDGES = [
+  ['democracy','cooperatives'],
+  ['democracy','conflict'],
+  ['democracy','education'],
+  ['cooperatives','food'],
+  ['cooperatives','housing_land'],
+  ['cooperatives','energy_digital'],
+  ['food','ecology'],
+  ['food','education'],
+  ['ecology','energy_digital'],
+  ['healthcare','education'],
+  ['healthcare','housing_land'],
+  ['conflict','housing_land'],
+];
+
+function buildNetworkExplorer(meta_data) {
+  const svgEl = document.getElementById('network-svg');
+  const ns = 'http://www.w3.org/2000/svg';
+
+  // Edges
+  NET_EDGES.forEach(([a, b]) => {
+    const na = NET_NODES[a], nb = NET_NODES[b];
+    const line = document.createElementNS(ns, 'line');
+    line.setAttribute('x1', na.x); line.setAttribute('y1', na.y);
+    line.setAttribute('x2', nb.x); line.setAttribute('y2', nb.y);
+    line.setAttribute('stroke', '#1a2e15');
+    line.setAttribute('stroke-width', 1);
+    line.setAttribute('stroke-opacity', 0.3);
+    line.dataset.areaA = a;
+    line.dataset.areaB = b;
+    line.classList.add('net-edge');
+    svgEl.appendChild(line);
+  });
+
+  // Nodes
+  Object.entries(NET_NODES).forEach(([area, pos]) => {
+    const g = document.createElementNS(ns, 'g');
+    g.classList.add('net-node-group');
+    g.dataset.area = area;
+    g.setAttribute('transform', `translate(${pos.x},${pos.y})`);
+
+    const circle = document.createElementNS(ns, 'circle');
+    circle.setAttribute('r', 9);
+    circle.setAttribute('fill', getColor(area));
+    circle.setAttribute('fill-opacity', 0.7);
+    circle.classList.add('net-node-circle');
+    circle.dataset.area = area;
+
+    const count_val = meta_data?.by_area?.[area] || 0;
+    const shortNames = {
+      democracy: 'Democracy',
+      cooperatives: 'Coops',
+      healthcare: 'Health',
+      food: 'Food',
+      education: 'Education',
+      housing_land: 'Housing',
+      conflict: 'Conflict',
+      energy_digital: 'Energy',
+      recreation_arts: 'Arts',
+      ecology: 'Ecology',
+    };
+    const lbl1 = document.createElementNS(ns, 'text');
+    lbl1.setAttribute('y', 18);
+    lbl1.setAttribute('font-size', 8.5);
+    lbl1.setAttribute('fill', '#2d4a25');
+    lbl1.setAttribute('text-anchor', 'middle');
+    lbl1.classList.add('net-node-label');
+    lbl1.textContent = shortNames[area] || area;
+
+    const lbl2 = document.createElementNS(ns, 'text');
+    lbl2.setAttribute('y', 27);
+    lbl2.setAttribute('font-size', 7.5);
+    lbl2.setAttribute('fill', '#1f3a1a');
+    lbl2.setAttribute('text-anchor', 'middle');
+    lbl2.classList.add('net-node-label', 'net-count-label');
+    lbl2.dataset.area = area;
+    if (count_val > 0) {
+      lbl2.textContent = count_val.toLocaleString();
+    }
+
+    g.appendChild(circle);
+    g.appendChild(lbl1);
+    g.appendChild(lbl2);
+
+    g.addEventListener('click', () => setFilter(area));
+    svgEl.appendChild(g);
+  });
 }
 
-function dotBaseR(k) { return k >= 5 ? 4.5 : 2.5; }
+function updateNetworkExplorer() {
+  const svgEl = document.getElementById('network-svg');
 
-function updateDotOpacity() {
-  const r = dotBaseR(currentTransform.k);
-  dotsG.selectAll('.org-dot').transition().duration(250)
-    .attr('opacity', d => (activeFilter === null || d.f === activeFilter) ? 0.8  : 0.04)
-    .attr('r',       d => (activeFilter === null || d.f === activeFilter) ? r     : 1.2);
+  // Update edge styles
+  svgEl.querySelectorAll('.net-edge').forEach(edge => {
+    const a = edge.dataset.areaA, b = edge.dataset.areaB;
+    if (!activeFilter) {
+      edge.setAttribute('stroke', '#1a2e15');
+      edge.setAttribute('stroke-opacity', 0.3);
+    } else if (a === activeFilter || b === activeFilter) {
+      edge.setAttribute('stroke', getColor(activeFilter));
+      edge.setAttribute('stroke-opacity', 0.5);
+    } else {
+      edge.setAttribute('stroke', '#0d180d');
+      edge.setAttribute('stroke-opacity', 0.1);
+    }
+  });
+
+  // Update node styles
+  svgEl.querySelectorAll('.net-node-group').forEach(node => {
+    const area = node.dataset.area;
+    const circle = node.querySelector('.net-node-circle');
+    const label = node.querySelector('.net-node-label');
+    if (!activeFilter) {
+      circle.setAttribute('fill-opacity', 0.7);
+      circle.setAttribute('filter', '');
+      if (label) label.setAttribute('fill', '#2d4a25');
+    } else if (area === activeFilter) {
+      circle.setAttribute('fill-opacity', 1.0);
+      circle.setAttribute('filter', 'url(#glow-cluster)');
+      if (label) label.setAttribute('fill', '#8ab880');
+    } else {
+      circle.setAttribute('fill-opacity', 0.15);
+      circle.setAttribute('filter', '');
+      if (label) label.setAttribute('fill', '#162414');
+    }
+  });
 }
 
-// ── Build sidebar UI ──────────────────────────────────────────────────────
-function buildUI(meta) {
-  const filtersEl = document.getElementById('filters');
-  const chipBar   = document.getElementById('chip-bar');
-  const byArea    = meta.by_area || {};
-
-  function makeBtn(areaId, color, label, cnt) {
-    const btn = document.createElement('button');
-    btn.className    = 'filter-btn' + (areaId === '__all' ? ' active' : '');
-    btn.dataset.filter = areaId;
-    btn.style.setProperty('--clr', color);
-    btn.innerHTML = `<span class="glow-dot" style="background:${color};box-shadow:0 0 6px 2px ${rgba(color,0.5)}"></span>`
-                  + `<span class="lbl">${label}</span><span class="cnt">${cnt}</span>`;
-    btn.onclick = () => setFilter(areaId === '__all' ? null : areaId);
-    return btn;
-  }
-
-  function makeChip(areaId, color, label) {
+// ────────────────────────────────────────────────────────────────────────
+// MOBILE CHIPS
+// ────────────────────────────────────────────────────────────────────────
+function buildMobileChips(meta_data) {
+  const row = document.getElementById('chip-row');
+  Object.entries(AREA_COLORS).forEach(([area, color]) => {
+    const count = meta_data?.by_area?.[area] || 0;
     const chip = document.createElement('button');
-    chip.className  = 'chip' + (areaId === '__all' ? ' active' : '');
-    chip.dataset.id  = areaId;
+    chip.className = 'chip';
+    chip.dataset.area = area;
     chip.style.setProperty('--clr', color);
-    chip.innerHTML = `<span class="chip-dot" style="background:${color};box-shadow:0 0 4px 1px ${rgba(color,0.5)}"></span>${label}`;
-    chip.onclick = () => setFilter(areaId === '__all' ? null : areaId);
-    return chip;
-  }
-
-  filtersEl.appendChild(makeBtn('__all', '#78c87a', 'All Areas', meta.total.toLocaleString()));
-  chipBar.appendChild(makeChip('__all', '#78c87a', 'All'));
-
-  Object.keys(AREA_NAMES).forEach(area => {
-    const color = AREA_COLORS[area] || DEFAULT_COLOR;
-    const cnt   = byArea[area] || 0;
-    if (!cnt) return;
-    const short = AREA_NAMES[area].split(' &')[0].split(' /')[0].split(' (')[0];
-    filtersEl.appendChild(makeBtn(area, color, AREA_NAMES[area], cnt.toLocaleString()));
-    chipBar.appendChild(makeChip(area, color, short));
+    chip.innerHTML = `<span class="chip-dot" style="background:${color}"></span>${AREA_NAMES[area] || area}`;
+    chip.addEventListener('click', () => setFilter(area));
+    row.appendChild(chip);
   });
-
-  // Region jump buttons
-  const grid = document.getElementById('regions-grid');
-  REGIONS.forEach(r => {
-    const btn = document.createElement('button');
-    btn.className  = 'region-btn';
-    btn.textContent = r.name;
-    btn.onclick = () => flyTo(r.lat, r.lon, r.zoom);
-    grid.appendChild(btn);
-  });
+  // "All" chip
+  const allChip = document.createElement('button');
+  allChip.className = 'chip';
+  allChip.textContent = '🌐 All networks';
+  allChip.addEventListener('click', () => { activeFilter = null; updateNetworkExplorer(); updateModeUI(); rerenderCurrentMode(); });
+  row.prepend(allChip);
 }
 
-function updateCountDisplay() {
-  const n = activeFilter ? orgs.filter(o => o.f === activeFilter).length : orgs.length;
-  document.getElementById('count').textContent           = `${n.toLocaleString()} organizations`;
-  document.getElementById('count-mobile').textContent    = `${n.toLocaleString()} orgs`;
-}
-
-// ── Hexbin rendering ──────────────────────────────────────────────────────
-function scheduleHexUpdate() {
-  clearTimeout(hexTimer);
-  hexTimer = setTimeout(() => renderHexbins(currentTransform), 80);
-}
-
-function renderHexbins(transform) {
-  const k = transform.k;
-  if (k >= THRESHOLD) {
-    hexLayer.style('display', 'none');
-    dotsG.style('display', null);
-    return;
-  }
-  hexLayer.style('display', null);
-  dotsG.style('display', 'none');
-
-  // Build screen-space points for this transform
-  const pts = [];
-  orgs.forEach(o => {
-    if (activeFilter && o.f !== activeFilter) return;
-    pts.push({
-      x: transform.applyX(o.px),
-      y: transform.applyY(o.py),
-      org: o
-    });
-  });
-
-  // Hexbin in screen space, radius 18px
-  const hb   = d3.hexbin().x(p => p.x).y(p => p.y).radius(18);
-  const bins  = hb(pts);
-
-  const binData = bins.map(bin => {
-    const ac = {};
-    bin.forEach(p => { ac[p.org.f] = (ac[p.org.f] || 0) + 1; });
-    const dominant = Object.entries(ac).sort((a, b) => b[1] - a[1])[0]?.[0] || 'other';
-    const cnt = bin.length;
-    const r   = Math.max(5, Math.min(26, 5 + Math.log(cnt + 1) * 5));
-    return { x: bin.x, y: bin.y, color: getColor(dominant), r };
-  });
-
-  hexLayer.selectAll('circle').data(binData).join('circle')
-    .attr('cx',           d => d.x)
-    .attr('cy',           d => d.y)
-    .attr('r',            d => d.r)
-    .attr('fill',         d => rgba(d.color, 0.5))
-    .attr('stroke',       d => rgba(d.color, 0.22))
-    .attr('stroke-width', 1.5);
-}
-
-// ── Dot rendering ─────────────────────────────────────────────────────────
-function renderDots(data) {
-  dotsG.selectAll('.org-dot').data(data, d => d.n + d.jla).join(
-    enter => enter.append('circle')
-      .attr('class',   'org-dot')
-      .attr('cx',      d => d.px)
-      .attr('cy',      d => d.py)
-      .attr('r',       2.5)
-      .attr('fill',    d => getColor(d.f))
-      .attr('opacity', 0.8)
-      .style('cursor', 'pointer')
-      .on('mouseenter', function(ev, d) { onDotEnter(ev, d, this); })
-      .on('mousemove',  ev => posTip(ev))
-      .on('mouseleave', function(ev, d) { onDotLeave(ev, d, this); }),
-    update => update,
-    exit   => exit.remove()
-  );
-}
-
-// ── Hover + mycelium tendrils ─────────────────────────────────────────────
-function onDotEnter(ev, d, el) {
-  const r = dotBaseR(currentTransform.k);
-  d3.select(el).raise().transition().duration(100).attr('r', r + 3).attr('opacity', 1);
-  showTip(ev, d);
-  drawTendrils(d);
-}
-
-function onDotLeave(ev, d, el) {
-  const active = activeFilter === null || d.f === activeFilter;
-  const r      = active ? dotBaseR(currentTransform.k) : 1.2;
-  d3.select(el).transition().duration(150).attr('r', r).attr('opacity', active ? 0.8 : 0.04);
-  hideTip();
-  tendrilG.selectAll('*').remove();
-}
-
-function drawTendrils(hovered) {
-  tendrilG.selectAll('*').remove();
-  const color = getColor(hovered.f);
-  const hx    = currentTransform.applyX(hovered.px);
-  const hy    = currentTransform.applyY(hovered.py);
-
-  // Find same-area dots within 80px screen distance
-  const nearby = [];
-  dotsG.selectAll('.org-dot').each(function(d) {
-    if (d === hovered || d.f !== hovered.f) return;
-    const dx   = currentTransform.applyX(d.px) - hx;
-    const dy   = currentTransform.applyY(d.py) - hy;
-    const dist = Math.sqrt(dx * dx + dy * dy);
-    if (dist < 80 && dist > 1) nearby.push({ d, dist });
-  });
-
-  // Draw up to 5 nearest tendrils (fade in)
-  nearby.sort((a, b) => a.dist - b.dist).slice(0, 5).forEach(({ d }) => {
-    tendrilG.append('line')
-      .attr('x1', hovered.px).attr('y1', hovered.py)
-      .attr('x2', d.px).attr('y2', d.py)
-      .attr('stroke',       rgba(color, 0))
-      .attr('stroke-width', 0.6)
-      .attr('stroke-dasharray', '4 3')
-      .transition().duration(280)
-      .attr('stroke', rgba(color, 0.38));
-  });
-}
-
-// ── Count in view ─────────────────────────────────────────────────────────
-function scheduleCountUpdate() {
-  clearTimeout(countTimer);
-  countTimer = setTimeout(updateCountInView, 300);
-}
-
-function updateCountInView() {
-  const k  = currentTransform.k;
-  const el = document.getElementById('count-in-view');
-  if (k < THRESHOLD) { el.style.display = 'none'; return; }
-
-  let count = 0;
-  dotsG.selectAll('.org-dot').each(function(d) {
-    if (activeFilter && d.f !== activeFilter) return;
-    const sx = currentTransform.applyX(d.px);
-    const sy = currentTransform.applyY(d.py);
-    if (sx >= 0 && sx <= w && sy >= 0 && sy <= h) count++;
-  });
-
-  el.style.display = 'block';
-  el.textContent   = `${count.toLocaleString()} in view`;
-}
-
-// ── Zoom handler ──────────────────────────────────────────────────────────
-function onZoom(e) {
-  currentTransform = e.transform;
-  g.attr('transform', e.transform);
-  const k = e.transform.k;
-
-  if (k < THRESHOLD) {
-    dotsG.style('display', 'none');
-    document.getElementById('count-in-view').style.display = 'none';
-    scheduleHexUpdate();
-  } else {
-    hexLayer.style('display', 'none');
-    dotsG.style('display', null);
-    // Adjust dot radius per zoom level
-    const r = dotBaseR(k);
-    dotsG.selectAll('.org-dot')
-      .attr('r', d => (activeFilter === null || d.f === activeFilter) ? r : 1.2);
-    scheduleCountUpdate();
-  }
-}
-
-// ── Load and initialize ───────────────────────────────────────────────────
-Promise.all([
-  d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json'),
-  fetch('./data/search/map_points.json').then(r => r.json()),
-  fetch('./data/search/map_meta.json').then(r => r.json()),
-]).then(([world, points, meta]) => {
-
-  // Preprocess + project
-  orgs = preprocessOrgs(points);
-  orgs.forEach(o => {
-    const [px, py] = projection([o.jlo, o.jla]);
-    o.px = px; o.py = py;
-  });
-
-  // Base map
-  const countries = topojson.feature(world, world.objects.countries);
-  countriesG.selectAll('.country').data(countries.features).join('path')
-    .attr('class', 'country').attr('d', geoPath);
-  graticuleG.append('path').datum(d3.geoGraticule()())
-    .attr('class', 'graticule').attr('d', geoPath);
-
-  // Build sidebar UI
-  buildUI(meta);
-
-  // Render all dots (start hidden — world view shows hexbins)
-  renderDots(orgs);
-  dotsG.style('display', 'none');
-
-  // Initial hexbin
-  renderHexbins(d3.zoomIdentity);
-
-  document.getElementById('loading').style.display = 'none';
-
-}).catch(err => {
-  console.error('Load error:', err);
-  const el = document.getElementById('loading');
-  el.querySelector('p').textContent = 'Error loading data — check console.';
-  el.querySelector('.spinner').style.display = 'none';
+// Mobile bottom sheet toggle
+document.getElementById('bottom-sheet-btn').addEventListener('click', () => {
+  document.getElementById('bottom-sheet').classList.toggle('open');
 });
 
-// ── Resize ────────────────────────────────────────────────────────────────
+// ────────────────────────────────────────────────────────────────────────
+// REGION BUTTONS
+// ────────────────────────────────────────────────────────────────────────
+document.querySelectorAll('.region-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    if (btn.dataset.reset) {
+      svg.transition().duration(700).call(zoom.transform, d3.zoomIdentity);
+    } else {
+      flyTo(+btn.dataset.lat, +btn.dataset.lon, +btn.dataset.zoom);
+    }
+  });
+});
+
+// ────────────────────────────────────────────────────────────────────────
+// WINDOW RESIZE
+// ────────────────────────────────────────────────────────────────────────
 window.addEventListener('resize', () => {
-  w = container.clientWidth;
-  h = container.clientHeight;
-  svg.attr('width', w).attr('height', h);
-  projection.scale(w / 5.8).translate([w / 2, h / 2]);
-
-  if (orgs.length) {
-    orgs.forEach(o => {
-      const [px, py] = projection([o.jlo, o.jla]);
-      o.px = px; o.py = py;
-    });
-    countriesG.selectAll('.country').attr('d', geoPath);
-    graticuleG.selectAll('.graticule').attr('d', geoPath);
-    dotsG.selectAll('.org-dot').attr('cx', d => d.px).attr('cy', d => d.py);
-    if (currentTransform.k < THRESHOLD) scheduleHexUpdate();
-    else scheduleCountUpdate();
-  }
+  W = container.clientWidth;
+  H = container.clientHeight;
+  svg.attr('width', W).attr('height', H);
+  heatCanvas.width = W;
+  heatCanvas.height = H;
+  projection.scale(W/5.8).translate([W/2, H/2]);
+  rerenderCurrentMode();
 });
+
+// ────────────────────────────────────────────────────────────────────────
+// DATA LOADING & INIT
+// ────────────────────────────────────────────────────────────────────────
+async function init() {
+  try {
+    // Load world topology and org data in parallel
+    const [world, points, metaData] = await Promise.all([
+      fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json').then(r=>r.json()),
+      fetch('./data/search/map_points.json').then(r=>r.json()),
+      fetch('./data/search/map_meta.json').then(r=>r.json()),
+    ]);
+
+    meta = metaData;
+
+    // Draw base map
+    const countries = topojson.feature(world, world.objects.countries);
+    landG.selectAll('path.country')
+      .data(countries.features)
+      .join('path')
+      .attr('class','country')
+      .attr('d', geoPath);
+
+    // Process orgs
+    allOrgs = preprocessOrgs(Array.isArray(points) ? points : []);
+
+    // Build UI widgets
+    buildNetworkExplorer(meta);
+    buildMobileChips(meta);
+
+    // Update count badge with real numbers
+    const total = meta.total || allOrgs.length;
+    const countries_count = Object.keys(meta.by_country || {}).length;
+    document.getElementById('count-badge').textContent =
+      `~${total.toLocaleString()} organizations · ${countries_count} countries`;
+
+    // Hide loading, show heatmap
+    document.getElementById('loading').style.display = 'none';
+
+    // Initial render — detect mobile for default mode
+    const isMobile = window.innerWidth < 641;
+    if (isMobile) {
+      // Mobile defaults to clusters
+      svg.call(zoom.transform, d3.zoomIdentity.scale(1.8));
+    } else {
+      setMode('heatmap');
+      renderHeatmap();
+    }
+
+  } catch(err) {
+    console.error('Ecolibrium load error:', err);
+    document.getElementById('loading').innerHTML =
+      `<p style="color:#ff6b6b">Failed to load: ${err.message}</p>`;
+  }
+}
+
+init();
 </script>
 </body>
 </html>
