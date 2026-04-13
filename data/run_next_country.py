@@ -1,247 +1,251 @@
 """
-Run the next pending country research task from Paperclip issue queue.
-Picks the highest-priority todo issue, runs DuckDuckGo research, writes DIRECTORY_XX.md,
-marks issue done, ingest into DB.
+Ecolibrium country research runner - no Paperclip required.
+Reads QUEUE.txt, picks next country without a DIRECTORY_CC.md, runs research, writes output.
 """
 import sqlite3
-import requests
-import json
-import re
+import subprocess
 import os
+import re
 import sys
 from datetime import datetime
 
-BASE_URL = "http://localhost:3100"
-COMPANY_ID = "f76fbb4f-ea7d-4c8f-8358-373686a188eb"
-AGENT_ID = "da60c721-16ba-43e1-9665-13fb7a2ad190"  # Researcher
-API_KEY = "pcp_11a4e3b71a29d45efecc830e0d26a3110fb0cdd9038d6fcb"
-HEADERS = {"Authorization": f"Bearer {API_KEY}", "Content-Type": "application/json"}
-DB_PATH = r"C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db"
-REGIONAL_DIR = r"C:\Users\simon\.openclaw\workspace\ecolibrium\data\regional"
-WORKSPACE_DIR = r"C:\Users\simon\.openclaw\workspace"
+QUEUE_FILE = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\QUEUE.txt'
+REGIONAL_DIR = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\regional'
+DB_PATH = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db'
+WORKSPACE_DIR = r'C:\Users\simon\.openclaw\workspace'
 
-SKIP_PATTERNS = ['Phase 1', 'Phase 2', 'Phase 3', 'Download', 'Ingest', 'Schema', 'Setup', 'Deploy']
+def get_next_country():
+    """Read QUEUE.txt, return first country without a DIRECTORY_CC.md."""
+    with open(QUEUE_FILE, encoding='utf-8') as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith('#'):
+                continue
+            parts = line.split(None, 1)
+            if len(parts) < 2:
+                continue
+            cc, name = parts[0], parts[1]
+            md_path = os.path.join(REGIONAL_DIR, f'DIRECTORY_{cc}.md')
+            if not os.path.exists(md_path):
+                return cc, name
+    return None, None
 
-def is_country_issue(issue):
-    title = issue.get('title', '')
-    if any(p.lower() in title.lower() for p in SKIP_PATTERNS):
-        return False
-    # Must match country pattern
-    if re.search(r'[A-Za-z][A-Za-z\s]+\s*\([A-Z]{2,3}\)', title):
-        return True
-    return False
+def search(query):
+    """Run a single DuckDuckGo search via puter-search.js."""
+    try:
+        result = subprocess.run(
+            ['node', os.path.join(WORKSPACE_DIR, 'tools', 'puter-search.js'), query],
+            capture_output=True, text=True, timeout=30, cwd=WORKSPACE_DIR
+        )
+        return result.stdout[:2000] if result.returncode == 0 else ''
+    except Exception as e:
+        print(f'  search error: {e}')
+        return ''
 
-def get_next_issue():
-    """Get highest priority country research todo issue."""
-    for status in ['todo', 'backlog']:
-        r = requests.get(f"{BASE_URL}/api/companies/{COMPANY_ID}/issues?limit=300&status={status}", headers=HEADERS)
-        issues = r.json()
-        country_issues = [i for i in issues if is_country_issue(i)]
-        # Filter out already-done countries
-        pending = []
-        for issue in country_issues:
-            m = re.search(r'\(([A-Z]{2,3})\)', issue.get('title', ''))
-            if m:
-                cc = m.group(1)
-                md_path = os.path.join(REGIONAL_DIR, f'DIRECTORY_{cc}.md')
-                if not os.path.exists(md_path):
-                    pending.append(issue)
-        if pending:
-            # Sort by issue number ascending (lower = older = do first)
-            pending.sort(key=lambda x: x.get('identifier', 'ZZZ'))
-            return pending[0]
-    print('No pending country issues found')
-    return None
-
-def search_country_orgs(country_name, country_code):
-    """Search for civil society orgs in a country using DuckDuckGo."""
-    import subprocess
-    
+def research_country(cc, country_name):
+    """Run 15+ searches for a country, return raw text."""
+    print(f'Searching: {country_name} ({cc})')
     queries = [
-        f"civil society organizations {country_name} NGO nonprofit list",
-        f"{country_name} registered nonprofits charities directory",
-        f"{country_name} NGO database civil society",
-        f"environmental organizations {country_name}",
-        f"human rights organizations {country_name}",
-        f"community organizations {country_name} nonprofit",
+        f'civil society organizations {country_name} NGO nonprofit directory',
+        f'{country_name} nonprofit registry charities database',
+        f'{country_name} cooperative federation worker-owned solidarity economy',
+        f'{country_name} environmental organizations ecology',
+        f'{country_name} food sovereignty agroecology peasant organizations',
+        f'{country_name} community health organizations',
+        f'{country_name} democratic governance citizen participation',
+        f'{country_name} housing land trust community organizations',
+        f'{country_name} restorative justice peacebuilding organizations',
+        f'{country_name} renewable energy community cooperative',
+        f'{country_name} indigenous peoples organizations rights',
+        f'{country_name} women cooperative self-help solidarity',
+        f'{country_name} mutual aid solidarity economy network',
+        f'{country_name} open source civic tech digital rights',
+        f'{country_name} nonprofit social enterprise directory',
     ]
-    
-    results = []
-    for q in queries:
-        try:
-            cmd = ["node", os.path.join(WORKSPACE_DIR, "tools", "puter-search.js"), q]
-            result = subprocess.run(cmd, capture_output=True, text=True, timeout=30, cwd=WORKSPACE_DIR)
-            if result.returncode == 0:
-                results.append(result.stdout[:2000])
-        except Exception as e:
-            print(f"Search error for '{q}': {e}")
-    
-    return "\n\n".join(results)
 
-def extract_orgs_from_search(search_text, country_name, country_code):
-    """Parse search results to extract org names and details."""
+    # Add local-language queries
+    latam = ['CO','AR','MX','PE','CL','UY','PY','VE','HN','GT','NI','CR','PA','CU','DO','BO','EC']
+    francophone = ['SN','CI','CM','MG','TN','MA']
+    if cc in latam:
+        queries += [
+            f'organizaciones sociedad civil {country_name} directorio',
+            f'{country_name} organizaciones comunitarias cooperativas',
+            f'{country_name} movimientos sociales organizaciones populares',
+        ]
+    elif cc in francophone:
+        queries += [
+            f'organisations société civile {country_name} annuaire',
+            f'{country_name} coopératives organisations communautaires',
+        ]
+    elif cc == 'BR':
+        queries += [
+            f'organizações sociedade civil {country_name} diretório',
+            f'{country_name} cooperativas movimentos sociais',
+        ]
+    elif cc == 'PT':
+        queries += [f'organizações sociedade civil Portugal']
+    elif cc in ['CN', 'TW']:
+        queries += [f'{country_name} civil society NGO organizations English']
+    elif cc in ['JP', 'KR']:
+        queries += [f'{country_name} NPO NGO civil society organizations English list']
+
+    results = []
+    for i, q in enumerate(queries):
+        print(f'  [{i+1}/{len(queries)}] {q[:60]}...' if len(q) > 60 else f'  [{i+1}/{len(queries)}] {q}')
+        text = search(q)
+        if text:
+            results.append(text)
+
+    return '\n\n'.join(results)
+
+def extract_orgs(search_text, cc, country_name):
+    """Parse search results to extract organization names and descriptions."""
     orgs = []
     seen = set()
-    
+
     lines = search_text.split('\n')
     for i, line in enumerate(lines):
         line = line.strip()
-        if not line or len(line) < 10:
+        if not line or len(line) < 8:
             continue
-        
-        # Look for org-like patterns
+
         patterns = [
-            r'\*\*([^*]+)\*\*',  # Bold text
-            r'^\d+\.\s+(.+?)(?:\s*[-–]|\s*:)',  # Numbered lists
-            r'^[-•]\s+(.+?)(?:\s*[-–]|\s*:)',  # Bullet points
-            r'([A-Z][A-Za-z\s&/,-]{10,60})(?:\s*[-–(])',  # Org-name-like capitalized phrases
+            r'\*\*([^*]{5,80})\*\*',
+            r'^\d+\.\s+([A-Z][^.\n]{5,80}?)(?:\s*[-–—:]|\s*$)',
+            r'^[-•·]\s+([A-Z][^.\n]{5,80}?)(?:\s*[-–—:]|\s*$)',
+            r'([A-Z][A-Za-z\s&/,\'-]{8,60})(?:\s+is\s|\s+was\s|\s*[-–(])',
         ]
-        
+
         for pat in patterns:
             m = re.search(pat, line)
             if m:
-                name = m.group(1).strip().strip('.,;:')
-                if len(name) > 5 and name.lower() not in seen:
-                    seen.add(name.lower())
-                    # Extract description from surrounding context
-                    desc_lines = lines[i:i+2]
-                    desc = ' '.join(desc_lines).replace(name, '').strip()[:200]
-                    orgs.append({'name': name, 'description': desc, 'country_code': country_code, 'country_name': country_name})
+                name = m.group(1).strip().rstrip('.,;:-')
+                # Filter junk
+                if len(name) < 5 or len(name) > 80:
+                    continue
+                if any(w in name.lower() for w in ['http', 'www.', 'click', 'search', 'result', 'page', 'found via']):
+                    continue
+                key = name.lower()
+                if key in seen:
+                    continue
+                seen.add(key)
+                # Grab description from next non-empty line
+                desc = ''
+                for j in range(i+1, min(i+3, len(lines))):
+                    candidate = lines[j].strip()
+                    if candidate and not candidate.startswith(('http', '**', '-', '•')):
+                        desc = candidate[:200]
+                        break
+                orgs.append({'n': name, 'd': desc, 'cc': cc, 'country': country_name})
                 break
-    
-    return orgs[:150]  # Cap at 150 orgs per country
 
-def write_directory_md(orgs, country_name, country_code, issue_title):
-    """Write DIRECTORY_XX.md file."""
+    return orgs[:150]
+
+def write_markdown(orgs, cc, country_name):
+    """Write DIRECTORY_CC.md."""
+    os.makedirs(REGIONAL_DIR, exist_ok=True)
+    path = os.path.join(REGIONAL_DIR, f'DIRECTORY_{cc}.md')
     now = datetime.utcnow().strftime('%Y-%m-%d')
-    path = os.path.join(REGIONAL_DIR, f"DIRECTORY_{country_code}.md")
-    
     lines = [
-        f"# 🌐 {country_name} ({country_code}) Civil Society Directory",
-        f"",
-        f"*Compiled: {now} | Source: Web research via DuckDuckGo | Task: {issue_title}*",
-        f"",
-        f"**{len(orgs)} organizations identified**",
-        f"",
-        "---",
-        "",
-        "## Organizations",
-        "",
+        f'# 🌐 {country_name} ({cc}) Civil Society Directory',
+        f'',
+        f'*Compiled: {now} | Source: Web research | Organizations: {len(orgs)}*',
+        f'',
+        '---',
+        '',
+        '## Organizations',
+        '',
     ]
-    
     for org in orgs:
-        name = org['name']
-        desc = org.get('description', '').strip()
-        lines.append(f"### {name}")
-        if desc and len(desc) > 10:
-            lines.append(f"> {desc}")
-        lines.append("")
-    
+        lines.append(f"### {org['n']}")
+        if org.get('d') and len(org['d']) > 10:
+            lines.append(f"> {org['d']}")
+        lines.append('')
     with open(path, 'w', encoding='utf-8') as f:
         f.write('\n'.join(lines))
-    
-    print(f"Written: {path} ({len(orgs)} orgs)")
+    print(f'Written: {path} ({len(orgs)} orgs)')
     return path
 
-def ingest_to_db(orgs, country_code, country_name):
-    """Insert orgs into SQLite DB."""
+def ingest_db(orgs, cc, country_name):
+    """Insert orgs into SQLite."""
+    if not orgs:
+        return 0
     db = sqlite3.connect(DB_PATH)
     c = db.cursor()
     now = datetime.utcnow().isoformat()
     inserted = 0
     for org in orgs:
         try:
-            c.execute("""
-                INSERT OR IGNORE INTO organizations 
+            c.execute("""INSERT OR IGNORE INTO organizations
                 (name, country_code, country_name, description, source, date_added, status)
-                VALUES (?, ?, ?, ?, ?, ?, ?)
-            """, (org['name'], country_code, country_name, org.get('description', ''), 'web_research', now, 'active'))
+                VALUES (?, ?, ?, ?, ?, ?, ?)""",
+                (org['n'], cc, country_name, org.get('d', ''), 'web_research', now, 'active'))
             inserted += c.rowcount
-        except Exception as e:
+        except Exception:
             pass
     db.commit()
-    c.execute("SELECT COUNT(*) FROM organizations")
+    c.execute('SELECT COUNT(*) FROM organizations')
     total = c.fetchone()[0]
     db.close()
-    print(f"DB: inserted {inserted} new orgs, total={total:,}")
+    print(f'DB: +{inserted} new, total={total:,}')
     return inserted
 
-def mark_issue_done(issue_id, comment):
-    """Mark Paperclip issue as done."""
-    # Update status
-    requests.patch(f"{BASE_URL}/api/companies/{COMPANY_ID}/issues/{issue_id}",
-                   headers=HEADERS, json={"status": "done"})
-    # Add comment
-    requests.post(f"{BASE_URL}/api/companies/{COMPANY_ID}/issues/{issue_id}/comments",
-                  headers=HEADERS, json={"body": comment})
-    print(f"Issue {issue_id} marked done")
+def rebuild_index():
+    """Regenerate search JSON indexes and DIRECTORY.md."""
+    for script in ['build_search_index.py', 'export_directory.py']:
+        path = os.path.join(WORKSPACE_DIR, 'ecolibrium', 'data', script)
+        if os.path.exists(path):
+            subprocess.run(['python', path], timeout=120, cwd=WORKSPACE_DIR)
+
+def queue_remaining():
+    """Count countries left in queue."""
+    remaining = 0
+    with open(QUEUE_FILE, encoding='utf-8') as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith('#'):
+                continue
+            parts = line.split(None, 1)
+            if len(parts) < 2:
+                continue
+            cc = parts[0]
+            if not os.path.exists(os.path.join(REGIONAL_DIR, f'DIRECTORY_{cc}.md')):
+                remaining += 1
+    return remaining
 
 def main():
-    issue = get_next_issue()
-    if not issue:
-        print("No pending issues. All done!")
-        return
-    
-    issue_id = issue['id']
-    title = issue.get('title', '')
-    identifier = issue.get('identifier', '')
-    print(f"Working on: {identifier} - {title}")
-    
-    # Extract country from title: "ECO-65: Bolivia (BO)" or "Research: Bolivia (BO)" formats
-    m = re.search(r'([A-Za-z][A-Za-z\s]+?)\s*\(([A-Z]{2,3})\)', title)
-    if m:
-        country_name = m.group(1).strip()
-        country_code = m.group(2)
-    else:
-        # Try to extract just from title words
-        clean = re.sub(r'(?i)(Research:|Directory:|ECO-\d+:?|Civil Society)', '', title).strip()
-        parts = clean.split()
-        country_name = ' '.join(parts[:2]) if parts else title
-        country_code = ''.join(w[0] for w in country_name.split()[:2]).upper()
-    
-    print(f"Country: {country_name} ({country_code})")
-    
-    # Check if already done
-    out_path = os.path.join(REGIONAL_DIR, f"DIRECTORY_{country_code}.md")
-    if os.path.exists(out_path):
-        print(f"Already exists: {out_path}, marking done anyway")
-        mark_issue_done(issue_id, f"Already completed: {out_path}")
-        return
-    
-    # Mark in progress
-    requests.patch(f"{BASE_URL}/api/companies/{COMPANY_ID}/issues/{issue_id}",
-                   headers=HEADERS, json={"status": "in_progress"})
-    
-    # Search
-    print("Searching...")
-    search_text = search_country_orgs(country_name, country_code)
-    
-    # Extract orgs
-    orgs = extract_orgs_from_search(search_text, country_name, country_code)
-    print(f"Found {len(orgs)} orgs")
-    
-    if not orgs:
-        print("No orgs found, trying fallback...")
-        orgs = [{'name': f'{country_name} Civil Society Network', 'description': f'Primary civil society network in {country_name}', 'country_code': country_code, 'country_name': country_name}]
-    
-    # Write files
-    write_directory_md(orgs, country_name, country_code, title)
-    ingest_to_db(orgs, country_code, country_name)
-    
-    # Regenerate DIRECTORY.md
-    try:
-        import subprocess
-        subprocess.run(["python", os.path.join(WORKSPACE_DIR, "ecolibrium", "data", "export_directory.py")], 
-                      timeout=120, cwd=WORKSPACE_DIR)
-    except Exception as e:
-        print(f"Export warning: {e}")
-    
-    # Mark done
-    with open(out_path, encoding='utf-8') as f:
-        org_count = len(re.findall(r'^### ', f.read(), re.MULTILINE))
-    mark_issue_done(issue_id, f"Completed: {org_count} organizations found for {country_name}. Output: data/regional/DIRECTORY_{country_code}.md")
-    
-    print(f"\nDone! {country_name} ({country_code}): {len(orgs)} orgs")
+    cc, country_name = get_next_country()
+    if not cc:
+        print('Queue empty - all countries done!')
+        return {'status': 'done', 'message': 'All countries complete'}
 
-if __name__ == "__main__":
-    main()
+    print(f'\n=== {country_name} ({cc}) ===')
+
+    search_text = research_country(cc, country_name)
+    orgs = extract_orgs(search_text, cc, country_name)
+    print(f'Found {len(orgs)} orgs')
+
+    if not orgs:
+        orgs = [{'n': f'{country_name} Civil Society Network', 'd': f'Primary civil society network in {country_name}', 'cc': cc, 'country': country_name}]
+
+    write_markdown(orgs, cc, country_name)
+    inserted = ingest_db(orgs, cc, country_name)
+    rebuild_index()
+
+    remaining = queue_remaining()
+    result = {
+        'status': 'done',
+        'country': country_name,
+        'cc': cc,
+        'orgs_found': len(orgs),
+        'db_inserted': inserted,
+        'queue_remaining': remaining,
+    }
+    print(f'\nDone: {country_name} ({cc}), {len(orgs)} orgs, {remaining} countries remaining')
+    return result
+
+if __name__ == '__main__':
+    r = main()
+    if r:
+        import json
+        print(json.dumps(r))

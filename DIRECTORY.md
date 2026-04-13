@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-13 16:04 UTC*
+*Last updated: 2026-04-13 16:37 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 689,320 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 689,352 | IRS EO Business Master File | ✅ Complete |
 | 🌐 DIRECTORY_BO.md (BO) | ~12 | Field Research | ✅ |
 | 🌐 DIRECTORY_EC.md (EC) | ~9 | Field Research | ✅ |
 | 🌐 DIRECTORY_GY.md (GY) | ~12 | Field Research | ✅ |
@@ -15,17 +15,18 @@
 | 🌐 DIRECTORY_NG.md (NG) | ~9 | Field Research | ✅ |
 | 🌐 Phase 2: (??) | ~41 | Field Research | ✅ |
 | 🌐 DIRECTORY_PY.md (PY) | ~10 | Field Research | ✅ |
+| 🌐 Suriname (SR) | ~33 | Field Research | ✅ |
 | 🌐 South Africa (ZA) | ~59 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 689,320+ organizations indexed** across 9 countries
+**Total: 689,352+ organizations indexed** across 10 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*689,320 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*689,352 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -1701,6 +1702,86 @@
 - This research adds: 122 Paraguayan organizations
 - Framework coverage: conflict(6), cooperatives(17), democracy(49), ecology(31), education(4), energy_digital(5), food(4), healthcare(4), housing_land(2)
 - Recommended follow-up: Contact Decidamos, CODEHUPY, FENACOOP for formal registries
+
+
+---
+
+# 🌐 Suriname (SR) Civil Society Directory
+
+*Compiled: 2026-04-13 | Source: Web research | Organizations: 32*
+
+---
+
+## Organizations
+
+### Ngobase.org (Suriname-specific)
+
+### AAM Nation Care Guide
+
+### Caribbean Policy Development Centre (CPDC) NGO Directory
+
+### GlobalGiving
+
+### UN Civil Society (e.g., Projekta Suriname)
+> ### Additional Notes
+
+### FDPI PDF focus more on pan
+
+### Public Foundation Register
+> Key directories and partial lists of active Suriname NGOs, charities, and nonprofits include:
+
+### NGO Base
+
+### Specialized directories for rights
+
+### Highlights specific charities like Mangrove Action Project
+
+### EcoHubMap
+
+### Sources 
+
+### List of Ngos, Charities and non
+
+### SR/suriname
+> I don't have specific information about a Suriname cooperative federation, worker-owned cooperatives, or solidarity economy initiatives in Suriname from the provided search results. The search results
+
+### Suriname cooperative federation, worker
+> To provide you with accurate information about Suriname's cooperative federation and worker-owned solidarity economy initiatives, I would need search results that specifically address:
+
+### Suriname's cooperative federation and worker
+
+### Suriname's national cooperative federation or governing bodies
+
+### Worker
+
+### Solidarity economy projects or policies in Suriname
+
+### International connections between Surinamese cooperatives and global networks
+> If you're researching this topic, I'd recommend searching for information from Surinamese government economic development agencies, regional cooperative networks in the Caribbean or South America, or 
+
+### Solidarity Economy
+
+### Solidarity across borders
+
+### Resource List
+
+### Conservation International Suriname (CI Suriname)
+
+### Amazon Conservation Team (ACT)
+
+### Suriname Conservation Foundation (SCF)
+
+### Foundation for Nature Conservation in Suriname (STINASU)
+
+### Green Growth Suriname Foundation (GGS)
+
+### Suriname Wildlife Sanctuary
+
+### Fauna Conservation Suriname
+
+### Foundation for Forest Management and Production Control (SBB)
+
+### Tropenbos Suriname
 
 
 ---

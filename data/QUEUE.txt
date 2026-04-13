@@ -1,0 +1,100 @@
+# Ecolibrium country research queue
+# Format: CC  Country Name
+# Completed countries are auto-skipped (DIRECTORY_CC.md exists check)
+# Add new countries at the bottom
+
+SR  Suriname
+VE  Venezuela
+HN  Honduras
+GT  Guatemala
+NI  Nicaragua
+CR  Costa Rica
+PA  Panama
+CU  Cuba
+HT  Haiti
+DO  Dominican Republic
+JM  Jamaica
+TT  Trinidad and Tobago
+CO  Colombia
+AR  Argentina
+MX  Mexico
+PE  Peru
+CL  Chile
+UY  Uruguay
+PY  Paraguay
+GY  Guyana
+BR  Brazil
+KE  Kenya
+ZA  South Africa
+NG  Nigeria
+GH  Ghana
+RW  Rwanda
+ET  Ethiopia
+TZ  Tanzania
+UG  Uganda
+SN  Senegal
+CI  Cote d'Ivoire
+CM  Cameroon
+MZ  Mozambique
+ZM  Zambia
+ZW  Zimbabwe
+MW  Malawi
+MG  Madagascar
+TN  Tunisia
+MA  Morocco
+EG  Egypt
+JO  Jordan
+LB  Lebanon
+TR  Turkey
+IR  Iran
+PK  Pakistan
+BD  Bangladesh
+NP  Nepal
+LK  Sri Lanka
+IN  India
+ID  Indonesia
+PH  Philippines
+VN  Vietnam
+TH  Thailand
+MM  Myanmar
+KH  Cambodia
+MY  Malaysia
+KR  South Korea
+JP  Japan
+TW  Taiwan
+CN  China
+MN  Mongolia
+KZ  Kazakhstan
+UZ  Uzbekistan
+GE  Georgia
+AM  Armenia
+UA  Ukraine
+PL  Poland
+RO  Romania
+HU  Hungary
+RS  Serbia
+BA  Bosnia and Herzegovina
+AL  Albania
+MK  North Macedonia
+BG  Bulgaria
+GR  Greece
+PT  Portugal
+ES  Spain
+IT  Italy
+FR  France
+DE  Germany
+NL  Netherlands
+BE  Belgium
+SE  Sweden
+NO  Norway
+DK  Denmark
+FI  Finland
+CH  Switzerland
+AT  Austria
+IE  Ireland
+GB  United Kingdom
+CA  Canada
+AU  Australia
+NZ  New Zealand
+FJ  Fiji
+PG  Papua New Guinea
