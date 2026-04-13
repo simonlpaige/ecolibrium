@@ -387,17 +387,22 @@ let dataReady = false;
 
 // ── Map init ───────────────────────────────────────────────────────────────
 
-// Inline dark style using Stadia dark tiles (reliable, no key for open use)
+// Dark style using CARTO dark tiles via tile.openstreetmap.org proxy (no auth needed)
 const DARK_STYLE = {
   version: 8,
   name: 'Ecolibrium Dark',
   sources: {
-    'stadia-dark': {
+    'osm-dark': {
       type: 'raster',
-      tiles: ['https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}.png'],
+      tiles: [
+        'https://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
+        'https://b.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
+        'https://c.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
+        'https://d.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
+      ],
       tileSize: 256,
-      attribution: '© <a href="https://stadiamaps.com/">Stadia Maps</a> © <a href="https://openmaptiles.org/">OpenMapTiles</a> © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-      maxzoom: 20
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/attributions">CARTO</a>',
+      maxzoom: 19
     }
   },
   layers: [{
@@ -405,9 +410,9 @@ const DARK_STYLE = {
     type: 'background',
     paint: { 'background-color': '#060d06' }
   }, {
-    id: 'stadia-tiles',
+    id: 'osm-dark-tiles',
     type: 'raster',
-    source: 'stadia-dark',
+    source: 'osm-dark',
     paint: { 'raster-opacity': 1.0 }
   }],
   glyphs: 'https://fonts.openmaptiles.org/{fontstack}/{range}.pbf'
@@ -727,10 +732,20 @@ function buildSidebar(points) {
 function checkReady() {
   if (mapReady && dataReady) {
     const overlay = document.getElementById('loading');
-    overlay.classList.add('fade-out');
-    setTimeout(() => overlay.remove(), 600);
+    if (overlay) {
+      overlay.classList.add('fade-out');
+      setTimeout(() => { if(overlay.parentNode) overlay.parentNode.removeChild(overlay); }, 600);
+    }
   }
 }
+
+// Fallback: dismiss spinner after 8s even if map tiles are slow/failing
+setTimeout(() => {
+  if (dataReady) {
+    const overlay = document.getElementById('loading');
+    if (overlay && overlay.parentNode) overlay.parentNode.removeChild(overlay);
+  }
+}, 8000);
 
 // ── Boot ───────────────────────────────────────────────────────────────────
 
