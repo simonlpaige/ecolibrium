@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-14 13:07 UTC*
+*Last updated: 2026-04-14 13:22 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 720,968 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 720,969 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
 | 🌐 Bangladesh (BD) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_BO.md (BO) | ~12 | Field Research | ✅ |
@@ -15,6 +15,7 @@
 | 🌐 Cote d'Ivoire (CI) | ~2 | Field Research | ✅ |
 | 🌐 Chile (CL) | ~2 | Field Research | ✅ |
 | 🌐 Cameroon (CM) | ~2 | Field Research | ✅ |
+| 🌐 China (CN) | ~2 | Field Research | ✅ |
 | 🌐 Colombia (CO) | ~2 | Field Research | ✅ |
 | 🌐 Costa Rica (CR) | ~17 | Field Research | ✅ |
 | 🌐 Cuba (CU) | ~2 | Field Research | ✅ |
@@ -72,14 +73,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 720,968+ organizations indexed** across 63 countries
+**Total: 720,969+ organizations indexed** across 64 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*720,968 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*720,969 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -882,6 +883,20 @@
 
 ### Cameroon Civil Society Network
 > Primary civil society network in Cameroon
+
+
+---
+
+# 🌐 China (CN) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### China Civil Society Network
+> Primary civil society network in China
 
 
 ---
