@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-14 08:52 UTC*
+*Last updated: 2026-04-14 09:07 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 720,922 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 720,923 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_BO.md (BO) | ~12 | Field Research | ✅ |
 | 🌐 Brazil (BR) | ~2 | Field Research | ✅ |
@@ -45,6 +45,7 @@
 | 🌐 Senegal (SN) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_SR.md (SR) | ~9 | Field Research | ✅ |
 | 🌐 Tunisia (TN) | ~2 | Field Research | ✅ |
+| 🌐 Turkey (TR) | ~2 | Field Research | ✅ |
 | 🌐 Trinidad and Tobago (TT) | ~2 | Field Research | ✅ |
 | 🌐 Tanzania (TZ) | ~2 | Field Research | ✅ |
 | 🌐 Uganda (UG) | ~2 | Field Research | ✅ |
@@ -55,14 +56,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 720,922+ organizations indexed** across 46 countries
+**Total: 720,923+ organizations indexed** across 47 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*720,922 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*720,923 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -2661,6 +2662,20 @@ Model: nonprofit
 
 ### Tunisia Civil Society Network
 > Primary civil society network in Tunisia
+
+
+---
+
+# 🌐 Turkey (TR) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Turkey Civil Society Network
+> Primary civil society network in Turkey
 
 
 ---
