@@ -1,9 +1,9 @@
 {
-  "filter_offset": 144500,
-  "enrich_offset": 361,
+  "filter_offset": 146500,
+  "enrich_offset": 362,
   "filter_done": false,
   "enrich_done": false,
-  "filtered_out": 875,
+  "filtered_out": 892,
   "enriched": 0,
-  "last_run": "2026-04-14T19:37:59.200870"
+  "last_run": "2026-04-14T19:52:58.557120"
 }
