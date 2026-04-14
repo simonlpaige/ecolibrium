@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-14 18:22 UTC*
+*Last updated: 2026-04-14 18:37 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 721,000 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 721,001 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Albania (AL) | ~2 | Field Research | ✅ |
 | 🌐 Armenia (AM) | ~2 | Field Research | ✅ |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
@@ -62,6 +62,7 @@
 | 🌐 Mozambique (MZ) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_NG.md (NG) | ~9 | Field Research | ✅ |
 | 🌐 Nicaragua (NI) | ~13 | Field Research | ✅ |
+| 🌐 Netherlands (NL) | ~2 | Field Research | ✅ |
 | 🌐 Nepal (NP) | ~17 | Field Research | ✅ |
 | 🌐 Phase 2: (??) | ~41 | Field Research | ✅ |
 | 🌐 Panama (PA) | ~2 | Field Research | ✅ |
@@ -93,14 +94,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 721,000+ organizations indexed** across 84 countries
+**Total: 721,001+ organizations indexed** across 85 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*721,000 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*721,001 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -2547,6 +2548,20 @@ Model: nonprofit
 Framework: democracy
 Model: nonprofit
 > Sos Nicaragua i
+
+
+---
+
+# 🌐 Netherlands (NL) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Netherlands Civil Society Network
+> Primary civil society network in Netherlands
 
 
 ---
