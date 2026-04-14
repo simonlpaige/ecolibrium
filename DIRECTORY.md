@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-14 20:22 UTC*
+*Last updated: 2026-04-14 20:37 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 721,020 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 721,021 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Albania (AL) | ~2 | Field Research | ✅ |
 | 🌐 Armenia (AM) | ~2 | Field Research | ✅ |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
@@ -44,6 +44,7 @@
 | 🌐 Haiti (HT) | ~2 | Field Research | ✅ |
 | 🌐 Hungary (HU) | ~2 | Field Research | ✅ |
 | 🌐 Indonesia (ID) | ~2 | Field Research | ✅ |
+| 🌐 Ireland (IE) | ~2 | Field Research | ✅ |
 | 🌐 India (IN) | ~2 | Field Research | ✅ |
 | 🌐 Iran (IR) | ~2 | Field Research | ✅ |
 | 🌐 Italy (IT) | ~2 | Field Research | ✅ |
@@ -101,14 +102,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 721,020+ organizations indexed** across 92 countries
+**Total: 721,021+ organizations indexed** across 93 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*721,020 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*721,021 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -1993,6 +1994,20 @@ Model: nonprofit
 
 ### Indonesia Civil Society Network
 > Primary civil society network in Indonesia
+
+
+---
+
+# 🌐 Ireland (IE) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Ireland Civil Society Network
+> Primary civil society network in Ireland
 
 
 ---
