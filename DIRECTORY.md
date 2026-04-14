@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-14 04:37 UTC*
+*Last updated: 2026-04-14 04:52 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 720,583 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 720,584 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_BO.md (BO) | ~12 | Field Research | ✅ |
 | 🌐 Brazil (BR) | ~2 | Field Research | ✅ |
@@ -31,6 +31,7 @@
 | 🌐 Panama (PA) | ~2 | Field Research | ✅ |
 | 🌐 Peru (PE) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_PY.md (PY) | ~10 | Field Research | ✅ |
+| 🌐 Rwanda (RW) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_SR.md (SR) | ~9 | Field Research | ✅ |
 | 🌐 Trinidad and Tobago (TT) | ~2 | Field Research | ✅ |
 | 🌐 Uruguay (UY) | ~12 | Field Research | ✅ |
@@ -38,14 +39,14 @@
 | 🌐 South Africa (ZA) | ~59 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 720,583+ organizations indexed** across 29 countries
+**Total: 720,584+ organizations indexed** across 30 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*720,583 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*720,584 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -2294,6 +2295,20 @@ Model: nonprofit
 - This research adds: 122 Paraguayan organizations
 - Framework coverage: conflict(6), cooperatives(17), democracy(49), ecology(31), education(4), energy_digital(5), food(4), healthcare(4), housing_land(2)
 - Recommended follow-up: Contact Decidamos, CODEHUPY, FENACOOP for formal registries
+
+
+---
+
+# 🌐 Rwanda (RW) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Rwanda Civil Society Network
+> Primary civil society network in Rwanda
 
 
 ---
