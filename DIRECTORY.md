@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-14 10:07 UTC*
+*Last updated: 2026-04-14 10:22 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 720,942 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 720,943 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
 | 🌐 Bangladesh (BD) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_BO.md (BO) | ~12 | Field Research | ✅ |
@@ -32,6 +32,7 @@
 | 🌐 Jordan (JO) | ~2 | Field Research | ✅ |
 | 🌐 Kenya (KE) | ~53 | Field Research | ✅ |
 | 🌐 Lebanon (LB) | ~2 | Field Research | ✅ |
+| 🌐 Sri Lanka (LK) | ~2 | Field Research | ✅ |
 | 🌐 Morocco (MA) | ~2 | Field Research | ✅ |
 | 🌐 Madagascar (MG) | ~2 | Field Research | ✅ |
 | 🌐 Malawi (MW) | ~2 | Field Research | ✅ |
@@ -60,14 +61,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 720,942+ organizations indexed** across 51 countries
+**Total: 720,943+ organizations indexed** across 52 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*720,942 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*720,943 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -1882,6 +1883,20 @@ Model: nonprofit
 
 ### Lebanon Civil Society Network
 > Primary civil society network in Lebanon
+
+
+---
+
+# 🌐 Sri Lanka (LK) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Sri Lanka Civil Society Network
+> Primary civil society network in Sri Lanka
 
 
 ---
