@@ -1,18 +1,19 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-14 06:07 UTC*
+*Last updated: 2026-04-14 06:22 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 720,589 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 720,590 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_BO.md (BO) | ~12 | Field Research | ✅ |
 | 🌐 Brazil (BR) | ~2 | Field Research | ✅ |
 | 🌐 Cote d'Ivoire (CI) | ~2 | Field Research | ✅ |
 | 🌐 Chile (CL) | ~2 | Field Research | ✅ |
+| 🌐 Cameroon (CM) | ~2 | Field Research | ✅ |
 | 🌐 Colombia (CO) | ~2 | Field Research | ✅ |
 | 🌐 Costa Rica (CR) | ~17 | Field Research | ✅ |
 | 🌐 Cuba (CU) | ~2 | Field Research | ✅ |
@@ -44,14 +45,14 @@
 | 🌐 South Africa (ZA) | ~59 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 720,589+ organizations indexed** across 35 countries
+**Total: 720,590+ organizations indexed** across 36 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*720,589 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*720,590 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -826,6 +827,20 @@
 
 ### Chile Civil Society Network
 > Primary civil society network in Chile
+
+
+---
+
+# 🌐 Cameroon (CM) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Cameroon Civil Society Network
+> Primary civil society network in Cameroon
 
 
 ---
