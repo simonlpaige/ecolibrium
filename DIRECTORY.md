@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-14 04:22 UTC*
+*Last updated: 2026-04-14 04:37 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 720,582 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 720,583 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_BO.md (BO) | ~12 | Field Research | ✅ |
 | 🌐 Brazil (BR) | ~2 | Field Research | ✅ |
@@ -17,6 +17,7 @@
 | 🌐 Cuba (CU) | ~2 | Field Research | ✅ |
 | 🌐 Dominican Republic (DO) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_EC.md (EC) | ~9 | Field Research | ✅ |
+| 🌐 Ghana (GH) | ~2 | Field Research | ✅ |
 | 🌐 Guatemala (GT) | ~13 | Field Research | ✅ |
 | 🌐 DIRECTORY_GY.md (GY) | ~12 | Field Research | ✅ |
 | 🌐 DIRECTORY_HN.md (HN) | ~10 | Field Research | ✅ |
@@ -37,14 +38,14 @@
 | 🌐 South Africa (ZA) | ~59 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 720,582+ organizations indexed** across 28 countries
+**Total: 720,583+ organizations indexed** across 29 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*720,582 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*720,583 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -1101,6 +1102,20 @@ Model: nonprofit
 - This research adds: 102 Ecuadorian organizations
 - Framework coverage: democracy(51), cooperatives(12), conflict(13), food(10), healthcare(4), housing_land(1), energy_digital(7), ecology(4)
 - Recommended follow-up: Contact MIES registry, CONAIE for indigenous org directory
+
+
+---
+
+# 🌐 Ghana (GH) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Ghana Civil Society Network
+> Primary civil society network in Ghana
 
 
 ---
