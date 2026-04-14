@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-14 07:37 UTC*
+*Last updated: 2026-04-14 07:52 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 720,917 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 720,918 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_BO.md (BO) | ~12 | Field Research | ✅ |
 | 🌐 Brazil (BR) | ~2 | Field Research | ✅ |
@@ -40,6 +40,7 @@
 | 🌐 Rwanda (RW) | ~2 | Field Research | ✅ |
 | 🌐 Senegal (SN) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_SR.md (SR) | ~9 | Field Research | ✅ |
+| 🌐 Tunisia (TN) | ~2 | Field Research | ✅ |
 | 🌐 Trinidad and Tobago (TT) | ~2 | Field Research | ✅ |
 | 🌐 Tanzania (TZ) | ~2 | Field Research | ✅ |
 | 🌐 Uganda (UG) | ~2 | Field Research | ✅ |
@@ -50,14 +51,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 720,917+ organizations indexed** across 41 countries
+**Total: 720,918+ organizations indexed** across 42 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*720,917 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*720,918 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -2586,6 +2587,20 @@ Model: nonprofit
 - Framework coverage: democracy(56), ecology(14), cooperatives(4), food(4), healthcare(13), education(4), housing_land(2), energy_digital(8)
 - Key gaps: Indigenous/Maroon village-level orgs, Dutch-language civil society, informal savings groups
 - Recommended follow-up: Contact SANBO (Suriname NGO umbrella), Conservation International Suriname
+
+
+---
+
+# 🌐 Tunisia (TN) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Tunisia Civil Society Network
+> Primary civil society network in Tunisia
 
 
 ---
