@@ -1,16 +1,17 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-14 20:07 UTC*
+*Last updated: 2026-04-14 20:22 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 721,019 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 721,020 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Albania (AL) | ~2 | Field Research | ✅ |
 | 🌐 Armenia (AM) | ~2 | Field Research | ✅ |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
+| 🌐 Austria (AT) | ~2 | Field Research | ✅ |
 | 🌐 Bosnia and Herzegovina (BA) | ~13 | Field Research | ✅ |
 | 🌐 Bangladesh (BD) | ~2 | Field Research | ✅ |
 | 🌐 Belgium (BE) | ~2 | Field Research | ✅ |
@@ -100,14 +101,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 721,019+ organizations indexed** across 91 countries
+**Total: 721,020+ organizations indexed** across 92 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*721,019 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*721,020 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -675,6 +676,20 @@
 
 ### Argentina Civil Society Network
 > Primary civil society network in Argentina
+
+
+---
+
+# 🌐 Austria (AT) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Austria Civil Society Network
+> Primary civil society network in Austria
 
 
 ---
