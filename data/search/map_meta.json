@@ -1,24 +1,25 @@
 {
-  "total": 13959,
+  "total": 13975,
   "us_count": 13752,
-  "intl_count": 207,
+  "intl_count": 223,
   "by_area": {
     "healthcare": 2772,
     "food": 2584,
     "housing_land": 1884,
-    "education": 1809,
-    "democracy": 1333,
+    "education": 1811,
+    "democracy": 1345,
     "recreation_arts": 1321,
     "ecology": 986,
     "cooperatives": 724,
     "conflict": 534,
-    "energy_digital": 12
+    "energy_digital": 14
   },
   "by_country": {
     "US": 13752,
     "ZA": 58,
     "KE": 51,
     "SR": 32,
+    "CR": 16,
     "VE": 13,
     "GT": 12,
     "HN": 12,
