@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-14 13:52 UTC*
+*Last updated: 2026-04-14 14:07 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 720,971 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 720,972 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
 | 🌐 Bangladesh (BD) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_BO.md (BO) | ~12 | Field Research | ✅ |
@@ -68,6 +68,7 @@
 | 🌐 Tanzania (TZ) | ~2 | Field Research | ✅ |
 | 🌐 Uganda (UG) | ~2 | Field Research | ✅ |
 | 🌐 Uruguay (UY) | ~12 | Field Research | ✅ |
+| 🌐 Uzbekistan (UZ) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_VE.md (VE) | ~13 | Field Research | ✅ |
 | 🌐 Vietnam (VN) | ~2 | Field Research | ✅ |
 | 🌐 South Africa (ZA) | ~59 | Field Research | ✅ |
@@ -75,14 +76,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 720,971+ organizations indexed** across 66 countries
+**Total: 720,972+ organizations indexed** across 67 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*720,971 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*720,972 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -3202,6 +3203,20 @@ Model: nonprofit
 Framework: democracy
 Model: nonprofit
 > There are 59 Non-governmental organizations in Uruguay as of October 8, 2024; which is an 5.36% increase from 2023. Of these locations,
+
+
+---
+
+# 🌐 Uzbekistan (UZ) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Uzbekistan Civil Society Network
+> Primary civil society network in Uzbekistan
 
 
 ---
