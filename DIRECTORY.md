@@ -1,14 +1,15 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-14 09:37 UTC*
+*Last updated: 2026-04-14 09:52 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 720,925 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 720,926 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
+| 🌐 Bangladesh (BD) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_BO.md (BO) | ~12 | Field Research | ✅ |
 | 🌐 Brazil (BR) | ~2 | Field Research | ✅ |
 | 🌐 Cote d'Ivoire (CI) | ~2 | Field Research | ✅ |
@@ -58,14 +59,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 720,925+ organizations indexed** across 49 countries
+**Total: 720,926+ organizations indexed** across 50 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*720,925 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*720,926 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -605,6 +606,20 @@
 
 ### Argentina Civil Society Network
 > Primary civil society network in Argentina
+
+
+---
+
+# 🌐 Bangladesh (BD) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Bangladesh Civil Society Network
+> Primary civil society network in Bangladesh
 
 
 ---
