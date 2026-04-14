@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-14 09:21 UTC*
+*Last updated: 2026-04-14 09:37 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 720,924 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 720,925 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_BO.md (BO) | ~12 | Field Research | ✅ |
 | 🌐 Brazil (BR) | ~2 | Field Research | ✅ |
@@ -41,6 +41,7 @@
 | 🌐 Phase 2: (??) | ~41 | Field Research | ✅ |
 | 🌐 Panama (PA) | ~2 | Field Research | ✅ |
 | 🌐 Peru (PE) | ~2 | Field Research | ✅ |
+| 🌐 Pakistan (PK) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_PY.md (PY) | ~10 | Field Research | ✅ |
 | 🌐 Rwanda (RW) | ~2 | Field Research | ✅ |
 | 🌐 Senegal (SN) | ~2 | Field Research | ✅ |
@@ -57,14 +58,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 720,924+ organizations indexed** across 48 countries
+**Total: 720,925+ organizations indexed** across 49 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*720,924 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*720,925 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -2278,6 +2279,20 @@ Model: nonprofit
 
 ### Peru Civil Society Network
 > Primary civil society network in Peru
+
+
+---
+
+# 🌐 Pakistan (PK) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Pakistan Civil Society Network
+> Primary civil society network in Pakistan
 
 
 ---
