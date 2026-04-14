@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-14 20:37 UTC*
+*Last updated: 2026-04-14 20:52 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 721,021 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 721,022 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Albania (AL) | ~2 | Field Research | ✅ |
 | 🌐 Armenia (AM) | ~2 | Field Research | ✅ |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
@@ -35,6 +35,7 @@
 | 🌐 Ethiopia (ET) | ~2 | Field Research | ✅ |
 | 🌐 Finland (FI) | ~2 | Field Research | ✅ |
 | 🌐 France (FR) | ~2 | Field Research | ✅ |
+| 🌐 United Kingdom (GB) | ~2 | Field Research | ✅ |
 | 🌐 Georgia (GE) | ~2 | Field Research | ✅ |
 | 🌐 Ghana (GH) | ~2 | Field Research | ✅ |
 | 🌐 Greece (GR) | ~2 | Field Research | ✅ |
@@ -102,14 +103,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 721,021+ organizations indexed** across 93 countries
+**Total: 721,022+ organizations indexed** across 94 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*721,021 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*721,022 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -1474,6 +1475,20 @@ Model: nonprofit
 
 ### France Civil Society Network
 > Primary civil society network in France
+
+
+---
+
+# 🌐 United Kingdom (GB) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### United Kingdom Civil Society Network
+> Primary civil society network in United Kingdom
 
 
 ---
