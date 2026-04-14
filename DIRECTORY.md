@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-14 05:07 UTC*
+*Last updated: 2026-04-14 05:22 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 720,585 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 720,586 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_BO.md (BO) | ~12 | Field Research | ✅ |
 | 🌐 Brazil (BR) | ~2 | Field Research | ✅ |
@@ -35,19 +35,20 @@
 | 🌐 Rwanda (RW) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_SR.md (SR) | ~9 | Field Research | ✅ |
 | 🌐 Trinidad and Tobago (TT) | ~2 | Field Research | ✅ |
+| 🌐 Tanzania (TZ) | ~2 | Field Research | ✅ |
 | 🌐 Uruguay (UY) | ~12 | Field Research | ✅ |
 | 🌐 DIRECTORY_VE.md (VE) | ~13 | Field Research | ✅ |
 | 🌐 South Africa (ZA) | ~59 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 720,585+ organizations indexed** across 31 countries
+**Total: 720,586+ organizations indexed** across 32 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*720,585 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*720,586 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -2506,6 +2507,20 @@ Model: nonprofit
 
 ### Trinidad and Tobago Civil Society Network
 > Primary civil society network in Trinidad and Tobago
+
+
+---
+
+# 🌐 Tanzania (TZ) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Tanzania Civil Society Network
+> Primary civil society network in Tanzania
 
 
 ---
