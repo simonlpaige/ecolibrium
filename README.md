@@ -12,6 +12,17 @@ This project is an attempt to think carefully about what "differently" actually 
 
 It's not a manifesto. It's more like an engineering problem with a lot of political and historical constraints. The goal is to figure out what needs to be true for people to have food, shelter, healthcare, and a say in their own lives -- and then figure out how to make those things true.
 
+### Selective Abundance, Not Post-Scarcity
+
+This framework does not assume post-scarcity arrives as a binary switch. Some goods are becoming radically cheaper to produce: information, energy, basic nutrition, digital services. Other goods remain genuinely scarce: land, fresh water, skilled human care, rare materials, attention. The honest framing is *selective abundance* -- a world where the challenge is distributing what's abundant while governing what's scarce.
+
+Different categories of goods require different governance mechanisms:
+- **Trending toward abundance** (energy, information, basic food production): commons-based distribution, universal access
+- **Persistently scarce** (land, water, rare minerals, skilled care): democratic allocation, stewardship models, Ostrom-style commons governance with monitoring and graduated sanctions
+- **Attention and meaning** (the scarcities automation creates): these require cultural and institutional responses, not just economic ones
+
+The framework is designed to work under conditions of *partial* abundance and *persistent* scarcity -- not to wait for a threshold that may never fully arrive.
+
 Some of this is worked out in detail. A lot of it isn't. The parts that aren't worked out are listed as open questions, which is honest. If you know something we don't, that's what the pull requests are for.
 
 ---
@@ -33,6 +44,12 @@ These principles are in tension with each other. That's not a bug. See [Tensions
 ---
 
 ## The Framework
+
+### A Note on Sequencing
+
+The framework below is organized as Phase 1/2/3 for readability, but this is misleading if read as a strict timeline. Many Phase 1 prerequisites (land transition, cooperative economics) depend on Phase 3 outcomes (values transformation). The phases are better understood as *parallel tracks with dependencies* that co-evolve, not a linear sequence. Systems-building, power transfer, and cultural change happen simultaneously at different speeds in different places.
+
+The Mycelial Strategy (below) is not a phase — it is the connective tissue that operates across all phases at all times.
 
 ### Phase 1: Pre-Transfer -- Systems That Must Exist Before the Transition
 
@@ -87,15 +104,23 @@ So: before the transfer, these systems need to exist and be demonstrably working
 
 #### 1.3 Economic Transition Mechanisms
 
+> *Each proposal below must be evaluated on three dimensions: cost at scale, funding mechanism, and who bears the transition cost. Without those numbers, this is a wish list. Some numbers are included here; full analysis belongs in a dedicated ECONOMICS.md.*
+
 - [ ] **Wealth distribution**
   - Gradual wealth caps and redistribution schedules
+    - *Scale challenge: Enforcement requires international coordination to prevent capital flight. Existing precedents: Norway's sovereign wealth fund, Switzerland's wealth tax. No country has implemented hard caps.*
   - Universal Basic Income (UBI) as a bridge mechanism during transition
+    - *Scale: US at $1,000/month = ~$4 trillion/year (roughly the entire federal budget). Proposed funding mechanisms that partially close the gap: land value tax (~$1.7T potential), carbon tax (~$200B), financial transaction tax (~$75B), automation dividend, sovereign wealth funds. This does not fully add up at current scale — UBI requires selective abundance to reduce costs simultaneously. See 100+ pilot results at guaranteedincome.us.*
   - Cooperative and mutual ownership replacing corporate structures
+    - *Existing models: Mondragon (80,000 worker-owners, $12B+ revenue — but also Fagor's 2013 bankruptcy and increasing reliance on non-member temps). Italy's Marcora Law provides low-interest loans for worker buyouts. These work at specific scales; the transition path for a 100,000-employee global supply chain is unsolved.*
   - Community wealth funds — regional pools of shared resources
   - Debt jubilee — cancellation of unjust debts (medical, student, developing-nation)
+    - *Scale: US student debt ~$1.7T, medical debt ~$220B, developing-nation debt ~$300B. Jubilee cost falls on whoever holds the debt as an asset — including pension funds, retirement accounts, and banks with depositors. A jubilee without a plan for downstream losses is a wealth transfer from some regular people to other regular people. Requires careful sequencing.*
 - [ ] **Disassembly of private land ownership**
   - Phased transition: private ownership → long-term stewardship leases → full commons
-  - Compensation framework for voluntary transition (not confiscation — invitation)
+    - *Scale: US residential real estate alone is worth ~$45 trillion. "Inviting" transition requires either compensation at market value (requires a funding source that doesn't exist) or a values transformation that makes land ownership feel unnecessary (Phase 3, creating a circular dependency with Phase 1). Honest path: start with public/abandoned/tax-delinquent land, scale CLTs, build proof over decades.*
+  - Community Land Trusts as the primary mechanism
+    - *Current reality: ~300 CLTs in the US managing a tiny fraction of total land. Real, working, and growing — but scaling from "affordable housing tool" to "all land is commons" is a civilizational transformation, not an incremental step. The framework should be honest about this timeline.*
   - Indigenous land return as a foundational act of justice
   - Ecological land-use planning replaces market-driven development
 - [ ] **Deletion of unjust power**
@@ -103,6 +128,7 @@ So: before the transfer, these systems need to exist and be demonstrably working
   - Lobbying and political bribery criminalized
   - Monopolies dissolved — especially in energy, media, tech, and agriculture
   - Tax havens and offshore wealth structures dismantled through international cooperation
+    - *Reality check: Tax havens exist because nation-states benefit from them. Dismantling requires the cooperation of the very states that profit from the status quo. Incremental progress: OECD global minimum tax (15%), automatic information exchange agreements. Full dismantlement requires political leverage that doesn't currently exist.*
   - Transparent asset registries — no hidden wealth
 
 #### 1.4 Energy and Infrastructure
@@ -129,16 +155,18 @@ In 2007, a researcher named Paul Hawken published a book arguing that the world'
 
 Then the funding ran out and the whole thing disappeared in a weekend. That was 2014.
 
-The lesson isn't that the idea was wrong. The lesson is about infrastructure.
+The lesson isn't that the idea was wrong. The lesson is about infrastructure. But the deeper lesson is one the framework must be honest about: **most people don't want to run infrastructure.** WiserEarth's code was released as open source when it shut down. Nobody self-hosted it. Every federated protocol — email, XMPP, ActivityPub — eventually concentrates around a few large nodes because running your own server is hard and most people don't care enough to do it.
 
-The strategy here is similar to Hawken's original idea, with the infrastructure problem taken seriously. The approach is **mycelial**: a distributed network of people and organizations building working alternatives to the systems that don't work -- not arguing about theory, but running pilots, writing code, keeping books, growing food, running clinics. When the conditions are right, the network doesn't seize power. It just already has the replacement ready.
+The strategy here is similar to Hawken's original idea, with both infrastructure problems taken seriously: the technical one (don't depend on a single server) and the social one (don't depend on everyone running their own). The realistic model is decentralized in *governance* but may be centralized in *operations* — like the Wikimedia Foundation (one organization, one infrastructure, community governance) or the Apache Foundation (umbrella organization, multiple projects, shared infrastructure). These aren't as ideologically pure as full federation, but they actually work.
+
+The approach is **mycelial**: a distributed network of people and organizations building working alternatives to the systems that don't work -- not arguing about theory, but running pilots, writing code, keeping books, growing food, running clinics. When the conditions are right, the network doesn't seize power. It just already has the replacement ready.
 
 #### How the Network Works
 
-- **No center, no leader.** The network is a web of trust, not a hierarchy. No single node can be removed to collapse it. No personality cult can form around a leaderless structure.
+- **Distributed, not leaderless.** The network is a web of trust, not a hierarchy. No single node can be removed to collapse it. But "leaderless" is a myth — Jo Freeman documented in 1972 that refusing to formalize leadership just creates informal leadership without accountability. The network has leaders: they are the people doing the work, making decisions, and maintaining systems. The goal is to make that leadership visible, accountable, and replaceable — not to pretend it doesn't exist. See [GOVERNANCE.md](GOVERNANCE.md).
 - **Trust is built through contribution.** You join by doing the work -- building systems, running pilots, sharing knowledge. Trust is earned, not granted.
 - **Radical transparency.** This is not a conspiracy. The framework is open-source. The pilots are public. The strategy is visible. Anyone, including opponents, can read every word. If the idea can't survive being seen, it doesn't deserve to succeed.
-- **No founders, no leaders, no inner circle.** This project was started anonymously on purpose. The moment a face becomes attached to the framework, the framework becomes vulnerable to ego, celebrity, and targeted attack. The work speaks.
+- **Named organizational entity, pseudonymous contributors.** This project's early development was anonymous. That served its purpose: the ideas were evaluated without being attached to anyone's reputation. But established organizations will not collaborate with anonymous accounts — that looks indistinguishable from a troll or sock puppet. The project needs a named entity (even a simple unincorporated association) that can engage publicly while individual contributors remain pseudonymous. This is how most open-source projects work. See [GOVERNANCE.md](GOVERNANCE.md) for the current accountability structure.
 - **Operate inside and outside institutions simultaneously.** Some contributors work within governments, hospitals, universities, and corporations -- not to subvert them, but to understand them and prepare them for transformation. Others build parallel structures outside. All of this happens in the open.
 - **Demonstrate, don't argue.** The network's primary pre-transfer activity is running proof-of-concept systems at local scale: community energy grids, cooperative businesses, participatory budgets, mutual aid networks, open-source health clinics. When the moment arrives, scaling up is not a leap of faith -- it's expanding what already works.
 
@@ -148,8 +176,13 @@ The strategy here is similar to Hawken's original idea, with the infrastructure 
 2. **Open by default.** All coordination, planning, and strategy happens in the open. No inner circles. No secret channels. If someone needs to whisper, something has gone wrong.
 3. **Cultural adaptation.** The framework is universal but its expression is local. A community in Kerala and a community in Detroit will implement differently -- and that's the point.
 4. **No purity tests.** People arrive from different political traditions, spiritual backgrounds, and life experiences. The framework is evaluated on outcomes, not ideology.
-5. **Resilience through redundancy.** Every critical function is performed by multiple independent groups. No single point of failure.
-6. **The framework protects itself through transparency, not secrecy.** Co-option is hard when everything is visible. Infiltration is meaningless when there is nothing hidden to discover. The openness is the security model.
+5. **Resilience through redundancy -- where realistic.** Critical functions should not have single points of failure. Where full federation is feasible (knowledge, training materials, local governance), pursue it. Where it isn't (complex infrastructure, databases, hosting), use community-governed shared infrastructure with transparent operations and contingency plans. Ideological purity about decentralization is less important than systems that actually survive.
+6. **The framework protects itself primarily through transparency -- but transparency is not a complete security model.** Co-option is harder when everything is visible. Infiltration is less effective when there is nothing hidden to discover. But openness has known failure modes that must be actively managed:
+   - **Flooding and noise:** Bad actors can overwhelm discussion to dilute signal. *Countermeasure: moderation policies, contribution quality standards, rough consensus decision-making with clear timelines.*
+   - **Concern trolling:** Using the open process to slow-walk decisions to death. *Countermeasure: decision deadlines, "rough consensus and running code" -- working implementations outweigh theoretical objections.*
+   - **Strategic co-option:** Aligning publicly with the movement while redirecting its resources toward industry-friendly goals (see: corporate greenwashing). *Countermeasure: clear alignment criteria, willingness to refuse partnerships that don't meet them, outcome-based evaluation.*
+   - **Harassment of contributors:** Visible participation makes contributors targets. *Countermeasure: contributor pseudonymity is supported as protection, not ideology. People may contribute under any identity.*
+   - **State surveillance:** Open coordination makes it trivial for hostile governments to monitor and map the network. *The framework accepts this tradeoff.* A movement that requires secrecy to function is fragile. A movement that functions in plain sight and still works is resilient. But contributors operating in repressive contexts should use whatever operational security they need, and the network should support that without judgment.
 
 #### What the Network Builds Before the Transfer
 
@@ -161,25 +194,47 @@ The strategy here is similar to Hawken's original idea, with the infrastructure 
 
 ---
 
+### Theory of Power Transfer
+
+The framework requires an honest answer to the hardest question: *why would those with power give it up?*
+
+The honest answer is: most won't. Not voluntarily. Power does not become "irrelevant" because better alternatives exist. The history of fossil fuels, tobacco, feudal land tenure, and colonial governance shows that entrenched power fights to preserve itself long after superior alternatives are available. A billionaire is not going to voluntarily become a regular participant in a commons because you offered them dignity.
+
+So the framework relies on multiple mechanisms, in order of realism:
+
+1. **Economic obsolescence.** Some forms of power genuinely do erode when technology changes. Newspaper classified ad revenue, taxi medallions, music label distribution monopolies -- these were power bases that technology made irrelevant whether the holders liked it or not. The framework identifies which current power structures are vulnerable to technological displacement and prioritizes building alternatives there first.
+
+2. **Democratic capture in reverse.** Electing people committed to commons-based policy into existing democratic structures. This is already happening: participatory budgeting in 7,000+ cities worldwide, community wealth building in Preston and Cleveland, state-level cooperative development legislation. Slow, boring, effective.
+
+3. **Coalition pressure.** Labor movements, consumer boycotts, shareholder activism, divestment campaigns -- actual mechanisms of power redistribution that have worked historically. The anti-apartheid divestment movement, the marriage equality campaign, the tobacco settlement -- none of these waited for the powerful to see the light. They applied pressure until the cost of resistance exceeded the cost of change.
+
+4. **Parallel institution-building.** When the alternative is good enough, migration happens. Email didn't ask the postal service for permission. Wikipedia didn't negotiate with Encyclopaedia Britannica. When commons-based alternatives are demonstrably better, people switch -- and the old system's revenue base erodes whether it consents or not.
+
+5. **Nonviolent non-cooperation.** When power refuses to yield despite all of the above, the framework explicitly supports strikes, tax resistance, non-cooperation, and civil disobedience. The framework is nonviolent. It is not passive.
+
+**What the framework does NOT assume:** That power holders will voluntarily step aside. That dignity of exit will be sufficient motivation. That the transition will be smooth or painless. Some power will have to be taken, even if the taking is nonviolent. The framework must be honest about that.
+
+---
+
 ### Phase 2: The Transfer
 
-Not a revolution -- a migration. The old systems don't need to be destroyed; they become unnecessary because better ones exist. The network has been preparing. The proof is abundant.
+Not a revolution -- a migration. But a migration that some will resist.
 
 The transfer is not a single event. It is a phase shift. The conditions accumulate gradually and the transformation appears sudden -- which is how most phase transitions work. You heat water for a long time and then it boils.
 
-1. **Technology reaches the threshold.** Automation, AI, and renewable energy reduce the cost of necessities (food, shelter, energy, healthcare) to near-zero. The old economy's logic — work or starve — stops making sense.
+1. **Selective abundance crosses key thresholds.** Automation, AI, and renewable energy make specific necessities dramatically cheaper -- not universally free, but cheap enough that the old economy's logic starts breaking in visible ways. Energy, information, and basic food production lead. Housing, care, and land follow on different timelines.
 2. **The network activates.** Prepared systems go live at scale. What was a local pilot becomes regional infrastructure. What was a prototype becomes the default.
-3. **Institutions transform from within.** People inside governments, corporations, hospitals, and schools — who have been part of the network or who simply see that the new way works — begin redirecting their institutions toward the new systems. They do this because they want to.
-4. **The old system empties out.** There is no seizure of power. The old structures lose relevance. They are absorbed into new democratic frameworks, repurposed, or quietly dissolved.
+3. **Institutions transform from within and under pressure.** People inside governments, corporations, hospitals, and schools -- who have been part of the network or who simply see that the new way works -- begin redirecting their institutions toward the new systems. Where institutions resist, coalition pressure, democratic processes, and nonviolent non-cooperation provide the force that goodwill alone cannot.
+4. **The old system loses its base.** Some structures become unnecessary and are absorbed into new democratic frameworks. Others are actively dismantled through democratic processes. Others resist and are bypassed. Not all transitions are graceful.
 
 #### What Makes Peaceful Transfer Possible
 
-- The new systems are already working and visibly better — proof, not promises
+- The new systems are already working and visibly better -- proof, not promises
 - A critical mass of people understand and support the transition
-- The holders of power have a dignified exit — not humiliation but reintegration as equals
-- International solidarity prevents external sabotage — the network is worldwide
-- No one loses access to necessities during the transition — the old and new systems overlap
-- The transfer is experienced as liberation, not loss — even by those who held power
+- Multiple pressure mechanisms operate simultaneously: economic, democratic, social, cultural
+- International solidarity prevents external sabotage -- the network is worldwide
+- No one loses access to necessities during the transition -- the old and new systems overlap
+- Those who held power are offered dignified reintegration -- but the transition does not depend on their acceptance
 
 ---
 
@@ -309,7 +364,7 @@ This framework belongs to no one — and to everyone.
 
 ### Guiding Rules for Contribution
 
-- No single person owns this. No cult of personality. The founders are anonymous by design.
+- No single person owns this. No cult of personality. Leadership is transparent and accountable (see [GOVERNANCE.md](GOVERNANCE.md)).
 - Ideas are evaluated on merit, not on who proposed them.
 - Disagree constructively. We are building, not debating.
 - Everything happens in the open. No private channels, no backroom coordination.
@@ -365,7 +420,7 @@ This framework belongs to no one — and to everyone.
 - **Wellbeing Economy Alliance** — Governments moving beyond GDP (weall.org)
 - **Guaranteed Income Pilots Dashboard** — 100+ UBI pilots tracked (guaranteedincome.us)
 
-> For a comprehensive deep dive into existing work in each framework area, see **[RESEARCH.md](RESEARCH.md)**.
+> For a comprehensive deep dive into existing work in each framework area, see **[RESEARCH.md](RESEARCH.md)**. Evidence quality varies: some cited projects are proven at scale (Mondragon, CLTs), some are promising experiments (UBI pilots), and some are theoretical. RESEARCH.md should be read with that gradient in mind.
 > For the collaboration outreach plan, see **[OUTREACH.md](OUTREACH.md)**.
 > For explicit governance, decision-making, and accountability structures, see **[GOVERNANCE.md](GOVERNANCE.md)**.
 > For the honest section-by-section critique of this framework, see **[CRITIQUE.md](CRITIQUE.md)**.
