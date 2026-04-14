@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-14 07:21 UTC*
+*Last updated: 2026-04-14 07:37 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 720,916 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 720,917 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_BO.md (BO) | ~12 | Field Research | ✅ |
 | 🌐 Brazil (BR) | ~2 | Field Research | ✅ |
@@ -27,6 +27,7 @@
 | 🌐 Haiti (HT) | ~2 | Field Research | ✅ |
 | 🌐 Jamaica (JM) | ~2 | Field Research | ✅ |
 | 🌐 Kenya (KE) | ~53 | Field Research | ✅ |
+| 🌐 Madagascar (MG) | ~2 | Field Research | ✅ |
 | 🌐 Malawi (MW) | ~2 | Field Research | ✅ |
 | 🌐 Mexico (MX) | ~2 | Field Research | ✅ |
 | 🌐 Mozambique (MZ) | ~2 | Field Research | ✅ |
@@ -49,14 +50,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 720,916+ organizations indexed** across 40 countries
+**Total: 720,917+ organizations indexed** across 41 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*720,916 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*720,917 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -1801,6 +1802,20 @@ Model: nonprofit
 
 ### Food for Education Organization Kenya (FEOK)
 > - ****: Feeds low-income children to improve school attendance, nutrition, physic
+
+
+---
+
+# 🌐 Madagascar (MG) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Madagascar Civil Society Network
+> Primary civil society network in Madagascar
 
 
 ---

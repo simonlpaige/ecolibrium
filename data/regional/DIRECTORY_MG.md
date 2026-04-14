@@ -1,0 +1,10 @@
+# 🌐 Madagascar (MG) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Madagascar Civil Society Network
+> Primary civil society network in Madagascar

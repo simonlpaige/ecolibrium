@@ -1,12 +1,12 @@
 {
   "total": 30919,
-  "us_count": 13752,
-  "intl_count": 17167,
+  "us_count": 13751,
+  "intl_count": 17168,
   "by_area": {
-    "democracy": 11729,
+    "democracy": 11730,
     "healthcare": 5505,
     "education": 5088,
-    "food": 2650,
+    "food": 2649,
     "housing_land": 1894,
     "recreation_arts": 1552,
     "ecology": 1092,
@@ -15,7 +15,7 @@
     "energy_digital": 60
   },
   "by_country": {
-    "US": 13752,
+    "US": 13751,
     "NG": 761,
     "MX": 754,
     "ZA": 718,
@@ -47,7 +47,7 @@
     "CU": 296
   },
   "by_state": {
-    "CA": 1491,
+    "CA": 1490,
     "NY": 817,
     "TX": 725,
     "FL": 673,
