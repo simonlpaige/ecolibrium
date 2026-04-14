@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-14 06:37 UTC*
+*Last updated: 2026-04-14 06:52 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 720,898 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 720,899 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_BO.md (BO) | ~12 | Field Research | ✅ |
 | 🌐 Brazil (BR) | ~2 | Field Research | ✅ |
@@ -44,16 +44,17 @@
 | 🌐 Uruguay (UY) | ~12 | Field Research | ✅ |
 | 🌐 DIRECTORY_VE.md (VE) | ~13 | Field Research | ✅ |
 | 🌐 South Africa (ZA) | ~59 | Field Research | ✅ |
+| 🌐 Zambia (ZM) | ~2 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 720,898+ organizations indexed** across 37 countries
+**Total: 720,899+ organizations indexed** across 38 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*720,898 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*720,899 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -3098,6 +3099,20 @@ Model: nonprofit
 
 ### Western Cape NPO database includes youth
 > - -focused groups like 9Miles Project and Beautiful Gate for after-school support and family empowerment.[6]
+
+
+---
+
+# 🌐 Zambia (ZM) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Zambia Civil Society Network
+> Primary civil society network in Zambia
 
 
 ---
