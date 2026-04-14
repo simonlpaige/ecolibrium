@@ -1,39 +1,47 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-14 01:09 UTC*
+*Last updated: 2026-04-14 03:38 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 705,477 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 720,569 | IRS EO Business Master File | ✅ Complete |
+| 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_BO.md (BO) | ~12 | Field Research | ✅ |
+| 🌐 Colombia (CO) | ~2 | Field Research | ✅ |
 | 🌐 Costa Rica (CR) | ~17 | Field Research | ✅ |
 | 🌐 Cuba (CU) | ~2 | Field Research | ✅ |
+| 🌐 Dominican Republic (DO) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_EC.md (EC) | ~9 | Field Research | ✅ |
 | 🌐 Guatemala (GT) | ~13 | Field Research | ✅ |
 | 🌐 DIRECTORY_GY.md (GY) | ~12 | Field Research | ✅ |
 | 🌐 DIRECTORY_HN.md (HN) | ~10 | Field Research | ✅ |
+| 🌐 Haiti (HT) | ~2 | Field Research | ✅ |
+| 🌐 Jamaica (JM) | ~2 | Field Research | ✅ |
 | 🌐 Kenya (KE) | ~53 | Field Research | ✅ |
+| 🌐 Mexico (MX) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_NG.md (NG) | ~9 | Field Research | ✅ |
 | 🌐 Nicaragua (NI) | ~13 | Field Research | ✅ |
 | 🌐 Phase 2: (??) | ~41 | Field Research | ✅ |
 | 🌐 Panama (PA) | ~2 | Field Research | ✅ |
+| 🌐 Peru (PE) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_PY.md (PY) | ~10 | Field Research | ✅ |
 | 🌐 DIRECTORY_SR.md (SR) | ~9 | Field Research | ✅ |
+| 🌐 Trinidad and Tobago (TT) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_VE.md (VE) | ~13 | Field Research | ✅ |
 | 🌐 South Africa (ZA) | ~59 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 705,477+ organizations indexed** across 17 countries
+**Total: 720,569+ organizations indexed** across 25 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*705,477 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*720,569 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -563,6 +571,20 @@
 *Compiled via structured web research, official nonprofit registries, and field sources*
 
 
+# 🌐 Argentina (AR) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Argentina Civil Society Network
+> Primary civil society network in Argentina
+
+
+---
+
 # Bolivia (BO) -- Regional Directory
 
 **Searches conducted:** 23
@@ -756,6 +778,20 @@
 
 ---
 
+# 🌐 Colombia (CO) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Colombia Civil Society Network
+> Primary civil society network in Colombia
+
+
+---
+
 # 🌐 Costa Rica (CR) Civil Society Directory
 
 *Compiled: 2026-04-14 | Source: Web research | Organizations: 16*
@@ -856,6 +892,20 @@ Model: nonprofit
 
 ### Cuba Civil Society Network
 > Primary civil society network in Cuba
+
+
+---
+
+# 🌐 Dominican Republic (DO) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Dominican Republic Civil Society Network
+> Primary civil society network in Dominican Republic
 
 
 ---
@@ -1460,6 +1510,34 @@ Model: nonprofit
 
 ---
 
+# 🌐 Haiti (HT) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Haiti Civil Society Network
+> Primary civil society network in Haiti
+
+
+---
+
+# 🌐 Jamaica (JM) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Jamaica Civil Society Network
+> Primary civil society network in Jamaica
+
+
+---
+
 # 🌐 Kenya (KE) Civil Society Directory
 
 *Compiled: 2026-04-13 | Source: Web research via DuckDuckGo | Task: Research: Kenya (KE)*
@@ -1624,6 +1702,20 @@ Model: nonprofit
 
 ### Food for Education Organization Kenya (FEOK)
 > - ****: Feeds low-income children to improve school attendance, nutrition, physic
+
+
+---
+
+# 🌐 Mexico (MX) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Mexico Civil Society Network
+> Primary civil society network in Mexico
 
 
 ---
@@ -1953,6 +2045,20 @@ Model: nonprofit
 
 ### Panama Civil Society Network
 > Primary civil society network in Panama
+
+
+---
+
+# 🌐 Peru (PE) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Peru Civil Society Network
+> Primary civil society network in Peru
 
 
 ---
@@ -2310,6 +2416,20 @@ Model: nonprofit
 - Framework coverage: democracy(56), ecology(14), cooperatives(4), food(4), healthcare(13), education(4), housing_land(2), energy_digital(8)
 - Key gaps: Indigenous/Maroon village-level orgs, Dutch-language civil society, informal savings groups
 - Recommended follow-up: Contact SANBO (Suriname NGO umbrella), Conservation International Suriname
+
+
+---
+
+# 🌐 Trinidad and Tobago (TT) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Trinidad and Tobago Civil Society Network
+> Primary civil society network in Trinidad and Tobago
 
 
 ---

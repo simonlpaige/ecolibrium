@@ -123,25 +123,39 @@ def search(query):
     try:
         result = subprocess.run(
             ['node', os.path.join(WORKSPACE_DIR, 'tools', 'ddg-search.js'), query],
-            capture_output=True, text=True, timeout=30, cwd=WORKSPACE_DIR,
+            capture_output=True, text=True, timeout=12, cwd=WORKSPACE_DIR,
             encoding='utf-8', errors='replace'
         )
         return result.stdout[:3000] if result.returncode == 0 else ''
+    except subprocess.TimeoutExpired:
+        print(f'  search timeout (DDG rate-limited?), skipping')
+        return ''
     except Exception as e:
         print(f'  search error: {e}')
         return ''
 
+DDG_CONSECUTIVE_TIMEOUT_LIMIT = 3  # bail on DDG if this many consecutive timeouts
+
 def research_country(cc, country_name):
     """Run searches for a country using English + native language queries."""
     queries = get_queries(cc, country_name)
-    print(f'Searching: {country_name} ({cc}) — {len(queries)} queries ({len(queries)-15} native)')
+    # Cap at 6 queries max to stay well within cron timeout budget
+    queries = queries[:6]
+    print(f'Searching: {country_name} ({cc}) — {len(queries)} queries (capped)')
 
     results = []
+    consecutive_timeouts = 0
     for i, q in enumerate(queries):
         print(f'  [{i+1}/{len(queries)}] {q[:60]}...' if len(q) > 60 else f'  [{i+1}/{len(queries)}] {q}')
         text = search(q)
         if text:
             results.append(text)
+            consecutive_timeouts = 0
+        else:
+            consecutive_timeouts += 1
+            if consecutive_timeouts >= DDG_CONSECUTIVE_TIMEOUT_LIMIT:
+                print(f'  DDG appears rate-limited ({consecutive_timeouts} consecutive failures), skipping remaining queries')
+                break
 
     return '\n\n'.join(results)
 
@@ -285,7 +299,7 @@ def run_wikidata(cc, country_name):
             print(f'\n--- Wikidata SPARQL ingest for {cc} ---')
             result = subprocess.run(
                 ['python', wikidata_script, cc, country_name],
-                capture_output=True, text=True, timeout=180,
+                capture_output=True, text=True, timeout=45,
                 encoding='utf-8', errors='replace'
             )
             print(result.stdout[-500:] if len(result.stdout) > 500 else result.stdout)
@@ -313,7 +327,7 @@ def run_wikidata_backfill():
             print(f'\n--- Wikidata backfill (next queued country) ---')
             result = subprocess.run(
                 ['python', backfill_script],
-                capture_output=True, text=True, timeout=180,
+                capture_output=True, text=True, timeout=45,
                 encoding='utf-8', errors='replace'
             )
             for line in result.stdout.split('\n'):
@@ -333,7 +347,7 @@ def run_us_state_enrichment():
             print(f'\n--- US state Wikidata enrichment ---')
             result = subprocess.run(
                 ['python', state_script],
-                capture_output=True, text=True, timeout=180,
+                capture_output=True, text=True, timeout=45,
                 encoding='utf-8', errors='replace'
             )
             for line in result.stdout.split('\n'):
