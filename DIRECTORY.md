@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-14 11:07 UTC*
+*Last updated: 2026-04-14 11:22 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 720,946 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 720,947 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
 | 🌐 Bangladesh (BD) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_BO.md (BO) | ~12 | Field Research | ✅ |
@@ -59,19 +59,20 @@
 | 🌐 Uganda (UG) | ~2 | Field Research | ✅ |
 | 🌐 Uruguay (UY) | ~12 | Field Research | ✅ |
 | 🌐 DIRECTORY_VE.md (VE) | ~13 | Field Research | ✅ |
+| 🌐 Vietnam (VN) | ~2 | Field Research | ✅ |
 | 🌐 South Africa (ZA) | ~59 | Field Research | ✅ |
 | 🌐 Zambia (ZM) | ~2 | Field Research | ✅ |
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 720,946+ organizations indexed** across 55 countries
+**Total: 720,947+ organizations indexed** across 56 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*720,946 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*720,947 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -3234,6 +3235,20 @@ Model: nonprofit
 - Search 13: 'Venezuela educacion popular grassroots escuela comunitaria' -> 6 new orgs
 - Search 14: 'Venezuela energia renovable solar comunidad cooperativa' -> 9 new orgs
 - Search 15: 'Venezuela organizaciones humanitarias OCHA frontline civil s' -> 10 new orgs
+
+
+---
+
+# 🌐 Vietnam (VN) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Vietnam Civil Society Network
+> Primary civil society network in Vietnam
 
 
 ---
