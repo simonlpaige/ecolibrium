@@ -1,15 +1,16 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-14 00:37 UTC*
+*Last updated: 2026-04-14 01:09 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 696,821 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 705,477 | IRS EO Business Master File | ✅ Complete |
 | 🌐 DIRECTORY_BO.md (BO) | ~12 | Field Research | ✅ |
 | 🌐 Costa Rica (CR) | ~17 | Field Research | ✅ |
+| 🌐 Cuba (CU) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_EC.md (EC) | ~9 | Field Research | ✅ |
 | 🌐 Guatemala (GT) | ~13 | Field Research | ✅ |
 | 🌐 DIRECTORY_GY.md (GY) | ~12 | Field Research | ✅ |
@@ -25,14 +26,14 @@
 | 🌐 South Africa (ZA) | ~59 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 696,821+ organizations indexed** across 16 countries
+**Total: 705,477+ organizations indexed** across 17 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*696,821 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*705,477 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -841,6 +842,20 @@ Model: nonprofit
 ### 5 Charities Operating in Co
 Framework: democracy
 Model: nonprofit
+
+
+---
+
+# 🌐 Cuba (CU) Civil Society Directory
+
+*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Cuba Civil Society Network
+> Primary civil society network in Cuba
 
 
 ---
