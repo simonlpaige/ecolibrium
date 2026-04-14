@@ -7,4 +7,7 @@ c.execute("SELECT COUNT(DISTINCT country_code) FROM organizations WHERE status !
 countries = c.fetchone()[0]
 print(f'ACTIVE={active}')
 print(f'COUNTRIES={countries}')
+c.execute("SELECT framework_area, COUNT(*) FROM organizations WHERE status != 'removed' AND framework_area IS NOT NULL GROUP BY framework_area ORDER BY framework_area")
+for area, cnt in c.fetchall():
+    print(f'SECTION_{area}={cnt}')
 db.close()
