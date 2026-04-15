@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-15 15:11 UTC*
+*Last updated: 2026-04-15 15:40 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 761,679 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 761,680 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Albania (AL) | ~2 | Field Research | ✅ |
 | 🌐 Armenia (AM) | ~2 | Field Research | ✅ |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
@@ -73,6 +73,7 @@
 | 🌐 DIRECTORY_PY.md (PY) | ~10 | Field Research | ✅ |
 | 🌐 Romania (RO) | ~2 | Field Research | ✅ |
 | 🌐 Serbia (RS) | ~2 | Field Research | ✅ |
+| 🌐 Russia (RU) | ~2 | Field Research | ✅ |
 | 🌐 Rwanda (RW) | ~2 | Field Research | ✅ |
 | 🌐 Sweden (SE) | ~14 | Field Research | ✅ |
 | 🌐 Senegal (SN) | ~2 | Field Research | ✅ |
@@ -91,14 +92,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 761,679+ organizations indexed** across 82 countries
+**Total: 761,680+ organizations indexed** across 83 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*761,679 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*761,680 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -3226,6 +3227,20 @@ Model: nonprofit
 
 ### Serbia Civil Society Network
 > Primary civil society network in Serbia
+
+
+---
+
+# 🌐 Russia (RU) Civil Society Directory
+
+*Compiled: 2026-04-15 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Russia Civil Society Network
+> Primary civil society network in Russia
 
 
 ---
