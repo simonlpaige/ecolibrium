@@ -790,4 +790,10 @@ def main():
     # Show final counts
     c = db.cursor()
     c.execute("SELECT COUNT(*) FROM organizations WHERE status = 'active'")
-    print(f"Total active orgs in DB: {c.fet
+    print(f"Total active orgs in DB: {c.fetchone()[0]:,}")
+    
+    db.close()
+
+
+if __name__ == '__main__':
+    main()
