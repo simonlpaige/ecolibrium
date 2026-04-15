@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-15 22:41 UTC*
+*Last updated: 2026-04-15 23:11 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 761,715 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 761,716 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Albania (AL) | ~2 | Field Research | ✅ |
 | 🌐 Armenia (AM) | ~2 | Field Research | ✅ |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
@@ -18,6 +18,7 @@
 | 🌐 Belgium (BE) | ~2 | Field Research | ✅ |
 | 🌐 Bulgaria (BG) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_BO.md (BO) | ~12 | Field Research | ✅ |
+| 🌐 Brazil (BR) | ~2 | Field Research | ✅ |
 | 🌐 Canada (CA) | ~2 | Field Research | ✅ |
 | 🌐 Switzerland (CH) | ~2 | Field Research | ✅ |
 | 🌐 Cote d'Ivoire (CI) | ~2 | Field Research | ✅ |
@@ -106,14 +107,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 761,715+ organizations indexed** across 97 countries
+**Total: 761,716+ organizations indexed** across 98 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*761,715 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*761,716 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -1014,6 +1015,20 @@ Model: nonprofit
 - Framework coverage: conflict(4), cooperatives(9), democracy(62), ecology(1), education(3), energy_digital(4), food(8), healthcare(3), housing_land(6), indigenous(12), recreation_arts(3)
 - Key gaps: Informal mutual aid networks, rural community organizations, sub-national grassroots
 - Recommended follow-up: Contact SEPREC registry, CEDIB documentation center
+
+
+---
+
+# 🌐 Brazil (BR) Civil Society Directory
+
+*Compiled: 2026-04-15 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Brazil Civil Society Network
+> Primary civil society network in Brazil
 
 
 ---
