@@ -1,12 +1,12 @@
 {
-  "total": 11848,
+  "total": 11849,
   "us_count": 10024,
-  "intl_count": 1824,
+  "intl_count": 1825,
   "by_area": {
     "healthcare": 2821,
     "food": 2583,
     "housing_land": 1874,
-    "democracy": 1279,
+    "democracy": 1280,
     "education": 1272,
     "ecology": 895,
     "conflict": 515,
