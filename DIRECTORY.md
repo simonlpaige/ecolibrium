@@ -1,24 +1,22 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-15 01:51 UTC*
+*Last updated: 2026-04-15 13:39 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 721,041 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 721,042 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Albania (AL) | ~2 | Field Research | ✅ |
 | 🌐 Armenia (AM) | ~2 | Field Research | ✅ |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
 | 🌐 Austria (AT) | ~2 | Field Research | ✅ |
 | 🌐 Australia (AU) | ~2 | Field Research | ✅ |
 | 🌐 Bosnia and Herzegovina (BA) | ~13 | Field Research | ✅ |
-| 🌐 Bangladesh (BD) | ~2 | Field Research | ✅ |
 | 🌐 Belgium (BE) | ~2 | Field Research | ✅ |
 | 🌐 Bulgaria (BG) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_BO.md (BO) | ~12 | Field Research | ✅ |
-| 🌐 Brazil (BR) | ~2 | Field Research | ✅ |
 | 🌐 Canada (CA) | ~2 | Field Research | ✅ |
 | 🌐 Switzerland (CH) | ~2 | Field Research | ✅ |
 | 🌐 Cote d'Ivoire (CI) | ~2 | Field Research | ✅ |
@@ -28,17 +26,13 @@
 | 🌐 Colombia (CO) | ~2 | Field Research | ✅ |
 | 🌐 Costa Rica (CR) | ~17 | Field Research | ✅ |
 | 🌐 Cuba (CU) | ~2 | Field Research | ✅ |
-| 🌐 Germany (DE) | ~2 | Field Research | ✅ |
 | 🌐 Denmark (DK) | ~2 | Field Research | ✅ |
 | 🌐 Dominican Republic (DO) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_EC.md (EC) | ~9 | Field Research | ✅ |
 | 🌐 Egypt (EG) | ~2 | Field Research | ✅ |
-| 🌐 Spain (ES) | ~2 | Field Research | ✅ |
 | 🌐 Ethiopia (ET) | ~2 | Field Research | ✅ |
 | 🌐 Finland (FI) | ~2 | Field Research | ✅ |
 | 🌐 Fiji (FJ) | ~16 | Field Research | ✅ |
-| 🌐 France (FR) | ~2 | Field Research | ✅ |
-| 🌐 United Kingdom (GB) | ~2 | Field Research | ✅ |
 | 🌐 Georgia (GE) | ~2 | Field Research | ✅ |
 | 🌐 Ghana (GH) | ~2 | Field Research | ✅ |
 | 🌐 Greece (GR) | ~2 | Field Research | ✅ |
@@ -47,17 +41,12 @@
 | 🌐 DIRECTORY_HN.md (HN) | ~10 | Field Research | ✅ |
 | 🌐 Haiti (HT) | ~2 | Field Research | ✅ |
 | 🌐 Hungary (HU) | ~2 | Field Research | ✅ |
-| 🌐 Indonesia (ID) | ~2 | Field Research | ✅ |
 | 🌐 Ireland (IE) | ~2 | Field Research | ✅ |
-| 🌐 India (IN) | ~2 | Field Research | ✅ |
 | 🌐 Iran (IR) | ~2 | Field Research | ✅ |
-| 🌐 Italy (IT) | ~2 | Field Research | ✅ |
 | 🌐 Jamaica (JM) | ~2 | Field Research | ✅ |
 | 🌐 Jordan (JO) | ~2 | Field Research | ✅ |
-| 🌐 Japan (JP) | ~2 | Field Research | ✅ |
 | 🌐 Kenya (KE) | ~53 | Field Research | ✅ |
 | 🌐 Cambodia (KH) | ~2 | Field Research | ✅ |
-| 🌐 South Korea (KR) | ~2 | Field Research | ✅ |
 | 🌐 Kazakhstan (KZ) | ~2 | Field Research | ✅ |
 | 🌐 Lebanon (LB) | ~2 | Field Research | ✅ |
 | 🌐 Sri Lanka (LK) | ~2 | Field Research | ✅ |
@@ -67,7 +56,6 @@
 | 🌐 Myanmar (MM) | ~2 | Field Research | ✅ |
 | 🌐 Mongolia (MN) | ~2 | Field Research | ✅ |
 | 🌐 Malawi (MW) | ~2 | Field Research | ✅ |
-| 🌐 Mexico (MX) | ~2 | Field Research | ✅ |
 | 🌐 Malaysia (MY) | ~2 | Field Research | ✅ |
 | 🌐 Mozambique (MZ) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_NG.md (NG) | ~9 | Field Research | ✅ |
@@ -80,9 +68,6 @@
 | 🌐 Panama (PA) | ~2 | Field Research | ✅ |
 | 🌐 Peru (PE) | ~2 | Field Research | ✅ |
 | 🌐 Papua New Guinea (PG) | ~2 | Field Research | ✅ |
-| 🌐 Philippines (PH) | ~2 | Field Research | ✅ |
-| 🌐 Pakistan (PK) | ~2 | Field Research | ✅ |
-| 🌐 Poland (PL) | ~2 | Field Research | ✅ |
 | 🌐 Portugal (PT) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_PY.md (PY) | ~10 | Field Research | ✅ |
 | 🌐 Romania (RO) | ~2 | Field Research | ✅ |
@@ -93,29 +78,26 @@
 | 🌐 DIRECTORY_SR.md (SR) | ~9 | Field Research | ✅ |
 | 🌐 Thailand (TH) | ~2 | Field Research | ✅ |
 | 🌐 Tunisia (TN) | ~2 | Field Research | ✅ |
-| 🌐 Turkey (TR) | ~2 | Field Research | ✅ |
 | 🌐 Trinidad and Tobago (TT) | ~2 | Field Research | ✅ |
 | 🌐 Taiwan (TW) | ~16 | Field Research | ✅ |
 | 🌐 Tanzania (TZ) | ~2 | Field Research | ✅ |
-| 🌐 Ukraine (UA) | ~2 | Field Research | ✅ |
 | 🌐 Uganda (UG) | ~2 | Field Research | ✅ |
 | 🌐 Uruguay (UY) | ~12 | Field Research | ✅ |
 | 🌐 Uzbekistan (UZ) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_VE.md (VE) | ~13 | Field Research | ✅ |
-| 🌐 Vietnam (VN) | ~2 | Field Research | ✅ |
 | 🌐 South Africa (ZA) | ~59 | Field Research | ✅ |
 | 🌐 Zambia (ZM) | ~2 | Field Research | ✅ |
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 721,041+ organizations indexed** across 99 countries
+**Total: 721,042+ organizations indexed** across 81 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*721,041 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*721,042 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -785,20 +767,6 @@ Model: nonprofit
 
 ---
 
-# 🌐 Bangladesh (BD) Civil Society Directory
-
-*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
-
----
-
-## Organizations
-
-### Bangladesh Civil Society Network
-> Primary civil society network in Bangladesh
-
-
----
-
 # 🌐 Belgium (BE) Civil Society Directory
 
 *Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
@@ -1020,20 +988,6 @@ Model: nonprofit
 
 ---
 
-# 🌐 Brazil (BR) Civil Society Directory
-
-*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
-
----
-
-## Organizations
-
-### Brazil Civil Society Network
-> Primary civil society network in Brazil
-
-
----
-
 # 🌐 Canada (CA) Civil Society Directory
 
 *Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
@@ -1106,7 +1060,7 @@ Model: nonprofit
 
 # 🌐 China (CN) Civil Society Directory
 
-*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-15 | Source: Web research | Organizations: 1*
 
 ---
 
@@ -1232,20 +1186,6 @@ Model: nonprofit
 
 ### Cuba Civil Society Network
 > Primary civil society network in Cuba
-
-
----
-
-# 🌐 Germany (DE) Civil Society Directory
-
-*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
-
----
-
-## Organizations
-
-### Germany Civil Society Network
-> Primary civil society network in Germany
 
 
 ---
@@ -1456,20 +1396,6 @@ Model: nonprofit
 
 ---
 
-# 🌐 Spain (ES) Civil Society Directory
-
-*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
-
----
-
-## Organizations
-
-### Spain Civil Society Network
-> Primary civil society network in Spain
-
-
----
-
 # 🌐 Ethiopia (ET) Civil Society Directory
 
 *Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
@@ -1580,34 +1506,6 @@ Model: nonprofit
 Framework: democracy
 Model: nonprofit
 > Nonprofit Organizations in Fiji Society
-
-
----
-
-# 🌐 France (FR) Civil Society Directory
-
-*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
-
----
-
-## Organizations
-
-### France Civil Society Network
-> Primary civil society network in France
-
-
----
-
-# 🌐 United Kingdom (GB) Civil Society Directory
-
-*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
-
----
-
-## Organizations
-
-### United Kingdom Civil Society Network
-> Primary civil society network in United Kingdom
 
 
 ---
@@ -2118,20 +2016,6 @@ Model: nonprofit
 
 ---
 
-# 🌐 Indonesia (ID) Civil Society Directory
-
-*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
-
----
-
-## Organizations
-
-### Indonesia Civil Society Network
-> Primary civil society network in Indonesia
-
-
----
-
 # 🌐 Ireland (IE) Civil Society Directory
 
 *Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
@@ -2146,20 +2030,6 @@ Model: nonprofit
 
 ---
 
-# 🌐 India (IN) Civil Society Directory
-
-*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
-
----
-
-## Organizations
-
-### India Civil Society Network
-> Primary civil society network in India
-
-
----
-
 # 🌐 Iran (IR) Civil Society Directory
 
 *Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
@@ -2170,20 +2040,6 @@ Model: nonprofit
 
 ### Iran Civil Society Network
 > Primary civil society network in Iran
-
-
----
-
-# 🌐 Italy (IT) Civil Society Directory
-
-*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
-
----
-
-## Organizations
-
-### Italy Civil Society Network
-> Primary civil society network in Italy
 
 
 ---
@@ -2212,20 +2068,6 @@ Model: nonprofit
 
 ### Jordan Civil Society Network
 > Primary civil society network in Jordan
-
-
----
-
-# 🌐 Japan (JP) Civil Society Directory
-
-*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
-
----
-
-## Organizations
-
-### Japan Civil Society Network
-> Primary civil society network in Japan
 
 
 ---
@@ -2412,20 +2254,6 @@ Model: nonprofit
 
 ---
 
-# 🌐 South Korea (KR) Civil Society Directory
-
-*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
-
----
-
-## Organizations
-
-### South Korea Civil Society Network
-> Primary civil society network in South Korea
-
-
----
-
 # 🌐 Kazakhstan (KZ) Civil Society Directory
 
 *Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
@@ -2548,20 +2376,6 @@ Model: nonprofit
 
 ### Malawi Civil Society Network
 > Primary civil society network in Malawi
-
-
----
-
-# 🌐 Mexico (MX) Civil Society Directory
-
-*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
-
----
-
-## Organizations
-
-### Mexico Civil Society Network
-> Primary civil society network in Mexico
 
 
 ---
@@ -3079,48 +2893,6 @@ Model: nonprofit
 
 ### Papua New Guinea Civil Society Network
 > Primary civil society network in Papua New Guinea
-
-
----
-
-# 🌐 Philippines (PH) Civil Society Directory
-
-*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
-
----
-
-## Organizations
-
-### Philippines Civil Society Network
-> Primary civil society network in Philippines
-
-
----
-
-# 🌐 Pakistan (PK) Civil Society Directory
-
-*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
-
----
-
-## Organizations
-
-### Pakistan Civil Society Network
-> Primary civil society network in Pakistan
-
-
----
-
-# 🌐 Poland (PL) Civil Society Directory
-
-*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
-
----
-
-## Organizations
-
-### Poland Civil Society Network
-> Primary civil society network in Poland
 
 
 ---
@@ -3655,20 +3427,6 @@ Model: nonprofit
 
 ---
 
-# 🌐 Turkey (TR) Civil Society Directory
-
-*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
-
----
-
-## Organizations
-
-### Turkey Civil Society Network
-> Primary civil society network in Turkey
-
-
----
-
 # 🌐 Trinidad and Tobago (TT) Civil Society Directory
 
 *Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
@@ -3778,20 +3536,6 @@ Model: nonprofit
 
 ### Tanzania Civil Society Network
 > Primary civil society network in Tanzania
-
-
----
-
-# 🌐 Ukraine (UA) Civil Society Directory
-
-*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
-
----
-
-## Organizations
-
-### Ukraine Civil Society Network
-> Primary civil society network in Ukraine
 
 
 ---
@@ -4140,20 +3884,6 @@ Model: nonprofit
 - Search 13: 'Venezuela educacion popular grassroots escuela comunitaria' -> 6 new orgs
 - Search 14: 'Venezuela energia renovable solar comunidad cooperativa' -> 9 new orgs
 - Search 15: 'Venezuela organizaciones humanitarias OCHA frontline civil s' -> 10 new orgs
-
-
----
-
-# 🌐 Vietnam (VN) Civil Society Directory
-
-*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
-
----
-
-## Organizations
-
-### Vietnam Civil Society Network
-> Primary civil society network in Vietnam
 
 
 ---

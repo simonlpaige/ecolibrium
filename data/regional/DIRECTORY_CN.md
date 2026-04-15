@@ -1,6 +1,6 @@
 # 🌐 China (CN) Civil Society Directory
 
-*Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-15 | Source: Web research | Organizations: 1*
 
 ---
 
