@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-16 19:31 UTC*
+*Last updated: 2026-04-16 20:01 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 761,833 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 761,834 | IRS EO Business Master File | ✅ Complete |
 | 🌐 United Arab Emirates (AE) | ~17 | Field Research | ✅ |
 | 🌐 Albania (AL) | ~2 | Field Research | ✅ |
 | 🌐 Armenia (AM) | ~2 | Field Research | ✅ |
@@ -26,6 +26,7 @@
 | 🌐 Belarus (BY) | ~2 | Field Research | ✅ |
 | 🌐 Canada (CA) | ~2 | Field Research | ✅ |
 | 🌐 Democratic Republic of the Congo (CD) | ~2 | Field Research | ✅ |
+| 🌐 Republic of the Congo (CG) | ~2 | Field Research | ✅ |
 | 🌐 Switzerland (CH) | ~2 | Field Research | ✅ |
 | 🌐 Cote d'Ivoire (CI) | ~2 | Field Research | ✅ |
 | 🌐 Chile (CL) | ~2 | Field Research | ✅ |
@@ -145,14 +146,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 761,833+ organizations indexed** across 136 countries
+**Total: 761,834+ organizations indexed** across 137 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*761,833 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*761,834 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -1241,6 +1242,20 @@ Model: nonprofit
 
 ### Democratic Republic of the Congo Civil Society Network
 > Primary civil society network in Democratic Republic of the Congo
+
+
+---
+
+# 🌐 Republic of the Congo (CG) Civil Society Directory
+
+*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Republic of the Congo Civil Society Network
+> Primary civil society network in Republic of the Congo
 
 
 ---
