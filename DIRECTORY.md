@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-16 15:55 UTC*
+*Last updated: 2026-04-16 16:55 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 761,814 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 761,816 | IRS EO Business Master File | ✅ Complete |
 | 🌐 United Arab Emirates (AE) | ~17 | Field Research | ✅ |
 | 🌐 Albania (AL) | ~2 | Field Research | ✅ |
 | 🌐 Armenia (AM) | ~2 | Field Research | ✅ |
@@ -118,8 +118,10 @@
 | 🌐 Slovenia (SI) | ~2 | Field Research | ✅ |
 | 🌐 Slovakia (SK) | ~2 | Field Research | ✅ |
 | 🌐 Senegal (SN) | ~2 | Field Research | ✅ |
+| 🌐 Somalia (SO) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_SR.md (SR) | ~9 | Field Research | ✅ |
 | 🌐 Syria (SY) | ~2 | Field Research | ✅ |
+| 🌐 Chad (TD) | ~2 | Field Research | ✅ |
 | 🌐 Thailand (TH) | ~2 | Field Research | ✅ |
 | 🌐 Tunisia (TN) | ~2 | Field Research | ✅ |
 | 🌐 Turkey (TR) | ~2 | Field Research | ✅ |
@@ -138,14 +140,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 761,814+ organizations indexed** across 129 countries
+**Total: 761,816+ organizations indexed** across 131 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*761,814 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*761,816 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -4377,6 +4379,20 @@ Model: nonprofit
 
 ---
 
+# 🌐 Somalia (SO) Civil Society Directory
+
+*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Somalia Civil Society Network
+> Primary civil society network in Somalia
+
+
+---
+
 # Suriname (SR) -- Regional Directory
 
 **Searches conducted:** 22
@@ -4555,6 +4571,20 @@ Model: nonprofit
 
 ### Syria Civil Society Network
 > Primary civil society network in Syria
+
+
+---
+
+# 🌐 Chad (TD) Civil Society Directory
+
+*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Chad Civil Society Network
+> Primary civil society network in Chad
 
 
 ---
