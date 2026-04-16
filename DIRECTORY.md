@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-15 23:11 UTC*
+*Last updated: 2026-04-16 00:11 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 761,716 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 761,731 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Albania (AL) | ~2 | Field Research | ✅ |
 | 🌐 Armenia (AM) | ~2 | Field Research | ✅ |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
@@ -67,6 +67,7 @@
 | 🌐 Myanmar (MM) | ~2 | Field Research | ✅ |
 | 🌐 Mongolia (MN) | ~2 | Field Research | ✅ |
 | 🌐 Malawi (MW) | ~2 | Field Research | ✅ |
+| 🌐 Mexico (MX) | ~2 | Field Research | ✅ |
 | 🌐 Malaysia (MY) | ~2 | Field Research | ✅ |
 | 🌐 Mozambique (MZ) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_NG.md (NG) | ~9 | Field Research | ✅ |
@@ -79,6 +80,7 @@
 | 🌐 Panama (PA) | ~2 | Field Research | ✅ |
 | 🌐 Peru (PE) | ~2 | Field Research | ✅ |
 | 🌐 Papua New Guinea (PG) | ~2 | Field Research | ✅ |
+| 🌐 Philippines (PH) | ~16 | Field Research | ✅ |
 | 🌐 Pakistan (PK) | ~2 | Field Research | ✅ |
 | 🌐 Poland (PL) | ~2 | Field Research | ✅ |
 | 🌐 Portugal (PT) | ~2 | Field Research | ✅ |
@@ -107,14 +109,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 761,716+ organizations indexed** across 98 countries
+**Total: 761,731+ organizations indexed** across 100 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*761,716 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*761,731 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -2699,6 +2701,20 @@ Model: nonprofit
 
 ---
 
+# 🌐 Mexico (MX) Civil Society Directory
+
+*Compiled: 2026-04-15 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Mexico Civil Society Network
+> Primary civil society network in Mexico
+
+
+---
+
 # 🌐 Malaysia (MY) Civil Society Directory
 
 *Compiled: 2026-04-14 | Source: Web research | Organizations: 1*
@@ -3212,6 +3228,92 @@ Model: nonprofit
 
 ### Papua New Guinea Civil Society Network
 > Primary civil society network in Papua New Guinea
+
+
+---
+
+# 🌐 Philippines (PH) Civil Society Directory
+
+*Compiled: 2026-04-16 | Source: Web research | Organizations: 15*
+
+---
+
+## Organizations
+
+### Accredited NGOs - PCNC
+Framework: democracy
+Model: nonprofit
+> Find accredited NGOs in the Philippines through PCNC, the partner organization for NGO certification and registration with the BIR.
+
+### ACCREDITED CIVIL SOCIETY ORGANIZATIONS (CSOs) | DILG IX - ZAMPEN
+Framework: democracy
+Model: nonprofit
+> LIST OF ACCREDITED CIVIL SOCIETY ORGANIZATIONS (CSOs) UNDER DILG MC 2018-89 (GUIDELINES ON ENGAGEMENTS WITH CSOs) Zuellig Family Foundation, Inc. Synergia Foundation, Inc. World Surgical Foundation Ph
+
+### LIST OF ACCREDITED CIVIL SOCIETY ORGANIZATIONS
+Framework: democracy
+Model: nonprofit
+> ## Top Non-Profit Organizations in the Philippines
+
+### Top Non-Profit Organizations in the Philippines
+Framework: democracy
+Model: nonprofit
+> Explore top non-profit organizations in the Philippines making a difference through sustainable advocacy and community development for a brighter future.
+
+### Explore top non
+Framework: democracy
+Model: nonprofit
+> ## List of Ngos, Charities and non-profits in Phillipines
+
+### List of Ngos, Charities and non-profits in Phillipines
+Framework: democracy
+Model: nonprofit
+> Comprehensive list of NGOs, Charities and Nonprofits in Phillipines. Browse organizations by their focus work areas. Page 1 of 6
+
+### PH/phillipines-ngos
+Framework: democracy
+Model: nonprofit
+> Comprehensive list of NGOs, Charities and Nonprofits in Phillipines. Browse organizations by their focus work areas. Page 1 of 6
+
+### Accredited Civil Society Organizations | PDF | Metro Manila - Scribd
+Framework: cooperatives
+Model: nonprofit
+> This document lists 36 accredited civil society organizations in the Philippines. It provides information such as the name and address of each organization, its type (e.g. cooperative, foundation, non
+
+### National-List-of-Accredited-Civil-Society-Organizations
+Framework: cooperatives
+Model: nonprofit
+> This document lists 36 accredited civil society organizations in the Philippines. It provides information such as the name and address of each organization, its type (e.g. cooperative, foundation, non
+
+### List of Accredited NGOs / POs - City Council of Manila
+Framework: democracy
+Model: nonprofit
+> List of Accredited NGOs / POs - City Council of Manila Accredited NGOs / POs
+
+### List of Accredited NGOs / POs
+Framework: democracy
+Model: nonprofit
+> ## List of Accredited Civil Society Organizations (CSOs) - Philippine ...
+
+### List of Accredited Civil Society Organizations (CSOs) - Philippine 
+Framework: food
+Model: nonprofit
+> Realizing a more responsive agriculture and fisheries sector and promoting people empowerment through multi-stakeholder participatory process
+
+### PDF Civil Society Organizations in the Philippines
+Framework: democracy
+Model: nonprofit
+> Civil society organizations refer to the whole range of non-state, non-profit organizations and groups, including socio-civic organizations, professional organizations, academe, media, churches, peopl
+
+### Civil society organizations refer to the whole range of non
+Framework: democracy
+Model: nonprofit
+> ## PCNC - Philippine Council for NGO Certification
+
+### PCNC - Philippine Council for NGO Certification
+Framework: democracy
+Model: nonprofit
+> It ensures professionalism, accountability and transparency within the NGO and nonprofit sector in the Philippines by providing a Seal of Good Housekeeping, which will hopefully
 
 
 ---
