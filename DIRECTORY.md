@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-16 10:20 UTC*
+*Last updated: 2026-04-16 10:49 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 761,792 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 761,793 | IRS EO Business Master File | ✅ Complete |
 | 🌐 United Arab Emirates (AE) | ~17 | Field Research | ✅ |
 | 🌐 Albania (AL) | ~2 | Field Research | ✅ |
 | 🌐 Armenia (AM) | ~2 | Field Research | ✅ |
@@ -91,6 +91,7 @@
 | 🌐 Norway (NO) | ~2 | Field Research | ✅ |
 | 🌐 Nepal (NP) | ~17 | Field Research | ✅ |
 | 🌐 New Zealand (NZ) | ~2 | Field Research | ✅ |
+| 🌐 Oman (OM) | ~2 | Field Research | ✅ |
 | 🌐 Phase 2: (??) | ~41 | Field Research | ✅ |
 | 🌐 Panama (PA) | ~2 | Field Research | ✅ |
 | 🌐 Peru (PE) | ~2 | Field Research | ✅ |
@@ -127,14 +128,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 761,792+ organizations indexed** across 118 countries
+**Total: 761,793+ organizations indexed** across 119 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*761,792 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*761,793 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -3503,6 +3504,20 @@ Model: nonprofit
 
 ### New Zealand Civil Society Network
 > Primary civil society network in New Zealand
+
+
+---
+
+# 🌐 Oman (OM) Civil Society Directory
+
+*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Oman Civil Society Network
+> Primary civil society network in Oman
 
 
 ---
