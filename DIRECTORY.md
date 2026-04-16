@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-16 09:20 UTC*
+*Last updated: 2026-04-16 09:50 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 761,790 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 761,791 | IRS EO Business Master File | ✅ Complete |
 | 🌐 United Arab Emirates (AE) | ~17 | Field Research | ✅ |
 | 🌐 Albania (AL) | ~2 | Field Research | ✅ |
 | 🌐 Armenia (AM) | ~2 | Field Research | ✅ |
@@ -56,6 +56,7 @@
 | 🌐 Indonesia (ID) | ~2 | Field Research | ✅ |
 | 🌐 Ireland (IE) | ~2 | Field Research | ✅ |
 | 🌐 India (IN) | ~19 | Field Research | ✅ |
+| 🌐 Iraq (IQ) | ~2 | Field Research | ✅ |
 | 🌐 Iran (IR) | ~2 | Field Research | ✅ |
 | 🌐 Iceland (IS) | ~18 | Field Research | ✅ |
 | 🌐 Italy (IT) | ~2 | Field Research | ✅ |
@@ -125,14 +126,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 761,790+ organizations indexed** across 116 countries
+**Total: 761,791+ organizations indexed** across 117 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*761,790 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*761,791 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -2420,6 +2421,20 @@ Model: nonprofit
 Framework: recreation_arts
 Model: foundation
 > Search NGOs By City or State or Name City State NGO Name Search Show All Total Records - 52 Akhil Bhartiya Marwari Mahila Sammelan Plot No 303, The Heritage, Civil Lines, Civil Lines, Nagpur, Maharash
+
+
+---
+
+# 🌐 Iraq (IQ) Civil Society Directory
+
+*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Iraq Civil Society Network
+> Primary civil society network in Iraq
 
 
 ---
