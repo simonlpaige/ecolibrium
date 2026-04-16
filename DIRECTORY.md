@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-16 12:51 UTC*
+*Last updated: 2026-04-16 13:19 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 761,797 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 761,798 | IRS EO Business Master File | ✅ Complete |
 | 🌐 United Arab Emirates (AE) | ~17 | Field Research | ✅ |
 | 🌐 Albania (AL) | ~2 | Field Research | ✅ |
 | 🌐 Armenia (AM) | ~2 | Field Research | ✅ |
@@ -100,6 +100,7 @@
 | 🌐 Philippines (PH) | ~16 | Field Research | ✅ |
 | 🌐 Pakistan (PK) | ~2 | Field Research | ✅ |
 | 🌐 Poland (PL) | ~2 | Field Research | ✅ |
+| 🌐 Palestine (PS) | ~2 | Field Research | ✅ |
 | 🌐 Portugal (PT) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_PY.md (PY) | ~10 | Field Research | ✅ |
 | 🌐 Qatar (QA) | ~2 | Field Research | ✅ |
@@ -132,14 +133,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 761,797+ organizations indexed** across 123 countries
+**Total: 761,798+ organizations indexed** across 124 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*761,797 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*761,798 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -3823,6 +3824,20 @@ Model: nonprofit
 
 ### Poland Civil Society Network
 > Primary civil society network in Poland
+
+
+---
+
+# 🌐 Palestine (PS) Civil Society Directory
+
+*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Palestine Civil Society Network
+> Primary civil society network in Palestine
 
 
 ---
