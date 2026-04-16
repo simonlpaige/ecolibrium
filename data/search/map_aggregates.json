@@ -1,0 +1,1606 @@
+{
+  "countries": {
+    "AR": {
+      "total": 102,
+      "verified": 0,
+      "quality": 102,
+      "sections": {
+        "conflict": 1,
+        "cooperatives": 1,
+        "democracy": 4,
+        "education": 91,
+        "healthcare": 4,
+        "recreation_arts": 1
+      },
+      "completeness": 60.0,
+      "sections_present": 6
+    },
+    "AU": {
+      "total": 269,
+      "verified": 0,
+      "quality": 266,
+      "sections": {
+        "conflict": 2,
+        "cooperatives": 2,
+        "democracy": 30,
+        "ecology": 15,
+        "education": 189,
+        "energy_digital": 1,
+        "healthcare": 24,
+        "recreation_arts": 6
+      },
+      "completeness": 79.6,
+      "sections_present": 8
+    },
+    "BE": {
+      "total": 1,
+      "verified": 1,
+      "quality": 1,
+      "sections": {
+        "food": 1
+      },
+      "completeness": 10.0,
+      "sections_present": 1
+    },
+    "BO": {
+      "total": 20,
+      "verified": 0,
+      "quality": 17,
+      "sections": {
+        "democracy": 5,
+        "ecology": 2,
+        "education": 9,
+        "energy_digital": 1,
+        "healthcare": 3
+      },
+      "completeness": 46.2,
+      "sections_present": 5
+    },
+    "BR": {
+      "total": 86,
+      "verified": 1,
+      "quality": 85,
+      "sections": {
+        "cooperatives": 2,
+        "democracy": 3,
+        "ecology": 2,
+        "education": 60,
+        "food": 1,
+        "healthcare": 9,
+        "recreation_arts": 9
+      },
+      "completeness": 69.6,
+      "sections_present": 7
+    },
+    "CA": {
+      "total": 126,
+      "verified": 1,
+      "quality": 117,
+      "sections": {
+        "cooperatives": 1,
+        "democracy": 4,
+        "education": 84,
+        "energy_digital": 1,
+        "food": 1,
+        "healthcare": 31,
+        "recreation_arts": 4
+      },
+      "completeness": 67.5,
+      "sections_present": 7
+    },
+    "CL": {
+      "total": 14,
+      "verified": 0,
+      "quality": 14,
+      "sections": {
+        "democracy": 7,
+        "ecology": 1,
+        "education": 4,
+        "energy_digital": 1,
+        "recreation_arts": 1
+      },
+      "completeness": 50.0,
+      "sections_present": 5
+    },
+    "CO": {
+      "total": 65,
+      "verified": 0,
+      "quality": 53,
+      "sections": {
+        "cooperatives": 2,
+        "democracy": 8,
+        "ecology": 1,
+        "education": 42,
+        "energy_digital": 1,
+        "healthcare": 8,
+        "recreation_arts": 3
+      },
+      "completeness": 63.5,
+      "sections_present": 7
+    },
+    "CR": {
+      "total": 27,
+      "verified": 0,
+      "quality": 27,
+      "sections": {
+        "cooperatives": 1,
+        "democracy": 4,
+        "ecology": 3,
+        "education": 18,
+        "healthcare": 1
+      },
+      "completeness": 50.0,
+      "sections_present": 5
+    },
+    "CU": {
+      "total": 26,
+      "verified": 0,
+      "quality": 25,
+      "sections": {
+        "democracy": 3,
+        "ecology": 1,
+        "education": 17,
+        "energy_digital": 1,
+        "healthcare": 1,
+        "recreation_arts": 3
+      },
+      "completeness": 58.8,
+      "sections_present": 6
+    },
+    "DE": {
+      "total": 8,
+      "verified": 1,
+      "quality": 6,
+      "sections": {
+        "democracy": 1,
+        "ecology": 2,
+        "food": 2,
+        "healthcare": 3
+      },
+      "completeness": 35.0,
+      "sections_present": 4
+    },
+    "DO": {
+      "total": 9,
+      "verified": 0,
+      "quality": 9,
+      "sections": {
+        "democracy": 2,
+        "education": 5,
+        "energy_digital": 1,
+        "recreation_arts": 1
+      },
+      "completeness": 40.0,
+      "sections_present": 4
+    },
+    "EC": {
+      "total": 18,
+      "verified": 0,
+      "quality": 16,
+      "sections": {
+        "democracy": 5,
+        "ecology": 1,
+        "education": 7,
+        "energy_digital": 1,
+        "healthcare": 2,
+        "recreation_arts": 2
+      },
+      "completeness": 56.7,
+      "sections_present": 6
+    },
+    "EG": {
+      "total": 96,
+      "verified": 0,
+      "quality": 90,
+      "sections": {
+        "democracy": 6,
+        "ecology": 1,
+        "education": 75,
+        "energy_digital": 1,
+        "food": 2,
+        "healthcare": 5,
+        "recreation_arts": 6
+      },
+      "completeness": 67.8,
+      "sections_present": 7
+    },
+    "ES": {
+      "total": 4,
+      "verified": 1,
+      "quality": 4,
+      "sections": {
+        "food": 1,
+        "recreation_arts": 3
+      },
+      "completeness": 20.0,
+      "sections_present": 2
+    },
+    "ET": {
+      "total": 21,
+      "verified": 0,
+      "quality": 21,
+      "sections": {
+        "democracy": 12,
+        "ecology": 2,
+        "education": 2,
+        "food": 1,
+        "healthcare": 4
+      },
+      "completeness": 50.0,
+      "sections_present": 5
+    },
+    "FJ": {
+      "total": 1,
+      "verified": 0,
+      "quality": 1,
+      "sections": {
+        "ecology": 1
+      },
+      "completeness": 10.0,
+      "sections_present": 1
+    },
+    "FR": {
+      "total": 4,
+      "verified": 1,
+      "quality": 4,
+      "sections": {
+        "food": 1,
+        "healthcare": 1,
+        "recreation_arts": 2
+      },
+      "completeness": 30.0,
+      "sections_present": 3
+    },
+    "GB": {
+      "total": 40634,
+      "verified": 0,
+      "quality": 37405,
+      "sections": {
+        "conflict": 507,
+        "cooperatives": 162,
+        "democracy": 16949,
+        "ecology": 1741,
+        "education": 13323,
+        "food": 671,
+        "healthcare": 5594,
+        "housing_land": 914,
+        "recreation_arts": 773
+      },
+      "completeness": 86.4,
+      "sections_present": 9
+    },
+    "GH": {
+      "total": 140,
+      "verified": 0,
+      "quality": 138,
+      "sections": {
+        "conflict": 1,
+        "democracy": 14,
+        "ecology": 10,
+        "education": 108,
+        "energy_digital": 1,
+        "healthcare": 4,
+        "recreation_arts": 2
+      },
+      "completeness": 69.5,
+      "sections_present": 7
+    },
+    "GR": {
+      "total": 139,
+      "verified": 1,
+      "quality": 130,
+      "sections": {
+        "democracy": 4,
+        "ecology": 1,
+        "education": 108,
+        "energy_digital": 4,
+        "food": 2,
+        "healthcare": 12,
+        "recreation_arts": 8
+      },
+      "completeness": 67.7,
+      "sections_present": 7
+    },
+    "GT": {
+      "total": 10,
+      "verified": 0,
+      "quality": 10,
+      "sections": {
+        "democracy": 2,
+        "ecology": 1,
+        "education": 5,
+        "energy_digital": 1,
+        "healthcare": 1
+      },
+      "completeness": 50.0,
+      "sections_present": 5
+    },
+    "GY": {
+      "total": 3,
+      "verified": 0,
+      "quality": 2,
+      "sections": {
+        "democracy": 1,
+        "education": 1,
+        "recreation_arts": 1
+      },
+      "completeness": 25.0,
+      "sections_present": 3
+    },
+    "HN": {
+      "total": 10,
+      "verified": 0,
+      "quality": 9,
+      "sections": {
+        "democracy": 3,
+        "education": 5,
+        "healthcare": 2
+      },
+      "completeness": 28.5,
+      "sections_present": 3
+    },
+    "HT": {
+      "total": 3,
+      "verified": 0,
+      "quality": 3,
+      "sections": {
+        "democracy": 2,
+        "education": 1
+      },
+      "completeness": 20.0,
+      "sections_present": 2
+    },
+    "HU": {
+      "total": 1,
+      "verified": 1,
+      "quality": 1,
+      "sections": {
+        "food": 1
+      },
+      "completeness": 10.0,
+      "sections_present": 1
+    },
+    "ID": {
+      "total": 21,
+      "verified": 0,
+      "quality": 17,
+      "sections": {
+        "democracy": 3,
+        "education": 11,
+        "energy_digital": 3,
+        "healthcare": 1,
+        "recreation_arts": 3
+      },
+      "completeness": 45.2,
+      "sections_present": 5
+    },
+    "IN": {
+      "total": 45,
+      "verified": 1,
+      "quality": 44,
+      "sections": {
+        "cooperatives": 2,
+        "democracy": 13,
+        "education": 16,
+        "energy_digital": 7,
+        "food": 2,
+        "healthcare": 1,
+        "recreation_arts": 4
+      },
+      "completeness": 69.2,
+      "sections_present": 7
+    },
+    "IT": {
+      "total": 83,
+      "verified": 0,
+      "quality": 83,
+      "sections": {
+        "democracy": 2,
+        "education": 70,
+        "food": 2,
+        "healthcare": 5,
+        "recreation_arts": 4
+      },
+      "completeness": 50.0,
+      "sections_present": 5
+    },
+    "JM": {
+      "total": 7,
+      "verified": 0,
+      "quality": 6,
+      "sections": {
+        "democracy": 2,
+        "education": 3,
+        "energy_digital": 1,
+        "healthcare": 1
+      },
+      "completeness": 37.1,
+      "sections_present": 4
+    },
+    "JP": {
+      "total": 34,
+      "verified": 0,
+      "quality": 21,
+      "sections": {
+        "cooperatives": 3,
+        "democracy": 16,
+        "ecology": 4,
+        "education": 1,
+        "energy_digital": 1,
+        "healthcare": 4,
+        "recreation_arts": 5
+      },
+      "completeness": 56.6,
+      "sections_present": 7
+    },
+    "KE": {
+      "total": 205,
+      "verified": 20,
+      "quality": 203,
+      "sections": {
+        "conflict": 1,
+        "democracy": 24,
+        "ecology": 29,
+        "education": 131,
+        "energy_digital": 2,
+        "food": 3,
+        "healthcare": 11,
+        "recreation_arts": 4
+      },
+      "completeness": 79.6,
+      "sections_present": 8
+    },
+    "MX": {
+      "total": 108,
+      "verified": 0,
+      "quality": 102,
+      "sections": {
+        "democracy": 10,
+        "ecology": 1,
+        "education": 78,
+        "energy_digital": 1,
+        "healthcare": 8,
+        "recreation_arts": 10
+      },
+      "completeness": 58.3,
+      "sections_present": 6
+    },
+    "MZ": {
+      "total": 6,
+      "verified": 0,
+      "quality": 5,
+      "sections": {
+        "democracy": 1,
+        "ecology": 1,
+        "education": 1,
+        "healthcare": 3
+      },
+      "completeness": 36.7,
+      "sections_present": 4
+    },
+    "NG": {
+      "total": 305,
+      "verified": 0,
+      "quality": 303,
+      "sections": {
+        "conflict": 2,
+        "cooperatives": 2,
+        "democracy": 25,
+        "ecology": 4,
+        "education": 203,
+        "energy_digital": 1,
+        "food": 6,
+        "healthcare": 59,
+        "recreation_arts": 3
+      },
+      "completeness": 89.7,
+      "sections_present": 9
+    },
+    "NI": {
+      "total": 10,
+      "verified": 0,
+      "quality": 10,
+      "sections": {
+        "democracy": 4,
+        "education": 5,
+        "healthcare": 1
+      },
+      "completeness": 30.0,
+      "sections_present": 3
+    },
+    "NL": {
+      "total": 106,
+      "verified": 0,
+      "quality": 105,
+      "sections": {
+        "democracy": 4,
+        "ecology": 4,
+        "education": 66,
+        "energy_digital": 2,
+        "food": 1,
+        "healthcare": 11,
+        "recreation_arts": 18
+      },
+      "completeness": 69.7,
+      "sections_present": 7
+    },
+    "NO": {
+      "total": 1,
+      "verified": 1,
+      "quality": 1,
+      "sections": {
+        "food": 1
+      },
+      "completeness": 10.0,
+      "sections_present": 1
+    },
+    "NP": {
+      "total": 2,
+      "verified": 0,
+      "quality": 2,
+      "sections": {
+        "democracy": 1,
+        "education": 1
+      },
+      "completeness": 20.0,
+      "sections_present": 2
+    },
+    "NZ": {
+      "total": 335,
+      "verified": 0,
+      "quality": 331,
+      "sections": {
+        "cooperatives": 1,
+        "democracy": 22,
+        "ecology": 20,
+        "education": 253,
+        "energy_digital": 3,
+        "healthcare": 19,
+        "housing_land": 1,
+        "recreation_arts": 16
+      },
+      "completeness": 79.5,
+      "sections_present": 8
+    },
+    "PA": {
+      "total": 5,
+      "verified": 0,
+      "quality": 4,
+      "sections": {
+        "democracy": 1,
+        "ecology": 1,
+        "education": 2,
+        "energy_digital": 1
+      },
+      "completeness": 36.0,
+      "sections_present": 4
+    },
+    "PE": {
+      "total": 44,
+      "verified": 0,
+      "quality": 39,
+      "sections": {
+        "democracy": 9,
+        "education": 17,
+        "energy_digital": 2,
+        "healthcare": 3,
+        "recreation_arts": 13
+      },
+      "completeness": 47.2,
+      "sections_present": 5
+    },
+    "PH": {
+      "total": 48,
+      "verified": 0,
+      "quality": 45,
+      "sections": {
+        "cooperatives": 3,
+        "democracy": 22,
+        "ecology": 3,
+        "education": 15,
+        "energy_digital": 1,
+        "food": 1,
+        "healthcare": 2,
+        "recreation_arts": 1
+      },
+      "completeness": 77.5,
+      "sections_present": 8
+    },
+    "PY": {
+      "total": 8,
+      "verified": 0,
+      "quality": 8,
+      "sections": {
+        "cooperatives": 1,
+        "democracy": 1,
+        "education": 4,
+        "healthcare": 1,
+        "recreation_arts": 1
+      },
+      "completeness": 50.0,
+      "sections_present": 5
+    },
+    "RU": {
+      "total": 1,
+      "verified": 1,
+      "quality": 1,
+      "sections": {
+        "food": 1
+      },
+      "completeness": 10.0,
+      "sections_present": 1
+    },
+    "RW": {
+      "total": 15,
+      "verified": 0,
+      "quality": 14,
+      "sections": {
+        "cooperatives": 1,
+        "democracy": 3,
+        "ecology": 5,
+        "education": 1,
+        "energy_digital": 1,
+        "healthcare": 3,
+        "recreation_arts": 1
+      },
+      "completeness": 67.7,
+      "sections_present": 7
+    },
+    "SE": {
+      "total": 27,
+      "verified": 0,
+      "quality": 23,
+      "sections": {
+        "democracy": 5,
+        "ecology": 8,
+        "education": 1,
+        "food": 3,
+        "healthcare": 2,
+        "recreation_arts": 8
+      },
+      "completeness": 55.6,
+      "sections_present": 6
+    },
+    "SN": {
+      "total": 6,
+      "verified": 0,
+      "quality": 6,
+      "sections": {
+        "democracy": 1,
+        "healthcare": 3,
+        "recreation_arts": 2
+      },
+      "completeness": 30.0,
+      "sections_present": 3
+    },
+    "SR": {
+      "total": 22,
+      "verified": 7,
+      "quality": 19,
+      "sections": {
+        "cooperatives": 7,
+        "democracy": 4,
+        "ecology": 7,
+        "education": 1,
+        "healthcare": 1,
+        "recreation_arts": 2
+      },
+      "completeness": 55.9,
+      "sections_present": 6
+    },
+    "TH": {
+      "total": 41,
+      "verified": 0,
+      "quality": 39,
+      "sections": {
+        "conflict": 1,
+        "democracy": 8,
+        "ecology": 1,
+        "education": 20,
+        "energy_digital": 2,
+        "food": 1,
+        "healthcare": 7,
+        "recreation_arts": 1
+      },
+      "completeness": 78.0,
+      "sections_present": 8
+    },
+    "TR": {
+      "total": 1,
+      "verified": 1,
+      "quality": 1,
+      "sections": {
+        "food": 1
+      },
+      "completeness": 10.0,
+      "sections_present": 1
+    },
+    "TT": {
+      "total": 9,
+      "verified": 0,
+      "quality": 8,
+      "sections": {
+        "democracy": 1,
+        "ecology": 3,
+        "education": 3,
+        "healthcare": 1,
+        "recreation_arts": 1
+      },
+      "completeness": 47.2,
+      "sections_present": 5
+    },
+    "TZ": {
+      "total": 36,
+      "verified": 0,
+      "quality": 32,
+      "sections": {
+        "democracy": 6,
+        "ecology": 12,
+        "education": 14,
+        "energy_digital": 1,
+        "healthcare": 3
+      },
+      "completeness": 47.2,
+      "sections_present": 5
+    },
+    "UG": {
+      "total": 138,
+      "verified": 0,
+      "quality": 136,
+      "sections": {
+        "conflict": 8,
+        "cooperatives": 2,
+        "democracy": 30,
+        "ecology": 9,
+        "education": 70,
+        "food": 4,
+        "healthcare": 11,
+        "housing_land": 1,
+        "recreation_arts": 3
+      },
+      "completeness": 89.3,
+      "sections_present": 9
+    },
+    "US": {
+      "total": 287772,
+      "verified": 10010,
+      "quality": 628,
+      "sections": {
+        "conflict": 19023,
+        "cooperatives": 24078,
+        "democracy": 95353,
+        "ecology": 28511,
+        "food": 19482,
+        "healthcare": 71774,
+        "housing_land": 29551
+      },
+      "completeness": 35.1,
+      "sections_present": 7
+    },
+    "UY": {
+      "total": 1,
+      "verified": 0,
+      "quality": 1,
+      "sections": {
+        "healthcare": 1
+      },
+      "completeness": 10.0,
+      "sections_present": 1
+    },
+    "VE": {
+      "total": 29,
+      "verified": 0,
+      "quality": 27,
+      "sections": {
+        "cooperatives": 1,
+        "democracy": 6,
+        "ecology": 1,
+        "education": 18,
+        "healthcare": 2,
+        "recreation_arts": 1
+      },
+      "completeness": 57.9,
+      "sections_present": 6
+    },
+    "VN": {
+      "total": 10,
+      "verified": 0,
+      "quality": 10,
+      "sections": {
+        "democracy": 8,
+        "education": 2
+      },
+      "completeness": 20.0,
+      "sections_present": 2
+    },
+    "ZA": {
+      "total": 120,
+      "verified": 21,
+      "quality": 116,
+      "sections": {
+        "conflict": 2,
+        "democracy": 24,
+        "ecology": 22,
+        "education": 42,
+        "energy_digital": 2,
+        "food": 3,
+        "healthcare": 22,
+        "recreation_arts": 3
+      },
+      "completeness": 78.7,
+      "sections_present": 8
+    },
+    "ZW": {
+      "total": 1,
+      "verified": 0,
+      "quality": 1,
+      "sections": {
+        "healthcare": 1
+      },
+      "completeness": 10.0,
+      "sections_present": 1
+    }
+  },
+  "us_states": {
+    "": {
+      "total": 5,
+      "sections": {
+        "cooperatives": 4,
+        "healthcare": 1
+      },
+      "completeness": 20.0,
+      "sections_present": 2
+    },
+    "AK": {
+      "total": 42,
+      "sections": {
+        "cooperatives": 1,
+        "democracy": 7,
+        "ecology": 7,
+        "food": 12,
+        "healthcare": 9,
+        "housing_land": 6
+      },
+      "completeness": 60.0,
+      "sections_present": 6
+    },
+    "AL": {
+      "total": 73,
+      "sections": {
+        "conflict": 4,
+        "cooperatives": 7,
+        "democracy": 13,
+        "ecology": 6,
+        "food": 20,
+        "healthcare": 7,
+        "housing_land": 16
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "AR": {
+      "total": 53,
+      "sections": {
+        "conflict": 2,
+        "cooperatives": 1,
+        "democracy": 3,
+        "ecology": 4,
+        "food": 31,
+        "healthcare": 6,
+        "housing_land": 6
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "AS": {
+      "total": 1,
+      "sections": {
+        "conflict": 1
+      },
+      "completeness": 10.0,
+      "sections_present": 1
+    },
+    "AZ": {
+      "total": 103,
+      "sections": {
+        "conflict": 5,
+        "cooperatives": 3,
+        "democracy": 14,
+        "ecology": 6,
+        "food": 39,
+        "healthcare": 21,
+        "housing_land": 15
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "CA": {
+      "total": 637,
+      "sections": {
+        "conflict": 34,
+        "cooperatives": 36,
+        "democracy": 74,
+        "ecology": 69,
+        "food": 72,
+        "healthcare": 163,
+        "housing_land": 189
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "CO": {
+      "total": 127,
+      "sections": {
+        "conflict": 11,
+        "cooperatives": 9,
+        "democracy": 18,
+        "ecology": 22,
+        "food": 23,
+        "healthcare": 20,
+        "housing_land": 24
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "CT": {
+      "total": 84,
+      "sections": {
+        "conflict": 3,
+        "cooperatives": 4,
+        "democracy": 7,
+        "ecology": 6,
+        "food": 20,
+        "healthcare": 21,
+        "housing_land": 23
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "DC": {
+      "total": 50,
+      "sections": {
+        "conflict": 3,
+        "cooperatives": 7,
+        "democracy": 8,
+        "ecology": 13,
+        "food": 5,
+        "healthcare": 6,
+        "housing_land": 8
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "DE": {
+      "total": 21,
+      "sections": {
+        "conflict": 1,
+        "democracy": 4,
+        "ecology": 6,
+        "food": 3,
+        "healthcare": 1,
+        "housing_land": 6
+      },
+      "completeness": 60.0,
+      "sections_present": 6
+    },
+    "FL": {
+      "total": 275,
+      "sections": {
+        "conflict": 9,
+        "cooperatives": 8,
+        "democracy": 39,
+        "ecology": 21,
+        "food": 46,
+        "healthcare": 77,
+        "housing_land": 75
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "GA": {
+      "total": 153,
+      "sections": {
+        "conflict": 3,
+        "cooperatives": 5,
+        "democracy": 20,
+        "ecology": 10,
+        "food": 53,
+        "healthcare": 22,
+        "housing_land": 40
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "HI": {
+      "total": 38,
+      "sections": {
+        "conflict": 2,
+        "democracy": 7,
+        "ecology": 2,
+        "food": 3,
+        "healthcare": 12,
+        "housing_land": 12
+      },
+      "completeness": 60.0,
+      "sections_present": 6
+    },
+    "IA": {
+      "total": 117,
+      "sections": {
+        "conflict": 3,
+        "cooperatives": 9,
+        "democracy": 5,
+        "ecology": 5,
+        "food": 62,
+        "healthcare": 23,
+        "housing_land": 10
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "ID": {
+      "total": 51,
+      "sections": {
+        "conflict": 2,
+        "cooperatives": 2,
+        "democracy": 8,
+        "ecology": 5,
+        "food": 20,
+        "healthcare": 7,
+        "housing_land": 7
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "IL": {
+      "total": 306,
+      "sections": {
+        "conflict": 13,
+        "cooperatives": 24,
+        "democracy": 56,
+        "ecology": 7,
+        "food": 122,
+        "healthcare": 40,
+        "housing_land": 44
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "IN": {
+      "total": 155,
+      "sections": {
+        "conflict": 3,
+        "cooperatives": 4,
+        "democracy": 27,
+        "ecology": 4,
+        "food": 56,
+        "healthcare": 30,
+        "housing_land": 31
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "KS": {
+      "total": 53,
+      "sections": {
+        "conflict": 3,
+        "cooperatives": 3,
+        "democracy": 3,
+        "ecology": 4,
+        "food": 22,
+        "healthcare": 10,
+        "housing_land": 8
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "KY": {
+      "total": 84,
+      "sections": {
+        "conflict": 4,
+        "cooperatives": 1,
+        "democracy": 4,
+        "ecology": 1,
+        "food": 29,
+        "healthcare": 15,
+        "housing_land": 30
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "LA": {
+      "total": 60,
+      "sections": {
+        "conflict": 3,
+        "cooperatives": 1,
+        "democracy": 5,
+        "ecology": 6,
+        "food": 16,
+        "healthcare": 20,
+        "housing_land": 9
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "MA": {
+      "total": 214,
+      "sections": {
+        "conflict": 8,
+        "cooperatives": 16,
+        "democracy": 25,
+        "ecology": 11,
+        "food": 61,
+        "healthcare": 34,
+        "housing_land": 59
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "MD": {
+      "total": 91,
+      "sections": {
+        "conflict": 6,
+        "cooperatives": 11,
+        "democracy": 10,
+        "ecology": 5,
+        "food": 16,
+        "healthcare": 24,
+        "housing_land": 19
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "ME": {
+      "total": 90,
+      "sections": {
+        "conflict": 4,
+        "cooperatives": 4,
+        "democracy": 4,
+        "ecology": 4,
+        "food": 52,
+        "healthcare": 11,
+        "housing_land": 11
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "MI": {
+      "total": 220,
+      "sections": {
+        "conflict": 15,
+        "cooperatives": 18,
+        "democracy": 18,
+        "ecology": 16,
+        "food": 69,
+        "healthcare": 39,
+        "housing_land": 45
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "MN": {
+      "total": 178,
+      "sections": {
+        "conflict": 7,
+        "cooperatives": 16,
+        "democracy": 12,
+        "ecology": 11,
+        "food": 84,
+        "healthcare": 26,
+        "housing_land": 22
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "MO": {
+      "total": 132,
+      "sections": {
+        "conflict": 6,
+        "cooperatives": 12,
+        "democracy": 10,
+        "ecology": 5,
+        "food": 51,
+        "healthcare": 24,
+        "housing_land": 24
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "MS": {
+      "total": 50,
+      "sections": {
+        "conflict": 2,
+        "cooperatives": 5,
+        "democracy": 6,
+        "ecology": 4,
+        "food": 22,
+        "healthcare": 5,
+        "housing_land": 6
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "MT": {
+      "total": 89,
+      "sections": {
+        "conflict": 3,
+        "democracy": 9,
+        "ecology": 4,
+        "food": 51,
+        "healthcare": 14,
+        "housing_land": 8
+      },
+      "completeness": 60.0,
+      "sections_present": 6
+    },
+    "NC": {
+      "total": 193,
+      "sections": {
+        "conflict": 7,
+        "cooperatives": 4,
+        "democracy": 9,
+        "ecology": 12,
+        "food": 64,
+        "healthcare": 49,
+        "housing_land": 48
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "ND": {
+      "total": 50,
+      "sections": {
+        "cooperatives": 2,
+        "democracy": 8,
+        "ecology": 1,
+        "food": 27,
+        "healthcare": 5,
+        "housing_land": 7
+      },
+      "completeness": 60.0,
+      "sections_present": 6
+    },
+    "NE": {
+      "total": 44,
+      "sections": {
+        "conflict": 2,
+        "cooperatives": 4,
+        "democracy": 1,
+        "ecology": 1,
+        "food": 15,
+        "healthcare": 12,
+        "housing_land": 9
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "NH": {
+      "total": 51,
+      "sections": {
+        "conflict": 2,
+        "cooperatives": 3,
+        "democracy": 3,
+        "ecology": 4,
+        "food": 22,
+        "healthcare": 6,
+        "housing_land": 11
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "NJ": {
+      "total": 141,
+      "sections": {
+        "cooperatives": 7,
+        "democracy": 12,
+        "ecology": 14,
+        "food": 45,
+        "healthcare": 24,
+        "housing_land": 39
+      },
+      "completeness": 60.0,
+      "sections_present": 6
+    },
+    "NM": {
+      "total": 53,
+      "sections": {
+        "conflict": 3,
+        "cooperatives": 5,
+        "democracy": 13,
+        "ecology": 2,
+        "food": 13,
+        "healthcare": 8,
+        "housing_land": 9
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "NV": {
+      "total": 48,
+      "sections": {
+        "conflict": 4,
+        "cooperatives": 7,
+        "democracy": 5,
+        "ecology": 1,
+        "food": 9,
+        "healthcare": 10,
+        "housing_land": 12
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "NY": {
+      "total": 363,
+      "sections": {
+        "conflict": 16,
+        "cooperatives": 34,
+        "democracy": 52,
+        "ecology": 23,
+        "food": 135,
+        "healthcare": 50,
+        "housing_land": 53
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "OH": {
+      "total": 186,
+      "sections": {
+        "conflict": 6,
+        "cooperatives": 14,
+        "democracy": 17,
+        "ecology": 12,
+        "food": 71,
+        "healthcare": 38,
+        "housing_land": 28
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "OK": {
+      "total": 310,
+      "sections": {
+        "conflict": 1,
+        "democracy": 10,
+        "ecology": 3,
+        "food": 265,
+        "healthcare": 21,
+        "housing_land": 10
+      },
+      "completeness": 60.0,
+      "sections_present": 6
+    },
+    "OR": {
+      "total": 120,
+      "sections": {
+        "conflict": 4,
+        "cooperatives": 6,
+        "democracy": 10,
+        "ecology": 5,
+        "food": 35,
+        "healthcare": 26,
+        "housing_land": 34
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "PA": {
+      "total": 225,
+      "sections": {
+        "conflict": 7,
+        "cooperatives": 14,
+        "democracy": 20,
+        "ecology": 16,
+        "food": 88,
+        "healthcare": 45,
+        "housing_land": 35
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "PR": {
+      "total": 13,
+      "sections": {
+        "democracy": 4,
+        "ecology": 2,
+        "healthcare": 6,
+        "housing_land": 1
+      },
+      "completeness": 40.0,
+      "sections_present": 4
+    },
+    "RI": {
+      "total": 35,
+      "sections": {
+        "conflict": 1,
+        "democracy": 7,
+        "ecology": 3,
+        "food": 8,
+        "healthcare": 7,
+        "housing_land": 9
+      },
+      "completeness": 60.0,
+      "sections_present": 6
+    },
+    "SC": {
+      "total": 76,
+      "sections": {
+        "conflict": 3,
+        "cooperatives": 2,
+        "democracy": 9,
+        "ecology": 2,
+        "food": 17,
+        "healthcare": 15,
+        "housing_land": 28
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "SD": {
+      "total": 25,
+      "sections": {
+        "democracy": 1,
+        "ecology": 1,
+        "food": 19,
+        "healthcare": 3,
+        "housing_land": 1
+      },
+      "completeness": 50.0,
+      "sections_present": 5
+    },
+    "TN": {
+      "total": 111,
+      "sections": {
+        "conflict": 3,
+        "cooperatives": 11,
+        "democracy": 14,
+        "ecology": 4,
+        "food": 34,
+        "healthcare": 22,
+        "housing_land": 23
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "TX": {
+      "total": 333,
+      "sections": {
+        "conflict": 20,
+        "cooperatives": 11,
+        "democracy": 31,
+        "ecology": 21,
+        "food": 117,
+        "healthcare": 68,
+        "housing_land": 65
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "UT": {
+      "total": 50,
+      "sections": {
+        "conflict": 3,
+        "cooperatives": 4,
+        "democracy": 3,
+        "ecology": 4,
+        "food": 8,
+        "healthcare": 16,
+        "housing_land": 12
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "VA": {
+      "total": 166,
+      "sections": {
+        "conflict": 7,
+        "cooperatives": 12,
+        "democracy": 18,
+        "ecology": 15,
+        "food": 39,
+        "healthcare": 46,
+        "housing_land": 29
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "VI": {
+      "total": 1,
+      "sections": {
+        "democracy": 1
+      },
+      "completeness": 10.0,
+      "sections_present": 1
+    },
+    "VT": {
+      "total": 53,
+      "sections": {
+        "conflict": 9,
+        "cooperatives": 1,
+        "democracy": 4,
+        "ecology": 5,
+        "food": 23,
+        "healthcare": 8,
+        "housing_land": 3
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "WA": {
+      "total": 200,
+      "sections": {
+        "conflict": 9,
+        "cooperatives": 16,
+        "democracy": 11,
+        "ecology": 14,
+        "food": 84,
+        "healthcare": 33,
+        "housing_land": 33
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "WI": {
+      "total": 212,
+      "sections": {
+        "conflict": 6,
+        "cooperatives": 27,
+        "democracy": 9,
+        "ecology": 11,
+        "food": 106,
+        "healthcare": 33,
+        "housing_land": 20
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "WV": {
+      "total": 57,
+      "sections": {
+        "conflict": 3,
+        "cooperatives": 3,
+        "democracy": 6,
+        "ecology": 3,
+        "food": 27,
+        "healthcare": 12,
+        "housing_land": 3
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    },
+    "WY": {
+      "total": 29,
+      "sections": {
+        "conflict": 3,
+        "cooperatives": 2,
+        "democracy": 2,
+        "ecology": 4,
+        "food": 12,
+        "healthcare": 4,
+        "housing_land": 2
+      },
+      "completeness": 70.0,
+      "sections_present": 7
+    }
+  },
+  "tier_counts": {
+    "A": 11,
+    "B": 0,
+    "C": 0,
+    "D": 0
+  },
+  "sections": [
+    "democracy",
+    "cooperatives",
+    "healthcare",
+    "food",
+    "education",
+    "housing_land",
+    "conflict",
+    "energy_digital",
+    "recreation_arts",
+    "ecology"
+  ],
+  "total_points": 8535,
+  "total_edges": 2703
+}
