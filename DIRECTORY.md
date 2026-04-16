@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-16 00:11 UTC*
+*Last updated: 2026-04-16 01:19 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 761,731 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 761,732 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Albania (AL) | ~2 | Field Research | ✅ |
 | 🌐 Armenia (AM) | ~2 | Field Research | ✅ |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
@@ -28,6 +28,7 @@
 | 🌐 Colombia (CO) | ~2 | Field Research | ✅ |
 | 🌐 Costa Rica (CR) | ~17 | Field Research | ✅ |
 | 🌐 Cuba (CU) | ~2 | Field Research | ✅ |
+| 🌐 Czechia (CZ) | ~2 | Field Research | ✅ |
 | 🌐 Germany (DE) | ~2 | Field Research | ✅ |
 | 🌐 Denmark (DK) | ~2 | Field Research | ✅ |
 | 🌐 Dominican Republic (DO) | ~2 | Field Research | ✅ |
@@ -109,14 +110,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 761,731+ organizations indexed** across 100 countries
+**Total: 761,732+ organizations indexed** across 101 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*761,731 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*761,732 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -1233,6 +1234,20 @@ Model: nonprofit
 
 ### Cuba Civil Society Network
 > Primary civil society network in Cuba
+
+
+---
+
+# 🌐 Czechia (CZ) Civil Society Directory
+
+*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Czechia Civil Society Network
+> Primary civil society network in Czechia
 
 
 ---

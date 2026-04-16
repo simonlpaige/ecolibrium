@@ -107,6 +107,19 @@ select:focus{border-color:var(--teal)}
 .state-btn .sc{font-size:10px;color:var(--dim);display:block}
 .section-title{font-size:13px;color:var(--muted);font-weight:600;margin-bottom:8px;margin-top:4px;text-transform:uppercase;letter-spacing:.05em}
 
+/* DATA NOTE */
+.data-note{background:var(--s2);border:1px solid var(--border);border-radius:10px;padding:12px 16px;margin-bottom:18px;font-size:12px;color:var(--muted);line-height:1.6}
+.data-note strong{color:var(--warm)}
+
+/* FEATURED ORGS */
+.featured-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin-bottom:28px}
+.featured-card{cursor:default;display:flex;flex-direction:column;gap:4px}
+.featured-card .fc-name{font-size:14px;font-weight:700;color:var(--text)}
+.featured-card .fc-name a{color:var(--text)}
+.featured-card .fc-name a:hover{color:var(--accent);text-decoration:none}
+.featured-card .fc-desc{font-size:12px;color:var(--muted);line-height:1.5}
+.featured-card .fc-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:4px}
+
 /* RESPONSIVE */
 @media(max-width:600px){
   .stats-bar{gap:8px}
@@ -121,10 +134,11 @@ select:focus{border-color:var(--teal)}
 <nav>
   <a class="nav-logo" href="index.html">ecolibrium</a>
   <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="directory.html" class="active">Directory</a>
-    <a href="map.html">Map</a>
-    <a href="doc.html?file=README">Docs</a>
+    <a href="index.html#map">Map</a>
+    <a href="index.html#sections">Sections</a>
+    <a href="index.html#docs">Docs</a>
+    <a href="index.html#about">About</a>
+    <a href="directory.html" class="active">Directory →</a>
   </div>
 </nav>
 
@@ -157,16 +171,70 @@ select:focus{border-color:var(--teal)}
 
   <!-- Content area -->
   <div id="content">
-    <div class="state-msg">
-      <div class="big">🌍</div>
-      <p>Select a country to browse organizations,<br>or type a name in the search box above.</p>
-    </div>
+    <noscript>
+      <div class="state-msg">
+        <p>This directory requires JavaScript to browse interactively.
+        View the <a href="DIRECTORY.md">full directory as markdown</a> or
+        browse the <a href="https://github.com/simonlpaige/ecolibrium">source on GitHub</a>.</p>
+      </div>
+    </noscript>
   </div>
 </div>
 
 <script>
 const BASE = 'data/search/';
 const PAGE_SIZE = 50;
+
+const FEATURED_ORGS = [
+  {
+    name: 'Decidim',
+    url: 'https://decidim.org',
+    desc: 'Open-source participatory democracy platform used by Barcelona and 400+ cities worldwide.',
+    tags: ['Platform', 'Democracy', 'Open Source']
+  },
+  {
+    name: 'Mondragon Corporation',
+    url: 'https://www.mondragon-corporation.com',
+    desc: "World's largest worker cooperative federation — 80,000+ worker-owners across manufacturing, finance, and retail in Spain's Basque Country.",
+    tags: ['Cooperative', 'Manufacturing', 'Spain']
+  },
+  {
+    name: 'Moodle',
+    url: 'https://moodle.org',
+    desc: 'Open-source learning management platform powering 300M+ users across universities, schools, and workplaces globally.',
+    tags: ['EdTech', 'Open Source', 'Australia']
+  },
+  {
+    name: 'Open Food Network',
+    url: 'https://www.openfoodnetwork.org',
+    desc: 'Open-source platform connecting farmers, food hubs, and buyers to build resilient local food systems.',
+    tags: ['Food Systems', 'Open Source', 'Global']
+  },
+  {
+    name: 'Wikimedia Foundation',
+    url: 'https://wikimediafoundation.org',
+    desc: 'Nonprofit operating Wikipedia and 14 free-knowledge projects — the largest open knowledge commons in history.',
+    tags: ['Knowledge', 'Nonprofit', 'USA']
+  },
+  {
+    name: 'Community Land Trust Network',
+    url: 'https://www.communitylandtrusts.org.uk',
+    desc: 'UK umbrella body supporting 300+ community land trusts providing permanently affordable homes and community assets.',
+    tags: ['Housing', 'CLT', 'UK']
+  },
+  {
+    name: 'NRECA (Rural Electric Co-ops)',
+    url: 'https://www.electric.coop',
+    desc: '900+ US electric cooperatives serving 42M people in 48 states — member-owned energy infrastructure at scale.',
+    tags: ['Energy', 'Cooperative', 'USA']
+  },
+  {
+    name: 'OpenMRS',
+    url: 'https://openmrs.org',
+    desc: 'Open-source medical records platform deployed in 40+ low-resource countries, enabling community-driven healthcare.',
+    tags: ['Health', 'Open Source', 'Global']
+  }
+];
 
 let indexData = null;      // { countries, total_orgs, ... }
 let countryData = null;    // currently loaded country/state JSON
@@ -234,8 +302,27 @@ function showPrompt() {
   if (!indexData) return;
   const countries = indexData.countries;
   const researchCodes = Object.keys(countries).filter(c => countries[c].source === 'research' || (countries[c].count < 5000 && c !== 'US'));
-  let html = '<div class="section-title">Browse by country</div><div class="country-grid">';
-  // Show research countries first
+
+  // Data transparency note
+  let html = `<div class="data-note">
+    <strong>📊 Data transparency:</strong> This directory indexes <strong>738K+ civil society organizations</strong> from public registries (IRS, UK Charity Commission, Wikidata) and curated research. Most entries are registry records being actively enriched with descriptions and links.
+  </div>`;
+
+  // Featured organizations
+  html += '<div class="section-title">✨ Featured Organizations</div>';
+  html += '<div class="featured-grid">';
+  for (const org of FEATURED_ORGS) {
+    const tagsHtml = org.tags.map(t => `<span class="tag tag-source">${escHtml(t)}</span>`).join('');
+    html += `<div class="org-card featured-card">
+      <div class="fc-name"><a href="${org.url}" target="_blank" rel="noopener">${escHtml(org.name)}</a></div>
+      <div class="fc-desc">${escHtml(org.desc)}</div>
+      <div class="fc-tags">${tagsHtml}</div>
+    </div>`;
+  }
+  html += '</div>';
+
+  // Country grid
+  html += '<div class="section-title">🌍 Browse by Country</div><div class="country-grid">';
   for (const code of researchCodes) {
     const c = countries[code];
     const n = c.count || c.research_count || 0;

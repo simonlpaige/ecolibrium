@@ -391,6 +391,105 @@ These principles are not speculative. They are distilled from successful commons
 
 ---
 
+## Appendix B: Ostrom's Principles Applied to the Mycelial Strategy
+
+The CRITIQUE.md correctly identified that the framework cites Ostrom but never applies her work to its own network design. Here is that application - principle by principle, with honest assessment of where the Mycelial Strategy meets, partially meets, or fails each criterion.
+
+### 1. Clearly Defined Boundaries
+
+**Ostrom's requirement:** Users of the commons and the resource itself must be identifiable. Open-access regimes (where anyone can take without contributing) consistently fail.
+
+**How the network addresses it:** The Mycelial Strategy explicitly does NOT have clear boundaries - it says "invite, never recruit" and "no purity tests." This is a deliberate design choice (the network should be permeable) but it directly conflicts with Ostrom's most fundamental principle.
+
+**Honest assessment:** This is a real vulnerability. The network needs at minimum: (a) a distinction between *participants* (anyone who engages) and *stewards* (people with governance weight, earned through sustained contribution), (b) clear definition of what the shared resource actually is (the directory data? the framework documents? the coordination infrastructure?), and (c) mechanisms to distinguish good-faith participants from free-riders or bad-faith actors. The current framing treats openness as the solution to everything. Ostrom's research says openness without boundaries produces tragedy of the commons.
+
+**Proposed resolution:** Tiered participation. The *information commons* (framework, data, documents) is open-access - anyone can read, fork, and use it. The *governance commons* (decisions about direction, merges, priorities) has boundaries: Contributor status requires visible contribution, Maintainer status requires sustained contribution and community recognition. This is already partially described in GOVERNANCE.md but should be explicitly framed as an Ostrom boundary design.
+
+### 2. Proportional Equivalence Between Benefits and Costs
+
+**Ostrom's requirement:** Rules governing use of the commons should be related to local conditions. Those who contribute more should benefit proportionally.
+
+**How the network addresses it:** The framework says "trust is built through contribution" - which is directionally correct. People who do more work earn more governance influence.
+
+**Honest assessment:** Partially met. The GOVERNANCE.md Contributor/Maintainer/Steward hierarchy creates proportionality in governance influence. But the framework doesn't address a more fundamental proportionality question: who bears the costs of maintaining infrastructure (hosting, data pipelines, moderation) and who benefits from the resulting directory and framework? If infrastructure costs fall on a few people while benefits flow to many, you have a WiserEarth failure mode. The sustainability plan (SUSTAINABILITY.md) addresses this for hosting but not for human labor.
+
+**Proposed resolution:** Explicit acknowledgment that sustained infrastructure labor needs compensation or rotation, not just volunteer goodwill. The cooperative movement's model (members pay dues, share governance proportionally) is more honest than "everyone contributes because they find meaning."
+
+### 3. Collective-Choice Arrangements
+
+**Ostrom's requirement:** Most individuals affected by operational rules can participate in modifying them.
+
+**How the network addresses it:** GOVERNANCE.md establishes rough consensus as the decision model, with open discussion periods. Anyone can comment on proposals. Significant changes require 90-day open comment periods.
+
+**Honest assessment:** Well-addressed in theory. The governance document is one of the project's strongest elements. The gap is implementation: with 8 GitHub stars, 0 forks, and 37 issues, there is no real community yet testing this governance model. The model is well-designed but untested.
+
+### 4. Monitoring
+
+**Ostrom's requirement:** Monitors who are accountable to the users must effectively track resource use and rule compliance.
+
+**How the network addresses it:** Git provides perfect monitoring of contributions (every commit, merge, and decision is logged). GitHub Issues and PRs create an audit trail. The transparency principle means all coordination happens in the open.
+
+**Honest assessment:** This is actually the strongest Ostrom alignment. Version control systems are arguably the best monitoring infrastructure ever invented for collaborative knowledge commons. The audit trail is complete, immutable (mostly), and publicly accessible. What's missing is monitoring of *outcomes* - is the directory data actually accurate? Are the framework sections improving? Are contributions being evaluated fairly? Process monitoring is strong; outcome monitoring is absent.
+
+**Proposed resolution:** Regular data quality audits (automated where possible) with public results. A dashboard showing: number of verified entries, data freshness, broken links, contributor activity. This turns monitoring from an implicit property of git into an explicit governance tool.
+
+### 5. Graduated Sanctions
+
+**Ostrom's requirement:** Violations are punished proportionally, starting with mild sanctions and escalating. First offenses get warnings; repeated offenses get more serious consequences.
+
+**How the network addresses it:** GOVERNANCE.md describes Maintainer removal for sustained bad faith, but there's no graduated system for lesser violations - no warning system, no temporary restrictions, no cooling-off periods.
+
+**Honest assessment:** Weakly addressed. The current model has exactly two states: full participation and removal. Ostrom's research shows this binary approach doesn't work. Commons need the ability to say "your last three contributions were low-quality; you're still welcome but your PRs now require extra review" or "you're engaging in bad faith in discussions; you're muted for 14 days." The framework's allergy to authority makes it reluctant to sanction anyone, which ironically makes the eventual sanctions (full removal) harsher than necessary.
+
+**Proposed resolution:** Add to GOVERNANCE.md: a graduated sanction ladder. (1) Private feedback from a Maintainer. (2) Public note on a PR/Issue that contribution quality needs improvement. (3) Temporary restriction to observer status (can read and comment, cannot submit PRs) for 30 days. (4) Removal from Contributor/Maintainer roles. Each step requires documented evidence and is itself subject to the challenge process.
+
+### 6. Conflict-Resolution Mechanisms
+
+**Ostrom's requirement:** Rapid, low-cost, local arenas for resolving disputes between users and between users and officials.
+
+**How the network addresses it:** GOVERNANCE.md describes a challenge process for disputed decisions: open a governance Issue, Maintainer responds within 14 days, escalation to Steward review if unresolved.
+
+**Honest assessment:** Adequate for a small project. The 14-day response window is reasonable. The escalation path is clear. What's missing is a *mediation* step - a way for two people in genuine disagreement to work with a neutral third party before the dispute becomes a formal governance challenge. Every successful commons (from Balinese water temples to Swiss alpine pastures) has informal conflict resolution that operates faster and at lower cost than the formal system.
+
+**Proposed resolution:** Add a mediation norm: before opening a formal governance challenge, disputants are expected (not required) to ask a mutually agreed Maintainer to mediate. This keeps most conflicts from escalating to the formal process.
+
+### 7. Minimal Recognition of Rights to Organize
+
+**Ostrom's requirement:** External authorities (governments, larger organizations) recognize the community's right to self-govern.
+
+**How the network addresses it:** The framework operates under CC BY-SA and CC0 licenses, which provide legal recognition. The project exists as a public GitHub repository, which provides platform recognition. But there is no legal entity - no nonprofit, no unincorporated association, no DAO - that can represent the project in negotiations with external organizations.
+
+**Honest assessment:** This is the weakest Ostrom principle for the current project. Potential partners (established NGOs, academic institutions, grant bodies) need to sign agreements with *someone*. Grant applications need a legal entity. Bank accounts need a name. The anonymity/no-leaders framing actively works against securing the external recognition that Ostrom identifies as essential for commons survival. WiserEarth had the Natural Capital Institute. This project has a personal GitHub account.
+
+**Proposed resolution:** Form a minimal legal entity (unincorporated association or fiscal sponsorship under an existing 501(c)(3) umbrella) that can: receive grants, sign partnership agreements, hold infrastructure accounts, and enter into contracts. This doesn't require abandoning pseudonymity for contributors - it requires having at least one named human or organization that can interface with the legal system. Many open-source projects use this model (Linux Foundation, Apache Foundation, Fiscal Host on Open Collective).
+
+### 8. Nested Enterprises
+
+**Ostrom's requirement:** For large-scale commons, governance is organized in nested layers. Local groups govern local resources; regional groups coordinate between locals; global groups handle system-wide concerns.
+
+**How the network addresses it:** The Mycelial Strategy's "cultural adaptation" principle gestures at this - local implementations differ while sharing a global framework. But the actual governance model (GOVERNANCE.md) is flat: one repository, one set of Maintainers, one consensus process.
+
+**Honest assessment:** Not yet addressed. At current scale (one repo, a few contributors), nested governance isn't needed. But if the framework grows, it will need: local or regional chapters that govern their own implementations, a coordination layer that maintains interoperability and shared principles, and a mechanism for local groups to escalate issues to the global level. The cooperative movement's federated structure (local co-ops -> regional federations -> national/international bodies like the ICA) is the obvious model.
+
+**Proposed resolution:** Design for nested governance now, even if it's not needed yet. Define what a "local node" of the network looks like (a group that implements the framework in a specific context), what governance authority it has, and how it relates to the global project. This prevents the common failure mode of projects that design flat governance, grow, and then can't retrofit federation.
+
+### Summary Scorecard
+
+| Principle | Status | Priority |
+|-----------|--------|----------|
+| 1. Clear boundaries | Partially addressed | HIGH - existential for commons survival |
+| 2. Proportional costs/benefits | Partially addressed | MEDIUM - matters at scale |
+| 3. Collective choice | Well-addressed | LOW - governance doc is strong |
+| 4. Monitoring | Process strong, outcomes weak | MEDIUM - add data quality audits |
+| 5. Graduated sanctions | Absent | HIGH - binary sanctions don't work |
+| 6. Conflict resolution | Formal process exists, informal missing | MEDIUM - add mediation step |
+| 7. Right to organize | No legal entity | HIGH - blocks partnerships and grants |
+| 8. Nested enterprises | Flat governance | LOW now, HIGH at scale |
+
+The honest conclusion: the Mycelial Strategy needs significant governance engineering to align with the commons governance principles the framework itself cites. The framework's philosophical commitment to openness and leaderlessness has led it to skip the operational mechanisms that Ostrom's research shows are essential for commons survival. This is fixable - but it requires accepting that successful commons have rules, boundaries, sanctions, and recognized governance structures. These are not contradictions to the framework's values. They are how you implement those values in reality.
+
+---
+
 *This document was compiled in April 2026 as an honest companion to the Ecolibrium framework. It is intended to strengthen the framework by identifying its gaps, confronting its assumptions, and grounding its aspirations in evidence. The framework deserves supporters who engage with its weaknesses as vigorously as they celebrate its vision.*
 
 *"It is not the critic who counts; not the man who points out how the strong man stumbles. The credit belongs to the man who is actually in the arena."*

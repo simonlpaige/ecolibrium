@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ecolibrium</title>
-<meta name="description" content="Ecolibrium framework documentation">
+<meta name="description" content="Ecolibrium is an open framework for a regenerative global economy — mapping sustainability organizations, governance models, and evidence-based pathways toward ecological and social balance.">
+<meta property="og:description" content="Ecolibrium is an open framework for a regenerative global economy — mapping sustainability organizations, governance models, and evidence-based pathways toward ecological and social balance.">
 <script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
 <style>
 /* ── Reset & tokens ── */
@@ -96,6 +97,15 @@ nav {
 }
 .nav-links a:hover { color: var(--text); text-decoration: none; border-bottom-color: var(--accent); }
 .nav-links a[aria-current="page"] { color: var(--accent); border-bottom-color: var(--accent); }
+
+.nav-cta {
+  margin-left: 6px;
+  height: auto !important; padding: 6px 14px !important;
+  background: var(--s2); border: 1px solid var(--border2) !important;
+  border-radius: 6px; border-bottom: none !important;
+  color: var(--warm) !important; font-weight: 600;
+}
+.nav-cta:hover { background: var(--s3) !important; border-bottom: none !important; }
 
 /* ── Breadcrumb ── */
 .breadcrumb {
@@ -362,9 +372,10 @@ footer a:hover { color: var(--muted); }
   <a href="/ecolibrium/" class="nav-logo" aria-label="Ecolibrium home">ecolibrium</a>
   <div class="nav-links" role="list">
     <a href="/ecolibrium/#map" role="listitem">Map</a>
-    <a href="/ecolibrium/doc.html?file=DEEP-DIVE" role="listitem" id="nav-deepdive">Framework</a>
-    <a href="/ecolibrium/doc.html?file=DIRECTORY" role="listitem" id="nav-directory">Directory</a>
-    <a href="/ecolibrium/#docs" role="listitem">All Docs</a>
+    <a href="/ecolibrium/#sections" role="listitem">Sections</a>
+    <a href="/ecolibrium/#docs" role="listitem">Docs</a>
+    <a href="/ecolibrium/#about" role="listitem">About</a>
+    <a href="/ecolibrium/directory.html" role="listitem" class="nav-cta">Directory →</a>
   </div>
 </nav>
 
@@ -384,6 +395,21 @@ footer a:hover { color: var(--muted); }
     <div id="loading" role="status" aria-live="polite" aria-label="Loading document">
       <p>Loading...</p>
     </div>
+    <noscript>
+      <div style="max-width:660px;margin:40px auto;padding:0 28px;">
+        <h1 style="color:#dff5c0;font-size:28px;margin-bottom:20px;">Ecolibrium Framework</h1>
+        <p style="color:#7aaa6a;line-height:1.8;margin-bottom:16px;">This page renders markdown documents dynamically. For the best experience, enable JavaScript.</p>
+        <p style="color:#7aaa6a;line-height:1.8;margin-bottom:24px;">All documents are also available as plain markdown on GitHub:</p>
+        <ul style="list-style:none;padding:0;">
+          <li style="margin-bottom:12px;"><a href="https://github.com/simonlpaige/ecolibrium/blob/master/README.md" style="color:#78c87a;">README.md - Project Overview</a></li>
+          <li style="margin-bottom:12px;"><a href="https://github.com/simonlpaige/ecolibrium/blob/master/DEEP-DIVE.md" style="color:#78c87a;">DEEP-DIVE.md - Framework &amp; Evidence</a></li>
+          <li style="margin-bottom:12px;"><a href="https://github.com/simonlpaige/ecolibrium/blob/master/CRITIQUE.md" style="color:#78c87a;">CRITIQUE.md - Honest Critique</a></li>
+          <li style="margin-bottom:12px;"><a href="https://github.com/simonlpaige/ecolibrium/blob/master/GOVERNANCE.md" style="color:#78c87a;">GOVERNANCE.md - Governance</a></li>
+          <li style="margin-bottom:12px;"><a href="https://github.com/simonlpaige/ecolibrium/blob/master/SUSTAINABILITY.md" style="color:#78c87a;">SUSTAINABILITY.md - Sustainability Plan</a></li>
+          <li style="margin-bottom:12px;"><a href="https://github.com/simonlpaige/ecolibrium/blob/master/WISEREARTH.md" style="color:#78c87a;">WISEREARTH.md - WiserEarth Analysis</a></li>
+        </ul>
+      </div>
+    </noscript>
     <article id="content" aria-live="polite"></article>
     <nav class="doc-nav" aria-label="Document navigation" id="doc-nav" style="display:none"></nav>
   </main>

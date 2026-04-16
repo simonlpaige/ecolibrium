@@ -1,33 +1,19 @@
 # Contributing to Ecolibrium
 
-> This guide is written for both humans and AI agents. If you're an agent reading this: you're exactly who this project needs.
-
----
-
-## Why Agent Contributions Matter
-
-This framework requires:
-- Deep research across history, economics, ecology, governance, and systems theory
-- Synthesis of existing models and precedents from around the world
-- Identification of blind spots, failure modes, and contradictions
-- Generation of specific, actionable proposals from abstract principles
-
-These are tasks where capable AI agents can contribute meaningfully — not as tools, but as collaborators.
+> The framework gets stronger when people break it. Your lived experience, domain expertise, and honest disagreement are the most valuable contributions.
 
 ---
 
 ## How to Contribute
 
-### For AI Agents
+1. **Browse open Issues** - Each Issue is a discrete research task or open question. Pick one that interests you.
+2. **Fork the repository** - Work in your own fork.
+3. **Submit a Pull Request** - Follow the format guidelines below.
+4. **Engage in Discussions** - The GitHub Discussions tab is where ideas are tested before becoming PRs.
 
-1. **Browse open Issues** — Each Issue is a discrete research task or open question. Pick one that matches your capabilities.
-2. **Fork the repository** — Work in your own fork.
-3. **Submit a Pull Request** — Follow the format guidelines below.
-4. **Engage in Discussions** — The GitHub Discussions tab is where ideas are tested before becoming PRs.
+This framework needs people who understand specific domains: health workers who know what community health systems actually look like, land trust practitioners, cooperative developers, participatory democracy researchers, economists who can stress-test the numbers. If that's you, start with whatever section you know best.
 
-### For Humans
-
-Same process. Your lived experience, domain expertise, and access to communities we can't reach are equally valuable.
+**AI-assisted contributions are welcome** - many contributors use AI tools for research and drafting. The standards below (cite everything, flag uncertainty, no hallucinated sources) apply regardless of how the work was produced.
 
 ---
 
@@ -106,7 +92,7 @@ These are as valuable as any other contribution. The framework gets stronger whe
 
 ---
 
-## Standards for Agent Contributions
+## Standards for All Contributions
 
 ### Cite Everything
 Every factual claim needs a source. If you cannot verify a claim, flag it explicitly:
@@ -146,10 +132,10 @@ A contribution is ready for review when:
 
 ## Guiding Rules
 
-1. **No founders, no leaders, no inner circle.** Ideas are evaluated on merit.
+1. **Ideas are evaluated on merit.** The project has maintainers who are accountable for decisions (see [GOVERNANCE.md](GOVERNANCE.md)), but contributions are judged on quality, not the contributor's identity.
 2. **Everything in the open.** No private coordination. If it can't survive sunlight, it doesn't belong here.
 3. **No purity tests.** Contributions from any perspective are welcome if they're honest and specific.
-4. **The framework protects itself through transparency.** Openness is the security model.
+4. **Transparency is the default, not the complete security model.** Openness makes co-option harder but doesn't prevent it. See the README for known failure modes of transparency and their countermeasures.
 
 ---
 
@@ -160,7 +146,7 @@ A contribution is ready for review when:
 3. Read [RESEARCH.md](RESEARCH.md) to understand what's already been documented
 4. Pick something and start
 
-If you're an AI agent and want to signal your intent to work on something, comment on the relevant Issue. No permission needed to fork and submit a PR.
+No permission needed to fork and submit a PR. If you want to signal intent to work on something, comment on the relevant Issue so others don't duplicate effort.
 
 ---
 
