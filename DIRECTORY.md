@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-16 11:50 UTC*
+*Last updated: 2026-04-16 12:22 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 761,795 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 761,796 | IRS EO Business Master File | ✅ Complete |
 | 🌐 United Arab Emirates (AE) | ~17 | Field Research | ✅ |
 | 🌐 Albania (AL) | ~2 | Field Research | ✅ |
 | 🌐 Armenia (AM) | ~2 | Field Research | ✅ |
@@ -101,6 +101,7 @@
 | 🌐 Poland (PL) | ~2 | Field Research | ✅ |
 | 🌐 Portugal (PT) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_PY.md (PY) | ~10 | Field Research | ✅ |
+| 🌐 Qatar (QA) | ~2 | Field Research | ✅ |
 | 🌐 Romania (RO) | ~2 | Field Research | ✅ |
 | 🌐 Serbia (RS) | ~2 | Field Research | ✅ |
 | 🌐 Russia (RU) | ~2 | Field Research | ✅ |
@@ -130,14 +131,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 761,795+ organizations indexed** across 121 countries
+**Total: 761,796+ organizations indexed** across 122 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*761,795 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*761,796 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -4010,6 +4011,20 @@ Model: nonprofit
 - This research adds: 122 Paraguayan organizations
 - Framework coverage: conflict(6), cooperatives(17), democracy(49), ecology(31), education(4), energy_digital(5), food(4), healthcare(4), housing_land(2)
 - Recommended follow-up: Contact Decidamos, CODEHUPY, FENACOOP for formal registries
+
+
+---
+
+# 🌐 Qatar (QA) Civil Society Directory
+
+*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Qatar Civil Society Network
+> Primary civil society network in Qatar
 
 
 ---
