@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-16 16:55 UTC*
+*Last updated: 2026-04-16 18:01 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 761,816 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 761,830 | IRS EO Business Master File | ✅ Complete |
 | 🌐 United Arab Emirates (AE) | ~17 | Field Research | ✅ |
 | 🌐 Albania (AL) | ~2 | Field Research | ✅ |
 | 🌐 Armenia (AM) | ~2 | Field Research | ✅ |
@@ -114,12 +114,14 @@
 | 🌐 Russia (RU) | ~2 | Field Research | ✅ |
 | 🌐 Rwanda (RW) | ~2 | Field Research | ✅ |
 | 🌐 Saudi Arabia (SA) | ~2 | Field Research | ✅ |
+| 🌐 Sudan (SD) | ~2 | Field Research | ✅ |
 | 🌐 Sweden (SE) | ~14 | Field Research | ✅ |
 | 🌐 Slovenia (SI) | ~2 | Field Research | ✅ |
 | 🌐 Slovakia (SK) | ~2 | Field Research | ✅ |
 | 🌐 Senegal (SN) | ~2 | Field Research | ✅ |
 | 🌐 Somalia (SO) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_SR.md (SR) | ~9 | Field Research | ✅ |
+| 🌐 South Sudan (SS) | ~14 | Field Research | ✅ |
 | 🌐 Syria (SY) | ~2 | Field Research | ✅ |
 | 🌐 Chad (TD) | ~2 | Field Research | ✅ |
 | 🌐 Thailand (TH) | ~2 | Field Research | ✅ |
@@ -140,14 +142,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 761,816+ organizations indexed** across 131 countries
+**Total: 761,830+ organizations indexed** across 133 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*761,816 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*761,830 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -4262,6 +4264,20 @@ Model: nonprofit
 
 ---
 
+# 🌐 Sudan (SD) Civil Society Directory
+
+*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Sudan Civil Society Network
+> Primary civil society network in Sudan
+
+
+---
+
 # 🌐 Sweden (SE) Civil Society Directory
 
 *Compiled: 2026-04-14 | Source: Web research | Organizations: 13*
@@ -4557,6 +4573,82 @@ Model: nonprofit
 - Framework coverage: democracy(56), ecology(14), cooperatives(4), food(4), healthcare(13), education(4), housing_land(2), energy_digital(8)
 - Key gaps: Indigenous/Maroon village-level orgs, Dutch-language civil society, informal savings groups
 - Recommended follow-up: Contact SANBO (Suriname NGO umbrella), Conservation International Suriname
+
+
+---
+
+# 🌐 South Sudan (SS) Civil Society Directory
+
+*Compiled: 2026-04-16 | Source: Web research | Organizations: 13*
+
+---
+
+## Organizations
+
+### List of Ngos, Charities and non-profits in South Sudan - NGO Base
+Framework: democracy
+Model: nonprofit
+> Comprehensive list of NGOs, Charities and Nonprofits in South Sudan. Browse organizations by their focus work areas. Page 1 of 14
+
+### SS/south-sudan-ngos
+Framework: democracy
+Model: nonprofit
+> Comprehensive list of NGOs, Charities and Nonprofits in South Sudan. Browse organizations by their focus work areas. Page 1 of 14
+
+### Data Auto
+Framework: energy_digital
+Model: nonprofit
+> ## List of Non-profit organizations in South Sudan in 2026
+
+### List of Non-profit organizations in South Sudan in 2026
+Framework: energy_digital
+Model: nonprofit
+> There are 282 Non-profit organizations in South Sudan as of March, 2026. Download latest business data with contact info, ratings & locations.
+
+### org-id.guide - list locator (Alpha)
+Framework: democracy
+Model: nonprofit
+> Find and use identifiers Ask organisations registered with the South Sudan Relief and Rehabilitation Commission for their registration number.
+
+### Directorate of Registration of Companies and Businesses
+Framework: democracy
+Model: nonprofit
+> The Directorate of Registration of Businesses, Associations and NGOs shall exercise all powers, reasonably necessary, to fulfil the following functions of the Ministry— Registering companies, business
+
+### South Sudan | NGO Explorer
+Framework: democracy
+Model: nonprofit
+> Figures refer to charities registered with the Charity Commission for England and Wales, based on areas of operation supplied to the Charity Commission by the charities themselves. Charities that say 
+
+### 5 Charities Operating in South Sudan - The Borgen Project
+Framework: food
+Model: nonprofit
+> 5 Charities Operating in South Sudan Sudan Relief Fund: The Sudan Relief Fund is a 501 (c) (3) nonprofit religious organization founded in 1998 and is dedicated to bringing food, safe drinking water, 
+
+### The Sudan Relief Fund
+Framework: democracy
+Model: nonprofit
+> ## Member NNGOS - South Sudan NGO Forum
+
+### Member NNGOS - South Sudan NGO Forum
+Framework: democracy
+Model: nonprofit
+> The Heart of South Sudan Society Organization (HSSSO) is a dedicated non-profit organization registered with the South Sudan Relief and Rehabilitation Commission (SSRRC) under serial number 4554 and t
+
+### The Heart of South Sudan Society Organization
+Framework: democracy
+Model: nonprofit
+> ## List of NGOs, Charities and Nonprofits in Juba - NGO Base
+
+### List of NGOs, Charities and Nonprofits in Juba - NGO Base
+Framework: democracy
+Model: nonprofit
+> Comprehensive list of NG
+
+### JU/juba-ngos
+Framework: democracy
+Model: nonprofit
+> Comprehensive list of NG
 
 
 ---
