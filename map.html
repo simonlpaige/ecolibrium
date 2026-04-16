@@ -106,7 +106,7 @@ html, body {
 
 /* ═══════════ LAYOUT ═══════════ */
 #layout { position: relative; height: 100vh; width: 100vw; }
-#map { position: absolute; top: 0; bottom: 0; left: var(--sidebar-w); right: 0; }
+#map { position: absolute; top: 0; bottom: 0; left: var(--sidebar-w); right: 0; background: #f2ede6; }
 
 /* ═══════════ SIDEBAR ═══════════ */
 #sidebar {
@@ -906,8 +906,8 @@ function addLayers(geojson, edgeGeoJson) {
       filter: ['==', ['get', 'e'], 's'],
       paint: {
         'line-color': colorExpr,
-        'line-opacity': ['interpolate', ['linear'], ['zoom'], 6, 0.12, 9, 0.25],
-        'line-width': 1
+        'line-opacity': ['interpolate', ['linear'], ['zoom'], 6, 0.35, 9, 0.55],
+        'line-width': ['interpolate', ['linear'], ['zoom'], 6, 0.8, 9, 1.5]
       }
     });
 
@@ -918,8 +918,8 @@ function addLayers(geojson, edgeGeoJson) {
       filter: ['==', ['get', 'e'], 'c'],
       paint: {
         'line-color': '#7b9e96',
-        'line-opacity': ['interpolate', ['linear'], ['zoom'], 6, 0.08, 9, 0.16],
-        'line-width': 0.5
+        'line-opacity': ['interpolate', ['linear'], ['zoom'], 6, 0.2, 9, 0.35],
+        'line-width': ['interpolate', ['linear'], ['zoom'], 6, 0.5, 9, 1]
       }
     });
 
