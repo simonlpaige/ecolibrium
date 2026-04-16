@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-16 03:21 UTC*
+*Last updated: 2026-04-16 03:50 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 761,748 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 761,749 | IRS EO Business Master File | ✅ Complete |
 | 🌐 Albania (AL) | ~2 | Field Research | ✅ |
 | 🌐 Armenia (AM) | ~2 | Field Research | ✅ |
 | 🌐 Argentina (AR) | ~2 | Field Research | ✅ |
@@ -64,6 +64,7 @@
 | 🌐 Lebanon (LB) | ~2 | Field Research | ✅ |
 | 🌐 Sri Lanka (LK) | ~2 | Field Research | ✅ |
 | 🌐 Lithuania (LT) | ~14 | Field Research | ✅ |
+| 🌐 Latvia (LV) | ~2 | Field Research | ✅ |
 | 🌐 Morocco (MA) | ~2 | Field Research | ✅ |
 | 🌐 Madagascar (MG) | ~2 | Field Research | ✅ |
 | 🌐 North Macedonia (MK) | ~2 | Field Research | ✅ |
@@ -114,14 +115,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 761,748+ organizations indexed** across 105 countries
+**Total: 761,749+ organizations indexed** across 106 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*761,748 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*761,749 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -2722,6 +2723,20 @@ Model: nonprofit
 Framework: healthcare
 Model: nonprofit
 > Most common words from the description of a random set of 30 NGOs matching your search. research public care education educational trust world christian religious promoting penrose provision health pu
+
+
+---
+
+# 🌐 Latvia (LV) Civil Society Directory
+
+*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Latvia Civil Society Network
+> Primary civil society network in Latvia
 
 
 ---
