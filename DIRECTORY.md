@@ -1,6 +1,6 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-17 05:09 UTC*
+*Last updated: 2026-04-17 05:40 UTC*
 
 
 ## Coverage
@@ -141,6 +141,7 @@
 | 🌐 Somalia (SO) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_SR.md (SR) | ~9 | Field Research | ✅ |
 | 🌐 South Sudan (SS) | ~14 | Field Research | ✅ |
+| 🌐 El Salvador (SV) | ~2 | Field Research | ✅ |
 | 🌐 Syria (SY) | ~2 | Field Research | ✅ |
 | 🌐 Eswatini (SZ) | ~2 | Field Research | ✅ |
 | 🌐 Chad (TD) | ~2 | Field Research | ✅ |
@@ -166,7 +167,7 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 24,508+ organizations indexed** across 157 countries
+**Total: 24,508+ organizations indexed** across 158 countries
 
 
 ---
@@ -4877,6 +4878,20 @@ Model: nonprofit
 Framework: democracy
 Model: nonprofit
 > Comprehensive list of NG
+
+
+---
+
+# 🌐 El Salvador (SV) Civil Society Directory
+
+*Compiled: 2026-04-17 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### El Salvador Civil Society Network
+> Primary civil society network in El Salvador
 
 
 ---
