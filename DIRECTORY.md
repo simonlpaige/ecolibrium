@@ -1,13 +1,13 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-17 00:41 UTC*
+*Last updated: 2026-04-17 01:00 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 761,869 | IRS EO Business Master File | ✅ Complete |
+| 🇺🇸 United States | 761,882 | IRS EO Business Master File | ✅ Complete |
 | 🌐 United Arab Emirates (AE) | ~17 | Field Research | ✅ |
 | 🌐 Albania (AL) | ~2 | Field Research | ✅ |
 | 🌐 Armenia (AM) | ~2 | Field Research | ✅ |
@@ -55,9 +55,11 @@
 | 🌐 United Kingdom (GB) | ~2 | Field Research | ✅ |
 | 🌐 Georgia (GE) | ~2 | Field Research | ✅ |
 | 🌐 Ghana (GH) | ~2 | Field Research | ✅ |
+| 🌐 Gambia (GM) | ~13 | Field Research | ✅ |
 | 🌐 Guinea (GN) | ~2 | Field Research | ✅ |
 | 🌐 Greece (GR) | ~2 | Field Research | ✅ |
 | 🌐 Guatemala (GT) | ~13 | Field Research | ✅ |
+| 🌐 Guinea-Bissau (GW) | ~2 | Field Research | ✅ |
 | 🌐 DIRECTORY_GY.md (GY) | ~12 | Field Research | ✅ |
 | 🌐 DIRECTORY_HN.md (HN) | ~10 | Field Research | ✅ |
 | 🌐 Croatia (HR) | ~2 | Field Research | ✅ |
@@ -155,14 +157,14 @@
 | 🌐 Zimbabwe (ZW) | ~17 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 761,869+ organizations indexed** across 146 countries
+**Total: 761,882+ organizations indexed** across 148 countries
 
 
 ---
 
 ## 🇺🇸 United States
 
-*761,869 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*761,882 registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -2026,6 +2028,76 @@ Model: nonprofit
 
 ---
 
+# 🌐 Gambia (GM) Civil Society Directory
+
+*Compiled: 2026-04-17 | Source: Web research | Organizations: 12*
+
+---
+
+## Organizations
+
+### List of Ngos, Charities and non-profits in Gambia - NGO Base
+Framework: democracy
+Model: nonprofit
+> Comprehensive list of NGOs, Charities and Nonprofits in Gambia. Browse organizations by their focus work areas. Page 1 of 5
+
+### GM/gambia-ngos
+Framework: democracy
+Model: nonprofit
+> Comprehensive list of NGOs, Charities and Nonprofits in Gambia. Browse organizations by their focus work areas. Page 1 of 5
+
+### TANGO Gambia - The Home of NGOs & CSOs
+Framework: democracy
+Model: nonprofit
+> The Association of Non-Governmental Organisations in The Gambia (TANGO) is pleased to announce the Call for Nominations for the Gambia Civil Society Excellence Awards Ceremony 2026.
+
+### The Association of Non
+Framework: democracy
+Model: nonprofit
+> ## List of Non-profit organizations in Gambia in 2026
+
+### List of Non-profit organizations in Gambia in 2026
+Framework: energy_digital
+Model: nonprofit
+> There are 90 Non-profit organizations in Gambia as of March, 2026. Download latest business data with contact info, ratings & locations.
+
+### United Nations Civil Society Participation - Office of Special Adviser 
+Framework: democracy
+Model: nonprofit
+> From a static directory to a dynamic and interactive database, this state of the art and unique search tool will help the most demanding in search of NGO's active in Africa. At the Office of the Speci
+
+### At the Office of the Special Adviser on Africa
+Framework: democracy
+Model: nonprofit
+> ## PDF Names of civil society organizations working on disability rights and ...
+
+### PDF Names of civil society organizations working on disability rights and 
+Framework: democracy
+Model: nonprofit
+> Gambia Association of The Physically Disabled (GAPD) was established in The Gambia in 1993, it is a registered National NGO. GAPD aims to promote the avoidance of physical disabilities and the positiv
+
+### List of Organizations working on disability rights
+Framework: democracy
+Model: nonprofit
+> Gambia Association of The Physically Disabled (GAPD) was established in The Gambia in 1993, it is a registered National NGO. GAPD aims to promote the avoidance of physical disabilities and the positiv
+
+### Gambia Association of The Physically Disabled
+Framework: democracy
+Model: nonprofit
+> ## Directory of civil society organisations in The Gambia
+
+### Directory of civil society organisations in The Gambia
+Framework: democracy
+Model: nonprofit
+> Subjects Subjects Gambia > Politics and government. Civil society > Gambia. Nonprofit organizations > Gambia. Non-governmental organizations > Gambia.
+
+### The Gambia | NGO Explorer
+Framework: democracy
+Model: nonprofit
+
+
+---
+
 # 🌐 Guinea (GN) Civil Society Directory
 
 *Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
@@ -2120,6 +2192,20 @@ Model: nonprofit
 ### ONG - Organizaciones N
 Framework: democracy
 Model: nonprofit
+
+
+---
+
+# 🌐 Guinea-Bissau (GW) Civil Society Directory
+
+*Compiled: 2026-04-17 | Source: Web research | Organizations: 1*
+
+---
+
+## Organizations
+
+### Guinea-Bissau Civil Society Network
+> Primary civil society network in Guinea-Bissau
 
 
 ---
