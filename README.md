@@ -6,7 +6,7 @@
 
 ## The Idea
 
-Ecolibrium is two things: (1) an open directory of the existing transition network across 154 countries, and (2) a working framework explaining why that network matters and how it composes into a post-labor economy.
+Ecolibrium is two things: (1) an open directory of the existing transition network across 60 countries, and (2) a working framework explaining why that network matters and how it composes into a post-labor economy.
 
 The directory is the concrete deliverable. The framework is the argument for it.
 
@@ -14,7 +14,7 @@ Here is a thing that is true and that almost no one talks about clearly: the mac
 
 Right now the answer is: whoever owns the machines. That's a design choice, not a law of nature. You could design it differently.
 
-The directory catalogs who is already designing it differently: cooperatives, community land trusts, mutual aid networks, open-source health platforms, participatory governance experiments, community energy grids -- 738,042 indexed organizations across 154 countries. The framework maps how those pieces fit together and what's still missing.
+The directory catalogs who is already designing it differently: cooperatives, community land trusts, mutual aid networks, open-source health platforms, participatory governance experiments, community energy grids -- 24,508 aligned organizations across 60 countries, filtered from ~760K public registry records through multi-pass keyword scoring against the framework's mechanisms. The framework maps how those pieces fit together and what's still missing.
 
 It's not a manifesto. It's more like an engineering problem with a lot of political and historical constraints. The goal is to figure out what needs to be true for people to have food, shelter, healthcare, and a say in their own lives -- and then figure out how to make those things true.
 
@@ -39,22 +39,24 @@ This section matches ambition to evidence. Here is the concrete state of the pro
 
 ### The Directory
 
-The primary deliverable is a searchable database of organizations working in the framework's 10 areas. Numbers from `data/ecolibrium_directory.db`:
+The primary deliverable is a searchable database of organizations working in the framework's 10 areas. Numbers from `data/ecolibrium_directory.db` after the April 2026 alignment trim:
 
-- **738,042 active records** across **154 countries**
-- **Sources:** IRS Exempt Organizations BMF (665,312 records -- 90%), UK Charity Commission (40,619), Wikidata (31,467), web research (456), manual curation (18)
+- **24,508 aligned organizations** across **60 countries**
+- **8,412 geocoded points** visible on the interactive map, with **2,687 network edges** connecting related organizations
+- **Sources:** UK Charity Commission (11,537), IRS Exempt Organizations BMF (9,402), Wikidata (2,894), ProPublica (604), web research (58), manual curation (13)
 - **Search interface:** per-country JSON index at `data/search/`, browsable at `directory.html`
-- **Interactive map:** geocoded organizations at `map.html`
-- **Framework area breakdown:** democracy (145,161), education (194,856), healthcare (101,226), recreation & arts (117,136), ecology (71,658), cooperatives (36,396), housing & land (30,770), food (20,442), conflict resolution (19,995), energy & digital (259)
+- **Interactive map:** network visualization at `map.html`
+- **Framework area breakdown:** healthcare (6,369), education (5,694), food (2,955), democracy (2,863), housing & land (2,406), ecology (2,346), conflict resolution (910), cooperatives (656), recreation & arts (269), energy & digital (40)
 
-Honest breakdown of what 738,042 records means:
+Honest breakdown of what 24,508 records means:
 
-- **672,857 entries (91%)** have no description and no website -- they are registry imports: a name, a country, and a registration ID
-- **13,798 entries (1.9%)** have been verified by a human
-- **144,032 entries (19.5%)** scored positively for framework alignment based on NTEE code mapping and keyword matching
-- **Geographic skew:** 90% of records come from US and UK open registries; 154 countries are represented but coverage is uneven
+- **11,737 entries (48%)** have a real description (>50 characters)
+- **10,262 entries (42%)** have a website
+- **10,067 entries (41%)** are verified (Tier A or B)
+- **2,805 entries (11%)** score >=5 on framework alignment -- the strongest keyword matches (community land trust, worker cooperative, mutual aid, food sovereignty, restorative justice)
+- **Geographic skew:** 88% of records come from US and UK open registries (21,559). The remaining 58 countries hold 2,949 organizations between them. Closing that gap is the main enrichment target.
 
-This is 738K organizations *indexed*, not 738K organizations *reviewed*. The distinction matters.
+The earlier 738K figure counted every non-removed row including 431K entries flagged as excluded by prior audit passes. The current 24,508 reflects what actually passed alignment scoring. The excluded rows are preserved as CSVs in `data/trim_audit/` for transparency and reversibility.
 
 ### The Framework
 

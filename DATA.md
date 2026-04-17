@@ -2,23 +2,35 @@
 
 ## Honest Numbers
 
-As of April 2026, the directory contains **738,613 active records** across **99 countries**. Here's what that actually means:
+As of April 2026, the directory contains **24,508 aligned organizations** across **60 countries**. This number is the result of a multi-pass alignment filter applied to a much larger raw import; both numbers matter and we keep the history.
+
+### Where the numbers came from
+
+1. We pulled ~760,000 records from three public registries (IRS BMF, UK Charity Commission, Wikidata) plus smaller ProPublica and hand-curated sets.
+2. Three audit passes removed obvious non-fits (alumni associations, cemeteries, homeowner associations, corporate retirement trusts, country clubs, etc.). That eliminated ~406,000 rows.
+3. The remaining rows were scored against a keyword list of framework mechanisms (community land trust, worker cooperative, mutual aid, food sovereignty, restorative justice, community health, open source, and so on). Rows scoring below 2 were removed.
+4. What remains: 24,508 rows with real framework signal. CSVs of every removed row are preserved in `data/trim_audit/` for transparency.
+
+### Current composition
 
 | Source | Records | % of Total | What You Get |
 |--------|---------|-----------|--------------|
-| IRS Exempt Organizations BMF | 665,312 | 90.1% | Name, EIN, state, city, NTEE code, filing year, revenue. No descriptions, rarely websites. |
-| UK Charity Commission | 40,619 | 5.5% | Name, registration ID, some descriptions. |
-| Wikidata | 31,467 | 4.3% | Name, country, sometimes website/description. Scraped from structured data. |
-| ProPublica Nonprofit Explorer | 741 | 0.1% | Enriched US nonprofits with descriptions and financials. |
-| Web research | 456 | 0.06% | Hand-researched organizations with full profiles. |
-| Manual curation | 18 | <0.01% | Individually verified and described entries. |
+| UK Charity Commission | 11,537 | 47.1% | Name, registration ID, description available for many. |
+| IRS Exempt Organizations BMF | 9,402 | 38.4% | Name, EIN, state, city, NTEE code, filing year, revenue. |
+| Wikidata | 2,894 | 11.8% | Name, country, often website/description. |
+| ProPublica Nonprofit Explorer | 604 | 2.5% | US nonprofits with descriptions and financials. |
+| Web research | 58 | 0.2% | Hand-researched entries with full profiles. |
+| Manual curation | 13 | 0.1% | Individually verified and described entries. |
 
-**What this means in practice:**
-- **672,857 entries** (91%) have no description and no website -- they're just registry entries with a name and an ID
-- **Only 13,798 entries** (1.9%) have been verified
-- **144,032 entries** (19.5%) have a positive alignment score with the framework
+### Quality profile
 
-This is not 738K "organizations mapped" in the sense that someone reviewed each one. It's 738K organizations *indexed* from public registries and auto-classified using NTEE codes and keyword matching. The project is transparent about this because honesty is more credible than inflated claims.
+- **11,737 entries (48%)** have a real description (>50 characters)
+- **10,262 entries (42%)** have a website on file
+- **10,067 entries (41%)** are verified (Tier A or B in the map)
+- **2,805 entries (11%)** score >=5 on framework alignment -- the strongest keyword matches
+- **US + UK: 21,559 entries (88%)** -- heavy English-language registry skew, with the remaining 58 countries holding 2,949 entries between them. Closing this gap is the main enrichment target.
+
+The earlier 738K figure counted every non-removed row including rows already flagged as excluded by prior audits. The 24,508 figure is what actually passed the full filter chain. We keep both histories documented rather than silently deleting them.
 
 ## Data Schema
 
@@ -61,20 +73,20 @@ The directory is stored in a SQLite database (`data/ecolibrium_directory.db`, ~2
 
 ### Framework Areas
 
-Organizations are classified into one of 12 framework sections:
+Organizations are classified into one of 10 framework sections. Counts reflect the post-trim April 2026 snapshot:
 
 | framework_area | Section Name | Count |
 |----------------|-------------|-------|
-| democracy | Democratic Infrastructure | 145,156 |
-| education | Education | 194,978 |
-| recreation_arts | Recreation & Arts | 117,202 |
-| healthcare | Healthcare | 101,332 |
-| ecology | Wellbeing Economics | 71,666 |
-| cooperatives | Wealth & Cooperatives | 36,555 |
-| housing_land | Land & Housing | 30,835 |
-| food | Food Sovereignty | 20,499 |
-| conflict | Conflict Resolution | 20,046 |
-| energy_digital | Energy & Digital Commons | 247 |
+| healthcare | Healthcare | 6,369 |
+| education | Education | 5,694 |
+| food | Food Sovereignty | 2,955 |
+| democracy | Democratic Infrastructure | 2,863 |
+| housing_land | Land & Housing | 2,406 |
+| ecology | Ecological Restoration | 2,346 |
+| conflict | Conflict Resolution | 910 |
+| cooperatives | Cooperatives & Solidarity | 656 |
+| recreation_arts | Recreation & Arts | 269 |
+| energy_digital | Energy & Digital Commons | 40 |
 
 **Classification method:** US nonprofits are mapped from NTEE codes to framework areas using a manually curated mapping table. Non-US organizations are classified using keyword matching on names and descriptions, or by ICNPO codes where available. This classification is approximate -- a motorcycle club categorized as "cooperatives" because it has NTEE code Y42 (fraternal organizations) is a known artifact of automated classification.
 
@@ -125,8 +137,8 @@ The most valuable contribution is verifying that existing entries still have wor
 
 ## Known Issues
 
-1. **Framework classification is noisy.** Auto-mapping NTEE codes to framework areas produces many misclassifications. A cemetery is not a cooperative. We know.
-2. **Geographic coverage is heavily US/UK skewed.** 96% of entries are from countries with English-language public registries.
-3. **Energy & Digital Commons has only 247 entries** despite thousands of community energy cooperatives existing globally. This reflects data source limitations, not reality.
-4. **"Allied Projects" and "Networks & Federations" have <20 entries each.** These categories need dedicated research, not registry imports.
-5. **Revenue data is US-centric** and comes from tax filings, which may be years old.
+1. **Framework classification is still noisy** even after trimming. Auto-mapping NTEE codes to framework areas is approximate. We've removed the worst artifacts; some remain.
+2. **Geographic coverage is heavily US/UK skewed.** 88% of entries are from US and UK registries. The remaining 58 countries hold 2,949 entries between them. This reflects what registries are publicly accessible, not where the work actually lives.
+3. **Energy & Digital Commons has only 40 entries** despite thousands of community energy cooperatives existing globally. This section needs dedicated sourcing, not general-registry imports.
+4. **Revenue data is US-centric** and comes from tax filings, which may be years old.
+5. **The 2,805 strong-score entries are the defensible core.** The other 21,703 entries have framework alignment signal but would benefit from human review. Start there if you want to contribute.

@@ -37,7 +37,7 @@ I'm reaching out from Ecolibrium — a small, early-stage open-source project th
 - **Correction:** Is anything in our summary of your project wrong, stale, or misleading? We would rather learn it from you than ship it.
 - **One question:** [A single, specific, answerable question tied to their actual expertise — e.g., "What surprised you most about production Decidim deployments that your docs don't cover?" Not: "Would you like to integrate with us?"]
 
-**What we might offer, if useful.** We are building a directory of transition-aligned organisations across 130+ countries with open data and a public search index. If that would be useful to your community (for example, as a way for practitioners in your network to discover adjacent work), we're happy to expose your projects' data the way you want it exposed, not the way we want to absorb it.
+**What we might offer, if useful.** We are building a directory of transition-aligned organisations across 60 countries (currently ~24,500 entries, filtered from a much larger registry import) with open data and a public search index. If that would be useful to your community (for example, as a way for practitioners in your network to discover adjacent work), we're happy to expose your projects' data the way you want it exposed, not the way we want to absorb it.
 
 No response needed. If you are busy — which you are — a silent "noted" is a completely fine outcome.
 

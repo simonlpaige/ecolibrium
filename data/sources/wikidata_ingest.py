@@ -180,6 +180,20 @@ def is_relevant_org(name, desc):
     return True
 
 
+# Alignment scoring constants (mirrors classify_org in run_next_country.py)
+_ALIGN_STRONG = ['cooperative', 'co-op', 'mutual aid', 'indigenous', 'agroecol', 'solidarity', 'restorative']
+_ALIGN_MOD    = ['community', 'environmental', 'health', 'education', 'housing', 'food', 'energy', 'justice', 'rights']
+_ALIGN_NEG    = ['church', 'parish', 'fraternal', 'golf', 'country club', 'hoa', 'booster', 'cemetery']
+
+def _alignment_score(name, desc=''):
+    """Compute alignment score for ingest gate (score >= 2 required)."""
+    t = ((name or '') + ' ' + (desc or '')).lower()
+    s = (sum(3 for k in _ALIGN_STRONG if k in t)
+         + sum(1 for k in _ALIGN_MOD if k in t)
+         - sum(3 for k in _ALIGN_NEG if k in t))
+    return max(-5, min(5, s))
+
+
 def classify_framework(name, desc):
     combined = (name + ' ' + desc).lower()
     best_area = None
@@ -278,9 +292,16 @@ def ingest_to_db(orgs, cc, country_name):
     c = db.cursor()
     now = datetime.utcnow().isoformat()
     inserted = 0
+    rejected = 0
 
     for org in orgs:
         try:
+            # Gate: skip low-signal orgs (score >= 2 required, consistent with DB trim)
+            score = _alignment_score(org['name'], org.get('description', ''))
+            if score < 2:
+                rejected += 1
+                continue
+
             # Check for existing by name + country to avoid duplicates
             c.execute("SELECT id FROM organizations WHERE name=? AND country_code=?",
                       (org['name'], cc))
@@ -294,12 +315,14 @@ def ingest_to_db(orgs, cc, country_name):
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
                 (org['name'], cc, country_name, org['description'], org['website'],
                  'wikidata', org['wikidata_id'], now, 'active',
-                 org['framework_area'], 'nonprofit', 3,
+                 org['framework_area'], 'nonprofit', score,
                  org.get('lat'), org.get('lon'),
                  'wikidata' if org.get('lat') else None))
             inserted += c.rowcount
         except Exception as e:
             pass
+    if rejected:
+        print(f'  Rejected {rejected} low-signal orgs before DB insert')
 
     db.commit()
     c.execute("SELECT COUNT(*) FROM organizations WHERE status != 'removed'")

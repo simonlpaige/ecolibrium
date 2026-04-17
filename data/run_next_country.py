@@ -118,6 +118,52 @@ def get_next_country():
                 return cc, name
     return None, None
 
+
+def get_oldest_revisit_country(staleness_days=14):
+    """Return (cc, name) for the DIRECTORY_CC.md (in COUNTRY_CENTROIDS) with the
+    oldest mtime that is also older than staleness_days.  Returns (None, None)
+    and prints a skip message if everything is fresh enough."""
+    import time
+    cutoff = time.time() - staleness_days * 86400
+
+    # Build CC->name from QUEUE.txt for user-friendly log lines
+    name_map = {}
+    try:
+        with open(QUEUE_FILE, encoding='utf-8') as f:
+            for line in f:
+                line = line.strip()
+                if not line or line.startswith('#'):
+                    continue
+                parts = line.split(None, 1)
+                if len(parts) == 2:
+                    name_map[parts[0]] = parts[1]
+    except Exception:
+        pass
+
+    oldest_cc = None
+    oldest_mtime = float('inf')
+
+    for cc in COUNTRY_CENTROIDS:
+        md_path = os.path.join(REGIONAL_DIR, f'DIRECTORY_{cc}.md')
+        if not os.path.exists(md_path):
+            continue
+        mtime = os.path.getmtime(md_path)
+        if mtime < oldest_mtime:
+            oldest_mtime = mtime
+            oldest_cc = cc
+
+    if oldest_cc is None:
+        return None, None  # No DIRECTORY files found for known countries
+
+    if oldest_mtime >= cutoff:
+        print(f'All countries recently scanned (within {staleness_days}d), skipping this cycle')
+        return None, None
+
+    age_days = int((time.time() - oldest_mtime) / 86400)
+    country_name = name_map.get(oldest_cc, oldest_cc)
+    print(f'MODE=revisit cc={oldest_cc} age={age_days}d')
+    return oldest_cc, country_name
+
 def search(query):
     """Run a single DuckDuckGo search via ddg-search.js (free, no API key)."""
     try:
@@ -238,8 +284,12 @@ def ingest_db(orgs, cc, country_name):
     """Insert orgs into SQLite."""
     if not orgs:
         return 0
-    # Filter out negative-scored orgs
-    orgs = [o for o in orgs if o.get('alignment_score', 0) >= 0]
+    # Filter out low-signal orgs (score < 2 matches the aggressive alignment trim)
+    before = len(orgs)
+    orgs = [o for o in orgs if o.get('alignment_score', 0) >= 2]
+    rejected = before - len(orgs)
+    if rejected:
+        print(f'Rejected {rejected} low-signal orgs before DB insert')
     if not orgs:
         return 0
     db = sqlite3.connect(DB_PATH)
@@ -361,9 +411,14 @@ def run_us_state_enrichment():
 
 def main():
     cc, country_name = get_next_country()
-    if not cc:
-        print('Queue empty - all countries done!')
-        return {'status': 'done', 'message': 'All countries complete'}
+    if cc:
+        print(f'MODE=fresh cc={cc}')
+    else:
+        print('Queue exhausted — checking for stale countries to revisit...')
+        cc, country_name = get_oldest_revisit_country(14)
+        if not cc:
+            # All fresh (message already printed) or no known DIRECTORY files
+            return {'status': 'idle', 'message': 'All countries recently scanned (within 14d), skipping cycle'}
 
     print(f'\n=== {country_name} ({cc}) ===')
 

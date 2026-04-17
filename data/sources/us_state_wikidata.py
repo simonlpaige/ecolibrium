@@ -69,6 +69,20 @@ def is_relevant(name, desc):
     return not any(kw in combined for kw in FILTER_KEYWORDS)
 
 
+# Alignment scoring constants (mirrors classify_org in run_next_country.py)
+_ALIGN_STRONG = ['cooperative', 'co-op', 'mutual aid', 'indigenous', 'agroecol', 'solidarity', 'restorative']
+_ALIGN_MOD    = ['community', 'environmental', 'health', 'education', 'housing', 'food', 'energy', 'justice', 'rights']
+_ALIGN_NEG    = ['church', 'parish', 'fraternal', 'golf', 'country club', 'hoa', 'booster', 'cemetery']
+
+def _alignment_score(name, desc=''):
+    """Compute alignment score for ingest gate (score >= 2 required)."""
+    t = ((name or '') + ' ' + (desc or '')).lower()
+    s = (sum(3 for k in _ALIGN_STRONG if k in t)
+         + sum(1 for k in _ALIGN_MOD if k in t)
+         - sum(3 for k in _ALIGN_NEG if k in t))
+    return max(-5, min(5, s))
+
+
 def classify_framework(name, desc):
     combined = (name + ' ' + desc).lower()
     best_area, best_score = None, 0
@@ -198,8 +212,14 @@ def ingest(orgs, state_code):
     c = db.cursor()
     now = datetime.now(timezone.utc).isoformat()
     inserted = 0
+    rejected = 0
     for org in orgs:
         try:
+            # Gate: skip low-signal orgs (score >= 2 required, consistent with DB trim)
+            score = _alignment_score(org['name'], org.get('description', ''))
+            if score < 2:
+                rejected += 1
+                continue
             c.execute("SELECT id FROM organizations WHERE name=? AND country_code='US' AND state_province=?",
                       (org['name'], state_code))
             if c.fetchone():
@@ -209,14 +229,16 @@ def ingest(orgs, state_code):
                  source, source_id, date_added, status, framework_area, model_type,
                  alignment_score, lat, lon, geo_source)
                 VALUES (?, 'US', 'United States', ?, ?, ?, 'wikidata', ?, ?, 'active',
-                        ?, 'nonprofit', 3, ?, ?, ?)""",
+                        ?, 'nonprofit', ?, ?, ?, ?)""",
                 (org['name'], state_code, org['description'], org['website'],
-                 org['wikidata_id'], now, org['framework_area'],
+                 org['wikidata_id'], now, org['framework_area'], score,
                  org.get('lat'), org.get('lon'),
                  'wikidata' if org.get('lat') else None))
             inserted += c.rowcount
         except:
             pass
+    if rejected:
+        print(f'  Rejected {rejected} low-signal orgs before DB insert')
     db.commit()
     db.close()
     return inserted

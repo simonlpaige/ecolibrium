@@ -7,8 +7,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link href="https://unpkg.com/maplibre-gl@4.5.0/dist/maplibre-gl.css" rel="stylesheet">
-<script src="https://unpkg.com/maplibre-gl@4.5.0/dist/maplibre-gl.js"></script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -53,17 +51,9 @@ html, body {
 .loading-mycelium { width: 140px; height: 140px; position: relative; margin-bottom: 28px; }
 .loading-mycelium svg { width: 100%; height: 100%; overflow: visible; }
 
-/* Hyphae strands */
-.hypha {
-  fill: none; stroke: var(--accent);
-  stroke-linecap: round; stroke-linejoin: round;
-  filter: drop-shadow(0 0 3px rgba(106,191,108,0.5));
-}
-/* Primary branches - stroke-dasharray set in markup */
+.hypha { fill: none; stroke: var(--accent); stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 3px rgba(106,191,108,0.5)); }
 .hp { animation: hypha-grow 3s ease-out infinite; }
-/* Secondary branches */
 .hs { animation: hypha-grow 3s ease-out infinite; }
-/* Tertiary */
 .ht { animation: hypha-grow 3s ease-out infinite; }
 
 @keyframes hypha-grow {
@@ -74,7 +64,6 @@ html, body {
   100% { stroke-dashoffset: 0; opacity: 0; }
 }
 
-/* Spore nodes at branch points */
 .spore {
   fill: var(--accent);
   animation: spore-pulse 3s ease-in-out infinite;
@@ -92,21 +81,14 @@ html, body {
   text-shadow: 0 0 40px var(--accent-glow), 0 0 80px rgba(106,191,108,0.12);
   margin-bottom: 8px;
 }
-.loading-sub {
-  font-size: 11px; font-weight: 400;
-  color: var(--text-dim); letter-spacing: 3px; text-transform: uppercase;
-}
+.loading-sub { font-size: 11px; font-weight: 400; color: var(--text-dim); letter-spacing: 3px; text-transform: uppercase; }
 .loading-progress { margin-top: 24px; width: 160px; height: 2px; background: var(--border); border-radius: 1px; overflow: hidden; }
-.loading-progress-bar {
-  height: 100%; width: 0%;
-  background: linear-gradient(90deg, var(--accent), var(--teal));
-  border-radius: 1px; transition: width 0.3s ease;
-  box-shadow: 0 0 8px var(--accent-glow);
-}
+.loading-progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--accent), var(--teal)); border-radius: 1px; transition: width 0.3s ease; box-shadow: 0 0 8px var(--accent-glow); }
 
 /* ═══════════ LAYOUT ═══════════ */
 #layout { position: relative; height: 100vh; width: 100vw; }
-#map { position: absolute; top: 0; bottom: 0; left: var(--sidebar-w); right: 0; background: #f2ede6; }
+#canvas-container { position: absolute; top: 0; bottom: 0; left: var(--sidebar-w); right: 0; background: var(--bg-deep); }
+#viz-canvas { display: block; width: 100%; height: 100%; cursor: default; }
 
 /* ═══════════ SIDEBAR ═══════════ */
 #sidebar {
@@ -122,10 +104,7 @@ html, body {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 128px;
 }
-.sb-scroll {
-  flex: 1; overflow-y: auto; overflow-x: hidden;
-  scrollbar-width: thin; scrollbar-color: #253825 transparent;
-}
+.sb-scroll { flex: 1; overflow-y: auto; overflow-x: hidden; scrollbar-width: thin; scrollbar-color: #253825 transparent; }
 .sb-scroll::-webkit-scrollbar { width: 4px; }
 .sb-scroll::-webkit-scrollbar-thumb { background: #253825; border-radius: 2px; }
 
@@ -133,7 +112,6 @@ html, body {
 .sb-title { font-size: 17px; font-weight: 900; letter-spacing: 5px; color: var(--accent); text-shadow: 0 0 24px var(--accent-glow); }
 .sb-sub { font-size: 10px; color: var(--text-dim); letter-spacing: 2px; margin-top: 4px; text-transform: uppercase; font-weight: 500; }
 
-/* Stats grid */
 .sb-stats {
   padding: 14px 16px; display: grid;
   grid-template-columns: 1fr 1fr; gap: 10px;
@@ -148,16 +126,10 @@ html, body {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
   background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.35;
 }
-.stat-value {
-  font-size: 20px; font-weight: 800; color: var(--accent);
-  font-variant-numeric: tabular-nums; line-height: 1.2;
-  text-shadow: 0 0 18px var(--accent-glow);
-}
+.stat-value { font-size: 20px; font-weight: 800; color: var(--accent); font-variant-numeric: tabular-nums; line-height: 1.2; text-shadow: 0 0 18px var(--accent-glow); }
 .stat-label { font-size: 9px; font-weight: 600; color: var(--text-dim); letter-spacing: 1.5px; text-transform: uppercase; margin-top: 4px; }
-/* Tier stat special sizing */
 #stat-tiers { font-size: 10px !important; line-height: 1.7; color: var(--text-secondary) !important; text-shadow: none !important; font-weight: 700; }
 
-/* Search */
 .sb-search { padding: 12px 14px; border-bottom: 1px solid var(--border); }
 .search-wrap { position: relative; }
 .search-icon { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 13px; pointer-events: none; }
@@ -171,10 +143,8 @@ html, body {
 .search-input::placeholder { color: var(--text-muted); }
 .search-input:focus { border-color: var(--border-bright); box-shadow: 0 0 0 3px rgba(106,191,108,0.07); }
 
-/* Section labels */
 .sb-label { padding: 13px 20px 7px; font-size: 9px; font-weight: 700; letter-spacing: 2.5px; color: var(--text-muted); text-transform: uppercase; }
 
-/* Section filter buttons */
 #filters { padding: 0 12px 8px; display: flex; flex-direction: column; gap: 2px; }
 .filter-btn {
   display: flex; align-items: center; gap: 9px;
@@ -186,13 +156,11 @@ html, body {
 }
 .filter-btn:hover { background: var(--bg-elevated); border-color: var(--border); color: var(--text-primary); }
 .filter-btn.active { background: var(--bg-elevated); border-color: var(--border-bright); color: var(--text-primary); }
-.filter-btn.active::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; border-radius: 0 2px 2px 0; }
+.filter-btn.active::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; border-radius: 0 2px 2px 0; background: var(--area-color, var(--accent)); }
 .filter-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
 .filter-label { flex: 1; font-size: 11px; font-weight: 500; }
 .filter-count { font-size: 10px; color: var(--text-dim); font-variant-numeric: tabular-nums; font-weight: 600; }
-.filter-btn.active .filter-count { color: var(--text-secondary); }
 
-/* Tier toggles */
 #tier-filter { padding: 2px 12px 12px; display: flex; gap: 5px; }
 .tier-btn {
   flex: 1; padding: 6px 4px; border-radius: 7px;
@@ -208,93 +176,96 @@ html, body {
 .tier-btn[data-tier="C"].active { border-color: #7c9e6a; color: #7c9e6a; }
 .tier-btn.inactive { opacity: 0.45; }
 
-/* Regions */
-#regions { padding: 0 12px 12px; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+/* View mode toggle */
+.view-mode-wrap { padding: 0 12px 10px; display: flex; gap: 5px; }
+.view-btn {
+  flex: 1; padding: 7px 6px; border-radius: 7px;
+  border: 1px solid var(--border); background: var(--bg-surface);
+  color: var(--text-dim); font-family: 'Inter', sans-serif;
+  font-size: 10px; font-weight: 600; cursor: pointer; text-align: center;
+  transition: all 0.18s; letter-spacing: 0.3px;
+}
+.view-btn.active { background: var(--bg-elevated); border-color: var(--border-bright); color: var(--accent); }
+.view-btn:hover { border-color: var(--border-bright); color: var(--text-secondary); }
+
+#regions { padding: 0 12px 12px; display: flex; flex-direction: column; gap: 4px; }
 .region-btn {
-  padding: 9px 10px; border-radius: 8px; cursor: pointer;
+  padding: 9px 12px; border-radius: 8px; cursor: pointer;
   border: 1px solid var(--border); background: var(--bg-surface);
   color: var(--text-secondary); font-family: 'Inter', sans-serif;
-  font-size: 11px; font-weight: 500; text-align: center; transition: all 0.18s;
+  font-size: 11px; font-weight: 500; text-align: left; transition: all 0.18s;
 }
-.region-btn:hover { background: var(--bg-elevated); border-color: var(--border-bright); color: var(--text-primary); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
-.region-btn.full-width { grid-column: 1 / -1; }
+.region-btn:hover { background: var(--bg-elevated); border-color: var(--border-bright); color: var(--text-primary); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+.region-btn.reset-btn { text-align: center; font-size: 11px; }
 
-/* System health panel */
-.sb-health {
-  padding: 12px 20px 10px;
-  border-top: 1px solid var(--border);
-  flex-shrink: 0;
-  background: var(--bg-base);
-}
+.sb-health { padding: 12px 20px 10px; border-top: 1px solid var(--border); flex-shrink: 0; background: var(--bg-base); }
 .health-label { font-size: 9px; font-weight: 700; letter-spacing: 2.5px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 9px; }
 .health-dots { display: flex; gap: 5px; margin-bottom: 6px; flex-wrap: wrap; }
-.health-dot {
-  width: 10px; height: 10px; border-radius: 50%;
-  transition: opacity 0.4s, transform 0.3s;
-  flex-shrink: 0;
-}
+.health-dot { width: 10px; height: 10px; border-radius: 50%; transition: opacity 0.4s, transform 0.3s; flex-shrink: 0; }
 .health-dot.present { opacity: 0.9; transform: scale(1.1); }
 .health-dot.absent { opacity: 0.15; filter: grayscale(1); }
 .health-text { font-size: 10px; color: var(--text-dim); }
 
-/* Footer hint */
 .sb-hint { padding: 10px 20px; font-size: 10px; color: var(--text-muted); line-height: 1.7; border-top: 1px solid var(--border); flex-shrink: 0; }
 
-/* ═══════════ LEGEND ═══════════ */
-#legend {
-  position: absolute; bottom: 28px; left: calc(var(--sidebar-w) + 16px);
-  background: rgba(10,20,10,0.88); backdrop-filter: blur(12px);
-  border: 1px solid var(--border); border-radius: 12px;
-  padding: 12px 14px; z-index: 15; font-size: 10px;
-  display: flex; flex-wrap: wrap; gap: 5px 12px; max-width: 400px;
-}
-.legend-item { display: flex; align-items: center; gap: 5px; color: var(--text-secondary); white-space: nowrap; font-weight: 500; }
-.legend-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
-
-/* ═══════════ POPUPS ═══════════ */
-.maplibregl-popup-content {
-  background: linear-gradient(145deg, rgba(13,25,13,0.97), rgba(8,16,8,0.99));
-  backdrop-filter: blur(18px);
+/* ═══════════ TOOLTIP ═══════════ */
+#tooltip {
+  position: fixed; display: none;
+  background: rgba(13,25,13,0.96); backdrop-filter: blur(14px);
   border: 1px solid var(--border-bright);
-  border-radius: 14px; padding: 0; color: var(--text-primary);
-  font-family: 'Inter', sans-serif; max-width: 300px;
-  box-shadow: 0 16px 56px rgba(0,0,0,0.65), 0 0 0 1px rgba(106,191,108,0.06);
-  overflow: hidden;
+  border-radius: 10px; padding: 9px 12px;
+  font-family: 'Inter', sans-serif; pointer-events: none;
+  z-index: 100; max-width: 220px; min-width: 140px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
 }
-.maplibregl-popup-tip { border-top-color: rgba(13,25,13,0.97) !important; }
-.maplibregl-popup-close-button { color: var(--text-dim); font-size: 18px; padding: 8px 10px; line-height: 1; z-index: 1; transition: color 0.15s; }
-.maplibregl-popup-close-button:hover { color: var(--accent); background: transparent; }
+.tt-name { font-size: 12px; font-weight: 700; color: var(--text-primary); margin-bottom: 3px; line-height: 1.3; }
+.tt-meta { font-size: 10px; font-weight: 600; margin-bottom: 2px; }
+.tt-country { font-size: 10px; color: var(--text-dim); }
 
-.pop-inner { padding: 15px 17px 13px; }
+/* ═══════════ DETAIL PANEL ═══════════ */
+#detail-panel {
+  position: fixed; top: 0; right: -340px; bottom: 0;
+  width: 320px;
+  background: linear-gradient(160deg, rgba(13,25,13,0.98), rgba(8,16,8,0.99));
+  backdrop-filter: blur(18px);
+  border-left: 1px solid var(--border-bright);
+  z-index: 50; overflow-y: auto;
+  transition: right 0.3s cubic-bezier(0.4,0,0.2,1);
+  box-shadow: -8px 0 40px rgba(0,0,0,0.4);
+}
+#detail-panel.open { right: 0; }
+.detail-close {
+  position: absolute; top: 14px; right: 14px;
+  background: var(--bg-elevated); border: 1px solid var(--border);
+  color: var(--text-secondary); font-size: 18px;
+  width: 30px; height: 30px; border-radius: 50%;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: all 0.15s; line-height: 1; padding-bottom: 1px;
+}
+.detail-close:hover { color: var(--accent); border-color: var(--border-bright); }
+
+.pop-inner { padding: 18px 18px 20px; }
 .pop-header { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 9px; }
 .pop-badge {
   display: inline-flex; align-items: center; gap: 4px;
   padding: 3px 9px; border-radius: 20px;
-  font-size: 10px; font-weight: 600; letter-spacing: 0.5px;
-  flex-shrink: 0;
+  font-size: 10px; font-weight: 600; letter-spacing: 0.5px; flex-shrink: 0;
 }
 .pop-badge-dot { width: 5px; height: 5px; border-radius: 50%; }
 .pop-tier-badge {
   display: inline-flex; align-items: center;
   padding: 2px 7px; border-radius: 4px;
-  font-size: 9px; font-weight: 700; letter-spacing: 0.8px;
-  margin-left: auto; flex-shrink: 0;
+  font-size: 9px; font-weight: 700; letter-spacing: 0.8px; margin-left: auto; flex-shrink: 0;
 }
 .tier-A { background: rgba(74,222,128,0.12); border: 1px solid rgba(74,222,128,0.3); color: #4ade80; }
 .tier-B { background: rgba(106,191,108,0.1); border: 1px solid rgba(106,191,108,0.25); color: var(--accent); }
 .tier-C { background: rgba(124,158,106,0.1); border: 1px solid rgba(124,158,106,0.2); color: #7c9e6a; }
-.pop-name { font-weight: 700; font-size: 14px; margin-bottom: 4px; line-height: 1.3; }
+.pop-name { font-weight: 700; font-size: 15px; margin-bottom: 5px; line-height: 1.3; }
 .pop-meta { font-size: 11px; color: var(--text-dim); margin-bottom: 9px; display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
 .pop-meta-sep { opacity: 0.3; }
-.pop-revenue {
-  display: inline-flex; align-items: center; gap: 4px;
-  padding: 2px 7px; background: rgba(196,165,93,0.1);
-  border: 1px solid rgba(196,165,93,0.2); border-radius: 4px;
-  font-size: 10px; color: var(--earth); font-weight: 600;
-}
 .pop-source { font-size: 10px; color: var(--text-muted); margin-bottom: 8px; font-style: italic; }
 .pop-desc { font-size: 12px; color: var(--text-secondary); margin-bottom: 10px; line-height: 1.6; }
-.pop-links { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.pop-links { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 4px; }
 .pop-link {
   display: inline-flex; align-items: center; gap: 4px;
   font-size: 11px; color: var(--accent); text-decoration: none;
@@ -308,16 +279,11 @@ html, body {
 }
 .pop-correct:hover { color: var(--text-dim); }
 
-/* Hover tooltip popup */
-.hover-popup .maplibregl-popup-content { padding: 7px 11px; border-radius: 8px; max-width: 210px; pointer-events: none; }
-.hover-popup .maplibregl-popup-tip { display: none; }
-
 /* ═══════════ MOBILE ═══════════ */
 @media (max-width: 768px) {
   :root { --sidebar-w: 0px; }
   #sidebar { display: none; }
-  #map { left: 0; }
-  #legend { left: 12px; bottom: 80px; max-width: calc(100vw - 80px); }
+  #canvas-container { left: 0; }
 
   #mobile-fab {
     display: flex; position: fixed; bottom: 24px; right: 20px; z-index: 30;
@@ -330,7 +296,6 @@ html, body {
   }
   #mobile-fab:active { transform: scale(0.92); }
   #mobile-fab.open { transform: rotate(45deg); }
-
   #mobile-sheet {
     position: fixed; bottom: 0; left: 0; right: 0; z-index: 25;
     background: var(--bg-base); border-top: 1px solid var(--border-bright);
@@ -341,36 +306,9 @@ html, body {
   #mobile-sheet.open { transform: translateY(0); }
   .sheet-handle { width: 36px; height: 4px; background: var(--border-bright); border-radius: 2px; margin: 10px auto; flex-shrink: 0; }
   .sheet-content { padding: 6px 16px 28px; overflow-y: auto; flex: 1; }
-  .sheet-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 14px; }
-  .sheet-stats .stat-card { padding: 10px; }
-  .sheet-stats .stat-value { font-size: 17px; }
-  .sheet-section-label { font-size: 9px; font-weight: 700; letter-spacing: 2px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 7px; padding-top: 6px; }
-  .sheet-filters { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
-  .sheet-chip {
-    display: flex; align-items: center; gap: 6px; padding: 6px 11px;
-    border-radius: 20px; border: 1px solid var(--border); background: var(--bg-surface);
-    color: var(--text-secondary); font-family: 'Inter', sans-serif;
-    font-size: 11px; font-weight: 500; cursor: pointer; transition: all 0.18s;
-  }
-  .sheet-chip.active { border-color: var(--border-bright); background: var(--bg-elevated); color: var(--text-primary); }
-  .sheet-chip-dot { width: 7px; height: 7px; border-radius: 50%; }
-  .sheet-tier-btns { display: flex; gap: 6px; margin-bottom: 12px; }
-  .sheet-tier-btns .tier-btn { font-size: 10px; }
-  .sheet-regions { display: grid; grid-template-columns: repeat(3,1fr); gap: 6px; }
-  .sheet-regions .region-btn { font-size: 11px; padding: 8px; }
 }
 @media (min-width: 769px) { #mobile-fab, #mobile-sheet { display: none !important; } }
 
-/* ═══════════ MAPLIBRE OVERRIDES ═══════════ */
-.maplibregl-ctrl-group {
-  background: rgba(13,26,13,0.85) !important; backdrop-filter: blur(8px);
-  border: 1px solid var(--border) !important; border-radius: 10px !important;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.4) !important; overflow: hidden;
-}
-.maplibregl-ctrl-group button { width: 34px !important; height: 34px !important; border-color: var(--border) !important; }
-.maplibregl-ctrl-group button + button { border-top: 1px solid var(--border) !important; }
-
-/* ═══════════ ANIMATIONS ═══════════ */
 @keyframes counter-up { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
 .stat-animate { animation: counter-up 0.5s cubic-bezier(0.4,0,0.2,1) forwards; }
 </style>
@@ -380,80 +318,28 @@ html, body {
 <!-- ═══════════ LOADING ═══════════ -->
 <div id="loading">
   <div class="loading-mycelium">
-    <!--
-      Mycelium SVG: branching fungal hyphae spreading from center (60,60).
-      Primary branches → fork into secondaries → tertiary tips.
-      Each path uses stroke-dasharray equal to its approximate arc length.
-      Animation staggers via inline style delay so primaries appear first.
-    -->
     <svg viewBox="0 0 120 120">
       <defs>
         <filter id="glow-c"><feGaussianBlur stdDeviation="2.5" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
       </defs>
-      <!-- Primary branches -->
-      <path class="hypha hp" stroke-width="1.3" stroke-dasharray="52"
-            style="--dl:52;animation-delay:0.00s"
-            d="M60,60 C53,47 44,35 32,22"/>
-      <path class="hypha hp" stroke-width="1.2" stroke-dasharray="56"
-            style="--dl:56;animation-delay:0.08s"
-            d="M60,60 C70,49 81,39 94,24"/>
-      <path class="hypha hp" stroke-width="1.1" stroke-dasharray="50"
-            style="--dl:50;animation-delay:0.04s"
-            d="M60,60 C62,46 60,34 56,8"/>
-      <path class="hypha hp" stroke-width="1.2" stroke-dasharray="54"
-            style="--dl:54;animation-delay:0.12s"
-            d="M60,60 C73,60 87,62 110,58"/>
-      <path class="hypha hp" stroke-width="1.2" stroke-dasharray="53"
-            style="--dl:53;animation-delay:0.06s"
-            d="M60,60 C70,71 82,81 96,95"/>
-      <path class="hypha hp" stroke-width="1.1" stroke-dasharray="50"
-            style="--dl:50;animation-delay:0.10s"
-            d="M60,60 C58,74 55,86 52,110"/>
-      <path class="hypha hp" stroke-width="1.2" stroke-dasharray="52"
-            style="--dl:52;animation-delay:0.02s"
-            d="M60,60 C49,71 37,79 22,93"/>
-      <path class="hypha hp" stroke-width="1.1" stroke-dasharray="52"
-            style="--dl:52;animation-delay:0.14s"
-            d="M60,60 C47,59 35,55 10,51"/>
-      <!-- Secondary branches (forks off primaries) -->
-      <!-- Fork off NW primary at ~(46,41) -->
-      <path class="hypha hs" stroke-width="0.9" stroke-dasharray="34"
-            style="--dl:34;animation-delay:0.32s"
-            d="M46,41 C40,35 32,29 18,31"/>
-      <!-- Fork off NE primary at ~(77,49) -->
-      <path class="hypha hs" stroke-width="0.9" stroke-dasharray="38"
-            style="--dl:38;animation-delay:0.38s"
-            d="M77,49 C82,41 85,33 88,16"/>
-      <!-- Fork off E primary at ~(87,61) -->
-      <path class="hypha hs" stroke-width="0.85" stroke-dasharray="32"
-            style="--dl:32;animation-delay:0.42s"
-            d="M87,61 C90,52 93,44 104,37"/>
-      <!-- Fork off SW primary at ~(41,75) -->
-      <path class="hypha hs" stroke-width="0.85" stroke-dasharray="33"
-            style="--dl:33;animation-delay:0.36s"
-            d="M41,75 C35,70 28,63 17,65"/>
-      <!-- Fork off S primary at ~(55,87) -->
-      <path class="hypha hs" stroke-width="0.8" stroke-dasharray="30"
-            style="--dl:30;animation-delay:0.44s"
-            d="M55,87 C50,88 45,90 38,108"/>
-      <!-- Fork off W primary at ~(35,56) -->
-      <path class="hypha hs" stroke-width="0.85" stroke-dasharray="30"
-            style="--dl:30;animation-delay:0.40s"
-            d="M35,56 C29,50 22,43 12,38"/>
-      <!-- Tertiary tips -->
-      <path class="hypha ht" stroke-width="0.6" stroke-dasharray="22"
-            style="--dl:22;animation-delay:0.70s"
-            d="M18,31 C13,27 8,21 5,15"/>
-      <path class="hypha ht" stroke-width="0.6" stroke-dasharray="24"
-            style="--dl:24;animation-delay:0.75s"
-            d="M88,16 C92,10 96,6 103,3"/>
-      <path class="hypha ht" stroke-width="0.6" stroke-dasharray="20"
-            style="--dl:20;animation-delay:0.72s"
-            d="M104,37 C108,30 112,24 116,14"/>
-      <path class="hypha ht" stroke-width="0.6" stroke-dasharray="22"
-            style="--dl:22;animation-delay:0.78s"
-            d="M17,65 C12,62 7,56 4,48"/>
-      <!-- Fork nodes / spores at branch points -->
+      <path class="hypha hp" stroke-width="1.3" stroke-dasharray="52" style="--dl:52;animation-delay:0.00s" d="M60,60 C53,47 44,35 32,22"/>
+      <path class="hypha hp" stroke-width="1.2" stroke-dasharray="56" style="--dl:56;animation-delay:0.08s" d="M60,60 C70,49 81,39 94,24"/>
+      <path class="hypha hp" stroke-width="1.1" stroke-dasharray="50" style="--dl:50;animation-delay:0.04s" d="M60,60 C62,46 60,34 56,8"/>
+      <path class="hypha hp" stroke-width="1.2" stroke-dasharray="54" style="--dl:54;animation-delay:0.12s" d="M60,60 C73,60 87,62 110,58"/>
+      <path class="hypha hp" stroke-width="1.2" stroke-dasharray="53" style="--dl:53;animation-delay:0.06s" d="M60,60 C70,71 82,81 96,95"/>
+      <path class="hypha hp" stroke-width="1.1" stroke-dasharray="50" style="--dl:50;animation-delay:0.10s" d="M60,60 C58,74 55,86 52,110"/>
+      <path class="hypha hp" stroke-width="1.2" stroke-dasharray="52" style="--dl:52;animation-delay:0.02s" d="M60,60 C49,71 37,79 22,93"/>
+      <path class="hypha hp" stroke-width="1.1" stroke-dasharray="52" style="--dl:52;animation-delay:0.14s" d="M60,60 C47,59 35,55 10,51"/>
+      <path class="hypha hs" stroke-width="0.9" stroke-dasharray="34" style="--dl:34;animation-delay:0.32s" d="M46,41 C40,35 32,29 18,31"/>
+      <path class="hypha hs" stroke-width="0.9" stroke-dasharray="38" style="--dl:38;animation-delay:0.38s" d="M77,49 C82,41 85,33 88,16"/>
+      <path class="hypha hs" stroke-width="0.85" stroke-dasharray="32" style="--dl:32;animation-delay:0.42s" d="M87,61 C90,52 93,44 104,37"/>
+      <path class="hypha hs" stroke-width="0.85" stroke-dasharray="33" style="--dl:33;animation-delay:0.36s" d="M41,75 C35,70 28,63 17,65"/>
+      <path class="hypha hs" stroke-width="0.8" stroke-dasharray="30" style="--dl:30;animation-delay:0.44s" d="M55,87 C50,88 45,90 38,108"/>
+      <path class="hypha hs" stroke-width="0.85" stroke-dasharray="30" style="--dl:30;animation-delay:0.40s" d="M35,56 C29,50 22,43 12,38"/>
+      <path class="hypha ht" stroke-width="0.6" stroke-dasharray="22" style="--dl:22;animation-delay:0.70s" d="M18,31 C13,27 8,21 5,15"/>
+      <path class="hypha ht" stroke-width="0.6" stroke-dasharray="24" style="--dl:24;animation-delay:0.75s" d="M88,16 C92,10 96,6 103,3"/>
+      <path class="hypha ht" stroke-width="0.6" stroke-dasharray="20" style="--dl:20;animation-delay:0.72s" d="M104,37 C108,30 112,24 116,14"/>
+      <path class="hypha ht" stroke-width="0.6" stroke-dasharray="22" style="--dl:22;animation-delay:0.78s" d="M17,65 C12,62 7,56 4,48"/>
       <circle class="spore" cx="46" cy="41" r="2"   style="animation-delay:0.30s"/>
       <circle class="spore" cx="77" cy="49" r="1.8" style="animation-delay:0.36s"/>
       <circle class="spore" cx="87" cy="61" r="1.8" style="animation-delay:0.40s"/>
@@ -462,7 +348,6 @@ html, body {
       <circle class="spore" cx="35" cy="56" r="1.6" style="animation-delay:0.38s"/>
       <circle class="spore" cx="18" cy="31" r="1.4" style="animation-delay:0.68s"/>
       <circle class="spore" cx="88" cy="16" r="1.4" style="animation-delay:0.73s"/>
-      <!-- Center node -->
       <circle cx="60" cy="60" r="5" fill="var(--accent)" opacity="0.85" filter="url(#glow-c)"/>
       <circle cx="60" cy="60" r="2" fill="#fff" opacity="0.95"/>
     </svg>
@@ -474,104 +359,88 @@ html, body {
 
 <!-- ═══════════ MAIN LAYOUT ═══════════ -->
 <div id="layout">
-  <!-- Sidebar -->
   <div id="sidebar">
     <div class="sb-header">
       <div class="sb-title">ECOLIBRIUM</div>
       <div class="sb-sub">mapping the networks of change</div>
     </div>
     <div class="sb-scroll">
-      <!-- Stats: Orgs / Connections / Visible / Tiers -->
       <div class="sb-stats">
-        <div class="stat-card">
-          <div class="stat-value" id="stat-orgs">—</div>
-          <div class="stat-label">Organizations</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value" id="stat-edges">—</div>
-          <div class="stat-label">Connections</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value" id="stat-visible">—</div>
-          <div class="stat-label">Visible</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value" id="stat-tiers">—</div>
-          <div class="stat-label">Tiers</div>
-        </div>
+        <div class="stat-card"><div class="stat-value" id="stat-orgs">—</div><div class="stat-label">Organizations</div></div>
+        <div class="stat-card"><div class="stat-value" id="stat-edges">—</div><div class="stat-label">Connections</div></div>
+        <div class="stat-card"><div class="stat-value" id="stat-visible">—</div><div class="stat-label">Visible</div></div>
+        <div class="stat-card"><div class="stat-value" id="stat-tiers">—</div><div class="stat-label">Tiers</div></div>
       </div>
-
-      <!-- Search -->
       <div class="sb-search">
         <div class="search-wrap">
           <span class="search-icon">⌕</span>
           <input type="text" class="search-input" id="search-input" placeholder="Search organizations…" autocomplete="off" spellcheck="false">
         </div>
       </div>
-
-      <!-- Section filters -->
       <div class="sb-label">Networks</div>
       <div id="filters"></div>
-
-      <!-- Tier filter -->
       <div class="sb-label">Data Quality</div>
       <div id="tier-filter">
-        <button class="tier-btn active" data-tier="A" title="Curated: manually verified data">A Curated</button>
-        <button class="tier-btn active" data-tier="B" title="Verified: cross-referenced data">B Verified</button>
+        <button class="tier-btn active" data-tier="A" title="Curated: manually verified">A Curated</button>
+        <button class="tier-btn active" data-tier="B" title="Verified: cross-referenced">B Verified</button>
         <button class="tier-btn active" data-tier="C" title="Inferred: algorithmically derived">C Inferred</button>
       </div>
-
-      <!-- Regions -->
-      <div class="sb-label">Explore Regions</div>
+      <div class="sb-label">View Mode</div>
+      <div class="view-mode-wrap">
+        <button class="view-btn active" id="btn-network">🕸 Network</button>
+        <button class="view-btn" id="btn-geo">🌍 Geographic</button>
+      </div>
+      <div class="sb-label">Explore</div>
       <div id="regions"></div>
     </div>
-
-    <!-- System health -->
     <div class="sb-health">
-      <div class="health-label">System Health — Viewport Coverage</div>
+      <div class="health-label">System Health — Section Coverage</div>
       <div class="health-dots" id="health-dots"></div>
-      <div class="health-text" id="health-text">— of 10 sections in view</div>
+      <div class="health-text" id="health-text">— of 10 sections in dataset</div>
     </div>
-    <div class="sb-hint">scroll to zoom · click clusters to expand · click orgs for details</div>
+    <div class="sb-hint">scroll to zoom · drag to pan · click nodes for details</div>
   </div>
 
-  <!-- Map canvas (light basemap) -->
-  <div id="map"></div>
-
-  <!-- Legend overlay -->
-  <div id="legend"></div>
+  <div id="canvas-container">
+    <canvas id="viz-canvas"></canvas>
+  </div>
 </div>
 
-<!-- ═══════════ MOBILE ═══════════ -->
+<!-- Mobile -->
 <button id="mobile-fab" aria-label="Open filters">
   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
     <line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/>
-    <circle cx="9" cy="6" r="2" fill="currentColor"/><circle cx="15" cy="12" r="2" fill="currentColor"/><circle cx="9" cy="18" r="2" fill="currentColor"/>
   </svg>
 </button>
-<div id="mobile-sheet">
-  <div class="sheet-handle"></div>
-  <div class="sheet-content" id="sheet-content"></div>
-</div>
+<div id="mobile-sheet"><div class="sheet-handle"></div><div class="sheet-content" id="sheet-content"></div></div>
 
+<!-- Tooltip & Detail Panel -->
+<div id="tooltip">
+  <div class="tt-name" id="tt-name"></div>
+  <div class="tt-meta" id="tt-meta"></div>
+  <div class="tt-country" id="tt-country"></div>
+</div>
+<div id="detail-panel"></div>
+
+<script src="https://unpkg.com/d3@7/dist/d3.min.js"></script>
+<script src="https://unpkg.com/topojson-client@3/dist/topojson-client.min.js"></script>
 <script>
 'use strict';
+
 // ══════════════════════════════════════════════════════════════
 // CONSTANTS
 // ══════════════════════════════════════════════════════════════
-
-// Darker/more saturated colors for legibility on light basemap
 const AREA_COLORS = {
-  democracy:      '#1565c0',
-  cooperatives:   '#2e7d32',
-  healthcare:     '#ad1457',
-  food:           '#bf360c',
-  education:      '#4527a0',
-  housing_land:   '#6d4c00',
-  conflict:       '#b71c1c',
-  energy_digital: '#00695c',
-  recreation_arts:'#6a1b9a',
-  ecology:        '#33691e'
+  democracy:      '#5ba5f0',
+  cooperatives:   '#6abf6c',
+  healthcare:     '#e87b9a',
+  food:           '#e8a05a',
+  education:      '#9b8cdf',
+  housing_land:   '#c4a55d',
+  conflict:       '#e05858',
+  energy_digital: '#4fc4b0',
+  recreation_arts:'#c47abf',
+  ecology:        '#7bc47a'
 };
 
 const AREA_NAMES = {
@@ -595,15 +464,6 @@ const AREA_SHORT = {
 };
 
 const AREAS_ORDERED = Object.keys(AREA_COLORS);
-
-const REGIONS = [
-  { name: 'World',    emoji: '🌐', center: [0, 20],   zoom: 1.5, full: true },
-  { name: 'Americas', emoji: '🌎', center: [-80, 10], zoom: 2.8 },
-  { name: 'Europe',   emoji: '🇪🇺', center: [15, 52],  zoom: 3.8 },
-  { name: 'Africa',   emoji: '🌍', center: [20, 5],   zoom: 3 },
-  { name: 'Asia',     emoji: '🌏', center: [100, 25], zoom: 3 },
-];
-
 const TIER_LABELS = { A: 'Curated', B: 'Verified', C: 'Inferred' };
 const SRC_LABELS = {
   'manual_curation': 'Manual curation',
@@ -613,65 +473,55 @@ const SRC_LABELS = {
   'wikidata': 'Wikidata'
 };
 
-// MapLibre color expression for sections
-const colorExpr = ['match', ['get', 'f'],
-  ...AREAS_ORDERED.flatMap(a => [a, AREA_COLORS[a]]),
-  '#888888'
-];
+const SIM_W = 1600, SIM_H = 900;
+
+// Section cluster centers in simulation space
+const SECTION_CENTERS = {
+  democracy:      [SIM_W * 0.20, SIM_H * 0.25],
+  cooperatives:   [SIM_W * 0.70, SIM_H * 0.22],
+  healthcare:     [SIM_W * 0.22, SIM_H * 0.65],
+  food:           [SIM_W * 0.48, SIM_H * 0.78],
+  education:      [SIM_W * 0.50, SIM_H * 0.46],
+  housing_land:   [SIM_W * 0.78, SIM_H * 0.62],
+  conflict:       [SIM_W * 0.32, SIM_H * 0.85],
+  energy_digital: [SIM_W * 0.75, SIM_H * 0.82],
+  recreation_arts:[SIM_W * 0.85, SIM_H * 0.38],
+  ecology:        [SIM_W * 0.10, SIM_H * 0.50]
+};
+
+const TAU = Math.PI * 2;
 
 // ══════════════════════════════════════════════════════════════
 // STATE
 // ══════════════════════════════════════════════════════════════
-let allPoints = [];
-let allEdges = [];
-let edgeLookup = new Map();      // "lon,lat" → [indices into allEdges]
-let currentGeojson = null;
-let activeFilter = null;         // section key or null
-let activeTiers = new Set(['A','B','C']);
+let allPoints = [], allEdges = [];
+let simNodes = [], simLinks = [];
+let coordHash = new Map();       // "lon,lat" → node index
+let nodeEdgesMap = new Map();    // nodeIndex → [edgeIndices]
+let quadtree = null;
+let zoomBehavior = null;
+let transform = d3.zoomIdentity;
+let viewMode = 'network';        // 'network' | 'geo'
+let activeSection = null;
+let activeTiers = new Set(['A', 'B', 'C']);
 let searchTerm = '';
-let mapLayersReady = false;
-let hoverPopup = null;
-const clusterMarkers = {};
-let clusterMarkersOnScreen = {};
-let hashUpdateTimer = null;
+let hoveredNode = null;
+let selectedNode = null;
+let hoveredEdgeIndices = new Set();
+let hoveredNeighborIndices = new Set();
+let dashOffset = 0;
+let frameId = null;
+let worldFeatures = null;
+let sectionCounts = {};
+
+// Canvas
+let canvas, ctx;
 
 // ══════════════════════════════════════════════════════════════
 // UTILITY
 // ══════════════════════════════════════════════════════════════
-
-function jitter(name, la, lo) {
-  let s = 0;
-  for (let i = 0; i < name.length; i++) s = (s * 31 + name.charCodeAt(i)) & 0xffffffff;
-  const r1 = Math.abs(((s * 1664525 + 1013904223) & 0xffffffff) / 2147483648);
-  const r2 = Math.abs(((s * 22695477 + 1) & 0xffffffff) / 2147483648);
-  return [la + (r1 - 0.5) * 1.8, lo + (r2 - 0.5) * 1.8];
-}
-
-function formatNum(n) {
-  if (n >= 1e9) return (n / 1e9).toFixed(1) + 'B';
-  if (n >= 1e6) return (n / 1e6).toFixed(1) + 'M';
-  if (n >= 1e3) return (n / 1e3).toFixed(0) + 'K';
-  return n.toLocaleString();
-}
-
-function formatRevenue(r) {
-  if (!r || r <= 0) return '';
-  if (r >= 1e9) return '$' + (r / 1e9).toFixed(1) + 'B/yr';
-  if (r >= 1e6) return '$' + (r / 1e6).toFixed(1) + 'M/yr';
-  if (r >= 1e3) return '$' + Math.round(r / 1e3) + 'K/yr';
-  return '$' + r.toLocaleString() + '/yr';
-}
-
-function animateCounter(el, target, duration = 700) {
-  el.classList.add('stat-animate');
-  const start = performance.now();
-  function tick(now) {
-    const t = Math.min((now - start) / duration, 1);
-    const ease = 1 - Math.pow(1 - t, 3);
-    el.textContent = Math.round(target * ease).toLocaleString();
-    if (t < 1) requestAnimationFrame(tick);
-  }
-  requestAnimationFrame(tick);
+function coordKey(lon, lat) {
+  return (Math.round(lon * 10000) / 10000) + ',' + (Math.round(lat * 10000) / 10000);
 }
 
 function setProgress(pct) {
@@ -679,858 +529,767 @@ function setProgress(pct) {
   if (bar) bar.style.width = pct + '%';
 }
 
+function formatNum(n) {
+  if (n >= 1e6) return (n / 1e6).toFixed(1) + 'M';
+  if (n >= 1e3) return (n / 1e3).toFixed(0) + 'K';
+  return n.toLocaleString();
+}
+
 function debounce(fn, ms) {
   let t;
   return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); };
 }
 
-// ══════════════════════════════════════════════════════════════
-// GEOJSON BUILDERS
-// ══════════════════════════════════════════════════════════════
+function animateCounter(el, target, duration = 700) {
+  if (!el) return;
+  el.classList.add('stat-animate');
+  const start = performance.now();
+  (function tick(now) {
+    const t = Math.min((now - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - t, 3);
+    el.textContent = Math.round(target * ease).toLocaleString();
+    if (t < 1) requestAnimationFrame(tick);
+  })(performance.now());
+}
 
-function buildPointGeojson(points) {
-  return {
-    type: 'FeatureCollection',
-    features: points.map(p => {
-      const [jla, jlo] = jitter(p.n || '', p.la, p.lo);
-      return {
-        type: 'Feature',
-        geometry: { type: 'Point', coordinates: [jlo, jla] },
-        properties: { ...p } // includes la, lo for edge lookup
-      };
-    })
+// ══════════════════════════════════════════════════════════════
+// DATA LOADING
+// ══════════════════════════════════════════════════════════════
+async function loadData() {
+  setProgress(5);
+
+  const [pointsData, edgesData] = await Promise.all([
+    fetch('data/search/map_points_v2.json').then(r => r.json()),
+    fetch('data/search/map_edges.json').then(r => r.json())
+  ]);
+
+  setProgress(18);
+
+  allPoints = pointsData;
+  allEdges = Array.isArray(edgesData) ? edgesData : (edgesData.edges || []);
+
+  // Build coordHash
+  allPoints.forEach((p, i) => {
+    coordHash.set(coordKey(p.lo, p.la), i);
+  });
+
+  // Resolve edge endpoints + build nodeEdgesMap
+  allEdges.forEach((edge, ei) => {
+    const sk = coordKey(edge.s[0], edge.s[1]);
+    const tk = coordKey(edge.t[0], edge.t[1]);
+    edge._si = coordHash.get(sk);
+    edge._ti = coordHash.get(tk);
+
+    if (edge._si !== undefined) {
+      if (!nodeEdgesMap.has(edge._si)) nodeEdgesMap.set(edge._si, []);
+      nodeEdgesMap.get(edge._si).push(ei);
+    }
+    if (edge._ti !== undefined) {
+      if (!nodeEdgesMap.has(edge._ti)) nodeEdgesMap.set(edge._ti, []);
+      nodeEdgesMap.get(edge._ti).push(ei);
+    }
+  });
+
+  // Compute section counts
+  allPoints.forEach(p => {
+    sectionCounts[p.f] = (sectionCounts[p.f] || 0) + 1;
+  });
+
+  // Compute tier counts
+  const tierCounts = { A: 0, B: 0, C: 0 };
+  allPoints.forEach(p => { if (tierCounts[p.t] !== undefined) tierCounts[p.t]++; });
+
+  return { tierCounts };
+}
+
+// ══════════════════════════════════════════════════════════════
+// SIMULATION
+// ══════════════════════════════════════════════════════════════
+function buildSimulation() {
+  const rng = mulberry32(42);
+
+  simNodes = allPoints.map((p, i) => {
+    const [cx, cy] = SECTION_CENTERS[p.f] || [SIM_W / 2, SIM_H / 2];
+    const geoX = (p.lo + 180) / 360 * SIM_W;
+    const geoY = (90 - p.la) / 180 * SIM_H;
+    return {
+      ...p,
+      index: i,
+      x: cx + (rng() - 0.5) * 180,
+      y: cy + (rng() - 0.5) * 180,
+      geoX, geoY
+    };
+  });
+
+  simLinks = allEdges
+    .filter(e => e._si !== undefined && e._ti !== undefined && e._si !== e._ti)
+    .map(e => ({
+      source: simNodes[e._si],
+      target: simNodes[e._ti],
+      f: e.f, w: e.w
+    }));
+
+  return d3.forceSimulation(simNodes)
+    .force('x', d3.forceX(d => (SECTION_CENTERS[d.f] || [SIM_W / 2])[0]).strength(0.10))
+    .force('y', d3.forceY(d => (SECTION_CENTERS[d.f] || [0, SIM_H / 2])[1]).strength(0.10))
+    .force('collide', d3.forceCollide(8).strength(0.55))
+    .force('link', d3.forceLink(simLinks).strength(0.04).distance(35))
+    .alphaDecay(0.025)
+    .stop();
+}
+
+// Simple seeded RNG for deterministic layout
+function mulberry32(a) {
+  return function() {
+    let t = a += 0x6D2B79F5;
+    t = Math.imul(t ^ t >>> 15, t | 1);
+    t ^= t + Math.imul(t ^ t >>> 7, t | 61);
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
   };
 }
 
-function buildEdgeGeojson(edges, sectionFilter) {
-  const features = edges
-    .filter(e => !sectionFilter || e.f === sectionFilter)
-    .map(e => ({
-      type: 'Feature',
-      geometry: { type: 'LineString', coordinates: [e.s, e.t] },
-      properties: { e: e.e, f: e.f, w: e.w }
-    }));
-  return { type: 'FeatureCollection', features };
-}
+function runSimulation(sim, onDone) {
+  const TOTAL = 250;
+  let tick = 0;
 
-function buildEdgeLookup(edges) {
-  const lookup = new Map();
-  edges.forEach((edge, i) => {
-    const sk = edge.s[0] + ',' + edge.s[1];
-    const tk = edge.t[0] + ',' + edge.t[1];
-    if (!lookup.has(sk)) lookup.set(sk, []);
-    if (!lookup.has(tk)) lookup.set(tk, []);
-    lookup.get(sk).push(i);
-    lookup.get(tk).push(i);
-  });
-  return lookup;
+  function chunk() {
+    for (let i = 0; i < 20 && tick < TOTAL; i++, tick++) sim.tick();
+    setProgress(18 + (tick / TOTAL) * 67);
+    if (tick < TOTAL) requestAnimationFrame(chunk);
+    else { sim.stop(); onDone(); }
+  }
+  requestAnimationFrame(chunk);
 }
 
 // ══════════════════════════════════════════════════════════════
-// DONUT CLUSTER RENDERING
+// QUADTREE
 // ══════════════════════════════════════════════════════════════
+function buildQuadtree() {
+  quadtree = d3.quadtree()
+    .x(d => viewMode === 'geo' ? d.geoX : d.x)
+    .y(d => viewMode === 'geo' ? d.geoY : d.y)
+    .addAll(simNodes.filter(n => isNodeVisible(n)));
+}
 
-function createDonutElement(props) {
-  const total = props.point_count;
-  const counts = AREAS_ORDERED.map(a => {
-    const v = props[a + '_c'];
-    return typeof v === 'string' ? parseInt(v) || 0 : (v || 0);
-  });
+function rebuildQuadtree() {
+  if (!quadtree) return;
+  quadtree = d3.quadtree()
+    .x(d => viewMode === 'geo' ? d.geoX : d.x)
+    .y(d => viewMode === 'geo' ? d.geoY : d.y)
+    .addAll(simNodes.filter(n => isNodeVisible(n)));
+}
 
-  const r = total < 10 ? 16 : total < 50 ? 22 : total < 200 ? 28 : total < 1000 ? 35 : 43;
-  const size = r * 2;
-  const innerR = r * 0.56;
+// ══════════════════════════════════════════════════════════════
+// CANVAS SETUP
+// ══════════════════════════════════════════════════════════════
+function setupCanvas() {
+  canvas = document.getElementById('viz-canvas');
+  ctx = canvas.getContext('2d');
 
-  const el = document.createElement('div');
-  el.style.cssText = `width:${size}px;height:${size}px;cursor:pointer;position:relative;filter:drop-shadow(0 2px 8px rgba(0,0,0,0.28));`;
-
-  const canvas = document.createElement('canvas');
-  canvas.width = size * 2; canvas.height = size * 2;
-  canvas.style.cssText = `width:${size}px;height:${size}px;`;
-  const ctx = canvas.getContext('2d');
-  ctx.scale(2, 2);
-
-  const cx = r, cy = r;
-  let angle = -Math.PI / 2;
-
-  for (let i = 0; i < AREAS_ORDERED.length; i++) {
-    if (counts[i] === 0) continue;
-    const slice = (counts[i] / total) * Math.PI * 2;
-    ctx.beginPath();
-    ctx.moveTo(cx, cy);
-    ctx.arc(cx, cy, r - 0.5, angle, angle + slice);
-    ctx.closePath();
-    ctx.fillStyle = AREA_COLORS[AREAS_ORDERED[i]];
-    ctx.globalAlpha = 0.9;
-    ctx.fill();
-    // Thin separator
-    ctx.strokeStyle = 'rgba(255,255,255,0.35)';
-    ctx.lineWidth = 0.5;
-    ctx.globalAlpha = 1;
-    ctx.stroke();
-    angle += slice;
+  function doResize() {
+    const sidebarW = window.innerWidth > 768 ? 300 : 0;
+    canvas.width = window.innerWidth - sidebarW;
+    canvas.height = window.innerHeight;
+    fitView(false);
+    render();
   }
 
-  // White inner circle (light map aesthetic)
-  ctx.globalAlpha = 1;
-  ctx.beginPath();
-  ctx.arc(cx, cy, innerR, 0, Math.PI * 2);
-  ctx.fillStyle = '#ffffff';
-  ctx.fill();
-
-  // Outer ring
-  ctx.beginPath();
-  ctx.arc(cx, cy, r - 0.5, 0, Math.PI * 2);
-  ctx.strokeStyle = 'rgba(0,0,0,0.12)';
-  ctx.lineWidth = 1;
-  ctx.stroke();
-
-  // Count label
-  const label = total >= 1000 ? formatNum(total) : total.toString();
-  const fs = total >= 10000 ? 8 : total >= 1000 ? 9 : total >= 100 ? 10 : 11;
-  ctx.font = `700 ${fs}px Inter, system-ui, sans-serif`;
-  ctx.textAlign = 'center';
-  ctx.textBaseline = 'middle';
-  ctx.fillStyle = '#1a1a1a';
-  ctx.fillText(label, cx, cy + 0.5);
-
-  el.appendChild(canvas);
-
-  el.addEventListener('mouseenter', () => { el.style.filter = 'drop-shadow(0 4px 14px rgba(0,0,0,0.38))'; });
-  el.addEventListener('mouseleave', () => { el.style.filter = 'drop-shadow(0 2px 8px rgba(0,0,0,0.28))'; });
-
-  el.addEventListener('click', () => {
-    const clusterId = props.cluster_id;
-    map.getSource('orgs').getClusterExpansionZoom(clusterId, (err, zoom) => {
-      if (err) return;
-      const marker = clusterMarkers[clusterId];
-      if (marker) map.easeTo({ center: marker.getLngLat(), zoom: Math.min(zoom + 1, 14), duration: 500 });
+  zoomBehavior = d3.zoom()
+    .scaleExtent([0.05, 30])
+    .on('zoom', (event) => {
+      transform = event.transform;
+      updateVisibleCount();
+      render();
     });
-  });
 
-  return el;
+  d3.select(canvas).call(zoomBehavior);
+  window.addEventListener('resize', doResize);
+  doResize();
+
+  canvas.addEventListener('mousemove', handleMouseMove);
+  canvas.addEventListener('click', handleCanvasClick);
+  canvas.addEventListener('mouseleave', () => { setHoveredNode(null); render(); });
 }
 
-function updateDonuts() {
-  const newMarkers = {};
-  const features = map.querySourceFeatures('orgs');
-  for (const f of features) {
-    const props = f.properties;
-    if (!props.cluster) continue;
-    const id = props.cluster_id;
-    let marker = clusterMarkers[id];
-    if (!marker) {
-      const el = createDonutElement(props);
-      marker = clusterMarkers[id] = new maplibregl.Marker({ element: el }).setLngLat(f.geometry.coordinates);
-    }
-    newMarkers[id] = marker;
-    if (!clusterMarkersOnScreen[id]) marker.addTo(map);
+function fitView(animate) {
+  if (!canvas) return;
+  const k = Math.min(canvas.width / SIM_W, canvas.height / SIM_H) * 0.85;
+  const tx = (canvas.width - SIM_W * k) / 2;
+  const ty = (canvas.height - SIM_H * k) / 2;
+  const t = d3.zoomIdentity.translate(tx, ty).scale(k);
+  if (animate) {
+    d3.select(canvas).transition().duration(600).call(zoomBehavior.transform, t);
+  } else {
+    d3.select(canvas).call(zoomBehavior.transform, t);
   }
-  for (const id in clusterMarkersOnScreen) {
-    if (!newMarkers[id]) clusterMarkersOnScreen[id].remove();
-  }
-  clusterMarkersOnScreen = newMarkers;
+}
+
+function screenToSim(sx, sy) {
+  return [(sx - transform.x) / transform.k, (sy - transform.y) / transform.k];
 }
 
 // ══════════════════════════════════════════════════════════════
-// MAP SETUP — LIGHT BASEMAP
+// VISIBILITY / FILTERING
 // ══════════════════════════════════════════════════════════════
+function isNodeVisible(node) {
+  if (activeSection && node.f !== activeSection) return false;
+  if (!activeTiers.has(node.t)) return false;
+  if (searchTerm) {
+    const s = searchTerm.toLowerCase();
+    if (!(node.n || '').toLowerCase().includes(s) && !(node.cc || '').toLowerCase().includes(s)) return false;
+  }
+  return true;
+}
 
-const LIGHT_STYLE = {
-  version: 8,
-  name: 'Ecolibrium Light',
-  sources: {
-    'carto-light': {
-      type: 'raster',
-      tiles: [
-        'https://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png',
-        'https://b.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png',
-        'https://c.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png',
-        'https://d.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png',
-      ],
-      tileSize: 256,
-      attribution: '© <a href="https://www.openstreetmap.org/copyright">OSM</a> © <a href="https://carto.com/attributions">CARTO</a>',
-      maxzoom: 19
-    }
-  },
-  layers: [
-    { id: 'background', type: 'background', paint: { 'background-color': '#f2ede6' } },
-    { id: 'carto-light-tiles', type: 'raster', source: 'carto-light', paint: { 'raster-opacity': 1.0 } }
-  ]
+function getNodeX(n) { return viewMode === 'geo' ? n.geoX : n.x; }
+function getNodeY(n) { return viewMode === 'geo' ? n.geoY : n.y; }
+
+function getNodeRadius(node) {
+  const baseR = node.t === 'A' ? 5.5 : node.t === 'B' ? 4 : 3;
+  const deg = (nodeEdgesMap.get(node.index) || []).length;
+  return baseR + Math.min(deg * 0.4, 5);
+}
+
+// ══════════════════════════════════════════════════════════════
+// HOVER / CLICK
+// ══════════════════════════════════════════════════════════════
+function setHoveredNode(node) {
+  if (hoveredNode === node) return;
+  hoveredNode = node;
+  hoveredEdgeIndices.clear();
+  hoveredNeighborIndices.clear();
+  if (node) {
+    const edges = nodeEdgesMap.get(node.index) || [];
+    edges.forEach(ei => {
+      hoveredEdgeIndices.add(ei);
+      const e = allEdges[ei];
+      if (e && e._si !== undefined) hoveredNeighborIndices.add(e._si);
+      if (e && e._ti !== undefined) hoveredNeighborIndices.add(e._ti);
+    });
+    hoveredNeighborIndices.add(node.index);
+  }
+}
+
+function handleMouseMove(e) {
+  const rect = canvas.getBoundingClientRect();
+  const sx = e.clientX - rect.left;
+  const sy = e.clientY - rect.top;
+  const [simX, simY] = screenToSim(sx, sy);
+  const searchR = 18 / transform.k;
+
+  const found = quadtree ? quadtree.find(simX, simY, searchR) : null;
+
+  if (found !== hoveredNode) {
+    setHoveredNode(found || null);
+    render();
+  }
+  if (found) updateTooltip(found, e.clientX, e.clientY);
+  else hideTooltip();
+  canvas.style.cursor = found ? 'pointer' : 'default';
+}
+
+function handleCanvasClick(e) {
+  const rect = canvas.getBoundingClientRect();
+  const [simX, simY] = screenToSim(e.clientX - rect.left, e.clientY - rect.top);
+  const searchR = 18 / transform.k;
+  const found = quadtree ? quadtree.find(simX, simY, searchR) : null;
+
+  if (found) {
+    selectedNode = found;
+    showDetailPanel(found);
+  } else {
+    selectedNode = null;
+    hideDetailPanel();
+  }
+  render();
+}
+
+// ══════════════════════════════════════════════════════════════
+// TOOLTIP
+// ══════════════════════════════════════════════════════════════
+function updateTooltip(node, cx, cy) {
+  const tt = document.getElementById('tooltip');
+  const color = AREA_COLORS[node.f] || '#888';
+  document.getElementById('tt-name').textContent = (node.n || 'Organization').slice(0, 70);
+  document.getElementById('tt-meta').textContent = AREA_SHORT[node.f] || node.f || '';
+  document.getElementById('tt-meta').style.color = color;
+  document.getElementById('tt-country').textContent = [
+    node.cc || '',
+    node.w ? node.w.replace(/^https?:\/\//, '').split('/')[0] : ''
+  ].filter(Boolean).join(' · ');
+  tt.style.display = 'block';
+  const off = 16;
+  let tx = cx + off, ty = cy - off;
+  if (tx + 240 > window.innerWidth) tx = cx - 240 - off;
+  if (ty < 10) ty = cy + off;
+  tt.style.left = tx + 'px';
+  tt.style.top = ty + 'px';
+}
+
+function hideTooltip() {
+  document.getElementById('tooltip').style.display = 'none';
+}
+
+// ══════════════════════════════════════════════════════════════
+// DETAIL PANEL
+// ══════════════════════════════════════════════════════════════
+function showDetailPanel(node) {
+  const panel = document.getElementById('detail-panel');
+  const color = AREA_COLORS[node.f] || '#888';
+  const areaShort = AREA_SHORT[node.f] || node.f || '';
+  const tier = node.t || 'C';
+  const corrUrl = `https://github.com/simonlpaige/ecolibrium/issues/new?title=Data+correction:+${encodeURIComponent(node.n || '')}&labels=data-correction`;
+  const website = node.w ? (node.w.startsWith('http') ? node.w : 'https://' + node.w) : '';
+  const websiteDomain = node.w ? node.w.replace(/^https?:\/\//, '').split('/')[0] : '';
+  const badgeBg = color + '1a';
+  const badgeBorder = color + '35';
+  const srcLabel = SRC_LABELS[node.src] || (node.src || '').replace(/_/g, ' ');
+  const desc = (node.d || '').slice(0, 240) + ((node.d || '').length > 240 ? '\u2026' : '');
+
+  panel.innerHTML = `
+    <button class="detail-close" onclick="window._closeDetail()">&#215;</button>
+    <div class="pop-inner">
+      <div class="pop-header">
+        <div class="pop-badge" style="background:${badgeBg};border:1px solid ${badgeBorder};color:${color}">
+          <span class="pop-badge-dot" style="background:${color}"></span>${areaShort}
+        </div>
+        <div class="pop-tier-badge tier-${tier}">${TIER_LABELS[tier] || tier}</div>
+      </div>
+      <div class="pop-name">${escHtml(node.n || 'Organization')}</div>
+      <div class="pop-meta">
+        ${node.cc ? `<span>${escHtml(node.cc)}</span>` : ''}
+        ${node.m ? `<span class="pop-meta-sep">&middot;</span><span style="text-transform:capitalize">${escHtml(node.m.replace(/_/g,' '))}</span>` : ''}
+      </div>
+      ${desc ? `<div class="pop-desc">${escHtml(desc)}</div>` : ''}
+      ${srcLabel ? `<div class="pop-source">Source: ${escHtml(srcLabel)}</div>` : ''}
+      <div class="pop-links">
+        ${website ? `<a class="pop-link" href="${escHtml(website)}" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          ${escHtml(websiteDomain)}</a>` : ''}
+        <a class="pop-correct" href="${corrUrl}" target="_blank" rel="noopener">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+          Suggest correction</a>
+      </div>
+    </div>`;
+  panel.classList.add('open');
+}
+
+function hideDetailPanel() {
+  document.getElementById('detail-panel').classList.remove('open');
+}
+
+window._closeDetail = function() {
+  selectedNode = null;
+  hideDetailPanel();
+  render();
 };
 
-setProgress(10);
-
-const map = new maplibregl.Map({
-  container: 'map',
-  style: LIGHT_STYLE,
-  center: [0, 20],
-  zoom: 1.5,
-  minZoom: 1,
-  maxZoom: 14,
-  attributionControl: false,
-  fadeDuration: 300
-});
-
-map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'bottom-right');
-map.addControl(new maplibregl.AttributionControl({ compact: true }), 'bottom-right');
+function escHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
 
 // ══════════════════════════════════════════════════════════════
-// MAP LAYERS
+// GEOGRAPHIC BACKGROUND
 // ══════════════════════════════════════════════════════════════
-
-const isMobile = window.innerWidth <= 768;
-
-function addLayers(geojson, edgeGeoJson) {
-  // ── Org cluster source ──
-  map.addSource('orgs', {
-    type: 'geojson',
-    data: geojson,
-    cluster: true,
-    clusterMaxZoom: 11,
-    clusterRadius: 50,
-    clusterProperties: Object.fromEntries(
-      AREAS_ORDERED.map(a => [a + '_c', ['+', ['case', ['==', ['get', 'f'], a], 1, 0]]])
-    )
-  });
-
-  // ── Edge sources (skip on mobile for performance) ──
-  if (!isMobile) {
-    map.addSource('edges', { type: 'geojson', data: edgeGeoJson });
-    map.addSource('edges-hl', { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
-
-    // Same-section edges
-    map.addLayer({
-      id: 'edges-same', type: 'line', source: 'edges',
-      minzoom: 6,
-      filter: ['==', ['get', 'e'], 's'],
-      paint: {
-        'line-color': colorExpr,
-        'line-opacity': ['interpolate', ['linear'], ['zoom'], 6, 0.35, 9, 0.55],
-        'line-width': ['interpolate', ['linear'], ['zoom'], 6, 0.8, 9, 1.5]
-      }
-    });
-
-    // Cross-section (complementary) edges
-    map.addLayer({
-      id: 'edges-cross', type: 'line', source: 'edges',
-      minzoom: 6,
-      filter: ['==', ['get', 'e'], 'c'],
-      paint: {
-        'line-color': '#7b9e96',
-        'line-opacity': ['interpolate', ['linear'], ['zoom'], 6, 0.2, 9, 0.35],
-        'line-width': ['interpolate', ['linear'], ['zoom'], 6, 0.5, 9, 1]
-      }
-    });
-
-    // Highlighted edges (on org click)
-    map.addLayer({
-      id: 'edges-hl', type: 'line', source: 'edges-hl',
-      paint: {
-        'line-color': '#f0b429',
-        'line-opacity': 0.75,
-        'line-width': 2
-      }
-    });
+async function loadWorldData() {
+  if (worldFeatures !== null) return;
+  worldFeatures = []; // prevent double-load
+  try {
+    const topo = await fetch('https://unpkg.com/world-atlas@2/countries-110m.json').then(r => r.json());
+    worldFeatures = topojson.feature(topo, topo.objects.countries).features;
+  } catch(e) {
+    console.warn('World atlas unavailable:', e);
+    worldFeatures = [];
   }
+  render();
+}
 
-  // ── Hover ring (subtle outline on hover) ──
-  map.addLayer({
-    id: 'point-hover-ring', type: 'circle', source: 'orgs',
-    filter: ['!', ['has', 'point_count']],
-    paint: {
-      'circle-color': 'transparent',
-      'circle-radius': ['interpolate', ['linear'], ['zoom'], 9, 9, 12, 13, 14, 17],
-      'circle-stroke-width': 2,
-      'circle-stroke-color': colorExpr,
-      'circle-stroke-opacity': 0
+function drawGeoBackground() {
+  if (!worldFeatures || worldFeatures.length === 0) return;
+  ctx.save();
+  ctx.strokeStyle = '#1d3d1d';
+  ctx.fillStyle = '#0a1a0a';
+  ctx.lineWidth = 0.5;
+  ctx.setLineDash([]);
+  worldFeatures.forEach(feature => {
+    const geom = feature.geometry;
+    if (!geom) return;
+    const drawRings = (rings) => {
+      rings.forEach(ring => {
+        ctx.beginPath();
+        ring.forEach(([lon, lat], i) => {
+          const x = (lon + 180) / 360 * SIM_W;
+          const y = (90 - lat) / 180 * SIM_H;
+          i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+        });
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+      });
+    };
+    if (geom.type === 'Polygon') drawRings(geom.coordinates);
+    else if (geom.type === 'MultiPolygon') geom.coordinates.forEach(p => drawRings(p));
+  });
+  ctx.restore();
+}
+
+// ══════════════════════════════════════════════════════════════
+// RENDERING
+// ══════════════════════════════════════════════════════════════
+function render() {
+  if (!ctx) return;
+  const w = canvas.width, h = canvas.height;
+  ctx.clearRect(0, 0, w, h);
+
+  ctx.save();
+  ctx.translate(transform.x, transform.y);
+  ctx.scale(transform.k, transform.k);
+
+  if (viewMode === 'geo') drawGeoBackground();
+
+  drawEdges();
+  drawNodes();
+
+  // Section labels at low zoom in network mode
+  if (viewMode === 'network' && transform.k < 0.4) drawSectionLabels();
+
+  ctx.restore();
+}
+
+function drawEdges() {
+  const off = -dashOffset;
+
+  for (let ei = 0; ei < allEdges.length; ei++) {
+    const edge = allEdges[ei];
+    const si = edge._si, ti = edge._ti;
+    if (si === undefined || ti === undefined) continue;
+    const sn = simNodes[si], tn = simNodes[ti];
+    if (!sn || !tn) continue;
+    if (!isNodeVisible(sn) || !isNodeVisible(tn)) continue;
+
+    const color = AREA_COLORS[edge.f] || '#888';
+    const isHl = hoveredEdgeIndices.has(ei);
+    const dimAll = hoveredNode !== null;
+
+    const baseAlpha = edge.w * 0.32;
+    let alpha = dimAll ? (isHl ? Math.min(edge.w * 0.85, 0.85) : baseAlpha * 0.18) : baseAlpha;
+
+    ctx.globalAlpha = alpha;
+    ctx.strokeStyle = color;
+    ctx.lineWidth = isHl ? 1.8 : 0.9;
+
+    const sx = getNodeX(sn), sy = getNodeY(sn);
+    const tx2 = getNodeX(tn), ty2 = getNodeY(tn);
+
+    const mx = (sx + tx2) / 2;
+    const my = (sy + ty2) / 2;
+    const dx = tx2 - sx, dy = ty2 - sy;
+    const len = Math.sqrt(dx * dx + dy * dy) || 1;
+    const curl = Math.min(len * 0.14, 28);
+    const bx = mx - (dy / len) * curl;
+    const by = my + (dx / len) * curl;
+
+    if (isHl) {
+      ctx.setLineDash([5, 7]);
+      ctx.lineDashOffset = off * 1.5;
+    } else {
+      ctx.setLineDash([3, 9]);
+      ctx.lineDashOffset = off;
     }
-  });
 
-  // ── Core org points ──
-  map.addLayer({
-    id: 'unclustered-point', type: 'circle', source: 'orgs',
-    filter: ['!', ['has', 'point_count']],
-    paint: {
-      'circle-color': colorExpr,
-      'circle-radius': ['interpolate', ['linear'], ['zoom'], 9, 4, 12, 6, 14, 8],
-      'circle-opacity': 0.88,
-      'circle-stroke-width': 1.2,
-      'circle-stroke-color': 'rgba(255,255,255,0.7)',
+    ctx.beginPath();
+    ctx.moveTo(sx, sy);
+    ctx.quadraticCurveTo(bx, by, tx2, ty2);
+    ctx.stroke();
+  }
+
+  ctx.setLineDash([]);
+  ctx.globalAlpha = 1;
+}
+
+function drawNodes() {
+  const hasHover = hoveredNode !== null;
+
+  for (let i = 0; i < simNodes.length; i++) {
+    const node = simNodes[i];
+    if (!isNodeVisible(node)) continue;
+
+    const nx = getNodeX(node);
+    const ny = getNodeY(node);
+    const r = getNodeRadius(node);
+    const color = AREA_COLORS[node.f] || '#888';
+    const isHovered = hoveredNode === node;
+    const isSelected = selectedNode === node;
+    const isNeighbor = hasHover && hoveredNeighborIndices.has(i);
+    const dimmed = hasHover && !isHovered && !isNeighbor;
+
+    ctx.globalAlpha = dimmed ? 0.12 : 1;
+
+    if (isHovered || isSelected) {
+      ctx.shadowBlur = 20;
+      ctx.shadowColor = color;
+    } else if (!dimmed) {
+      ctx.shadowBlur = 6;
+      ctx.shadowColor = color + '66';
+    } else {
+      ctx.shadowBlur = 0;
     }
-  });
 
-  // ── Invisible cluster tap target ──
-  map.addLayer({
-    id: 'clusters', type: 'circle', source: 'orgs',
-    filter: ['has', 'point_count'],
-    paint: { 'circle-color': 'rgba(0,0,0,0)', 'circle-radius': 0 }
-  });
+    const drawR = isHovered ? r * 1.7 : (isNeighbor ? r * 1.25 : r);
 
-  mapLayersReady = true;
-  setProgress(85);
-}
+    ctx.beginPath();
+    ctx.arc(nx, ny, drawR, 0, TAU);
+    ctx.fillStyle = color;
+    ctx.fill();
 
-// ══════════════════════════════════════════════════════════════
-// EDGE FILTER
-// ══════════════════════════════════════════════════════════════
-
-function applyEdgeFilters() {
-  if (isMobile || !map.getLayer('edges-same')) return;
-  if (activeFilter) {
-    map.setFilter('edges-same', ['all', ['==', ['get', 'e'], 's'], ['==', ['get', 'f'], activeFilter]]);
-    map.setFilter('edges-cross', ['all', ['==', ['get', 'e'], 'c'], ['==', ['get', 'f'], activeFilter]]);
-  } else {
-    map.setFilter('edges-same', ['==', ['get', 'e'], 's']);
-    map.setFilter('edges-cross', ['==', ['get', 'e'], 'c']);
-  }
-}
-
-function highlightEdges(props) {
-  if (isMobile || !map.getSource('edges-hl')) return;
-  const key = props.lo + ',' + props.la;
-  const indices = edgeLookup.get(key) || [];
-  const features = indices.map(i => ({
-    type: 'Feature',
-    geometry: { type: 'LineString', coordinates: [allEdges[i].s, allEdges[i].t] },
-    properties: { e: allEdges[i].e, f: allEdges[i].f }
-  }));
-  map.getSource('edges-hl').setData({ type: 'FeatureCollection', features });
-}
-
-function clearHighlightEdges() {
-  if (isMobile || !map.getSource('edges-hl')) return;
-  map.getSource('edges-hl').setData({ type: 'FeatureCollection', features: [] });
-}
-
-// ══════════════════════════════════════════════════════════════
-// INTERACTIONS
-// ══════════════════════════════════════════════════════════════
-
-function setupInteractions() {
-  hoverPopup = new maplibregl.Popup({
-    closeButton: false, closeOnClick: false, offset: 12, className: 'hover-popup'
-  });
-
-  // Hover: show name tooltip + ring
-  map.on('mouseenter', 'unclustered-point', (e) => {
-    map.getCanvas().style.cursor = 'pointer';
-    const props = e.features[0].properties;
-    const coords = e.features[0].geometry.coordinates.slice();
-    const color = AREA_COLORS[props.f] || '#888';
-
-    hoverPopup.setLngLat(coords).setHTML(
-      `<div style="font-size:12px;font-weight:600;color:${color};margin-bottom:2px">${(props.n||'Organization').slice(0,60)}</div>` +
-      `<div style="font-size:10px;color:#6a9060">${AREA_SHORT[props.f]||props.f||''}${props.cc ? ' · ' + props.cc : ''}</div>`
-    ).addTo(map);
-
-    map.setPaintProperty('point-hover-ring', 'circle-stroke-opacity',
-      ['case', ['==', ['get', 'n'], props.n], 0.7, 0]
-    );
-  });
-
-  map.on('mouseleave', 'unclustered-point', () => {
-    map.getCanvas().style.cursor = '';
-    hoverPopup.remove();
-    map.setPaintProperty('point-hover-ring', 'circle-stroke-opacity', 0);
-  });
-
-  // Click: rich popup + edge highlight
-  map.on('click', 'unclustered-point', (e) => {
-    hoverPopup.remove();
-    const props = e.features[0].properties;
-    const coords = e.features[0].geometry.coordinates.slice();
-    while (Math.abs(e.lngLat.lng - coords[0]) > 180)
-      coords[0] += e.lngLat.lng > coords[0] ? 360 : -360;
-
-    const color = AREA_COLORS[props.f] || '#888';
-    const areaShort = AREA_SHORT[props.f] || props.f || '';
-    const desc = props.d && props.d !== 'null' ? props.d : '';
-    const website = props.w && props.w !== 'null' ? props.w : '';
-    const country = props.cc && props.cc !== 'null' ? props.cc : '';
-    const model = props.m && props.m !== 'null' ? props.m : '';
-    const revenue = props.r && props.r !== 'null' && parseFloat(props.r) > 0 ? parseFloat(props.r) : 0;
-    const tier = props.t || 'C';
-    const src = props.src && props.src !== 'null' ? props.src : '';
-    const orgName = (props.n || 'Organization').replace(/"/g, '&quot;');
-
-    const badgeBg = color + '18';
-    const badgeBorder = color + '2e';
-    const revenueStr = formatRevenue(revenue);
-    const srcLabel = SRC_LABELS[src] || src.replace(/_/g, ' ');
-    const correctionUrl = `https://github.com/simonlpaige/ecolibrium/issues/new?title=Data+correction:+${encodeURIComponent(props.n || 'Organization')}&labels=data-correction`;
-
-    let html = `<div class="pop-inner">`;
-    html += `<div class="pop-header">`;
-    html += `<div class="pop-badge" style="background:${badgeBg};border:1px solid ${badgeBorder};color:${color}">`;
-    html += `<span class="pop-badge-dot" style="background:${color}"></span>${areaShort}</div>`;
-    html += `<div class="pop-tier-badge tier-${tier}">${TIER_LABELS[tier]||tier}</div>`;
-    html += `</div>`;
-    html += `<div class="pop-name">${props.n||'Organization'}</div>`;
-    html += `<div class="pop-meta">`;
-    if (country) html += `<span>${country}</span>`;
-    if (model) html += `<span class="pop-meta-sep">·</span><span style="text-transform:capitalize">${model.replace(/_/g,' ')}</span>`;
-    html += `</div>`;
-    if (revenueStr) html += `<div style="margin-bottom:8px"><span class="pop-revenue">${revenueStr}</span></div>`;
-    if (desc) html += `<div class="pop-desc">${desc.slice(0,190)}${desc.length>190?'…':''}</div>`;
-    if (srcLabel) html += `<div class="pop-source">Source: ${srcLabel}</div>`;
-    html += `<div class="pop-links">`;
-    if (website) {
-      const href = website.startsWith('http') ? website : 'https://' + website;
-      const display = website.replace(/^https?:\/\//,'').split('/')[0];
-      html += `<a class="pop-link" href="${href}" target="_blank" rel="noopener">`;
-      html += `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`;
-      html += `${display}</a>`;
+    if (isSelected) {
+      ctx.strokeStyle = '#ffffff';
+      ctx.lineWidth = 1.5 / transform.k;
+      ctx.stroke();
     }
-    html += `<a class="pop-correct" href="${correctionUrl}" target="_blank" rel="noopener">`;
-    html += `<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>`;
-    html += `Suggest correction</a>`;
-    html += `</div></div>`;
 
-    new maplibregl.Popup({ offset: 14, maxWidth: '300px' })
-      .setLngLat(coords).setHTML(html).addTo(map)
-      .on('close', clearHighlightEdges);
+    ctx.shadowBlur = 0;
+    ctx.globalAlpha = 1;
+  }
+}
 
-    highlightEdges(props);
+function drawSectionLabels() {
+  AREAS_ORDERED.forEach(area => {
+    if (activeSection && area !== activeSection) return;
+    const [cx, cy] = SECTION_CENTERS[area];
+    const color = AREA_COLORS[area];
+    const count = sectionCounts[area] || 0;
+    if (!count) return;
+
+    ctx.globalAlpha = 0.5;
+    ctx.fillStyle = color;
+    ctx.font = `bold ${Math.floor(18 / transform.k)}px Inter, sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(AREA_SHORT[area], cx, cy - 30 / transform.k);
+    ctx.globalAlpha = 1;
   });
-
-  // Click background: clear edge highlight
-  map.on('click', (e) => {
-    const fs = map.queryRenderedFeatures(e.point, { layers: ['unclustered-point'] });
-    if (!fs.length) clearHighlightEdges();
-  });
-
-  // Donut update + stats
-  map.on('render', () => {
-    if (map.isSourceLoaded('orgs')) updateDonuts();
-  });
-
-  map.on('moveend', () => {
-    updateVisibleCount();
-    updateSystemHealth();
-    scheduleHashUpdate();
-  });
-  map.on('zoomend', scheduleHashUpdate);
+  ctx.textAlign = 'left';
+  ctx.textBaseline = 'alphabetic';
 }
 
 // ══════════════════════════════════════════════════════════════
-// FILTERING
+// ANIMATION LOOP
 // ══════════════════════════════════════════════════════════════
-
-function applyFilters() {
-  let filtered = allPoints;
-
-  if (activeFilter) filtered = filtered.filter(p => p.f === activeFilter);
-  if (activeTiers.size < 3) filtered = filtered.filter(p => activeTiers.has(p.t));
-  if (searchTerm) {
-    const q = searchTerm.toLowerCase();
-    filtered = filtered.filter(p =>
-      (p.n && p.n.toLowerCase().includes(q)) ||
-      (p.d && p.d.toLowerCase().includes(q)) ||
-      (p.cc && p.cc.toLowerCase().includes(q)) ||
-      (p.st && p.st.toLowerCase().includes(q))
-    );
-  }
-
-  currentGeojson = buildPointGeojson(filtered);
-
-  if (map.getSource('orgs')) {
-    // Clear cluster markers
-    for (const id in clusterMarkersOnScreen) clusterMarkersOnScreen[id].remove();
-    Object.keys(clusterMarkers).forEach(k => delete clusterMarkers[k]);
-    clusterMarkersOnScreen = {};
-
-    map.getSource('orgs').setData(currentGeojson);
-  }
-
-  // Update edge GeoJSON
-  if (!isMobile && map.getSource('edges')) {
-    map.getSource('edges').setData(buildEdgeGeojson(allEdges, activeFilter));
-    applyEdgeFilters();
-    clearHighlightEdges();
-  }
-
-  updateFilterUI();
-  updateTierStat(filtered);
-  setTimeout(() => { updateVisibleCount(); updateSystemHealth(); }, 300);
-  scheduleHashUpdate();
-}
-
-function updateFilterUI() {
-  document.querySelectorAll('.filter-btn').forEach(btn => {
-    const a = btn.dataset.area;
-    btn.classList.toggle('active', a === '' ? !activeFilter : a === activeFilter);
-  });
-  document.querySelectorAll('.sheet-chip[data-area]').forEach(chip => {
-    const a = chip.dataset.area;
-    chip.classList.toggle('active', a === '' ? !activeFilter : a === activeFilter);
-  });
-  document.querySelectorAll('.tier-btn, .sheet-tier-btn').forEach(btn => {
-    const t = btn.dataset.tier;
-    btn.classList.toggle('active', activeTiers.has(t));
-    btn.classList.toggle('inactive', !activeTiers.has(t));
-  });
+function startAnimationLoop() {
+  (function loop() {
+    frameId = requestAnimationFrame(loop);
+    dashOffset = (dashOffset + 0.38) % 72;
+    render();
+  })();
 }
 
 // ══════════════════════════════════════════════════════════════
-// STATS & HEALTH
+// STATS
 // ══════════════════════════════════════════════════════════════
+function updateStats(totalOrgs, totalEdges, tierCounts) {
+  animateCounter(document.getElementById('stat-orgs'), totalOrgs);
+  animateCounter(document.getElementById('stat-edges'), totalEdges);
+  const tc = tierCounts;
+  const el = document.getElementById('stat-tiers');
+  if (el) el.innerHTML = `A:${tc.A||0}<br>B:${tc.B||0}<br>C:${tc.C||0}`;
+  updateVisibleCount();
+}
 
 function updateVisibleCount() {
-  try {
-    const fs = map.queryRenderedFeatures({ layers: ['unclustered-point'] });
-    const el = document.getElementById('stat-visible');
-    if (el) el.textContent = (fs ? fs.length : 0).toLocaleString();
-  } catch(e) {}
-}
-
-function updateTierStat(points) {
-  const el = document.getElementById('stat-tiers');
-  if (!el) return;
-  const pts = points || allPoints;
-  const counts = { A:0, B:0, C:0 };
-  pts.forEach(p => { counts[p.t] = (counts[p.t]||0) + 1; });
-  el.innerHTML = `A: ${formatNum(counts.A)}<br>B: ${formatNum(counts.B)}<br>C: ${formatNum(counts.C)}`;
-}
-
-function updateSystemHealth() {
-  const dotsEl = document.getElementById('health-dots');
-  const textEl = document.getElementById('health-text');
-  if (!dotsEl || !textEl || !mapLayersReady) return;
-  try {
-    const fs = map.queryRenderedFeatures({ layers: ['unclustered-point'] });
-    const present = new Set(fs.map(f => f.properties.f));
-    dotsEl.innerHTML = AREAS_ORDERED.map(a =>
-      `<div class="health-dot ${present.has(a) ? 'present' : 'absent'}"
-            style="background:${AREA_COLORS[a]}"
-            title="${AREA_NAMES[a]}"></div>`
-    ).join('');
-    textEl.textContent = `${present.size} of 10 sections in view`;
-  } catch(e) {}
-}
-
-// Build initial health dots (all absent until map settles)
-function initSystemHealth() {
-  const dotsEl = document.getElementById('health-dots');
-  if (!dotsEl) return;
-  dotsEl.innerHTML = AREAS_ORDERED.map(a =>
-    `<div class="health-dot absent" style="background:${AREA_COLORS[a]}" title="${AREA_NAMES[a]}"></div>`
-  ).join('');
+  let count = 0;
+  simNodes.forEach(n => { if (isNodeVisible(n)) count++; });
+  const el = document.getElementById('stat-visible');
+  if (el) el.textContent = count.toLocaleString();
 }
 
 // ══════════════════════════════════════════════════════════════
-// URL STATE
+// SIDEBAR
 // ══════════════════════════════════════════════════════════════
-
-function encodeState() {
-  try {
-    const center = map.getCenter();
-    const zoom = map.getZoom();
-    const params = new URLSearchParams();
-    if (activeFilter) params.set('section', activeFilter);
-    const tierStr = ['A','B','C'].filter(t => activeTiers.has(t)).join(',');
-    if (tierStr !== 'A,B,C') params.set('tiers', tierStr);
-    params.set('zoom', zoom.toFixed(2));
-    params.set('lat', center.lat.toFixed(4));
-    params.set('lng', center.lng.toFixed(4));
-    history.replaceState(null, '', '#' + params.toString());
-  } catch(e) {}
-}
-
-function decodeState() {
-  try {
-    const hash = location.hash.replace('#','');
-    if (!hash) return null;
-    const params = new URLSearchParams(hash);
-    return {
-      section: params.get('section') || null,
-      tiers: params.get('tiers') ? new Set(params.get('tiers').split(',')) : new Set(['A','B','C']),
-      zoom: params.get('zoom') ? parseFloat(params.get('zoom')) : null,
-      lat: params.get('lat') ? parseFloat(params.get('lat')) : null,
-      lng: params.get('lng') ? parseFloat(params.get('lng')) : null
-    };
-  } catch(e) { return null; }
-}
-
-function applyStateFromHash() {
-  const state = decodeState();
-  if (!state) return;
-  let changed = false;
-
-  if (state.section && AREAS_ORDERED.includes(state.section)) {
-    activeFilter = state.section;
-    changed = true;
-  }
-  if (state.tiers && state.tiers.size > 0) {
-    activeTiers = state.tiers;
-    changed = true;
-  }
-  if (state.zoom && state.lat && state.lng) {
-    map.setCenter([state.lng, state.lat]);
-    map.setZoom(state.zoom);
-  }
-
-  return changed;
-}
-
-function scheduleHashUpdate() {
-  clearTimeout(hashUpdateTimer);
-  hashUpdateTimer = setTimeout(encodeState, 600);
-}
-
-// ══════════════════════════════════════════════════════════════
-// UI BUILDER
-// ══════════════════════════════════════════════════════════════
-
-function buildUI(points, edgesCount) {
-  const counts = {};
-  for (const p of points) counts[p.f] = (counts[p.f] || 0) + 1;
-
-  // Stats
-  animateCounter(document.getElementById('stat-orgs'), points.length);
-  animateCounter(document.getElementById('stat-edges'), edgesCount);
-  animateCounter(document.getElementById('stat-visible'), points.length);
-  updateTierStat(points);
-
-  // ── Section filter buttons ──
+function setupSidebar(tierCounts) {
+  // Section filter buttons
   const filtersEl = document.getElementById('filters');
-
-  const allBtn = document.createElement('button');
-  allBtn.className = 'filter-btn active';
-  allBtn.dataset.area = '';
-  allBtn.innerHTML = `
-    <div class="filter-dot" style="background:var(--accent)"></div>
-    <span class="filter-label">All Networks</span>
-    <span class="filter-count">${points.length.toLocaleString()}</span>`;
-  allBtn.addEventListener('click', () => { activeFilter = null; applyFilters(); });
-  filtersEl.appendChild(allBtn);
-
-  for (const area of AREAS_ORDERED) {
-    if (!counts[area]) continue;
-    const color = AREA_COLORS[area];
+  AREAS_ORDERED.forEach(area => {
     const btn = document.createElement('button');
-    btn.className = 'filter-btn';
+    btn.className = 'filter-btn active';
     btn.dataset.area = area;
+    btn.style.setProperty('--area-color', AREA_COLORS[area]);
+    const count = sectionCounts[area] || 0;
     btn.innerHTML = `
-      <div class="filter-dot" style="background:${color}"></div>
-      <span class="filter-label">${AREA_NAMES[area]}</span>
-      <span class="filter-count">${counts[area].toLocaleString()}</span>`;
-    btn.style.setProperty('--filter-color', color);
+      <span class="filter-dot" style="background:${AREA_COLORS[area]}"></span>
+      <span class="filter-label">${AREA_SHORT[area]}</span>
+      <span class="filter-count">${count.toLocaleString()}</span>`;
     btn.addEventListener('click', () => {
-      activeFilter = activeFilter === area ? null : area;
-      applyFilters();
+      if (activeSection === area) {
+        activeSection = null;
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.add('active'));
+      } else {
+        activeSection = area;
+        document.querySelectorAll('.filter-btn').forEach(b => {
+          b.classList.toggle('active', b.dataset.area === area);
+        });
+      }
+      rebuildQuadtree();
+      updateVisibleCount();
+      render();
     });
     filtersEl.appendChild(btn);
-  }
+  });
 
-  // Inject active border color styles
-  const styleEl = document.createElement('style');
-  styleEl.textContent = AREAS_ORDERED.map(a =>
-    `.filter-btn[data-area="${a}"].active::before { background:${AREA_COLORS[a]}; }`
-  ).join('\n');
-  document.head.appendChild(styleEl);
-
-  // ── Tier toggle handlers ──
-  document.querySelectorAll('#tier-filter .tier-btn').forEach(btn => {
+  // Tier buttons
+  document.querySelectorAll('.tier-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const t = btn.dataset.tier;
-      if (activeTiers.has(t)) {
-        if (activeTiers.size > 1) activeTiers.delete(t);
-      } else {
-        activeTiers.add(t);
-      }
-      applyFilters();
+      const tier = btn.dataset.tier;
+      if (activeTiers.has(tier)) { activeTiers.delete(tier); btn.classList.remove('active'); btn.classList.add('inactive'); }
+      else { activeTiers.add(tier); btn.classList.add('active'); btn.classList.remove('inactive'); }
+      rebuildQuadtree();
+      updateVisibleCount();
+      render();
     });
   });
 
-  // ── Regions ──
-  const regionsEl = document.getElementById('regions');
-  for (const region of REGIONS) {
-    const btn = document.createElement('button');
-    btn.className = 'region-btn' + (region.full ? ' full-width' : '');
-    btn.textContent = region.emoji + ' ' + region.name;
-    btn.addEventListener('click', () => {
-      map.flyTo({ center: region.center, zoom: region.zoom, duration: 1400, essential: true });
-    });
-    regionsEl.appendChild(btn);
-  }
+  // Search
+  const si = document.getElementById('search-input');
+  si.addEventListener('input', debounce(() => {
+    searchTerm = si.value.trim();
+    rebuildQuadtree();
+    updateVisibleCount();
+    render();
+  }, 250));
 
-  // ── Legend ──
-  const legendEl = document.getElementById('legend');
-  for (const area of AREAS_ORDERED) {
-    if (!counts[area]) continue;
-    const item = document.createElement('div');
-    item.className = 'legend-item';
-    item.innerHTML = `<div class="legend-dot" style="background:${AREA_COLORS[area]}"></div>${AREA_SHORT[area]}`;
-    legendEl.appendChild(item);
-  }
+  // View mode
+  document.getElementById('btn-network').addEventListener('click', () => setViewMode('network'));
+  document.getElementById('btn-geo').addEventListener('click', () => setViewMode('geo'));
 
-  // ── Search ──
-  const searchInput = document.getElementById('search-input');
-  const debouncedSearch = debounce(() => {
-    searchTerm = searchInput.value.trim();
-    applyFilters();
-  }, 250);
-  searchInput.addEventListener('input', debouncedSearch);
+  // Region/section jump
+  setupRegions();
 
-  // ── Mobile ──
-  buildMobile(points, counts, edgesCount);
-
-  // ── System health init ──
-  initSystemHealth();
-
-  // ── Apply URL state if any ──
-  const hadState = applyStateFromHash();
-  if (hadState) applyFilters();
+  // Health dots
+  setupHealthDots();
 }
 
-function buildMobile(points, counts, edgesCount) {
+function setViewMode(mode) {
+  viewMode = mode;
+  document.getElementById('btn-network').classList.toggle('active', mode === 'network');
+  document.getElementById('btn-geo').classList.toggle('active', mode === 'geo');
+  setHoveredNode(null);
+  hideTooltip();
+  rebuildQuadtree();
+  setupRegions();
+  if (mode === 'geo') loadWorldData();
+  fitView(true);
+  render();
+}
+
+function setupRegions() {
+  const regionsEl = document.getElementById('regions');
+  regionsEl.innerHTML = '';
+
+  const resetBtn = document.createElement('button');
+  resetBtn.className = 'region-btn reset-btn';
+  resetBtn.textContent = '\u{1F30D} Reset View';
+  resetBtn.addEventListener('click', () => fitView(true));
+  regionsEl.appendChild(resetBtn);
+
+  if (viewMode === 'network') {
+    AREAS_ORDERED.forEach(area => {
+      if (!(sectionCounts[area] > 0)) return;
+      const btn = document.createElement('button');
+      btn.className = 'region-btn';
+      btn.style.borderLeft = `3px solid ${AREA_COLORS[area]}`;
+      btn.textContent = AREA_SHORT[area];
+      btn.addEventListener('click', () => zoomToSection(area));
+      regionsEl.appendChild(btn);
+    });
+  }
+}
+
+function zoomToSection(area) {
+  if (!canvas || !zoomBehavior) return;
+  const [cx, cy] = SECTION_CENTERS[area] || [SIM_W / 2, SIM_H / 2];
+  const k = 2.5;
+  const tx = canvas.width / 2 - cx * k;
+  const ty = canvas.height / 2 - cy * k;
+  const t = d3.zoomIdentity.translate(tx, ty).scale(k);
+  d3.select(canvas).transition().duration(650).call(zoomBehavior.transform, t);
+}
+
+function setupHealthDots() {
+  const dotsEl = document.getElementById('health-dots');
+  dotsEl.innerHTML = '';
+  AREAS_ORDERED.forEach(area => {
+    const dot = document.createElement('div');
+    dot.className = 'health-dot';
+    dot.style.background = AREA_COLORS[area];
+    dot.title = AREA_SHORT[area];
+    const hasNodes = (sectionCounts[area] || 0) > 0;
+    dot.classList.add(hasNodes ? 'present' : 'absent');
+    dotsEl.appendChild(dot);
+  });
+  const count = AREAS_ORDERED.filter(a => (sectionCounts[a] || 0) > 0).length;
+  const textEl = document.getElementById('health-text');
+  if (textEl) textEl.textContent = `${count} of ${AREAS_ORDERED.length} sections in dataset`;
+}
+
+// Mobile FAB
+function setupMobile() {
   const fab = document.getElementById('mobile-fab');
   const sheet = document.getElementById('mobile-sheet');
-  const content = document.getElementById('sheet-content');
-  let isOpen = false;
-
+  if (!fab || !sheet) return;
   fab.addEventListener('click', () => {
-    isOpen = !isOpen;
-    sheet.classList.toggle('open', isOpen);
-    fab.classList.toggle('open', isOpen);
+    fab.classList.toggle('open');
+    sheet.classList.toggle('open');
   });
-
-  const tierCounts = { A:0, B:0, C:0 };
-  points.forEach(p => { tierCounts[p.t] = (tierCounts[p.t]||0)+1; });
-
-  let html = `
-    <div class="sheet-stats">
-      <div class="stat-card">
-        <div class="stat-value">${points.length.toLocaleString()}</div>
-        <div class="stat-label">Organizations</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-value">${formatNum(edgesCount)}</div>
-        <div class="stat-label">Connections</div>
-      </div>
-    </div>
-    <div class="sheet-section-label">Data Quality</div>
-    <div class="sheet-tier-btns">
-      <button class="tier-btn sheet-tier-btn active" data-tier="A">A Curated</button>
-      <button class="tier-btn sheet-tier-btn active" data-tier="B">B Verified</button>
-      <button class="tier-btn sheet-tier-btn active" data-tier="C">C Inferred</button>
-    </div>
-    <div class="sheet-section-label">Networks</div>
-    <div class="sheet-filters">
-      <div class="sheet-chip active" data-area="">
-        <div class="sheet-chip-dot" style="background:var(--accent)"></div>All
-      </div>`;
-
-  for (const area of AREAS_ORDERED) {
-    if (!counts[area]) continue;
-    html += `<div class="sheet-chip" data-area="${area}">
-      <div class="sheet-chip-dot" style="background:${AREA_COLORS[area]}"></div>${AREA_SHORT[area]}
-    </div>`;
-  }
-
-  html += `</div><div class="sheet-section-label">Regions</div><div class="sheet-regions">`;
-  for (const region of REGIONS) {
-    html += `<button class="region-btn" data-region="${region.name}">${region.emoji} ${region.name}</button>`;
-  }
-  html += `</div>`;
-  content.innerHTML = html;
-
-  // Wire mobile tier btns
-  content.querySelectorAll('.sheet-tier-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const t = btn.dataset.tier;
-      if (activeTiers.has(t)) {
-        if (activeTiers.size > 1) activeTiers.delete(t);
-      } else {
-        activeTiers.add(t);
-      }
-      applyFilters();
+  // Build sheet content
+  const content = document.getElementById('sheet-content');
+  if (content) {
+    content.innerHTML = '<div class="sheet-section-label">Tap section to filter</div>';
+    AREAS_ORDERED.forEach(area => {
+      const btn = document.createElement('button');
+      btn.style.cssText = `display:flex;align-items:center;gap:8px;width:100%;padding:8px 0;background:none;border:none;color:var(--text-secondary);font-family:inherit;font-size:12px;cursor:pointer;`;
+      btn.innerHTML = `<span style="width:9px;height:9px;border-radius:50%;background:${AREA_COLORS[area]};flex-shrink:0"></span>${AREA_SHORT[area]} <span style="margin-left:auto;color:var(--text-dim)">${(sectionCounts[area]||0).toLocaleString()}</span>`;
+      btn.addEventListener('click', () => {
+        activeSection = activeSection === area ? null : area;
+        rebuildQuadtree();
+        updateVisibleCount();
+        render();
+        fab.classList.remove('open');
+        sheet.classList.remove('open');
+      });
+      content.appendChild(btn);
     });
-  });
-
-  // Wire section chips
-  content.querySelectorAll('.sheet-chip[data-area]').forEach(chip => {
-    chip.addEventListener('click', () => {
-      const area = chip.dataset.area;
-      activeFilter = area === '' ? null : (activeFilter === area ? null : area);
-      applyFilters();
-    });
-  });
-
-  // Wire region buttons
-  content.querySelectorAll('.region-btn[data-region]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const region = REGIONS.find(r => r.name === btn.dataset.region);
-      if (region) {
-        map.flyTo({ center: region.center, zoom: region.zoom, duration: 1400 });
-        isOpen = false; sheet.classList.remove('open'); fab.classList.remove('open');
-      }
-    });
-  });
-}
-
-// ══════════════════════════════════════════════════════════════
-// BOOT
-// ══════════════════════════════════════════════════════════════
-
-function dismissLoading() {
-  const overlay = document.getElementById('loading');
-  if (overlay) {
-    overlay.classList.add('fade-out');
-    setTimeout(() => { if (overlay.parentNode) overlay.remove(); }, 900);
   }
 }
 
-const loaded = { map: false, data: false };
+// ══════════════════════════════════════════════════════════════
+// MAIN
+// ══════════════════════════════════════════════════════════════
+async function main() {
+  const { tierCounts } = await loadData();
 
-function checkReady() {
-  if (loaded.map && loaded.data) {
+  const sim = buildSimulation();
+
+  runSimulation(sim, () => {
+    setProgress(90);
+    buildQuadtree();
+    setupCanvas();
+    setupSidebar(tierCounts);
+    setupMobile();
+    updateStats(allPoints.length, allEdges.length, tierCounts);
     setProgress(100);
-    setTimeout(dismissLoading, 350);
-  }
+
+    setTimeout(() => {
+      const loading = document.getElementById('loading');
+      loading.classList.add('fade-out');
+      setTimeout(() => { loading.style.display = 'none'; }, 800);
+      startAnimationLoop();
+    }, 200);
+  });
 }
 
-// Fallback dismiss
-setTimeout(() => { if (loaded.data) dismissLoading(); }, 10000);
-
-map.on('load', () => {
-  loaded.map = true;
-  setProgress(65);
-  if (currentGeojson) {
-    addLayers(currentGeojson, buildEdgeGeojson(allEdges, null));
-    setupInteractions();
-  }
-  checkReady();
-});
-
-// Load all data in parallel
-setProgress(20);
-Promise.all([
-  fetch('./data/search/map_points_v2.json').then(r => r.json()),
-  fetch('./data/search/map_edges.json').then(r => r.json()),
-  fetch('./data/search/map_aggregates.json').then(r => r.json()).catch(() => ({}))
-])
-.then(([points, edges, _aggregates]) => {
-  setProgress(55);
-  allPoints = points;
-  allEdges = edges;
-  edgeLookup = buildEdgeLookup(edges);
-  currentGeojson = buildPointGeojson(points);
-
-  buildUI(points, edges.length);
-  loaded.data = true;
-
-  if (loaded.map) {
-    addLayers(currentGeojson, buildEdgeGeojson(edges, null));
-    setupInteractions();
-  }
-  checkReady();
-})
-.catch(err => {
-  console.error('Ecolibrium data load error:', err);
-  const sub = document.querySelector('.loading-sub');
-  if (sub) sub.textContent = 'error loading data — check console';
+main().catch(e => {
+  console.error('Ecolibrium init error:', e);
+  document.getElementById('loading').innerHTML = `<div style="color:#e05858;font-family:Inter,sans-serif;padding:2rem;text-align:center"><h3>Failed to load network data</h3><p style="margin-top:1rem;font-size:12px;opacity:.7">${e.message}</p></div>`;
 });
 </script>
 </body>

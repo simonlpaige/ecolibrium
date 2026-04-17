@@ -9,3 +9,8 @@ data/aggregator-*.log
 data/eco1_report.json
 data/DIRECTORY_P2.md
 data/regional/DIRECTORY_P2.md
+
+# Large audit/backup files
+data/trim_audit/
+data/*.db.backup-*
+data/*.db.backup
