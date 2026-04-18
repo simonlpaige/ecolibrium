@@ -15,6 +15,11 @@ STRONG_POS = [
     'tenant rights','affordable housing','community garden',
     'seed library','food sovereignty','participatory','civic tech',
     'worker cooperative','credit union','housing cooperative',
+    # non-western + semantic expansion 2026-04-17
+    'ejido','cooperativa','coopérative','solidaridad',
+    'gotong-royong','gotong royong','waqf','minga','genossenschaft',
+    "sharikat ta'awuniya",'sociedad cooperativa','société coopérative',
+    'collective','employee-owned',
 ]
 
 MODERATE_POS = [

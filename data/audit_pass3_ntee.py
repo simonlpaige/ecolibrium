@@ -13,6 +13,8 @@ c.execute("""SELECT COUNT(*) FROM organizations
 before = c.fetchone()[0]
 
 # NTEE categories to KEEP (directly aligned with Ecolibrium mission)
+# Note: 'Y' (Mutual/Membership Benefit) was reviewed 2026-04-17 and is intentionally excluded.
+# 'Y' covers fraternal orgs, cemeteries, pension funds -- not mission-aligned.
 KEEP_NTEE = ['C', 'E', 'F', 'I', 'J', 'K', 'L', 'O', 'P', 'Q', 'R', 'S', 'W']
 
 # Exclude US orgs whose NTEE major code is NOT in the keep list
