@@ -1,13 +1,13 @@
 {
-  "total": 8424,
+  "total": 8429,
   "us_count": 6684,
-  "intl_count": 1740,
+  "intl_count": 1745,
   "by_area": {
     "food": 2360,
-    "healthcare": 1443,
-    "housing_land": 1274,
-    "education": 1265,
-    "democracy": 760,
+    "healthcare": 1444,
+    "housing_land": 1275,
+    "education": 1267,
+    "democracy": 761,
     "ecology": 525,
     "cooperatives": 401,
     "conflict": 278,
@@ -43,8 +43,8 @@
     "BO": 9,
     "EC": 9,
     "SR": 9,
-    "GB": 7,
-    "SE": 7
+    "DE": 7,
+    "GB": 7
   },
   "by_state": {
     "CA": 640,
