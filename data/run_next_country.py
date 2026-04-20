@@ -523,76 +523,84 @@ def run_subregion_enrichment():
     return False
 
 
-def main():
-    mode = 'fresh'
-    cc, country_name = get_next_country()
-    if cc:
-        print(f'MODE=fresh cc={cc}')
-    else:
-        print('Queue exhausted — checking for thin / stale countries to revisit...')
-        cc, country_name = get_oldest_revisit_country(14)
-        if not cc:
-            return {'status': 'idle', 'message': 'No thin or stale countries due, skipping cycle'}
-        mode = 'revisit'
+THIN_BATCH_SIZE = 5  # countries per run when in thin-only revisit mode
 
-    # Determine if this is a "thin" country (deep-search it)
-    deep = False
-    try:
-        counts = _country_org_counts()
-        if counts.get(cc, 0) < THIN_ORG_THRESHOLD:
-            deep = True
-    except Exception:
-        pass
 
-    print(f'\n=== {country_name} ({cc}) ===')
-
-    # Source 1: DuckDuckGo web research (existing)
+def _process_one(cc, country_name, deep):
+    """Run one country through web search + wikidata + write. Return insert stats."""
+    print(f'\n=== {country_name} ({cc}) {"[deep]" if deep else ""} ===')
     search_text = research_country(cc, country_name, deep=deep)
     orgs = extract_orgs(search_text, cc, country_name)
     print(f'Found {len(orgs)} orgs from web search')
-
     if not orgs:
         orgs = [{'n': f'{country_name} Civil Society Network', 'd': f'Primary civil society network in {country_name}', 'cc': cc, 'country': country_name}]
-
     write_markdown(orgs, cc, country_name)
     ddg_inserted = ingest_db(orgs, cc, country_name)
-
-    # Source 2: Wikidata SPARQL for this country
     run_wikidata(cc, country_name)
-
-    # Source 3: Wikidata backfill for next queued country (catches up on big countries)
-    run_wikidata_backfill()
-
-    # Source 4: US state-level Wikidata enrichment (one state per run)
-    run_us_state_enrichment()
-
-    # Source 5: International subregion enrichment (one subregion per run)
-    run_subregion_enrichment()
-
-    rebuild_index()
-
-    # Count total for this country after all sources
     try:
         db = sqlite3.connect(DB_PATH)
         c = db.cursor()
         c.execute("SELECT COUNT(*) FROM organizations WHERE country_code=? AND status != 'removed'", (cc,))
         country_total = c.fetchone()[0]
         db.close()
-    except:
+    except Exception:
         country_total = len(orgs)
+    print(f'Done: {country_name} ({cc}) -> {country_total} total orgs ({ddg_inserted} new from web)')
+    return {'cc': cc, 'country': country_name, 'orgs_found': country_total, 'ddg_orgs': len(orgs), 'db_inserted': ddg_inserted, 'deep': deep}
 
-    remaining = queue_remaining()
-    result = {
-        'status': 'done',
-        'country': country_name,
-        'cc': cc,
-        'orgs_found': country_total,
-        'ddg_orgs': len(orgs),
-        'db_inserted': ddg_inserted,
-        'queue_remaining': remaining,
-    }
-    print(f'\nDone: {country_name} ({cc}), {country_total} total orgs (DDG:{len(orgs)}+Wikidata), {remaining} countries remaining')
-    return result
+
+def main():
+    mode = 'fresh'
+    cc, country_name = get_next_country()
+    if cc:
+        print(f'MODE=fresh cc={cc}')
+        deep = False
+        try:
+            counts = _country_org_counts()
+            if counts.get(cc, 0) < THIN_ORG_THRESHOLD:
+                deep = True
+        except Exception:
+            pass
+        results = [_process_one(cc, country_name, deep)]
+
+        # Fresh run still does housekeeping
+        run_wikidata_backfill()
+        run_us_state_enrichment()
+        run_subregion_enrichment()
+        rebuild_index()
+        remaining = queue_remaining()
+        results[0]['mode'] = 'fresh'
+        results[0]['queue_remaining'] = remaining
+        print(f'\nFresh done. {remaining} countries remaining in queue.')
+        return {'status': 'done', 'mode': 'fresh', 'results': results, 'queue_remaining': remaining}
+
+    print('Queue exhausted - thin-coverage batch mode (up to ' + str(THIN_BATCH_SIZE) + ' countries this run)...')
+    mode = 'revisit'
+    results = []
+    seen = set()
+    for i in range(THIN_BATCH_SIZE):
+        cc, country_name = get_oldest_revisit_country(14)
+        if not cc or cc in seen:
+            break
+        seen.add(cc)
+        try:
+            counts = _country_org_counts()
+            deep = counts.get(cc, 0) < THIN_ORG_THRESHOLD
+        except Exception:
+            deep = True
+        results.append(_process_one(cc, country_name, deep))
+
+    if not results:
+        return {'status': 'idle', 'message': 'No thin or stale countries due, skipping cycle'}
+
+    # Housekeeping once per run
+    run_wikidata_backfill()
+    run_us_state_enrichment()
+    run_subregion_enrichment()
+    rebuild_index()
+
+    print(f'\nBatch done: {len(results)} countries processed this run (thin priority).')
+    return {'status': 'done', 'mode': 'revisit-batch', 'results': results}
 
 if __name__ == '__main__':
     r = main()
