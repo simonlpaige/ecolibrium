@@ -425,7 +425,11 @@ def ingest(orgs, country_code, country_name, sub_code, sub_name):
     for org in orgs:
         try:
             score = alignment_score(org['name'], org.get('description', ''))
-            if score < 2:
+            # Looser gate for Wikidata subregion: the SPARQL queries only return
+            # entities already typed as nonprofit/cooperative/community land trust/
+            # credit union/etc. So any score >= 1 is signal; we still drop score=0
+            # or negative (explicit exclusions like golf clubs slip through P31 edges).
+            if score < 1:
                 rejected += 1
                 continue
             c.execute(
