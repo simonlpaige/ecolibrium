@@ -5,6 +5,6 @@
   "enrich_done": true,
   "filtered_out": 133,
   "enriched": 0,
-  "last_run": "2026-04-21T20:59:45.773794",
+  "last_run": "2026-04-21T21:29:48.420925",
   "_note": "Reset 2026-04-16 after aggressive trim (24,508 aligned orgs). Next run starts from offset 0 against the trimmed DB."
 }
