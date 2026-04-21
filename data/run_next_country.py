@@ -7,6 +7,7 @@ import subprocess
 import os
 import re
 import sys
+import json
 from datetime import datetime
 
 COUNTRY_CENTROIDS = {
@@ -99,11 +100,51 @@ QUEUE_FILE = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\QUEUE.txt'
 REGIONAL_DIR = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\regional'
 DB_PATH = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db'
 WORKSPACE_DIR = r'C:\Users\simon\.openclaw\workspace'
+COUNTRY_STATE_PATH = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\country_research_state.json'
 sys.path.insert(0, os.path.join(WORKSPACE_DIR, 'ecolibrium', 'data'))
 from native_queries import get_queries
 
+
+def load_country_state():
+    try:
+        with open(COUNTRY_STATE_PATH, encoding='utf-8') as f:
+            data = json.load(f)
+            if isinstance(data, dict):
+                return data
+    except FileNotFoundError:
+        pass
+    except Exception as e:
+        print(f'  state load error: {e}')
+    return {}
+
+
+def save_country_state(state):
+    os.makedirs(os.path.dirname(COUNTRY_STATE_PATH), exist_ok=True)
+    with open(COUNTRY_STATE_PATH, 'w', encoding='utf-8') as f:
+        json.dump(state, f, indent=2, sort_keys=True)
+
+
+def is_country_completed(state, cc):
+    record = state.get(cc) or {}
+    return bool(record.get('completed'))
+
+
+def update_country_state(cc, country_name, completed, org_count, markdown_path=None):
+    state = load_country_state()
+    state[cc] = {
+        'country_name': country_name,
+        'completed': bool(completed),
+        'org_count': int(org_count or 0),
+        'last_attempted_at': datetime.utcnow().isoformat() + 'Z',
+        'markdown_path': markdown_path,
+    }
+    if completed:
+        state[cc]['completed_at'] = datetime.utcnow().isoformat() + 'Z'
+    save_country_state(state)
+
 def get_next_country():
-    """Read QUEUE.txt, return first country without a DIRECTORY_CC.md."""
+    """Read QUEUE.txt, return first country without a completed state flag."""
+    state = load_country_state()
     with open(QUEUE_FILE, encoding='utf-8') as f:
         for line in f:
             line = line.strip()
@@ -113,8 +154,7 @@ def get_next_country():
             if len(parts) < 2:
                 continue
             cc, name = parts[0], parts[1]
-            md_path = os.path.join(REGIONAL_DIR, f'DIRECTORY_{cc}.md')
-            if not os.path.exists(md_path):
+            if not is_country_completed(state, cc):
                 return cc, name
     return None, None
 
@@ -420,6 +460,7 @@ def rebuild_index():
 
 def queue_remaining():
     """Count countries left in queue."""
+    state = load_country_state()
     remaining = 0
     with open(QUEUE_FILE, encoding='utf-8') as f:
         for line in f:
@@ -430,7 +471,7 @@ def queue_remaining():
             if len(parts) < 2:
                 continue
             cc = parts[0]
-            if not os.path.exists(os.path.join(REGIONAL_DIR, f'DIRECTORY_{cc}.md')):
+            if not is_country_completed(state, cc):
                 remaining += 1
     return remaining
 
@@ -532,9 +573,7 @@ def _process_one(cc, country_name, deep):
     search_text = research_country(cc, country_name, deep=deep)
     orgs = extract_orgs(search_text, cc, country_name)
     print(f'Found {len(orgs)} orgs from web search')
-    if not orgs:
-        orgs = [{'n': f'{country_name} Civil Society Network', 'd': f'Primary civil society network in {country_name}', 'cc': cc, 'country': country_name}]
-    write_markdown(orgs, cc, country_name)
+    markdown_path = write_markdown(orgs, cc, country_name)
     ddg_inserted = ingest_db(orgs, cc, country_name)
     run_wikidata(cc, country_name)
     try:
@@ -545,6 +584,10 @@ def _process_one(cc, country_name, deep):
         db.close()
     except Exception:
         country_total = len(orgs)
+    completed = country_total > 0
+    update_country_state(cc, country_name, completed, country_total, markdown_path)
+    if not completed:
+        print(f'No real organizations found for {country_name} ({cc}); leaving it uncompleted for a later retry')
     print(f'Done: {country_name} ({cc}) -> {country_total} total orgs ({ddg_inserted} new from web)')
     return {'cc': cc, 'country': country_name, 'orgs_found': country_total, 'ddg_orgs': len(orgs), 'db_inserted': ddg_inserted, 'deep': deep}
 
