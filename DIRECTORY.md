@@ -1,6 +1,6 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-21 07:56 UTC*
+*Last updated: 2026-04-21 08:26 UTC*
 
 
 ## Coverage
@@ -42,7 +42,7 @@
 | 🌐 Cuba (CU) | 26 | Field Research | ✅ |
 | 🌐 Cyprus (CY) | 0 | Field Research | ✅ |
 | 🌐 Czechia (CZ) | 0 | Field Research | ✅ |
-| 🌐 Germany (DE) | 81 | Field Research | ✅ |
+| 🌐 Germany (DE) | 94 | Field Research | ✅ |
 | 🌐 Djibouti (DJ) | 0 | Field Research | ✅ |
 | 🌐 Denmark (DK) | 0 | Field Research | ✅ |
 | 🌐 Dominican Republic (DO) | 9 | Field Research | ✅ |
@@ -167,7 +167,7 @@
 | 🌐 Zimbabwe (ZW) | 0 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 24,456 organizations indexed** across 61 countries
+**Total: 24,469 organizations indexed** across 61 countries
 
 
 ---
