@@ -171,7 +171,7 @@ def run():
     print(f'Active orgs to process: {total:,}')
     
     batch_size = 20000
-    offset = 0
+    last_id = 0
     processed = 0
     
     score_buckets = {}
@@ -182,10 +182,10 @@ def run():
         c.execute("""
             SELECT id, name, description
             FROM organizations
-            WHERE status='active'
+            WHERE status='active' AND id > ?
             ORDER BY id
-            LIMIT ? OFFSET ?
-        """, (batch_size, offset))
+            LIMIT ?
+        """, (last_id, batch_size))
         rows = c.fetchall()
         if not rows:
             break
@@ -228,9 +228,9 @@ def run():
         
         db.commit()
         processed += len(rows)
+        last_id = rows[-1][0]
         print(f'  Processed {processed:,}/{total:,}')
-        offset += batch_size
-    
+
     db.close()
     
     print('\n=== Phase 2 Complete ===')

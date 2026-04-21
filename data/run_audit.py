@@ -88,8 +88,8 @@ def load_state():
         with open(STATE_FILE) as f:
             return json.load(f)
     return {
-        'filter_offset': 0,
-        'enrich_offset': 0,
+        'filter_last_id': 0,
+        'enrich_last_id': 0,
         'filter_done': False,
         'enrich_done': False,
         'filtered_out': 0,
@@ -182,16 +182,16 @@ def run_filter(db, state):
     c.execute('SELECT COUNT(*) FROM organizations WHERE status != "removed"')
     total = c.fetchone()[0]
 
-    offset = state['filter_offset']
-    print(f'Filter pass: offset={offset}, active orgs={total:,}')
+    last_id = state.get('filter_last_id', 0)
+    print(f'Filter pass: last_id={last_id}, active orgs={total:,}')
 
     c.execute('''
         SELECT id, name, ntee_code, description
         FROM organizations
-        WHERE status != "removed"
+        WHERE status != "removed" AND id > ?
         ORDER BY id
-        LIMIT ? OFFSET ?
-    ''', (BATCH_SIZE, offset))
+        LIMIT ?
+    ''', (last_id, BATCH_SIZE))
     rows = c.fetchall()
 
     if not rows:
@@ -213,9 +213,9 @@ def run_filter(db, state):
         db.commit()
         state['filtered_out'] += len(to_remove)
 
-    state['filter_offset'] = offset + BATCH_SIZE
-    pct = min(100, int((offset + BATCH_SIZE) / total * 100))
-    print(f'  Processed {min(offset + BATCH_SIZE, total):,}/{total:,} ({pct}%) - removed {len(to_remove)} this batch, {state["filtered_out"]:,} total')
+    state['filter_last_id'] = rows[-1][0]
+    pct = min(100, int((state['filter_last_id']) / max(total, 1) * 100))
+    print(f'  Processed through id {state["filter_last_id"]:,} (~{pct}%) - removed {len(to_remove)} this batch, {state["filtered_out"]:,} total')
 
     return state
 
@@ -236,8 +236,8 @@ def run_enrich(db, state):
     ''')
     total = c.fetchone()[0]
 
-    offset = state['enrich_offset']
-    print(f'Enrich pass: offset={offset}, orgs needing enrichment={total:,}')
+    last_id = state.get('enrich_last_id', 0)
+    print(f'Enrich pass: last_id={last_id}, orgs needing enrichment={total:,}')
 
     c.execute('''
         SELECT id, name, country_name, description
@@ -245,9 +245,10 @@ def run_enrich(db, state):
         WHERE status = "active"
         AND source = "web_research"
         AND (website IS NULL OR website = "")
+        AND id > ?
         ORDER BY id
-        LIMIT ? OFFSET ?
-    ''', (min(BATCH_SIZE, 50), offset))  # cap enrich at 50/run (search is slow)
+        LIMIT ?
+    ''', (last_id, min(BATCH_SIZE, 50)))  # cap enrich at 50/run (search is slow)
     rows = c.fetchall()
 
     if not rows:
@@ -271,7 +272,7 @@ def run_enrich(db, state):
             enriched += 1
 
     db.commit()
-    state['enrich_offset'] = offset + len(rows)
+    state['enrich_last_id'] = rows[-1][0]
     state['enriched'] += enriched
     print(f'  Enriched {enriched}/{len(rows)} orgs this batch, {state["enriched"]:,} total')
 
@@ -304,8 +305,8 @@ def main():
     print(f'Active orgs: {active:,}')
     print(f'Removed (out of scope): {removed:,}')
     print(f'Enriched total: {state["enriched"]:,}')
-    fp = 'done' if state['filter_done'] else f'{state["filter_offset"]:,} processed'
-    ep = 'done' if state['enrich_done'] else f'{state["enrich_offset"]:,} processed'
+    fp = 'done' if state['filter_done'] else f'last_id={state.get("filter_last_id", 0):,}'
+    ep = 'done' if state['enrich_done'] else f'last_id={state.get("enrich_last_id", 0):,}'
     print(f'Filter progress: {fp}')
     print(f'Enrich progress: {ep}')
 
