@@ -16,6 +16,18 @@ import sys
 DB_PATH = r"C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db"
 DATA_DIR = r"C:\Users\simon\.openclaw\workspace\ecolibrium\data"
 
+UNIQ_SOURCE_SQL = """
+CREATE UNIQUE INDEX IF NOT EXISTS uniq_org_source
+ON organizations(source, source_id)
+WHERE source_id IS NOT NULL AND TRIM(source_id) != ''
+"""
+
+UNIQ_REGISTRATION_SQL = """
+CREATE UNIQUE INDEX IF NOT EXISTS uniq_org_registration
+ON organizations(country_code, registration_type, registration_id)
+WHERE registration_id IS NOT NULL AND TRIM(registration_id) != ''
+"""
+
 # UK Charity Commission classification codes to framework areas
 # CCEW uses "what" codes (classification of purposes)
 # Key codes: 101=Education, 103=Health, 108=Religious (skip), 111=Environment,
@@ -90,6 +102,8 @@ def create_db_if_needed():
         verified INTEGER DEFAULT 0
     )''')
     c.execute('CREATE INDEX IF NOT EXISTS idx_source_id ON organizations(source, source_id)')
+    c.execute(UNIQ_SOURCE_SQL)
+    c.execute(UNIQ_REGISTRATION_SQL)
     conn.commit()
     return conn
 
@@ -205,12 +219,44 @@ def process_charity_csv(content, conn, progress):
         
         if len(batch) >= 1000:
             c.executemany('''
-                INSERT OR IGNORE INTO organizations 
+                INSERT INTO organizations
                 (name, country_code, country_name, state_province, city,
                  registration_id, registration_type, description, website, email,
                  framework_area, ntee_code, source, source_id,
                  last_filing_year, annual_revenue, status, verified)
                 VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+                ON CONFLICT(source, source_id)
+                WHERE source_id IS NOT NULL AND TRIM(source_id) != ''
+                DO UPDATE SET
+                    name=excluded.name,
+                    country_code=excluded.country_code,
+                    country_name=excluded.country_name,
+                    state_province=excluded.state_province,
+                    city=excluded.city,
+                    registration_id=excluded.registration_id,
+                    registration_type=excluded.registration_type,
+                    website=excluded.website,
+                    email=excluded.email,
+                    framework_area=excluded.framework_area,
+                    ntee_code=excluded.ntee_code,
+                    annual_revenue=excluded.annual_revenue,
+                    status=excluded.status,
+                    verified=excluded.verified
+                ON CONFLICT(country_code, registration_type, registration_id)
+                WHERE registration_id IS NOT NULL AND TRIM(registration_id) != ''
+                DO UPDATE SET
+                    name=excluded.name,
+                    country_name=excluded.country_name,
+                    city=excluded.city,
+                    website=excluded.website,
+                    email=excluded.email,
+                    framework_area=excluded.framework_area,
+                    ntee_code=excluded.ntee_code,
+                    source=excluded.source,
+                    source_id=excluded.source_id,
+                    annual_revenue=excluded.annual_revenue,
+                    status=excluded.status,
+                    verified=excluded.verified
             ''', batch)
             rows_inserted += c.rowcount
             conn.commit()
@@ -220,12 +266,44 @@ def process_charity_csv(content, conn, progress):
     
     if batch:
         c.executemany('''
-            INSERT OR IGNORE INTO organizations 
+            INSERT INTO organizations
             (name, country_code, country_name, state_province, city,
              registration_id, registration_type, description, website, email,
              framework_area, ntee_code, source, source_id,
              last_filing_year, annual_revenue, status, verified)
             VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+            ON CONFLICT(source, source_id)
+            WHERE source_id IS NOT NULL AND TRIM(source_id) != ''
+            DO UPDATE SET
+                name=excluded.name,
+                country_code=excluded.country_code,
+                country_name=excluded.country_name,
+                state_province=excluded.state_province,
+                city=excluded.city,
+                registration_id=excluded.registration_id,
+                registration_type=excluded.registration_type,
+                website=excluded.website,
+                email=excluded.email,
+                framework_area=excluded.framework_area,
+                ntee_code=excluded.ntee_code,
+                annual_revenue=excluded.annual_revenue,
+                status=excluded.status,
+                verified=excluded.verified
+            ON CONFLICT(country_code, registration_type, registration_id)
+            WHERE registration_id IS NOT NULL AND TRIM(registration_id) != ''
+            DO UPDATE SET
+                name=excluded.name,
+                country_name=excluded.country_name,
+                city=excluded.city,
+                website=excluded.website,
+                email=excluded.email,
+                framework_area=excluded.framework_area,
+                ntee_code=excluded.ntee_code,
+                source=excluded.source,
+                source_id=excluded.source_id,
+                annual_revenue=excluded.annual_revenue,
+                status=excluded.status,
+                verified=excluded.verified
         ''', batch)
         rows_inserted += c.rowcount
         conn.commit()

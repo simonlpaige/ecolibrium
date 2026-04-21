@@ -7,6 +7,53 @@ import sqlite3, csv, urllib.request, urllib.parse, zipfile, io, json, os, time, 
 DB = r"C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db"
 DATA = r"C:\Users\simon\.openclaw\workspace\ecolibrium\data"
 
+UPSERT_ORGANIZATIONS_SQL = '''
+INSERT INTO organizations
+    (name,country_code,country_name,state_province,city,registration_id,registration_type,
+     description,website,email,framework_area,ntee_code,icnpo_code,source,source_id,
+     last_filing_year,annual_revenue,status,verified)
+    VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+    ON CONFLICT(source, source_id)
+    WHERE source_id IS NOT NULL AND TRIM(source_id) != ''
+    DO UPDATE SET
+        name=excluded.name,
+        country_code=excluded.country_code,
+        country_name=excluded.country_name,
+        state_province=excluded.state_province,
+        city=excluded.city,
+        registration_id=excluded.registration_id,
+        registration_type=excluded.registration_type,
+        description=COALESCE(excluded.description, organizations.description),
+        website=COALESCE(excluded.website, organizations.website),
+        email=COALESCE(excluded.email, organizations.email),
+        framework_area=excluded.framework_area,
+        ntee_code=excluded.ntee_code,
+        icnpo_code=excluded.icnpo_code,
+        last_filing_year=excluded.last_filing_year,
+        annual_revenue=excluded.annual_revenue,
+        status=excluded.status,
+        verified=excluded.verified
+    ON CONFLICT(country_code, registration_type, registration_id)
+    WHERE registration_id IS NOT NULL AND TRIM(registration_id) != ''
+    DO UPDATE SET
+        name=excluded.name,
+        country_name=excluded.country_name,
+        state_province=excluded.state_province,
+        city=excluded.city,
+        description=COALESCE(excluded.description, organizations.description),
+        website=COALESCE(excluded.website, organizations.website),
+        email=COALESCE(excluded.email, organizations.email),
+        framework_area=excluded.framework_area,
+        ntee_code=excluded.ntee_code,
+        icnpo_code=excluded.icnpo_code,
+        source=excluded.source,
+        source_id=excluded.source_id,
+        last_filing_year=excluded.last_filing_year,
+        annual_revenue=excluded.annual_revenue,
+        status=excluded.status,
+        verified=excluded.verified
+'''
+
 FRAMEWORK_KEYWORDS = {
     'democracy': ['civic','democracy','governance','community','citizen','rights','political','vote','accountability','transparency','civil'],
     'cooperatives': ['cooperative','co-op','worker','savings','credit union','thrift','mutual benefit','solidarity','coop'],
@@ -32,11 +79,7 @@ def guess_area(text):
     return best if scores[best] > 0 else None
 
 def insert_batch(db, batch):
-    db.executemany('''INSERT OR IGNORE INTO organizations
-        (name,country_code,country_name,state_province,city,registration_id,registration_type,
-         description,website,email,framework_area,ntee_code,icnpo_code,source,source_id,
-         last_filing_year,annual_revenue,status,verified)
-        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)''', batch)
+    db.executemany(UPSERT_ORGANIZATIONS_SQL, batch)
     db.commit()
     return db.execute('SELECT changes()').fetchone()[0]
 
