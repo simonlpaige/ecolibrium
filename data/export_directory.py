@@ -12,23 +12,28 @@ from datetime import datetime
 DB_PATH = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_directory.db'
 REGIONAL_DIR = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\regional'
 OUTPUT_PATH = r'C:\Users\simon\.openclaw\workspace\ecolibrium\DIRECTORY.md'
+ACTIVE_WHERE = "status='active'"
 
 db = sqlite3.connect(DB_PATH)
 c = db.cursor()
 
-c.execute("SELECT COUNT(*) FROM organizations")
+c.execute(f"SELECT COUNT(*) FROM organizations WHERE {ACTIVE_WHERE}")
 total_orgs = c.fetchone()[0]
+c.execute(f"""
+    SELECT country_code, COUNT(*)
+    FROM organizations
+    WHERE {ACTIVE_WHERE} AND country_code IS NOT NULL AND country_code != ''
+    GROUP BY country_code
+""")
+country_counts = {code: count for code, count in c.fetchall()}
+
+c.execute(f"SELECT COUNT(*) FROM organizations WHERE country_code='US' AND {ACTIVE_WHERE}")
+us_total_orgs = c.fetchone()[0]
 
 regional_files = sorted(glob.glob(os.path.join(REGIONAL_DIR, 'DIRECTORY_*.md')))
 regional_countries = len(regional_files)
 
 now = datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')
-
-# Count orgs per regional file
-def count_orgs_in_md(filepath):
-    with open(filepath, 'r', encoding='utf-8') as f:
-        content = f.read()
-    return len(re.findall(r'^#{2,3} .+', content, re.MULTILINE))
 
 def get_country_name(filepath):
     with open(filepath, 'r', encoding='utf-8') as f:
@@ -46,25 +51,25 @@ lines.append("")
 lines.append("## Coverage\n")
 lines.append("| Country / Region | Organizations | Source | Status |")
 lines.append("|-----------------|--------------|--------|--------|")
-lines.append(f"| 🇺🇸 United States | {total_orgs:,} | IRS EO Business Master File | ✅ Complete |")
+lines.append(f"| 🇺🇸 United States | {us_total_orgs:,} | IRS EO Business Master File | ✅ Complete |")
 
 for f in regional_files:
     cc = re.search(r'DIRECTORY_([A-Z]+)\.md', os.path.basename(f))
     code = cc.group(1) if cc else '??'
     country = get_country_name(f)
-    n = count_orgs_in_md(f)
-    lines.append(f"| 🌐 {country} ({code}) | ~{n} | Field Research | ✅ |")
+    n = country_counts.get(code, 0)
+    lines.append(f"| 🌐 {country} ({code}) | {n:,} | Field Research | ✅ |")
 
 # Planned countries (from Paperclip todo issues)
 lines.append("| 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |")
 lines.append("")
-lines.append(f"**Total: {total_orgs:,}+ organizations indexed** across {1 + regional_countries} countries\n")
+lines.append(f"**Total: {total_orgs:,} organizations indexed** across {len(country_counts):,} countries\n")
 lines.append("")
 lines.append("---\n")
 
 # US section - top orgs by NTEE category (not all 689K)
 lines.append("## 🇺🇸 United States\n")
-lines.append(f"*{total_orgs:,} registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*\n")
+lines.append(f"*{us_total_orgs:,} active registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*\n")
 lines.append("")
 lines.append("### Top Organizations by Category\n")
 
@@ -99,8 +104,8 @@ NTEE_CATEGORIES = {
 
 for code, name in NTEE_CATEGORIES.items():
     c.execute("""
-        SELECT COUNT(*) FROM organizations 
-        WHERE country_code='US' AND ntee_code LIKE ?
+        SELECT COUNT(*) FROM organizations
+        WHERE country_code='US' AND status='active' AND ntee_code LIKE ?
     """, (f'{code}%',))
     cat_count = c.fetchone()[0]
     if cat_count == 0:
@@ -112,7 +117,7 @@ for code, name in NTEE_CATEGORIES.items():
     c.execute("""
         SELECT name, city, state_province, ntee_code, website, annual_revenue
         FROM organizations
-        WHERE country_code='US' AND ntee_code LIKE ?
+        WHERE country_code='US' AND status='active' AND ntee_code LIKE ?
           AND name IS NOT NULL AND name != ''
         ORDER BY COALESCE(annual_revenue, 0) DESC
         LIMIT 20

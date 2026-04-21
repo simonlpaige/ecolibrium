@@ -18,6 +18,7 @@ DB_PATH = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\ecolibrium_direct
 REGIONAL_DIR = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\regional'
 OUTPUT_DIR = r'C:\Users\simon\.openclaw\workspace\ecolibrium\data\search'
 ECOLIBRIUM_DIR = r'C:\Users\simon\.openclaw\workspace\ecolibrium'
+ACTIVE_WHERE = "status='active'"
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
@@ -55,13 +56,13 @@ US_STATE_NAMES = {
 # ── 1. Country index ──────────────────────────────────────────────────────────
 print("Building country index...")
 
-c.execute("SELECT COUNT(*) FROM organizations")
+c.execute(f"SELECT COUNT(*) FROM organizations WHERE {ACTIVE_WHERE}")
 total_orgs = c.fetchone()[0]
 
 c.execute("""
     SELECT country_code, country_name, COUNT(*) as n
     FROM organizations
-    WHERE country_code IS NOT NULL AND country_code != ''
+    WHERE country_code IS NOT NULL AND country_code != '' AND status='active'
     GROUP BY country_code
     ORDER BY n DESC
 """)
@@ -79,13 +80,12 @@ for f in regional_files:
         continue  # skip bogus codes
     with open(f, encoding='utf-8') as fh:
         content = fh.read()
-    # Count orgs (### headers)
-    n = len(re.findall(r'^### .+', content, re.MULTILINE))
     # Get country name
     m = re.search(r'# .+? (.+?) \(', content)
     name = m.group(1).strip() if m else code
-    if n > 0:
-        regional_countries[code] = {'name': name, 'count': n, 'source': 'research'}
+    db_count = db_countries.get(code, {}).get('count', 0)
+    if db_count > 0:
+        regional_countries[code] = {'name': name, 'count': db_count, 'source': 'research'}
 
 # Merge: DB countries + regional countries
 all_countries = {}
@@ -115,15 +115,18 @@ print("Building US state index...")
 c.execute("""
     SELECT state_province, COUNT(*) as n
     FROM organizations
-    WHERE country_code='US' AND state_province IS NOT NULL AND state_province != ''
+    WHERE country_code='US' AND status='active' AND state_province IS NOT NULL AND state_province != ''
     GROUP BY state_province ORDER BY state_province
 """)
 states = {r['state_province']: r['n'] for r in c.fetchall()}
 
+c.execute(f"SELECT COUNT(*) FROM organizations WHERE country_code='US' AND {ACTIVE_WHERE}")
+us_total_orgs = c.fetchone()[0]
+
 us_meta = {
     'country_code': 'US',
     'country_name': 'United States',
-    'total': total_orgs,
+    'total': us_total_orgs,
     'source': 'IRS EO Business Master File',
     'states': {code: {'name': US_STATE_NAMES.get(code, code), 'count': n} for code, n in states.items()},
     'ntee_counts': {}
@@ -131,7 +134,7 @@ us_meta = {
 
 # NTEE category counts
 for letter in NTEE_NAMES:
-    c.execute("SELECT COUNT(*) FROM organizations WHERE country_code='US' AND ntee_code LIKE ?", (f'{letter}%',))
+    c.execute(f"SELECT COUNT(*) FROM organizations WHERE country_code='US' AND {ACTIVE_WHERE} AND ntee_code LIKE ?", (f'{letter}%',))
     us_meta['ntee_counts'][letter] = c.fetchone()[0]
 
 with open(os.path.join(OUTPUT_DIR, 'US_meta.json'), 'w', encoding='utf-8') as f:
@@ -143,7 +146,7 @@ for state_code, state_count in states.items():
     c.execute("""
         SELECT name, city, ntee_code, website, annual_revenue, description, registration_id
         FROM organizations
-        WHERE country_code='US' AND state_province=?
+        WHERE country_code='US' AND status='active' AND state_province=?
         ORDER BY COALESCE(annual_revenue,0) DESC, name ASC
     """, (state_code,))
     orgs = []
