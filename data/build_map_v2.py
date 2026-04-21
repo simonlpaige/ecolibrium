@@ -42,33 +42,35 @@ def haversine_km(lat1, lon1, lat2, lon2):
 def assign_tiers(db):
     """Assign quality tiers based on data completeness."""
     c = db.cursor()
-    
-    # Tier A: verified=1 AND has description AND has website
-    c.execute("""UPDATE organizations SET tags = 'tier_a' 
-                 WHERE status='active' AND verified=1 
+
+    c.execute("UPDATE organizations SET quality_tier = NULL WHERE status='active'")
+
+    # Tier A: reviewed rows with both description and website
+    c.execute("""UPDATE organizations SET quality_tier = 'tier_a'
+                 WHERE status='active' AND review_status='reviewed'
                  AND description IS NOT NULL AND description != ''
                  AND website IS NOT NULL AND website != ''""")
     tier_a = c.rowcount
-    
-    # Tier B: has description OR (verified AND has website) OR source in (web_research, manual_curation, ProPublica)
-    c.execute("""UPDATE organizations SET tags = 'tier_b'
-                 WHERE status='active' AND (tags IS NULL OR tags = '')
+
+    # Tier B: sourced rows with enough public detail to show on the map
+    c.execute("""UPDATE organizations SET quality_tier = 'tier_b'
+                 WHERE status='active' AND quality_tier IS NULL
                  AND (
-                     (description IS NOT NULL AND description != '')
-                     OR (verified=1 AND website IS NOT NULL AND website != '')
-                     OR source IN ('web_research', 'manual_curation', 'ProPublica')
-                 )""")
+                      (description IS NOT NULL AND description != '')
+                      OR (review_status='reviewed' AND website IS NOT NULL AND website != '')
+                      OR source IN ('web_research', 'manual_curation', 'ProPublica')
+                  )""")
     tier_b = c.rowcount
-    
-    # Tier C: alignment_score >= 3 (meaningful keyword match)
-    c.execute("""UPDATE organizations SET tags = 'tier_c'
-                 WHERE status='active' AND (tags IS NULL OR tags = '')
-                 AND alignment_score >= 3""")
+
+    # Tier C: passed the keyword scorer but has not been reviewed
+    c.execute("""UPDATE organizations SET quality_tier = 'tier_c'
+                 WHERE status='active' AND quality_tier IS NULL
+                 AND scored_pass = 1""")
     tier_c = c.rowcount
-    
+
     # Tier D: everything else that's active
-    c.execute("""UPDATE organizations SET tags = 'tier_d'
-                 WHERE status='active' AND (tags IS NULL OR tags = '')""")
+    c.execute("""UPDATE organizations SET quality_tier = 'tier_d'
+                 WHERE status='active' AND quality_tier IS NULL""")
     tier_d = c.rowcount
     
     db.commit()
@@ -86,12 +88,12 @@ def build_map_points(db):
     # Get all Tier A/B/C orgs with coordinates
     c.execute("""
         SELECT id, name, lat, lon, framework_area, model_type, website, description,
-               country_code, state_province, annual_revenue, source, tags, alignment_score
+               country_code, state_province, annual_revenue, source, quality_tier, alignment_score
         FROM organizations
         WHERE status='active' AND lat IS NOT NULL AND lon IS NOT NULL
-          AND tags IN ('tier_a', 'tier_b', 'tier_c')
-        ORDER BY 
-            CASE tags WHEN 'tier_a' THEN 0 WHEN 'tier_b' THEN 1 ELSE 2 END,
+          AND quality_tier IN ('tier_a', 'tier_b', 'tier_c')
+        ORDER BY
+            CASE quality_tier WHEN 'tier_a' THEN 0 WHEN 'tier_b' THEN 1 ELSE 2 END,
             annual_revenue DESC NULLS LAST
     """)
     
@@ -227,7 +229,7 @@ def build_country_aggregates(db):
     
     c.execute("""
         SELECT country_code, framework_area, COUNT(*), SUM(CASE WHEN verified=1 THEN 1 ELSE 0 END),
-               SUM(CASE WHEN tags='tier_a' THEN 1 WHEN tags='tier_b' THEN 1 ELSE 0 END)
+               SUM(CASE WHEN quality_tier='tier_a' THEN 1 WHEN quality_tier='tier_b' THEN 1 ELSE 0 END)
         FROM organizations
         WHERE status='active' AND framework_area IS NOT NULL
         GROUP BY country_code, framework_area
@@ -280,7 +282,7 @@ def build_state_aggregates(db):
         SELECT state_province, framework_area, COUNT(*)
         FROM organizations
         WHERE status='active' AND country_code='US' AND state_province IS NOT NULL
-          AND framework_area IS NOT NULL AND tags IN ('tier_a', 'tier_b', 'tier_c')
+          AND framework_area IS NOT NULL AND quality_tier IN ('tier_a', 'tier_b', 'tier_c')
         GROUP BY state_province, framework_area
     """)
     

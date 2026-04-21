@@ -212,17 +212,17 @@ def run():
         
         if updates_active:
             c.executemany(
-                "UPDATE organizations SET alignment_score=?, model_type=?, status='active', verified=1 WHERE id=?",
+                "UPDATE organizations SET alignment_score=?, model_type=?, status='active', scored_pass=1 WHERE id=?",
                 updates_active
             )
         if updates_downgrade:
             c.executemany(
-                "UPDATE organizations SET alignment_score=?, model_type=?, status='active', verified=0 WHERE id=?",
+                "UPDATE organizations SET alignment_score=?, model_type=?, status='active', scored_pass=0 WHERE id=?",
                 updates_downgrade
             )
         if updates_remove:
             c.executemany(
-                "UPDATE organizations SET alignment_score=?, model_type=?, status='removed' WHERE id=?",
+                "UPDATE organizations SET alignment_score=?, model_type=?, status='removed', scored_pass=0 WHERE id=?",
                 updates_remove
             )
         
