@@ -41,6 +41,42 @@ function hashBody(body) {
   return crypto.createHash('sha256').update(body).digest('hex');
 }
 
+// Parse a SQLite datetime('now') string, which is "YYYY-MM-DD HH:MM:SS" in
+// UTC, as an actual Date. The bare form is interpreted as local time by
+// Date, which is subtly wrong.
+function parseSqliteUtc(s) {
+  if (!s) return null;
+  // Already ISO (trailing Z or explicit offset)? trust it.
+  if (/[Zz]$|[+\-]\d{2}:?\d{2}$/.test(s)) return new Date(s);
+  // Convert "YYYY-MM-DD HH:MM:SS" -> "YYYY-MM-DDTHH:MM:SSZ"
+  return new Date(s.replace(' ', 'T') + 'Z');
+}
+
+// Read the per-proposal voting salt. Prefer the dedicated voting_salt
+// column (post-migration 0001). Fall back to the legacy "body_hash:salt"
+// packing only if the new column is unpopulated, so old rows still work.
+function getProposalSalt(proposal) {
+  if (proposal.voting_salt) return proposal.voting_salt;
+  if (proposal.body_hash && proposal.body_hash.includes(':')) {
+    return proposal.body_hash.split(':')[1];
+  }
+  return null;
+}
+
+// Verify that a proposal body still matches the hash recorded when it was
+// opened. Exported so an admin route can surface tampering.
+export function verifyBody(db, proposalId) {
+  const proposal = getProposal(db, proposalId);
+  if (!proposal) throw new Error('Proposal not found');
+  if (!proposal.body_hash) return { verified: false, reason: 'no body_hash recorded' };
+  // Strip legacy ":salt" suffix if present for back-compat.
+  const pureHash = proposal.body_hash.includes(':')
+    ? proposal.body_hash.split(':')[0]
+    : proposal.body_hash;
+  const current = hashBody(proposal.body);
+  return { verified: current === pureHash, expected: pureHash, current };
+}
+
 // ----------------------------------------------------------------
 // PROPOSALS
 // ----------------------------------------------------------------
@@ -106,8 +142,9 @@ export function createProposal(db, {
 }
 
 // Open a draft proposal for voting.
-// Once opened, the body is locked (body_hash is recorded).
-// Only the author, or a trust-4+ user, can open a proposal.
+// Once opened, the body is locked (body_hash stays pure and the per-proposal
+// voting_salt is stored separately). Only the author, or a trust-4+ user,
+// can open a proposal.
 export function openProposal(db, proposalId, actingUserId) {
   const proposal = getProposal(db, proposalId);
   if (!proposal) throw new Error('Proposal not found');
@@ -123,7 +160,9 @@ export function openProposal(db, proposalId, actingUserId) {
     }
   }
 
-  // Generate a per-proposal salt for blinded voter IDs
+  // Generate a per-proposal salt for blinded voter IDs. Stored in its own
+  // column so body_hash stays a pure hash of the body and can still be used
+  // to detect retroactive edits.
   const salt = crypto.randomBytes(32).toString('hex');
 
   db.prepare(`
@@ -131,8 +170,7 @@ export function openProposal(db, proposalId, actingUserId) {
     SET status = 'open',
         opens_at = COALESCE(opens_at, datetime('now')),
         updated_at = datetime('now'),
-        -- Store salt in body_hash field temporarily (append after body hash)
-        body_hash = body_hash || ':' || ?
+        voting_salt = ?
     WHERE id = ?
   `).run(salt, proposalId);
 
@@ -179,12 +217,15 @@ export function castVote(db, { userId, proposalId, value, userPrivKey = null }) 
   if (!proposal) throw new Error('Proposal not found');
   if (proposal.status !== 'open') throw new Error('This proposal is not open for voting');
 
-  // Check if voting window is active
+  // Check if voting window is active. SQLite's datetime('now') returns a
+  // naive "YYYY-MM-DD HH:MM:SS" string in UTC, but the JS Date constructor
+  // parses naive strings as local time. Explicitly treat the stored times
+  // as UTC so a timezone-offset from local does not lock anyone out.
   const now = new Date();
-  if (proposal.opens_at && new Date(proposal.opens_at) > now) {
+  if (proposal.opens_at && parseSqliteUtc(proposal.opens_at) > now) {
     throw new Error('Voting has not started yet');
   }
-  if (proposal.closes_at && new Date(proposal.closes_at) < now) {
+  if (proposal.closes_at && parseSqliteUtc(proposal.closes_at) < now) {
     throw new Error('Voting has closed');
   }
 
@@ -202,17 +243,32 @@ export function castVote(db, { userId, proposalId, value, userPrivKey = null }) 
   // Validate the vote value for the method
   validateVoteValue(proposal.vote_method, value);
 
-  // Extract salt from body_hash field (stored as "bodyhash:salt")
-  const [, salt] = proposal.body_hash.split(':');
+  const salt = getProposalSalt(proposal);
   if (!salt) throw new Error('Proposal has no voting salt - was it properly opened?');
 
   const blindId = blindVoterId(userId, proposalId, salt);
 
-  // Sign the vote if we have a private key
+  // Sign the vote if the caller provided a private key. The client holds the
+  // private key (returned once at signup); we verify here against the user's
+  // stored pubkey so a bad signature is rejected instead of silently stored.
   let signature = null;
   if (userPrivKey) {
     const payload = `${blindId}:${proposalId}:${JSON.stringify(value)}`;
-    signature = crypto.sign(null, Buffer.from(payload), userPrivKey).toString('base64');
+    try {
+      const keyObj = typeof userPrivKey === 'string'
+        ? crypto.createPrivateKey(userPrivKey) : userPrivKey;
+      signature = crypto.sign(null, Buffer.from(payload), keyObj).toString('base64');
+      if (user.pubkey) {
+        const ok = crypto.verify(
+          null, Buffer.from(payload),
+          crypto.createPublicKey(user.pubkey),
+          Buffer.from(signature, 'base64')
+        );
+        if (!ok) throw new Error('Vote signature does not match your registered public key');
+      }
+    } catch (err) {
+      throw new Error(`Vote signature failed: ${err.message}`);
+    }
   }
 
   try {
@@ -238,25 +294,33 @@ export function castVote(db, { userId, proposalId, value, userPrivKey = null }) 
   };
 }
 
-// Handle liquid democracy delegation
+// Handle liquid democracy delegation.
+//
+// The trick: we store the delegation in blind-space. The vote value is
+// `delegate:<blind_id_of_delegate>`, where the delegate's blind_id is
+// computed with the same per-proposal salt as every other blinded voter
+// on this proposal. That way tallyLiquid can walk the chain in blind-space
+// without ever touching raw user ids and the resolver actually works.
 export function delegateVote(db, { delegatorId, delegateId, proposalId }) {
   const proposal = getProposal(db, proposalId);
   if (!proposal) throw new Error('Proposal not found');
   if (proposal.vote_method !== 'liquid') {
     throw new Error('Delegation only applies to liquid democracy proposals');
   }
-
-  // Cycle guard: follow existing delegation chain up to 10 hops and refuse
-  // if we would create a loop back to the delegator.
   if (delegatorId === delegateId) throw new Error('Cannot delegate to yourself');
+
   const delegateUser = db.prepare(`SELECT id FROM users WHERE id = ? AND active = 1`).get(delegateId);
   if (!delegateUser) throw new Error('Delegate not found');
 
-  // Cast as a delegation vote
+  const salt = getProposalSalt(proposal);
+  if (!salt) throw new Error('Proposal has no voting salt - was it properly opened?');
+
+  const delegateBlindId = blindVoterId(delegateId, proposalId, salt);
+
   return castVote(db, {
     userId: delegatorId,
     proposalId,
-    value: `delegate:${delegateId}`
+    value: `delegate:${delegateBlindId}`
   });
 }
 
@@ -283,7 +347,7 @@ export function tallyVotes(db, proposalId) {
     case 'score':
       return tallyScore(votes, options, total);
     case 'liquid':
-      return tallyLiquid(db, votes, total, proposalId, proposal.body_hash.split(':')[1]);
+      return tallyLiquid(db, votes, total, proposalId, getProposalSalt(proposal));
     default:
       throw new Error('Unknown vote method');
   }
@@ -385,53 +449,58 @@ function tallyScore(votes, options, total) {
   return { method: 'score', total, results };
 }
 
-function tallyLiquid(db, votes, total, proposalId, salt) {
-  // Resolve delegations: follow the delegation chain to find actual votes
-  const directVotes = votes.filter(v => !JSON.parse(v.value).startsWith?.('delegate:'));
-  const delegations = votes.filter(v => {
-    const val = JSON.parse(v.value);
-    return typeof val === 'string' && val.startsWith('delegate:');
-  });
+function tallyLiquid(db, votes, total, proposalId /* salt unused but kept for signature */) {
+  // All ids in this resolver are BLIND ids. delegateVote now stores
+  // `delegate:<delegate_blind_id>`, matching the voter_blind_id column,
+  // so the delegation chain can be walked without leaking raw user ids.
+  const directVotes = [];
+  const delegations = [];
 
-  // Build delegation map: blindId -> delegate blindId
-  const delegationMap = {};
-  delegations.forEach(v => {
-    const delegateRawId = JSON.parse(v.value).replace('delegate:', '');
-    delegationMap[v.voter_blind_id] = delegateRawId;
-  });
+  for (const v of votes) {
+    let val;
+    try { val = JSON.parse(v.value); } catch { continue; }
+    if (typeof val === 'string' && val.startsWith('delegate:')) {
+      delegations.push({ from: v.voter_blind_id, to: val.slice('delegate:'.length) });
+    } else {
+      directVotes.push({ blindId: v.voter_blind_id, vote: val });
+    }
+  }
 
-  // For each delegation, follow the chain to find the final vote
-  // (max 5 hops to prevent infinite loops)
-  const resolvedVotes = { yes: 0, no: 0, abstain: 0 };
+  // Build the delegation map in blind-space.
+  const delegationMap = Object.fromEntries(delegations.map(d => [d.from, d.to]));
+
+  // Direct voters start with weight 1.
   const weights = {};
+  for (const d of directVotes) {
+    weights[d.blindId] = (weights[d.blindId] || 0) + 1;
+  }
 
-  // Direct voters start with weight 1
-  directVotes.forEach(v => {
-    weights[v.voter_blind_id] = (weights[v.voter_blind_id] || 0) + 1;
-  });
-
-  // Resolve delegations
-  delegations.forEach(v => {
-    let current = v.voter_blind_id;
+  // Walk each delegation chain up to 10 hops and credit its weight to the
+  // terminal direct voter (if any). Loops are broken with a visited set.
+  for (const d of delegations) {
+    let current = d.to;
+    const visited = new Set([d.from]);
     let hops = 0;
-    while (delegationMap[current] && hops < 5) {
+    while (delegationMap[current] && hops < 10 && !visited.has(current)) {
+      visited.add(current);
       current = delegationMap[current];
       hops++;
     }
-    // current is now either a direct voter or an unresolved delegation
-    weights[current] = (weights[current] || 0) + 1;
-  });
-
-  // Apply weights to direct votes
-  const directMap = {};
-  directVotes.forEach(v => { directMap[v.voter_blind_id] = JSON.parse(v.value); });
-
-  Object.entries(weights).forEach(([blindId, weight]) => {
-    const vote = directMap[blindId];
-    if (vote && resolvedVotes[vote] !== undefined) {
-      resolvedVotes[vote] += weight;
+    // If the chain terminates on a direct voter, add weight there.
+    // If it terminates on an unresolved blind id (delegated to someone who
+    // never voted) the weight is dropped, which matches liquid democracy
+    // norms: delegation without a downstream vote does not count.
+    if (directVotes.some(v => v.blindId === current)) {
+      weights[current] = (weights[current] || 0) + 1;
     }
-  });
+  }
+
+  // Apply weights to direct votes.
+  const resolvedVotes = { yes: 0, no: 0, abstain: 0 };
+  for (const d of directVotes) {
+    const w = weights[d.blindId] || 1;
+    if (resolvedVotes[d.vote] !== undefined) resolvedVotes[d.vote] += w;
+  }
 
   const resolvedTotal = Object.values(resolvedVotes).reduce((a, b) => a + b, 0);
 
@@ -574,10 +643,11 @@ export function getVoteCount(db, proposalId) {
 // Check if a user has voted (uses blinded check - doesn't reveal their vote)
 export function hasVoted(db, userId, proposalId) {
   const proposal = getProposal(db, proposalId);
-  if (!proposal || !proposal.body_hash.includes(':')) return false;
+  if (!proposal) return false;
 
-  const salt = proposal.body_hash.split(':')[1];
+  const salt = getProposalSalt(proposal);
+  if (!salt) return false;
+
   const blindId = blindVoterId(userId, proposalId, salt);
-
   return !!db.prepare(`SELECT 1 FROM votes WHERE proposal_id = ? AND voter_blind_id = ?`).get(proposalId, blindId);
 }

@@ -19,3 +19,17 @@ data/*.db.backup
 # DeepSeek critique bundle (local only)
 .deepseek-bundle.md
 _scratch/
+
+# Node
+node_modules/
+**/node_modules/
+npm-debug.log*
+
+# Local civic-identity/neighborhood-os runtime artifacts
+civic-identity.db
+neighborhood-os.db
+*.db-wal
+*.db-shm
+smoke-test.db*
+fed-a.db*
+fed-b.db*

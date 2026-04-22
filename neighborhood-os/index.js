@@ -14,6 +14,11 @@ export * as ecoDirConnector from './connectors/commonweave-directory.js';
 export * as identity from '../civic-identity/identity.js';
 export * as voting from '../civic-identity/voting.js';
 export * as federation from '../civic-identity/federation.js';
+export * as issues from '../civic-identity/issues.js';
+export * as commitments from '../civic-identity/commitments.js';
+export * as audit from '../civic-identity/audit.js';
+export * as retention from '../civic-identity/retention.js';
+export * as probe from './ingest/probe.js';
 
 // ----------------------------------------------------------------
 // Convenience: spin up a full node

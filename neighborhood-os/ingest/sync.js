@@ -17,6 +17,7 @@ import { syncRecentMatters, syncRecentEvents, getOverdueCommitments }
   from '../connectors/legistar.js';
 import { getSocialSummary, scrapeNextdoorPublicPage }
   from '../connectors/social.js';
+import { probeKcOpenData, getConnectorStatus } from './probe.js';
 
 // ----------------------------------------------------------------
 // Config
@@ -56,6 +57,24 @@ const results = {};
 // ---- KC Open Data ----
 if (!sourceFilter || sourceFilter === 'kc-data') {
   console.log('\n📊 KC Open Data...');
+
+  // Probe first so we know which datasets changed shape or went dark
+  // before we trust the sync numbers.
+  try {
+    const probes = await probeKcOpenData(db);
+    const red = probes.filter(p => p.status === 'red');
+    const yellow = probes.filter(p => p.status === 'yellow');
+    if (red.length || yellow.length) {
+      console.log(`  ⚠ probe: ${red.length} red, ${yellow.length} yellow (see connector_status table)`);
+      for (const p of [...red, ...yellow]) {
+        console.log(`     [${p.status}] ${p.key}: ${p.detail}`);
+      }
+    } else {
+      console.log(`  ✓ probe: all ${probes.length} datasets green`);
+    }
+  } catch (err) {
+    console.log(`  ✗ probe failed: ${err.message}`);
+  }
 
   const datasets = ['requests_311', 'permits', 'crime', 'violations',
                     'dangerous_buildings', 'budget_expenditures', 'vendor_payments'];

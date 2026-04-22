@@ -42,7 +42,7 @@ export const DATASETS = {
   dangerous_buildings: {
     id: 'ax3m-jhxx',
     name: 'Dangerous Buildings',
-    dateField: 'casenumber', // no good date field - use as static
+    dateField: null, // no good date field, pull full dataset each sync
     geoFields: ['latitude', 'longitude'],
     layer: 'health_index'
   },
@@ -159,7 +159,7 @@ export async function syncDataset(db, key, bounds = null, sinceDate = null) {
 
   // Incremental filter by date. Reject anything that is not an ISO-looking
   // string so a poisoned cursor cannot break out of the quoted literal.
-  if (dataset.dateField && since && dataset.dateField !== 'casenumber') {
+  if (dataset.dateField && since) {
     if (!/^[0-9T:\-.Z+ ]+$/.test(String(since))) {
       throw new Error(`Invalid since value for dataset ${key}`);
     }
@@ -177,8 +177,7 @@ export async function syncDataset(db, key, bounds = null, sinceDate = null) {
       limit: 1000,
       offset,
       where,
-      orderBy: dataset.dateField && dataset.dateField !== 'casenumber'
-        ? `${dataset.dateField} ASC` : null
+      orderBy: dataset.dateField ? `${dataset.dateField} ASC` : null
     });
     records.push(...page);
     offset += page.length;
@@ -187,8 +186,20 @@ export async function syncDataset(db, key, bounds = null, sinceDate = null) {
   // Store raw records
   storeRawRecords(db, key, records, dataset.layer);
 
-  // Update cursor to now
-  const newCursor = new Date().toISOString();
+  // Cursor advances to the largest dateField we actually saw. If we saw
+  // nothing, keep the prior cursor so next run retries the same window.
+  // If the dataset has no dateField, we cannot do incremental pulls, so
+  // we just stamp the sync time.
+  let newCursor = cursor?.cursor_val || since;
+  if (dataset.dateField && records.length > 0) {
+    for (const r of records) {
+      const v = r[dataset.dateField];
+      if (v && (!newCursor || v > newCursor)) newCursor = v;
+    }
+  } else if (!dataset.dateField) {
+    newCursor = new Date().toISOString();
+  }
+
   db.prepare(`
     INSERT OR REPLACE INTO sync_cursors (dataset_key, cursor_val, last_synced)
     VALUES (?, ?, datetime('now'))

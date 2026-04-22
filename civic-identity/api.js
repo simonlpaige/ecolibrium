@@ -3,12 +3,13 @@
 // Designed to run on a neighborhood node (WaldoNet Raspberry Pi or similar).
 //
 // Routes:
-//   POST /signup                    - Register anonymous user
+//   POST /signup                    - Register anonymous user (returns one-time private key)
 //   POST /verify-email              - Submit email for verification
 //   POST /confirm-email             - Confirm email token
 //   POST /vouch                     - Vouch for another user
 //   GET  /users/:handle             - Get public user profile
 //   GET  /stats                     - Node stats (user counts by trust level)
+//   POST /logout                    - Destroy current session
 //
 //   GET  /proposals                 - List open proposals
 //   GET  /proposals/:id             - Get proposal detail + current tally
@@ -17,11 +18,27 @@
 //   POST /proposals/:id/vote        - Cast a vote
 //   GET  /proposals/:id/voted       - Has the current session voted?
 //   POST /proposals/:id/close       - Close voting
+//   GET  /proposals/:id/verify-body - Check body_hash vs stored body
 //
-//   GET  /federation/peers          - List federation peers
-//   POST /federation/peers          - Add a peer request
+//   GET  /commitments               - List commitments (?status=, ?overdue=1)
+//   POST /commitments               - Create a commitment (trust 3+)
+//   POST /commitments/:id/resolve   - Close out a commitment (trust 4+)
+//   GET  /commitments/follow-through - Per-person follow-through scores
+//
+//   GET  /issues                    - List resident issues
+//   POST /issues                    - File an issue (auth)
+//   POST /issues/:id/ack            - Acknowledge (trust 3+)
+//   POST /issues/:id/resolve        - Resolve (trust 4+)
+//
+//   GET  /federation/peers          - List federation peers (admin)
+//   POST /federation/peers          - Add a peer request (admin)
+//   POST /federation/peers/request  - Inbound: a peer announces itself
+//   POST /federation/peers/:node/accept - Flip pending_in to active (admin)
 //   POST /federation/receive        - Receive a data bundle from a peer
-//   GET  /federation/bundle/:peer   - Generate outbound bundle for a peer
+//   GET  /federation/bundle/:peer   - Generate outbound bundle (admin)
+//
+//   GET  /audit                     - Admin audit log view
+//   GET  /health                    - Node liveness
 
 import http from 'http';
 import crypto from 'crypto';
@@ -30,9 +47,16 @@ import { openDB, registerAnonymous, addEmail, verifyEmail, vouchFor, getUser,
          getUserByHandle, getTrustHistory, nodeStats, createSession,
          resolveSession, destroySession } from './identity.js';
 import { createProposal, openProposal, closeProposal, castVote, tallyVotes,
-         listProposals, getProposal, getVoteCount, hasVoted } from './voting.js';
+         listProposals, getProposal, getVoteCount, hasVoted,
+         verifyBody } from './voting.js';
 import { addPeer, activatePeer, getActivePeers, buildShareBundle,
          receiveBundle, ensureFederationTable } from './federation.js';
+import { logAction, recentAudit } from './audit.js';
+import { rateLimitCheck, LIMITS } from './rate-limit.js';
+import { createIssue, listIssues, getIssue, acknowledgeIssue, resolveIssue } from './issues.js';
+import { addCommitment, listCommitments, getCommitment,
+         resolveCommitment, followThroughScores,
+         ensureCommitmentsTable } from './commitments.js';
 
 // ----------------------------------------------------------------
 // Config (override via environment variables)
@@ -60,6 +84,7 @@ if (!ADMIN_TOKEN && !ALLOW_OPEN_ADMIN) {
 
 const db = openDB(DB_PATH);
 ensureFederationTable(db);
+ensureCommitmentsTable(db);
 
 // ----------------------------------------------------------------
 // Routing
@@ -69,6 +94,7 @@ const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, `http://localhost:${PORT}`);
   const path = url.pathname;
   const method = req.method;
+  const ip = callerIp(req);
 
   // CORS for local UI dev. Set CORS_ORIGIN=https://your-ui.example to lock down in prod.
   res.setHeader('Access-Control-Allow-Origin', CORS_ORIGIN);
@@ -76,6 +102,11 @@ const server = http.createServer(async (req, res) => {
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.setHeader('Vary', 'Origin');
   if (method === 'OPTIONS') { res.writeHead(204); res.end(); return; }
+
+  // Generic per-IP rate limit for every request. Specific budgets below
+  // layer on top of this.
+  const general = rateLimitCheck(db, `ip:${ip}`, LIMITS.generic);
+  if (!general.allowed) return respond(res, 429, { error: 'Too many requests', retryMs: general.resetMs });
 
   // Auth: resolve session from Authorization header
   const token = (req.headers.authorization || '').replace('Bearer ', '').trim();
@@ -85,14 +116,26 @@ const server = http.createServer(async (req, res) => {
     // ---- Users ----
 
     if (method === 'POST' && path === '/signup') {
+      const rl = rateLimitCheck(db, `signup:${ip}`, LIMITS.signup);
+      if (!rl.allowed) return respond(res, 429, { error: 'Signup rate limit', retryMs: rl.resetMs });
       const body = await readBody(req);
       const user = registerAnonymous(db, body.handle, NODE_SLUG);
       const sessionToken = createSession(db, user.id);
-      return respond(res, 201, { user: publicUser(user), token: sessionToken });
+      logAction(db, { actorUserId: user.id, actorIp: ip, action: 'signup', targetType: 'user', targetId: user.id });
+      // One-time private key: returned now, never stored. Client must save it.
+      const { _oneTimePrivateKey, ...publicFields } = user;
+      return respond(res, 201, {
+        user: publicUser(publicFields),
+        token: sessionToken,
+        privateKey: _oneTimePrivateKey,
+        notice: 'Save the private key now. It is never stored on the server and cannot be retrieved again.'
+      });
     }
 
     if (method === 'POST' && path === '/verify-email') {
       requireAuth(session);
+      const rl = rateLimitCheck(db, `email:${session.userId}`, LIMITS.verifyEmail);
+      if (!rl.allowed) return respond(res, 429, { error: 'Verification rate limit', retryMs: rl.resetMs });
       const body = await readBody(req);
       if (!isValidEmail(body.email)) return respond(res, 400, { error: 'Invalid email address' });
       const verifyToken = addEmail(db, session.userId, body.email);
@@ -111,6 +154,8 @@ const server = http.createServer(async (req, res) => {
       requireAuth(session);
       const body = await readBody(req);
       const updated = vouchFor(db, session.userId, body.voucheeId, body.note);
+      logAction(db, { actorUserId: session.userId, actorIp: ip, action: 'vouch',
+                      targetType: 'user', targetId: body.voucheeId, payload: { note: body.note || null } });
       return respond(res, 200, { user: publicUser(updated) });
     }
 
@@ -163,6 +208,11 @@ const server = http.createServer(async (req, res) => {
       });
     }
 
+    if (method === 'GET' && path.match(/^\/proposals\/[^/]+\/verify-body$/)) {
+      const id = path.split('/proposals/')[1].split('/verify-body')[0];
+      return respond(res, 200, verifyBody(db, id));
+    }
+
     if (method === 'POST' && path === '/proposals') {
       requireAuth(session);
       const body = await readBody(req);
@@ -181,17 +231,22 @@ const server = http.createServer(async (req, res) => {
       requireAuth(session);
       const id = path.split('/proposals/')[1].split('/open')[0];
       const proposal = openProposal(db, id, session.userId);
+      logAction(db, { actorUserId: session.userId, actorIp: ip, action: 'proposal.open',
+                      targetType: 'proposal', targetId: id });
       return respond(res, 200, { proposal: proposalDetail(proposal) });
     }
 
     if (method === 'POST' && path.match(/^\/proposals\/[^/]+\/vote$/)) {
       requireAuth(session);
+      const rl = rateLimitCheck(db, `vote:${session.userId}`, LIMITS.vote);
+      if (!rl.allowed) return respond(res, 429, { error: 'Vote rate limit', retryMs: rl.resetMs });
       const id = path.split('/proposals/')[1].split('/vote')[0];
       const body = await readBody(req);
       const result = castVote(db, {
         userId: session.userId,
         proposalId: id,
-        value: body.value
+        value: body.value,
+        userPrivKey: body.privateKey || null
       });
       return respond(res, 200, { receipt: result.receipt });
     }
@@ -206,7 +261,86 @@ const server = http.createServer(async (req, res) => {
       requireAuth(session);
       const id = path.split('/proposals/')[1].split('/close')[0];
       const result = closeProposal(db, id, session.userId);
+      logAction(db, { actorUserId: session.userId, actorIp: ip, action: 'proposal.close',
+                      targetType: 'proposal', targetId: id,
+                      payload: { passed: result.passed } });
       return respond(res, 200, result);
+    }
+
+    // ---- Commitments ----
+
+    if (method === 'GET' && path === '/commitments') {
+      const status = url.searchParams.get('status');
+      const overdue = url.searchParams.get('overdue') === '1';
+      return respond(res, 200, { commitments: listCommitments(db, { status, overdue }) });
+    }
+
+    if (method === 'POST' && path === '/commitments') {
+      requireAuth(session);
+      requireTrust(db, session.userId, 3);
+      const body = await readBody(req);
+      const c = addCommitment(db, body);
+      logAction(db, { actorUserId: session.userId, actorIp: ip, action: 'commitment.create',
+                      targetType: 'commitment', targetId: c.id });
+      return respond(res, 201, { commitment: c });
+    }
+
+    if (method === 'POST' && path.match(/^\/commitments\/[^/]+\/resolve$/)) {
+      requireAuth(session);
+      const id = path.split('/commitments/')[1].split('/resolve')[0];
+      const body = await readBody(req);
+      const c = resolveCommitment(db, id, session.userId, body.note);
+      logAction(db, { actorUserId: session.userId, actorIp: ip, action: 'commitment.resolve',
+                      targetType: 'commitment', targetId: id });
+      return respond(res, 200, { commitment: c });
+    }
+
+    if (method === 'GET' && path === '/commitments/follow-through') {
+      return respond(res, 200, { scores: followThroughScores(db) });
+    }
+
+    // ---- Resident issues ----
+
+    if (method === 'GET' && path === '/issues') {
+      const status = url.searchParams.get('status');
+      const category = url.searchParams.get('category');
+      return respond(res, 200, { issues: listIssues(db, { status, category }) });
+    }
+
+    if (method === 'GET' && path.match(/^\/issues\/[^/]+$/)) {
+      const id = path.split('/issues/')[1];
+      const issue = getIssue(db, id);
+      if (!issue) return respond(res, 404, { error: 'Issue not found' });
+      return respond(res, 200, { issue });
+    }
+
+    if (method === 'POST' && path === '/issues') {
+      requireAuth(session);
+      const body = await readBody(req);
+      const issue = createIssue(db, { ...body, reporterUserId: session.userId });
+      logAction(db, { actorUserId: session.userId, actorIp: ip, action: 'issue.create',
+                      targetType: 'issue', targetId: issue.id,
+                      payload: { category: issue.category } });
+      return respond(res, 201, { issue });
+    }
+
+    if (method === 'POST' && path.match(/^\/issues\/[^/]+\/ack$/)) {
+      requireAuth(session);
+      const id = path.split('/issues/')[1].split('/ack')[0];
+      const issue = acknowledgeIssue(db, id, session.userId);
+      logAction(db, { actorUserId: session.userId, actorIp: ip, action: 'issue.ack',
+                      targetType: 'issue', targetId: id });
+      return respond(res, 200, { issue });
+    }
+
+    if (method === 'POST' && path.match(/^\/issues\/[^/]+\/resolve$/)) {
+      requireAuth(session);
+      const id = path.split('/issues/')[1].split('/resolve')[0];
+      const body = await readBody(req);
+      const issue = resolveIssue(db, id, session.userId, body.note);
+      logAction(db, { actorUserId: session.userId, actorIp: ip, action: 'issue.resolve',
+                      targetType: 'issue', targetId: id });
+      return respond(res, 200, { issue });
     }
 
     // ---- Federation ----
@@ -220,12 +354,65 @@ const server = http.createServer(async (req, res) => {
       requireAdmin(req);
       const body = await readBody(req);
       const peer = addPeer(db, body);
+      logAction(db, { actorIp: ip, action: 'federation.peer.add',
+                      targetType: 'peer', targetId: peer.peer_node });
       return respond(res, 201, { peer });
+    }
+
+    // Inbound peer request. Anyone can announce themselves; they land as
+    // pending_in and require an admin accept to become active.
+    if (method === 'POST' && path === '/federation/peers/request') {
+      const body = await readBody(req);
+      if (!body.peerNode || !body.peerPubkey) {
+        return respond(res, 400, { error: 'peerNode and peerPubkey required' });
+      }
+      // Size-limit pubkey so we don't gulp down megabytes.
+      if (typeof body.peerPubkey !== 'string' || body.peerPubkey.length > 8000) {
+        return respond(res, 400, { error: 'peerPubkey invalid' });
+      }
+      // If we already have this peer, don't create a duplicate.
+      const existing = db.prepare(`SELECT * FROM federation_peers WHERE peer_node = ?`).get(body.peerNode);
+      if (existing) return respond(res, 409, { error: 'Peer already known', status: existing.status });
+      // Mark pending_in (incoming request). An admin must accept.
+      const id = crypto.randomUUID();
+      db.prepare(`
+        INSERT INTO federation_peers
+          (id, peer_node, peer_name, peer_url, peer_pubkey, status, share_scope, created_at, updated_at)
+        VALUES (?, ?, ?, ?, ?, 'pending_in', ?, datetime('now'), datetime('now'))
+      `).run(
+        id,
+        body.peerNode,
+        body.peerName || null,
+        body.peerUrl || null,
+        body.peerPubkey,
+        JSON.stringify(body.shareScope || ['aggregated_votes', 'user_count'])
+      );
+      logAction(db, { actorIp: ip, action: 'federation.peer.request',
+                      targetType: 'peer', targetId: body.peerNode });
+      return respond(res, 202, { status: 'pending_in', message: 'Awaiting admin approval' });
+    }
+
+    if (method === 'POST' && path.match(/^\/federation\/peers\/[^/]+\/accept$/)) {
+      requireAdmin(req);
+      const peerNode = decodeURIComponent(path.split('/federation/peers/')[1].split('/accept')[0]);
+      const body = await readBody(req);
+      activatePeer(db, peerNode, body.recvScope);
+      const peer = db.prepare(`SELECT * FROM federation_peers WHERE peer_node = ?`).get(peerNode);
+      if (!peer) return respond(res, 404, { error: 'Peer not found' });
+      logAction(db, { actorIp: ip, action: 'federation.peer.accept',
+                      targetType: 'peer', targetId: peerNode });
+      return respond(res, 200, { peer });
     }
 
     if (method === 'POST' && path === '/federation/receive') {
       const body = await readBody(req);
+      const peerKey = body?.sourceNode ? `fed:${body.sourceNode}` : `fed:ip:${ip}`;
+      const rl = rateLimitCheck(db, peerKey, LIMITS.federationReceive);
+      if (!rl.allowed) return respond(res, 429, { error: 'Federation rate limit', retryMs: rl.resetMs });
       const result = receiveBundle(db, body);
+      logAction(db, { actorIp: ip, action: 'federation.bundle.receive',
+                      targetType: 'peer', targetId: body?.sourceNode || null,
+                      payload: { bundleId: result.bundleId } });
       return respond(res, 200, result);
     }
 
@@ -237,6 +424,15 @@ const server = http.createServer(async (req, res) => {
       return respond(res, 200, bundle);
     }
 
+    // ---- Audit log (admin) ----
+
+    if (method === 'GET' && path === '/audit') {
+      requireAdmin(req);
+      const action = url.searchParams.get('action');
+      const limit = Math.min(parseInt(url.searchParams.get('limit') || '200'), 1000);
+      return respond(res, 200, { entries: recentAudit(db, { action, limit }) });
+    }
+
     // ---- Health ----
 
     if (method === 'GET' && path === '/health') {
@@ -246,12 +442,10 @@ const server = http.createServer(async (req, res) => {
     respond(res, 404, { error: 'Not found' });
 
   } catch (err) {
-    const status = err.message?.includes('required') || err.message?.includes('must') ? 400
-                 : err.message?.includes('not found') ? 404
-                 : err.message?.includes('trust level') ? 403
-                 : err.message?.includes('already') ? 409
-                 : 500;
-    respond(res, status, { error: err.message });
+    const { status, message } = toPublicError(err);
+    // Log the real error internally; return a scrubbed message to the caller.
+    if (status >= 500) console.error(`[api:${method} ${path}]`, err);
+    respond(res, status, { error: message });
   }
 });
 
@@ -295,6 +489,13 @@ function requireAuth(session) {
   if (!session) throw Object.assign(new Error('Authentication required'), { statusCode: 401 });
 }
 
+function requireTrust(db, userId, level) {
+  const u = db.prepare(`SELECT trust_level FROM users WHERE id = ? AND active = 1`).get(userId);
+  if (!u || u.trust_level < level) {
+    throw Object.assign(new Error(`Trust level ${level}+ required`), { statusCode: 403 });
+  }
+}
+
 function requireAdmin(req) {
   // Fail closed: if no ADMIN_TOKEN is configured, admin routes are disabled
   // unless the operator explicitly set ALLOW_OPEN_ADMIN=1 (dev only).
@@ -315,6 +516,34 @@ function timingSafeEqualStr(a, b) {
   return crypto.timingSafeEqual(ab, bb);
 }
 
+// Best-effort caller IP. Respect X-Forwarded-For only if we see it, since in
+// a Pi-behind-Caddy setup we will.
+function callerIp(req) {
+  const xff = req.headers['x-forwarded-for'];
+  if (typeof xff === 'string' && xff.length) return xff.split(',')[0].trim();
+  return req.socket?.remoteAddress || null;
+}
+
+// Map internal errors into short, non-leaky public messages. The internals
+// still land in the server log for operators.
+function toPublicError(err) {
+  const msg = err?.message || '';
+  const direct = err?.statusCode;
+  if (direct) return { status: direct, message: msg || 'Error' };
+
+  // Known-shape error strings from our own modules.
+  if (/required|must|invalid/i.test(msg))            return { status: 400, message: msg };
+  if (/not found/i.test(msg))                         return { status: 404, message: msg };
+  if (/trust level/i.test(msg))                       return { status: 403, message: msg };
+  if (/already|unique constraint/i.test(msg))         return { status: 409, message: msg };
+  if (/rate limit|too many/i.test(msg))               return { status: 429, message: msg };
+  if (/body too large|request body too large/i.test(msg)) return { status: 413, message: msg };
+  if (/not open|has closed|has not started|voting salt/i.test(msg)) return { status: 409, message: msg };
+
+  // Anything else: SQLite or crypto bleed-through. Log internally, scrub externally.
+  return { status: 500, message: 'Internal error' };
+}
+
 // Basic email shape check. Not bulletproof, just keeps junk out.
 function isValidEmail(s) {
   return typeof s === 'string' && s.length <= 254 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);
@@ -328,6 +557,7 @@ function publicUser(user) {
     handle: user.handle,
     trustLevel: user.trust_level,
     homeNode: user.home_node,
+    pubkey: user.pubkey || null,
     createdAt: user.created_at,
     lastActive: user.last_active
   };

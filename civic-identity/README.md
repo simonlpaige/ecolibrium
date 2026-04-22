@@ -85,12 +85,21 @@ Federation lets neighborhoods ask: "Is the city doing this to us specifically, o
 
 ```
 civic-identity/
-  schema.sql     - SQLite schema (users, votes, proposals, federation peers)
-  identity.js    - User registration, trust levels, vouching, sessions
-  voting.js      - Proposals, vote casting, tallying (all 5 methods)
-  federation.js  - Peer management, bundle signing/verification, cross-node votes
-  api.js         - HTTP API server (pure Node, no framework)
-  README.md      - This file
+  schema.sql           - Base SQLite schema (users, votes, proposals, federation peers)
+  migrations.js        - Tiny versioned migrations runner
+  migrations/          - Numbered SQL migrations applied in order
+  identity.js          - Registration, trust levels, vouching, sessions, Ed25519 keypair at signup
+  voting.js            - Proposals, voting, tallying (binary, approval, ranked IRV, score, liquid)
+  federation.js        - Peer management, envelope-signed bundles, replay+staleness guards
+  audit.js             - Durable audit log for privileged actions (IPs hashed, not stored raw)
+  rate-limit.js        - In-process sliding-window rate limiter
+  issues.js            - Resident issue lifecycle (file, acknowledge, resolve)
+  commitments.js       - Commitment tracker (who promised what, who kept what)
+  retention.js         - Prune job for expired sessions, old social posts, rate-limit rows
+  api.js               - HTTP API server (pure Node, no framework)
+  smoke-test.js        - End-to-end sanity test for the main flows
+  federation-smoke.js  - Federation handshake + replay + tamper tests
+  README.md            - This file
 ```
 
 ---
@@ -141,13 +150,38 @@ curl -X POST http://localhost:4242/proposals/<id>/vote \
 
 ---
 
+## Running the Smoke Tests
+
+```bash
+# Install deps first (in neighborhood-os/, which hosts node_modules)
+cd ../neighborhood-os && npm install && cd ../civic-identity
+
+node smoke-test.js            # end-to-end identity + voting + audit + retention
+node federation-smoke.js      # federation bundle build/receive/replay/tamper
+```
+
+Both tests use temp SQLite files and clean up after themselves.
+
+## Hardening Features (post 2026-04-21 deep dive)
+
+- **Fail-closed admin.** Admin routes refuse to serve unless `ADMIN_TOKEN` is set. `ALLOW_OPEN_ADMIN=1` opens them for local dev only.
+- **Ed25519 keypair at signup.** Private key is returned once at signup and never stored. Public key lives on the user row; vote signatures are verified on cast.
+- **Separated voting salt.** `body_hash` stays a pure hash; the per-proposal salt lives in `voting_salt`. `GET /proposals/:id/verify-body` surfaces tampering.
+- **Liquid delegation in blind-space.** Delegation chains resolve across multiple hops and never leak raw user ids.
+- **Federation replay + tamper guard.** Envelope-signed bundles, 24h staleness window, and signature-seen check.
+- **Rate limiter.** Sliding-window limits on signup, vote, email, federation receive, and a generic per-IP cap.
+- **Audit log.** Every admin and trust-changing action is recorded; IPs are HMAC-hashed with a node-local salt.
+- **Issues + commitments API.** Residents can file issues; coordinators (trust 4+) close them out. Commitments link back to originating issues.
+- **Connector health probe.** `ingest/sync.js` probes each dataset before pulling; status is in `connector_status`.
+- **Versioned migrations.** Schema evolves via numbered `migrations/*.sql` files, tracked in `schema_version`.
+
 ## Roadmap
 
 - [ ] **Email sending** - currently returns the token directly (dev mode). Wire up Resend.
 - [ ] **Address verification UI** - admin screen for coordinators to review and approve
 - [ ] **Liquid democracy UI** - show delegation chain, let users see who they delegated to
 - [ ] **Federation sync cron** - periodic bundle exchange with active peers
-- [ ] **Whisper integration** - auto-extract commitments from meeting transcripts, propose them as trackable items
+- [ ] **Whisper integration** - auto-extract commitments from meeting transcripts
 - [ ] **Election-grade audit** - generate Belenios-compatible audit log for high-stakes votes
 - [ ] **Mobile-friendly web UI** - static HTML, works offline, designed for neighborhood meetings
 

@@ -1,4 +1,4 @@
-﻿{
+{
   "name": "@commonweave/neighborhood-os",
   "version": "0.1.0",
   "description": "NeighborhoodOS: civic intelligence and self-governance for neighborhood associations. A subprogram of Commonweave.",
@@ -11,8 +11,8 @@
     "start": "node ingest/sync.js && node ../civic-identity/api.js"
   },
   "dependencies": {
-    "better-sqlite3": "^9.0.0",
-    "bcrypt": "^5.1.0"
+    "bcrypt": "^5.1.0",
+    "better-sqlite3": "^12.9.0"
   },
   "engines": {
     "node": ">=18.0.0"

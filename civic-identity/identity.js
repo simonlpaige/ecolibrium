@@ -16,6 +16,7 @@ import crypto from 'crypto';
 import { readFileSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { runMigrations } from './migrations.js';
 
 const __dir = dirname(fileURLToPath(import.meta.url));
 const SCHEMA = readFileSync(join(__dir, 'schema.sql'), 'utf8');
@@ -31,8 +32,11 @@ export function openDB(dbPath) {
   db.pragma('journal_mode = WAL');
   db.pragma('foreign_keys = ON');
 
-  // Run schema (idempotent - all CREATE TABLE IF NOT EXISTS)
+  // Run base schema first (idempotent - all CREATE TABLE IF NOT EXISTS),
+  // then layer versioned migrations on top. The migrations runner is the
+  // only path that adds columns or changes shapes from here on.
   db.exec(SCHEMA);
+  runMigrations(db);
 
   return db;
 }
@@ -51,7 +55,10 @@ function newId() {
 // ----------------------------------------------------------------
 
 // Register a new anonymous user (just a handle).
-// Returns the new user record.
+// Also mints an Ed25519 keypair. Public key is stored on the user row so
+// vote signatures can be verified later. The private key is returned once
+// and never stored server-side. If the client loses it, signed receipts
+// can still be cast, they just cannot be re-signed from this server.
 export function registerAnonymous(db, handle, homeNode) {
   if (!handle || handle.length < 2 || handle.length > 30) {
     throw new Error('Handle must be 2-30 characters');
@@ -61,13 +68,20 @@ export function registerAnonymous(db, handle, homeNode) {
   }
 
   const id = newId();
+
+  // Ed25519 keypair. Stored as SPKI / PKCS8 PEM so crypto.createPublicKey
+  // and crypto.createPrivateKey can pick them up directly.
+  const { publicKey, privateKey } = crypto.generateKeyPairSync('ed25519');
+  const pubkeyPem = publicKey.export({ type: 'spki', format: 'pem' });
+  const privkeyPem = privateKey.export({ type: 'pkcs8', format: 'pem' });
+
   const stmt = db.prepare(`
-    INSERT INTO users (id, handle, home_node, trust_level, created_at)
-    VALUES (?, ?, ?, 0, datetime('now'))
+    INSERT INTO users (id, handle, home_node, trust_level, pubkey, created_at)
+    VALUES (?, ?, ?, 0, ?, datetime('now'))
   `);
 
   try {
-    stmt.run(id, handle, homeNode);
+    stmt.run(id, handle, homeNode, pubkeyPem);
   } catch (err) {
     if (err.message.includes('UNIQUE constraint')) {
       throw new Error('That handle is already taken');
@@ -84,7 +98,11 @@ export function registerAnonymous(db, handle, homeNode) {
     note: 'Anonymous registration'
   });
 
-  return getUser(db, id);
+  // Attach the one-time-return private key to the returned user object.
+  // Callers (like /signup) should hand it to the client once and never
+  // persist it. It is NOT stored in the DB.
+  const user = getUser(db, id);
+  return { ...user, _oneTimePrivateKey: privkeyPem };
 }
 
 // Add email to an existing account (returns a verification token).
