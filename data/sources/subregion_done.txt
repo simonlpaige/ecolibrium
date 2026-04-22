@@ -17,3 +17,4 @@ DE:SH
 DE:TH
 ES:AN
 ES:AR
+ES:AS
