@@ -202,8 +202,8 @@ def upsert_orgs(db, orgs, dry_run=False):
                     (name, country_code, country_name, city, description, website,
                      source, source_id, registration_type, model_type,
                      framework_area, alignment_score, status, date_added,
-                     last_filing_year)
-                    VALUES (?,?,?,?,?,?,?,?,?,?,?,?,'active',?,?)
+                     last_filing_year, legibility)
+                    VALUES (?,?,?,?,?,?,?,?,?,?,?,?,'active',?,?,?)
                 """, (
                     name,
                     org.get('country_code', ''),
@@ -219,6 +219,10 @@ def upsert_orgs(db, orgs, dry_run=False):
                     score,
                     now,
                     org.get('last_filing_year', ''),
+                    # Wikidata is registry-notable orgs, so formal by default.
+                    # Be honest in the commit: this pass biases toward
+                    # already-documented, Western-notable entities.
+                    'formal',
                 ))
                 inserted += c.rowcount
             except Exception as e:
