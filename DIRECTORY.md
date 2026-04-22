@@ -1,6 +1,6 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-21 23:59 UTC*
+*Last updated: 2026-04-22 00:29 UTC*
 
 
 ## Coverage
@@ -50,7 +50,7 @@
 | 🌐 Estonia (EE) | 0 | Field Research | ✅ |
 | 🌐 Egypt (EG) | 96 | Field Research | ✅ |
 | 🌐 Eritrea (ER) | 0 | Field Research | ✅ |
-| 🌐 Spain (ES) | 4 | Field Research | ✅ |
+| 🌐 Spain (ES) | 16 | Field Research | ✅ |
 | 🌐 Ethiopia (ET) | 21 | Field Research | ✅ |
 | 🌐 Finland (FI) | 0 | Field Research | ✅ |
 | 🌐 Fiji (FJ) | 1 | Field Research | ✅ |
@@ -167,7 +167,7 @@
 | 🌐 Zimbabwe (ZW) | 0 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 24,504 organizations indexed** across 61 countries
+**Total: 24,516 organizations indexed** across 61 countries
 
 
 ---
@@ -1108,7 +1108,7 @@ Model: nonprofit
 
 # 🌐 China (CN) Civil Society Directory
 
-*Compiled: 2026-04-21 | Source: Web research | Organizations: 0*
+*Compiled: 2026-04-22 | Source: Web research | Organizations: 0*
 
 ---
 
