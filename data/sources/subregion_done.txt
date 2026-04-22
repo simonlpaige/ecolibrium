@@ -25,3 +25,4 @@ ES:CT
 ES:CE
 ES:VC
 ES:EX
+ES:GA

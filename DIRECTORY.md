@@ -1,6 +1,6 @@
 # 🌍 Commonweave Global Civil Society Directory
 
-*Last updated: 2026-04-22 08:21 UTC*
+*Last updated: 2026-04-22 08:51 UTC*
 
 
 ## Coverage
@@ -50,7 +50,7 @@
 | 🌐 Estonia (EE) | 0 | Field Research | ✅ |
 | 🌐 Egypt (EG) | 96 | Field Research | ✅ |
 | 🌐 Eritrea (ER) | 0 | Field Research | ✅ |
-| 🌐 Spain (ES) | 65 | Field Research | ✅ |
+| 🌐 Spain (ES) | 67 | Field Research | ✅ |
 | 🌐 Ethiopia (ET) | 21 | Field Research | ✅ |
 | 🌐 Finland (FI) | 0 | Field Research | ✅ |
 | 🌐 Fiji (FJ) | 1 | Field Research | ✅ |
@@ -167,7 +167,7 @@
 | 🌐 Zimbabwe (ZW) | 0 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 25,825 organizations indexed** across 61 countries
+**Total: 25,827 organizations indexed** across 61 countries
 
 
 ---
