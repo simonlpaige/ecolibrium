@@ -91,23 +91,38 @@ export function registerAnonymous(db, handle, homeNode) {
 // The token is emailed to the user; calling verifyEmail() with it
 // promotes them to trust level 2.
 export function addEmail(db, userId, emailAddress) {
-  const emailHash = bcrypt.hashSync(emailAddress.toLowerCase().trim(), BCRYPT_ROUNDS);
+  const user = getUser(db, userId);
+  if (!user) throw new Error('User not found');
+
+  const normalized = String(emailAddress || '').toLowerCase().trim();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalized) || normalized.length > 254) {
+    throw new Error('Invalid email address');
+  }
+  const emailHash = bcrypt.hashSync(normalized, BCRYPT_ROUNDS);
 
   // Store a short-lived verification token (24h)
   const token = crypto.randomBytes(32).toString('hex');
   const tokenHash = bcrypt.hashSync(token, BCRYPT_ROUNDS);
 
-  // We store the token hash in trust_events.proof_hash temporarily
-  // Real implementation would also send the email; here we return the token
+  const fromLevel = user.trust_level;
+  const toLevel = Math.max(fromLevel, 1);
+
+  // Invalidate any prior pending verification tokens for this user so a
+  // leaked older token cannot be reused.
   db.prepare(`
-    UPDATE users SET email_hash = ?, trust_level = MAX(trust_level, 1),
+    UPDATE trust_events SET method = 'email_pending_superseded'
+    WHERE user_id = ? AND method = 'email_pending'
+  `).run(userId);
+
+  db.prepare(`
+    UPDATE users SET email_hash = ?, trust_level = ?,
     last_active = datetime('now') WHERE id = ?
-  `).run(emailHash, userId);
+  `).run(emailHash, toLevel, userId);
 
   logTrustEvent(db, {
     userId,
-    fromLevel: 0,
-    toLevel: 1,
+    fromLevel,
+    toLevel,
     method: 'email_pending',
     proofHash: tokenHash,
     note: 'Email added, pending verification'
@@ -142,6 +157,12 @@ export function verifyEmail(db, userId, token) {
   db.prepare(`
     UPDATE users SET trust_level = ?, last_active = datetime('now') WHERE id = ?
   `).run(newLevel, userId);
+
+  // Consume the token so it cannot be replayed.
+  db.prepare(`
+    UPDATE trust_events SET method = 'email_pending_used'
+    WHERE id = ?
+  `).run(event.id);
 
   logTrustEvent(db, {
     userId,

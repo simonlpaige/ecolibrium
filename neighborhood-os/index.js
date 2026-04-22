@@ -19,7 +19,6 @@ export * as federation from '../civic-identity/federation.js';
 // Convenience: spin up a full node
 // ----------------------------------------------------------------
 
-import Database from 'better-sqlite3';
 import { openDB } from '../civic-identity/identity.js';
 import { ensureLegistarTables } from './connectors/legistar.js';
 import { ensureSocialTables } from './connectors/social.js';
@@ -57,8 +56,8 @@ export function createNode({
       return { matters, events };
     },
 
-    getEcosystemRecommendations() {
-      const { getEcosystemRecommendations } = require('./connectors/commonweave-directory.js');
+    async getEcosystemRecommendations() {
+      const { getEcosystemRecommendations } = await import('./connectors/commonweave-directory.js');
       return getEcosystemRecommendations(db, nodeSlug, bounds);
     },
 

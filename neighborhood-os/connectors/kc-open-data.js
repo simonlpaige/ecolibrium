@@ -110,12 +110,21 @@ export async function fetchDataset(datasetId, {
 // ----------------------------------------------------------------
 
 export function bboxWhere(bounds, latField = 'latitude', lonField = 'longitude') {
-  // bounds: { north, south, east, west } in decimal degrees
+  // bounds: { north, south, east, west } in decimal degrees.
+  // Coerce to numbers so a malformed bounds object cannot inject SoQL.
+  const n = Number(bounds.north);
+  const s = Number(bounds.south);
+  const e = Number(bounds.east);
+  const w = Number(bounds.west);
+  if (![n, s, e, w].every(Number.isFinite)) {
+    throw new Error('bboxWhere: bounds must be numeric {north, south, east, west}');
+  }
+  // SoQL numeric comparisons do not need quotes.
   return [
-    `${latField} >= '${bounds.south}'`,
-    `${latField} <= '${bounds.north}'`,
-    `${lonField} >= '${bounds.west}'`,
-    `${lonField} <= '${bounds.east}'`
+    `${latField} >= ${s}`,
+    `${latField} <= ${n}`,
+    `${lonField} >= ${w}`,
+    `${lonField} <= ${e}`
   ].join(' AND ');
 }
 
@@ -148,8 +157,12 @@ export async function syncDataset(db, key, bounds = null, sinceDate = null) {
     clauses.push(bboxWhere(bounds));
   }
 
-  // Incremental filter by date
+  // Incremental filter by date. Reject anything that is not an ISO-looking
+  // string so a poisoned cursor cannot break out of the quoted literal.
   if (dataset.dateField && since && dataset.dateField !== 'casenumber') {
+    if (!/^[0-9T:\-.Z+ ]+$/.test(String(since))) {
+      throw new Error(`Invalid since value for dataset ${key}`);
+    }
     clauses.push(`${dataset.dateField} > '${since}'`);
   }
 

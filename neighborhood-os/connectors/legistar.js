@@ -3,6 +3,8 @@
 // API is public, no key required.
 // Confirmed working as of April 2026: webapi.legistar.com/v1/kansascity/
 
+import crypto from 'crypto';
+
 const BASE = 'https://webapi.legistar.com/v1/kansascity';
 
 // ----------------------------------------------------------------
@@ -66,9 +68,11 @@ export async function getMeetingAgenda(eventId) {
 // ----------------------------------------------------------------
 
 // Search matters (ordinances, resolutions, etc.) by keyword
+// Escapes single quotes in the keyword so callers cannot break the OData filter.
 export async function searchMatters(keyword, { limit = 50 } = {}) {
+  const safe = String(keyword || '').replace(/'/g, "''");
   return legistarGet('/matters', {
-    '$filter': `substringof('${keyword}', MatterTitle)`,
+    '$filter': `substringof('${safe}', MatterTitle)`,
     '$orderby': 'MatterIntroDate desc',
     '$top': limit
   });

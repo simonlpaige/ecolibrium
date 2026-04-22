@@ -25,6 +25,7 @@
 
 import http from 'http';
 import crypto from 'crypto';
+import { readFileSync } from 'fs';
 import { openDB, registerAnonymous, addEmail, verifyEmail, vouchFor, getUser,
          getUserByHandle, getTrustHistory, nodeStats, createSession,
          resolveSession, destroySession } from './identity.js';
@@ -41,8 +42,17 @@ const PORT = parseInt(process.env.PORT || '4242');
 const DB_PATH = process.env.DB_PATH || './civic-identity.db';
 const NODE_SLUG = process.env.NODE_SLUG || 'local@waldonet.local';
 const ADMIN_TOKEN = process.env.ADMIN_TOKEN || null; // Required for admin routes
+const ALLOW_OPEN_ADMIN = process.env.ALLOW_OPEN_ADMIN === '1';
+const CORS_ORIGIN = process.env.CORS_ORIGIN || '*';
+const MAX_BODY_BYTES = parseInt(process.env.MAX_BODY_BYTES || String(64 * 1024)); // 64KB default
 const NODE_PRIVKEY = process.env.NODE_PRIVKEY_PATH
   ? readFileSync(process.env.NODE_PRIVKEY_PATH) : null;
+
+if (!ADMIN_TOKEN && !ALLOW_OPEN_ADMIN) {
+  console.warn('[civic-identity] WARNING: ADMIN_TOKEN is not set. Admin routes are disabled.');
+  console.warn('[civic-identity] Set ADMIN_TOKEN=<secret> to enable federation routes,');
+  console.warn('[civic-identity] or ALLOW_OPEN_ADMIN=1 for local dev only (never in production).');
+}
 
 // ----------------------------------------------------------------
 // Init
@@ -60,9 +70,11 @@ const server = http.createServer(async (req, res) => {
   const path = url.pathname;
   const method = req.method;
 
-  // CORS for local UI dev
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  // CORS for local UI dev. Set CORS_ORIGIN=https://your-ui.example to lock down in prod.
+  res.setHeader('Access-Control-Allow-Origin', CORS_ORIGIN);
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.setHeader('Vary', 'Origin');
   if (method === 'OPTIONS') { res.writeHead(204); res.end(); return; }
 
   // Auth: resolve session from Authorization header
@@ -82,6 +94,7 @@ const server = http.createServer(async (req, res) => {
     if (method === 'POST' && path === '/verify-email') {
       requireAuth(session);
       const body = await readBody(req);
+      if (!isValidEmail(body.email)) return respond(res, 400, { error: 'Invalid email address' });
       const verifyToken = addEmail(db, session.userId, body.email);
       // In production, email this token. Here we return it (dev mode).
       return respond(res, 200, { message: 'Verification token issued', verifyToken });
@@ -153,6 +166,9 @@ const server = http.createServer(async (req, res) => {
     if (method === 'POST' && path === '/proposals') {
       requireAuth(session);
       const body = await readBody(req);
+      // Cap sizes so a single POST cannot bloat the DB.
+      if (body.title && body.title.length > 200) return respond(res, 400, { error: 'Title too long (max 200)' });
+      if (body.body && body.body.length > 20000) return respond(res, 400, { error: 'Body too long (max 20000)' });
       const proposal = createProposal(db, {
         ...body,
         authorId: session.userId,
@@ -189,7 +205,7 @@ const server = http.createServer(async (req, res) => {
     if (method === 'POST' && path.match(/^\/proposals\/[^/]+\/close$/)) {
       requireAuth(session);
       const id = path.split('/proposals/')[1].split('/close')[0];
-      const result = closeProposal(db, id);
+      const result = closeProposal(db, id, session.userId);
       return respond(res, 200, result);
     }
 
@@ -252,7 +268,16 @@ server.listen(PORT, () => {
 function readBody(req) {
   return new Promise((resolve, reject) => {
     let data = '';
-    req.on('data', chunk => { data += chunk; });
+    let size = 0;
+    req.on('data', chunk => {
+      size += chunk.length;
+      if (size > MAX_BODY_BYTES) {
+        req.destroy();
+        reject(new Error('Request body too large'));
+        return;
+      }
+      data += chunk;
+    });
     req.on('end', () => {
       try { resolve(JSON.parse(data || '{}')); }
       catch { reject(new Error('Invalid JSON body')); }
@@ -271,9 +296,28 @@ function requireAuth(session) {
 }
 
 function requireAdmin(req) {
-  if (!ADMIN_TOKEN) return; // No admin token set = open (dev mode)
+  // Fail closed: if no ADMIN_TOKEN is configured, admin routes are disabled
+  // unless the operator explicitly set ALLOW_OPEN_ADMIN=1 (dev only).
+  if (!ADMIN_TOKEN) {
+    if (ALLOW_OPEN_ADMIN) return;
+    throw Object.assign(new Error('Admin disabled: ADMIN_TOKEN not configured'), { statusCode: 503 });
+  }
   const token = (req.headers.authorization || '').replace('Bearer ', '').trim();
-  if (token !== ADMIN_TOKEN) throw Object.assign(new Error('Admin required'), { statusCode: 401 });
+  if (!token || !timingSafeEqualStr(token, ADMIN_TOKEN)) {
+    throw Object.assign(new Error('Admin required'), { statusCode: 401 });
+  }
+}
+
+function timingSafeEqualStr(a, b) {
+  const ab = Buffer.from(a);
+  const bb = Buffer.from(b);
+  if (ab.length !== bb.length) return false;
+  return crypto.timingSafeEqual(ab, bb);
+}
+
+// Basic email shape check. Not bulletproof, just keeps junk out.
+function isValidEmail(s) {
+  return typeof s === 'string' && s.length <= 254 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);
 }
 
 // Public-safe user fields (never expose email_hash, phone_hash)

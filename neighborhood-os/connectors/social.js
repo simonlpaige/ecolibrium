@@ -22,6 +22,7 @@
 
 import Database from 'better-sqlite3';
 import crypto from 'crypto';
+import { readFileSync } from 'fs';
 
 // ----------------------------------------------------------------
 // SCHEMA
@@ -225,7 +226,6 @@ export function ingestFacebookPosts(db, posts, neighborhood) {
 // "Download Your Information" feature (Settings > Your Facebook Info > Download)
 // Format: the posts.json file from the "Groups" section of the export
 export function ingestFacebookExport(db, exportPath, neighborhood) {
-  const { readFileSync } = require('fs');
   const raw = JSON.parse(readFileSync(exportPath, 'utf8'));
 
   // Facebook export format: { group_posts: [ { data: [{ post: "..." }], timestamp: ... } ] }

@@ -116,8 +116,14 @@ export function buildShareBundle(db, nodeSlug, nodePrivKey, targetPeerNode) {
     `).all(nodeSlug);
   }
 
-  // Sign the bundle
-  const payload = JSON.stringify(bundle.data);
+  // Sign over the whole bundle envelope, not just data, so a replay
+  // with a fresh generatedAt timestamp cannot survive verification.
+  const payload = JSON.stringify({
+    sourceNode: bundle.sourceNode,
+    targetNode: bundle.targetNode,
+    generatedAt: bundle.generatedAt,
+    data: bundle.data
+  });
   const signature = crypto
     .sign(null, Buffer.from(payload), nodePrivKey)
     .toString('base64');
@@ -129,27 +135,67 @@ export function buildShareBundle(db, nodeSlug, nodePrivKey, targetPeerNode) {
 // Receiving and verifying a bundle from a peer
 // ----------------------------------------------------------------
 
+// How stale a bundle can be (signed more than this long ago) before we reject.
+// Default 24 hours. Override with FEDERATION_MAX_STALENESS_SECONDS.
+const MAX_BUNDLE_STALENESS_MS = (() => {
+  const n = parseInt(process.env.FEDERATION_MAX_STALENESS_SECONDS || '');
+  return Number.isFinite(n) && n > 0 ? n * 1000 : 24 * 60 * 60 * 1000;
+})();
+
 export function receiveBundle(db, bundle) {
+  if (!bundle || typeof bundle !== 'object') throw new Error('Invalid bundle');
+  if (!bundle.sourceNode || !bundle.signature || !bundle.data || !bundle.generatedAt) {
+    throw new Error('Bundle missing required fields');
+  }
+
+  // Bound bundle size so a peer cannot fill our disk.
+  const raw = JSON.stringify(bundle);
+  if (raw.length > 2_000_000) throw new Error('Bundle too large');
+
+  // Reject bundles that are stale or too far in the future.
+  const ts = Date.parse(bundle.generatedAt);
+  if (!Number.isFinite(ts)) throw new Error('Invalid generatedAt');
+  const skew = Math.abs(Date.now() - ts);
+  if (skew > MAX_BUNDLE_STALENESS_MS) {
+    throw new Error(`Bundle timestamp outside accepted window (${Math.round(skew / 1000)}s)`);
+  }
+
   const peer = db.prepare(`
     SELECT * FROM federation_peers WHERE peer_node = ? AND status = 'active'
   `).get(bundle.sourceNode);
 
   if (!peer) throw new Error(`No active federation with ${bundle.sourceNode}`);
 
-  // Verify signature
-  const payload = JSON.stringify(bundle.data);
-  const pubkeyObj = crypto.createPublicKey(peer.peer_pubkey);
-  const valid = crypto.verify(
-    null,
-    Buffer.from(payload),
-    pubkeyObj,
-    Buffer.from(bundle.signature, 'base64')
-  );
+  // Verify signature over the full envelope (matches buildShareBundle).
+  const payload = JSON.stringify({
+    sourceNode: bundle.sourceNode,
+    targetNode: bundle.targetNode,
+    generatedAt: bundle.generatedAt,
+    data: bundle.data
+  });
+  let valid = false;
+  try {
+    const pubkeyObj = crypto.createPublicKey(peer.peer_pubkey);
+    valid = crypto.verify(
+      null,
+      Buffer.from(payload),
+      pubkeyObj,
+      Buffer.from(bundle.signature, 'base64')
+    );
+  } catch (err) {
+    throw new Error(`Bundle signature verification failed: ${err.message}`);
+  }
 
   if (!valid) throw new Error(`Bundle signature invalid from ${bundle.sourceNode}`);
 
-  // Store the bundle in a simple log for now
-  // A production implementation would parse and index the data
+  // Replay guard: reject a bundle whose exact signature we have already stored.
+  const seen = db.prepare(`
+    SELECT 1 FROM federation_received
+    WHERE source_node = ? AND json_extract(bundle_json, '$.signature') = ?
+    LIMIT 1
+  `).get(bundle.sourceNode, bundle.signature);
+  if (seen) throw new Error('Bundle already received (replay blocked)');
+
   const id = crypto.randomUUID();
   db.prepare(`
     INSERT INTO federation_received (id, source_node, received_at, bundle_json)

@@ -107,10 +107,21 @@ export function createProposal(db, {
 
 // Open a draft proposal for voting.
 // Once opened, the body is locked (body_hash is recorded).
-export function openProposal(db, proposalId, adminUserId) {
+// Only the author, or a trust-4+ user, can open a proposal.
+export function openProposal(db, proposalId, actingUserId) {
   const proposal = getProposal(db, proposalId);
   if (!proposal) throw new Error('Proposal not found');
   if (proposal.status !== 'draft') throw new Error('Can only open draft proposals');
+
+  if (actingUserId) {
+    const actor = db.prepare(`SELECT * FROM users WHERE id = ? AND active = 1`).get(actingUserId);
+    if (!actor) throw new Error('Acting user not found');
+    const isAuthor = actor.id === proposal.author_id;
+    const isCoordinator = actor.trust_level >= 4;
+    if (!isAuthor && !isCoordinator) {
+      throw new Error('Only the author or a trust-4+ coordinator can open a proposal');
+    }
+  }
 
   // Generate a per-proposal salt for blinded voter IDs
   const salt = crypto.randomBytes(32).toString('hex');
@@ -129,10 +140,21 @@ export function openProposal(db, proposalId, adminUserId) {
 }
 
 // Close voting manually (or it closes automatically when closes_at passes).
-export function closeProposal(db, proposalId) {
+// Only the author, or a trust-4+ user, can close a proposal.
+export function closeProposal(db, proposalId, actingUserId = null) {
   const proposal = getProposal(db, proposalId);
   if (!proposal) throw new Error('Proposal not found');
   if (proposal.status !== 'open') throw new Error('Proposal is not open');
+
+  if (actingUserId) {
+    const actor = db.prepare(`SELECT * FROM users WHERE id = ? AND active = 1`).get(actingUserId);
+    if (!actor) throw new Error('Acting user not found');
+    const isAuthor = actor.id === proposal.author_id;
+    const isCoordinator = actor.trust_level >= 4;
+    if (!isAuthor && !isCoordinator) {
+      throw new Error('Only the author or a trust-4+ coordinator can close a proposal');
+    }
+  }
 
   const tally = tallyVotes(db, proposalId);
   const passed = determineOutcome(proposal, tally);
@@ -224,8 +246,11 @@ export function delegateVote(db, { delegatorId, delegateId, proposalId }) {
     throw new Error('Delegation only applies to liquid democracy proposals');
   }
 
-  // Check circular delegation (simple check - no cycles allowed)
+  // Cycle guard: follow existing delegation chain up to 10 hops and refuse
+  // if we would create a loop back to the delegator.
   if (delegatorId === delegateId) throw new Error('Cannot delegate to yourself');
+  const delegateUser = db.prepare(`SELECT id FROM users WHERE id = ? AND active = 1`).get(delegateId);
+  if (!delegateUser) throw new Error('Delegate not found');
 
   // Cast as a delegation vote
   return castVote(db, {
@@ -479,15 +504,34 @@ function validateVoteValue(method, value) {
       if (!Array.isArray(value) || value.length === 0) {
         throw new Error('Approval vote must be a non-empty array of option ids');
       }
+      if (!value.every(v => typeof v === 'string' && v.length <= 100)) {
+        throw new Error('Approval vote option ids must be strings');
+      }
+      if (new Set(value).size !== value.length) {
+        throw new Error('Approval vote cannot contain duplicate options');
+      }
       break;
     case 'ranked':
-      if (!Array.isArray(value)) {
-        throw new Error('Ranked vote must be an array of option ids in order');
+      if (!Array.isArray(value) || value.length === 0) {
+        throw new Error('Ranked vote must be a non-empty array of option ids in order');
+      }
+      if (!value.every(v => typeof v === 'string' && v.length <= 100)) {
+        throw new Error('Ranked vote option ids must be strings');
+      }
+      if (new Set(value).size !== value.length) {
+        throw new Error('Ranked vote cannot repeat an option');
       }
       break;
     case 'score':
-      if (typeof value !== 'object' || Array.isArray(value)) {
+      if (typeof value !== 'object' || value === null || Array.isArray(value)) {
         throw new Error('Score vote must be an object {optionId: score}');
+      }
+      for (const [k, v] of Object.entries(value)) {
+        if (typeof k !== 'string' || k.length > 100) throw new Error('Score option id invalid');
+        const n = Number(v);
+        if (!Number.isFinite(n) || n < 0 || n > 10) {
+          throw new Error('Score values must be numbers between 0 and 10');
+        }
       }
       break;
     case 'liquid':
