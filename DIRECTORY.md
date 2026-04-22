@@ -1,6 +1,6 @@
 # 🌍 Ecolibrium Global Civil Society Directory
 
-*Last updated: 2026-04-22 02:29 UTC*
+*Last updated: 2026-04-22 02:59 UTC*
 
 
 ## Coverage
@@ -18,7 +18,7 @@
 | 🌐 Australia (AU) | 268 | Field Research | ✅ |
 | 🌐 Bosnia and Herzegovina (BA) | 0 | Field Research | ✅ |
 | 🌐 Bangladesh (BD) | 0 | Field Research | ✅ |
-| 🌐 Belgium (BE) | 7 | Field Research | ✅ |
+| 🌐 Belgium (BE) | 203 | Field Research | ✅ |
 | 🌐 Burkina Faso (BF) | 0 | Field Research | ✅ |
 | 🌐 Bulgaria (BG) | 0 | Field Research | ✅ |
 | 🌐 Bahrain (BH) | 0 | Field Research | ✅ |
@@ -34,7 +34,7 @@
 | 🌐 Republic of the Congo (CG) | 0 | Field Research | ✅ |
 | 🌐 Switzerland (CH) | 0 | Field Research | ✅ |
 | 🌐 Cote d'Ivoire (CI) | 0 | Field Research | ✅ |
-| 🌐 Chile (CL) | 14 | Field Research | ✅ |
+| 🌐 Chile (CL) | 55 | Field Research | ✅ |
 | 🌐 Cameroon (CM) | 0 | Field Research | ✅ |
 | 🌐 China (CN) | 0 | Field Research | ✅ |
 | 🌐 Colombia (CO) | 65 | Field Research | ✅ |
@@ -45,16 +45,16 @@
 | 🌐 Germany (DE) | 129 | Field Research | ✅ |
 | 🌐 Djibouti (DJ) | 0 | Field Research | ✅ |
 | 🌐 Denmark (DK) | 0 | Field Research | ✅ |
-| 🌐 Dominican Republic (DO) | 9 | Field Research | ✅ |
-| 🌐 Ecuador (EC) | 18 | Field Research | ✅ |
+| 🌐 Dominican Republic (DO) | 10 | Field Research | ✅ |
+| 🌐 Ecuador (EC) | 55 | Field Research | ✅ |
 | 🌐 Estonia (EE) | 0 | Field Research | ✅ |
 | 🌐 Egypt (EG) | 96 | Field Research | ✅ |
 | 🌐 Eritrea (ER) | 0 | Field Research | ✅ |
-| 🌐 Spain (ES) | 28 | Field Research | ✅ |
+| 🌐 Spain (ES) | 33 | Field Research | ✅ |
 | 🌐 Ethiopia (ET) | 21 | Field Research | ✅ |
 | 🌐 Finland (FI) | 0 | Field Research | ✅ |
 | 🌐 Fiji (FJ) | 1 | Field Research | ✅ |
-| 🌐 France (FR) | 4 | Field Research | ✅ |
+| 🌐 France (FR) | 61 | Field Research | ✅ |
 | 🌐 Gabon (GA) | 0 | Field Research | ✅ |
 | 🌐 United Kingdom (GB) | 11,433 | Field Research | ✅ |
 | 🌐 Georgia (GE) | 0 | Field Research | ✅ |
@@ -68,7 +68,7 @@
 | 🌐 Honduras (HN) | 10 | Field Research | ✅ |
 | 🌐 Croatia (HR) | 0 | Field Research | ✅ |
 | 🌐 Haiti (HT) | 3 | Field Research | ✅ |
-| 🌐 Hungary (HU) | 2 | Field Research | ✅ |
+| 🌐 Hungary (HU) | 119 | Field Research | ✅ |
 | 🌐 Indonesia (ID) | 21 | Field Research | ✅ |
 | 🌐 Ireland (IE) | 0 | Field Research | ✅ |
 | 🌐 India (IN) | 29 | Field Research | ✅ |
@@ -78,7 +78,7 @@
 | 🌐 Italy (IT) | 83 | Field Research | ✅ |
 | 🌐 Jamaica (JM) | 8 | Field Research | ✅ |
 | 🌐 Jordan (JO) | 0 | Field Research | ✅ |
-| 🌐 Japan (JP) | 21 | Field Research | ✅ |
+| 🌐 Japan (JP) | 22 | Field Research | ✅ |
 | 🌐 Kenya (KE) | 190 | Field Research | ✅ |
 | 🌐 Kyrgyzstan (KG) | 0 | Field Research | ✅ |
 | 🌐 Cambodia (KH) | 0 | Field Research | ✅ |
@@ -112,7 +112,7 @@
 | 🌐 DIRECTORY_NG.md (NG) | 305 | Field Research | ✅ |
 | 🌐 Nicaragua (NI) | 10 | Field Research | ✅ |
 | 🌐 Netherlands (NL) | 106 | Field Research | ✅ |
-| 🌐 Norway (NO) | 1 | Field Research | ✅ |
+| 🌐 Norway (NO) | 179 | Field Research | ✅ |
 | 🌐 Nepal (NP) | 3 | Field Research | ✅ |
 | 🌐 New Zealand (NZ) | 334 | Field Research | ✅ |
 | 🌐 Oman (OM) | 0 | Field Research | ✅ |
@@ -133,13 +133,13 @@
 | 🌐 Rwanda (RW) | 15 | Field Research | ✅ |
 | 🌐 Saudi Arabia (SA) | 0 | Field Research | ✅ |
 | 🌐 Sudan (SD) | 0 | Field Research | ✅ |
-| 🌐 Sweden (SE) | 26 | Field Research | ✅ |
+| 🌐 Sweden (SE) | 58 | Field Research | ✅ |
 | 🌐 Slovenia (SI) | 0 | Field Research | ✅ |
 | 🌐 Slovakia (SK) | 0 | Field Research | ✅ |
 | 🌐 Sierra Leone (SL) | 0 | Field Research | ✅ |
 | 🌐 Senegal (SN) | 6 | Field Research | ✅ |
 | 🌐 Somalia (SO) | 0 | Field Research | ✅ |
-| 🌐 Suriname (SR) | 14 | Field Research | ✅ |
+| 🌐 Suriname (SR) | 16 | Field Research | ✅ |
 | 🌐 South Sudan (SS) | 0 | Field Research | ✅ |
 | 🌐 El Salvador (SV) | 0 | Field Research | ✅ |
 | 🌐 Syria (SY) | 0 | Field Research | ✅ |
@@ -151,7 +151,7 @@
 | 🌐 Timor-Leste (TL) | 0 | Field Research | ✅ |
 | 🌐 Turkmenistan (TM) | 1 | Field Research | ✅ |
 | 🌐 Tunisia (TN) | 0 | Field Research | ✅ |
-| 🌐 Turkey (TR) | 4 | Field Research | ✅ |
+| 🌐 Turkey (TR) | 65 | Field Research | ✅ |
 | 🌐 Trinidad and Tobago (TT) | 9 | Field Research | ✅ |
 | 🌐 Taiwan (TW) | 0 | Field Research | ✅ |
 | 🌐 Tanzania (TZ) | 36 | Field Research | ✅ |
@@ -160,14 +160,14 @@
 | 🌐 Uruguay (UY) | 0 | Field Research | ✅ |
 | 🌐 Uzbekistan (UZ) | 0 | Field Research | ✅ |
 | 🌐 Venezuela (VE) | 29 | Field Research | ✅ |
-| 🌐 Vietnam (VN) | 2 | Field Research | ✅ |
+| 🌐 Vietnam (VN) | 65 | Field Research | ✅ |
 | 🌐 Yemen (YE) | 0 | Field Research | ✅ |
 | 🌐 South Africa (ZA) | 109 | Field Research | ✅ |
 | 🌐 Zambia (ZM) | 7 | Field Research | ✅ |
 | 🌐 Zimbabwe (ZW) | 0 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 24,540 organizations indexed** across 61 countries
+**Total: 25,331 organizations indexed** across 61 countries
 
 
 ---
