@@ -181,9 +181,16 @@ def is_relevant_org(name, desc):
 
 
 # Alignment scoring constants (mirrors classify_org in run_next_country.py)
-_ALIGN_STRONG = ['cooperative', 'co-op', 'mutual aid', 'indigenous', 'agroecol', 'solidarity', 'restorative']
-_ALIGN_MOD    = ['community', 'environmental', 'health', 'education', 'housing', 'food', 'energy', 'justice', 'rights']
-_ALIGN_NEG    = ['church', 'parish', 'fraternal', 'golf', 'country club', 'hoa', 'booster', 'cemetery']
+_ALIGN_STRONG = ['cooperative', 'co-op', 'mutual aid', 'indigenous', 'agroecol', 'solidarity', 'restorative',
+                 'credit union', 'land trust', 'commons', 'open source', 'fair trade', 'degrowth']
+_ALIGN_MOD    = ['community', 'environmental', 'health', 'education', 'housing', 'food', 'energy', 'justice', 'rights',
+                 'civil society', 'advocacy', 'humanitarian', 'development', 'ngo', 'nonprofit', 'charity',
+                 'amnesty', 'transparency', 'accountability', 'democracy', 'human rights', 'social',
+                 'international', 'foundation', 'association', 'network', 'alliance', 'federation',
+                 'welfare', 'relief', 'aid', 'sustainable', 'ecology', 'biodiversity', 'climate',
+                 'peace', 'conflict', 'refugee', 'migration', 'disability', 'women', 'youth', 'children']
+_ALIGN_NEG    = ['church', 'parish', 'fraternal', 'golf', 'country club', 'hoa', 'booster', 'cemetery',
+                 'political party', 'military', 'armed forces', 'beauty pageant']
 
 def _alignment_score(name, desc=''):
     """Compute alignment score for ingest gate (score >= 2 required)."""
@@ -296,9 +303,12 @@ def ingest_to_db(orgs, cc, country_name):
 
     for org in orgs:
         try:
-            # Gate: skip low-signal orgs (score >= 2 required, consistent with DB trim)
+            # Gate: score >= 2 for large countries, score >= 0 for thin countries (<50 orgs)
             score = _alignment_score(org['name'], org.get('description', ''))
-            if score < 2:
+            c.execute("SELECT COUNT(*) FROM organizations WHERE country_code=? AND status='active'", (cc,))
+            existing_count = c.fetchone()[0]
+            min_score = 0 if existing_count < 50 else 2
+            if score < min_score:
                 rejected += 1
                 continue
 
