@@ -255,11 +255,27 @@ for f in regional_files:
     # Get country name
     name_m = re.search(r'# .+? (.+?) \(', content)
     country_name = name_m.group(1).strip() if name_m else code
-    
+
+    # Merge with DB orgs (Wikidata ingest etc.) - DB takes priority, markdown fills gaps
+    db.row_factory = sqlite3.Row
+    dc = db.cursor()
+    dc.execute("""
+        SELECT name, description, website, city, framework_area, alignment_score
+        FROM organizations
+        WHERE country_code=? AND status='active'
+        ORDER BY COALESCE(alignment_score,0) DESC, name ASC
+    """, (code,))
+    db_orgs_seen = set(o['n'] for o in orgs)
+    for row in dc.fetchall():
+        if row['name'] and row['name'] not in db_orgs_seen:
+            org = {'n': row['name'], 'd': (row['description'] or '')[:200], 'w': row['website'] or ''}
+            orgs.append(org)
+            db_orgs_seen.add(row['name'])
+
     country_data = {
         'country_code': code,
         'country_name': country_name,
-        'source': 'Field research',
+        'source': 'Field research + Wikidata' if len(orgs) > 1 else 'Field research',
         'count': len(orgs),
         'orgs': orgs
     }
