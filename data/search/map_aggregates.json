@@ -261,19 +261,21 @@
       "sections_present": 1
     },
     "FR": {
-      "total": 61,
+      "total": 69,
       "verified": 1,
-      "quality": 42,
+      "quality": 50,
       "sections": {
-        "democracy": 42,
-        "education": 5,
-        "energy_digital": 1,
+        "cooperatives": 2,
+        "democracy": 43,
+        "ecology": 2,
+        "education": 6,
+        "energy_digital": 2,
         "food": 2,
-        "healthcare": 2,
+        "healthcare": 3,
         "recreation_arts": 9
       },
-      "completeness": 50.7,
-      "sections_present": 6
+      "completeness": 69.0,
+      "sections_present": 8
     },
     "GB": {
       "total": 11433,
@@ -423,18 +425,19 @@
       "sections_present": 7
     },
     "IT": {
-      "total": 83,
+      "total": 96,
       "verified": 0,
-      "quality": 83,
+      "quality": 93,
       "sections": {
-        "democracy": 2,
-        "education": 70,
+        "democracy": 9,
+        "ecology": 1,
+        "education": 73,
         "food": 2,
-        "healthcare": 5,
+        "healthcare": 7,
         "recreation_arts": 4
       },
-      "completeness": 50.0,
-      "sections_present": 5
+      "completeness": 59.1,
+      "sections_present": 6
     },
     "JM": {
       "total": 50,
@@ -1482,9 +1485,9 @@
   },
   "tier_counts": {
     "A": 0,
-    "B": 15816,
+    "B": 15834,
     "C": 0,
-    "D": 10021
+    "D": 10024
   },
   "sections": [
     "democracy",
@@ -1498,6 +1501,6 @@
     "recreation_arts",
     "ecology"
   ],
-  "total_points": 2517,
-  "total_edges": 3018
+  "total_points": 2524,
+  "total_edges": 3021
 }
