@@ -1,6 +1,6 @@
 # 🌍 Commonweave Global Civil Society Directory
 
-*Last updated: 2026-04-23 12:39 UTC*
+*Last updated: 2026-04-23 13:10 UTC*
 
 
 ## Coverage
@@ -75,7 +75,7 @@
 | 🌐 Iraq (IQ) | 0 | Field Research | ✅ |
 | 🌐 Iran (IR) | 0 | Field Research | ✅ |
 | 🌐 Iceland (IS) | 0 | Field Research | ✅ |
-| 🌐 Italy (IT) | 107 | Field Research | ✅ |
+| 🌐 Italy (IT) | 111 | Field Research | ✅ |
 | 🌐 Jamaica (JM) | 50 | Field Research | ✅ |
 | 🌐 Jordan (JO) | 0 | Field Research | ✅ |
 | 🌐 Japan (JP) | 22 | Field Research | ✅ |
@@ -167,7 +167,7 @@
 | 🌐 Zimbabwe (ZW) | 0 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 25,869 organizations indexed** across 61 countries
+**Total: 25,873 organizations indexed** across 61 countries
 
 
 ---
