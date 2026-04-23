@@ -65,19 +65,19 @@
       "sections_present": 5
     },
     "BR": {
-      "total": 86,
+      "total": 88,
       "verified": 1,
-      "quality": 85,
+      "quality": 86,
       "sections": {
         "cooperatives": 2,
-        "democracy": 3,
+        "democracy": 4,
         "ecology": 2,
         "education": 60,
         "food": 1,
         "healthcare": 9,
-        "recreation_arts": 9
+        "recreation_arts": 10
       },
-      "completeness": 69.6,
+      "completeness": 69.2,
       "sections_present": 7
     },
     "CA": {
@@ -1486,9 +1486,9 @@
   },
   "tier_counts": {
     "A": 0,
-    "B": 15842,
+    "B": 15843,
     "C": 0,
-    "D": 10031
+    "D": 10032
   },
   "sections": [
     "democracy",
@@ -1502,6 +1502,6 @@
     "recreation_arts",
     "ecology"
   ],
-  "total_points": 2528,
+  "total_points": 2529,
   "total_edges": 3021
 }
