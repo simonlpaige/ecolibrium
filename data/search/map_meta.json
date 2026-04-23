@@ -1,10 +1,10 @@
 {
-  "total": 8664,
+  "total": 8665,
   "us_count": 6684,
-  "intl_count": 1980,
+  "intl_count": 1981,
   "by_area": {
     "food": 2367,
-    "healthcare": 1501,
+    "healthcare": 1502,
     "education": 1317,
     "housing_land": 1278,
     "democracy": 857,
@@ -43,8 +43,8 @@
     "HU": 16,
     "TR": 16,
     "EC": 14,
-    "PH": 14,
-    "DO": 13
+    "IT": 14,
+    "PH": 14
   },
   "by_state": {
     "CA": 640,
