@@ -1,19 +1,10 @@
-﻿import sqlite3
-conn = sqlite3.connect('commonweave_directory.db')
-cur = conn.cursor()
-cur.execute("SELECT name FROM sqlite_master WHERE type='table'")
-tables = [r[0] for r in cur.fetchall()]
-print("Tables:", tables)
-for t in tables:
-    cur.execute(f"SELECT COUNT(*) FROM {t}")
-    print(f"  {t}: {cur.fetchone()[0]} rows")
-    # Get most recent entries
-    try:
-        cur.execute(f"SELECT * FROM {t} ORDER BY rowid DESC LIMIT 3")
-        cols = [d[0] for d in cur.description]
-        print(f"  Cols: {cols}")
-        for row in cur.fetchall():
-            print(f"    {row}")
-    except Exception as e:
-        print(f"  Error: {e}")
+import sqlite3
+conn = sqlite3.connect(r'C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db')
+c = conn.cursor()
+c.execute("SELECT name FROM sqlite_master WHERE type='table'")
+tables = c.fetchall()
+print('Tables:', tables)
+for (t,) in tables:
+    c.execute(f"SELECT COUNT(*) FROM {t}")
+    print(f"  {t}: {c.fetchone()[0]} rows")
 conn.close()

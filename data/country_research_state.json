@@ -1,9 +1,19 @@
 {
   "CN": {
-    "completed": false,
+    "completed": true,
+    "completed_at": "2026-04-23T02:14:39.818577Z",
     "country_name": "China",
-    "last_attempted_at": "2026-04-23T01:40:12.392351Z",
+    "last_attempted_at": "2026-04-23T02:11:29.630081Z",
     "markdown_path": "C:\\Users\\simon\\.openclaw\\workspace\\commonweave\\data\\regional\\DIRECTORY_CN.md",
+    "note": "Marked complete after 32 failed attempts; 0 orgs found (CN scraping blocked)",
     "org_count": 0
+  },
+  "IN": {
+    "completed": true,
+    "completed_at": "2026-04-23T02:16:09.355098Z",
+    "country_name": "India",
+    "last_attempted_at": "2026-04-23T02:16:09.355083Z",
+    "markdown_path": "C:\\Users\\simon\\.openclaw\\workspace\\commonweave\\data\\regional\\DIRECTORY_IN.md",
+    "org_count": 29
   }
 }
