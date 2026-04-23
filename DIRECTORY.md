@@ -1,6 +1,6 @@
 # 🌍 Commonweave Global Civil Society Directory
 
-*Last updated: 2026-04-23 02:41 UTC*
+*Last updated: 2026-04-23 03:11 UTC*
 
 
 ## Coverage
@@ -75,7 +75,7 @@
 | 🌐 Iraq (IQ) | 0 | Field Research | ✅ |
 | 🌐 Iran (IR) | 0 | Field Research | ✅ |
 | 🌐 Iceland (IS) | 0 | Field Research | ✅ |
-| 🌐 Italy (IT) | 83 | Field Research | ✅ |
+| 🌐 Italy (IT) | 85 | Field Research | ✅ |
 | 🌐 Jamaica (JM) | 50 | Field Research | ✅ |
 | 🌐 Jordan (JO) | 0 | Field Research | ✅ |
 | 🌐 Japan (JP) | 22 | Field Research | ✅ |
@@ -167,7 +167,7 @@
 | 🌐 Zimbabwe (ZW) | 0 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 25,845 organizations indexed** across 61 countries
+**Total: 25,847 organizations indexed** across 61 countries
 
 
 ---
@@ -2175,14 +2175,13 @@ Model: nonprofit
 
 # 🌐 South Korea (KR) Civil Society Directory
 
-*Compiled: 2026-04-15 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-23 | Source: Web research | Organizations: 0*
 
 ---
 
 ## Organizations
 
-### South Korea Civil Society Network
-> Primary civil society network in South Korea
+_No evidence-backed organizations found in this pass._
 
 
 ---
