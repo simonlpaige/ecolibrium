@@ -1,0 +1,1347 @@
+
+
+<!DOCTYPE html>
+<html lang="en-003" dir="ltr" prefix="og: https://ogp.me/ns#">
+  <head>
+          <meta charset="utf-8" />
+<noscript><style>form.antibot * :not(.antibot-message) { display: none !important; }</style>
+</noscript><meta name="description" content="Habitat currently works in more than 70 countries around the world. Browse our country profiles and learn more about our work to help families build strength and stability." />
+<meta property="og:site_name" content="Habitat for Humanity" />
+<meta property="og:url" content="https://www.habitat.org/where-we-work" />
+<meta property="og:title" content="Where we work" />
+<meta property="og:description" content="Habitat currently works in more than 70 countries around the world. Browse our country profiles and learn more about our work to help families build strength and stability." />
+<meta property="og:image:url" content="https://www.habitat.org/sites/default/files/2016-10/volunteer-brick-elsalvador-globalvillage.jpg" />
+<meta property="og:image:url" content="https://www.habitat.org/sites/default/files/habitat-default.png" />
+<meta property="fb:pages" content="19774119425" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Where we work | Habitat for Humanity" />
+<meta name="twitter:description" content="Habitat currently works in more than 70 countries around the world. Browse our country profiles and learn more about our work to help families build strength and stability." />
+<meta name="twitter:image" content="https://www.habitat.org/sites/default/files/styles/2_1_small/public/2016-10/volunteer-brick-elsalvador-globalvillage.jpg?itok=QrV7fzR1" />
+<meta name="Generator" content="Drupal 11 (https://www.drupal.org)" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
+<link rel="icon" href="/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="canonical" href="https://www.habitat.org/where-we-work" />
+<link rel="shortlink" href="https://www.habitat.org/node/15919" />
+
+      <script>window.dataLayer = window.dataLayer || [];</script>
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0];var j=d.createElement(s);var dl=l!='dataLayer'?'&amp;l='+l:'';j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;j.async=true;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NXHV9Q8');</script>
+      <title>Where we work | Habitat for Humanity</title>
+      <link rel="dns-prefetch" href="https://fast.fonts.net">
+      <link rel="stylesheet" media="all" href="/sites/default/files/css/css_iC2V7VTiyVLhcaGS1dccw0lpkN4-N8lqamXyu7GZllg.css?delta=0&amp;language=en-003&amp;theme=hab_theme&amp;include=eJxtklFyAyEIhi-01pf2PA6LRG1UdhQn2dvXbdKG7fRJ_g8ERPBKPgm3D7flEVJ1G-DVpeqpilsz49VqsSA3sr6NDfIbfML9BJJQMTl1WXB04eIy7DykW-Q8Su1PvRx16C5UvX2ZS3yPTiIVskCmUeRCil2YhZoCIfMKWYENAhnkKpDqKfJwTA2r65HyzCKE0V3SYdrHYYRDyPQd9Li0NgKPbZRVwyHCVQGE5rWc1eesHjN4Yc8VRCf3jTfPt2oK1aH4z5t-QZxNPHvXwHSChvEPTzWcSGMly_xnULoljEbm6BXrhJK49n-QyRQAd-2Zv20yB14O65Y8OchztnNfkix973MZ7AqdvgAoqepP" />
+<link rel="stylesheet" media="all" href="/sites/default/files/css/css_Go-aI9zUEa3SxCnVCXkcN935wcMjmvJCwSc31EVDafU.css?delta=1&amp;language=en-003&amp;theme=hab_theme&amp;include=eJxtklFyAyEIhi-01pf2PA6LRG1UdhQn2dvXbdKG7fRJ_g8ERPBKPgm3D7flEVJ1G-DVpeqpilsz49VqsSA3sr6NDfIbfML9BJJQMTl1WXB04eIy7DykW-Q8Su1PvRx16C5UvX2ZS3yPTiIVskCmUeRCil2YhZoCIfMKWYENAhnkKpDqKfJwTA2r65HyzCKE0V3SYdrHYYRDyPQd9Li0NgKPbZRVwyHCVQGE5rWc1eesHjN4Yc8VRCf3jTfPt2oK1aH4z5t-QZxNPHvXwHSChvEPTzWcSGMly_xnULoljEbm6BXrhJK49n-QyRQAd-2Zv20yB14O65Y8OchztnNfkix973MZ7AqdvgAoqepP" />
+
+      <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","pathPrefix":"","currentPath":"node\/15919","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en-003"},"pluralDelimiter":"\u0003","gtag":{"tagId":"UA-92354329-1","consentMode":false,"otherIds":["G-HL6QKWG5V6"],"events":[],"additionalConfigInfo":[]},"suppressDeprecationErrors":true,"ajaxPageState":{"libraries":"eJyFkl1uAyEMhC8E4aU9D_KCAzSAV2Ca5Pb1ZvNDo0p9AeZjBGawO6FPTO3TrnmEVO0K7mRT9VjZLpncycxCOWpofBsr5ENiLDqnzsqNzlRshisN7sZRHqX2u1bbsXhhrN68lioQhYyWIZggw7s-wBdcVPyIliMWNLBoRrlqIqgbRio4sSMRY5tAyLRAnsAKAbWjypDqL-e2MeszLkexdRVhsdAQ7JZUomo2oe9CSvCpoeN_bXulYuoRsxTJ6KI9pm1p9kkzBYngZnp79JMscqh3bZRlhoOZ6gQcND9LeYd84f5XL-ypAs_X-Uarp3PVBeuY-CPEJ4hSxBbWG9Adobn4xlMNv0ijSRYJCCbdkovy5stcZ5d4JcP-B9IZA7jrvCNdqTMFUtvqnDxayJK2tHFi1a9dmtYs0FF9Jzx3cxsPhfzIdyTdf9zMaLtrlPNu0Q-qd_oDaf88hg","theme":"hab_theme","theme_token":null},"ajaxTrustedUrl":{"\/search":true},"habAreaEdition":{"areaEdition":"northamerica","editionRedirectEnabled":true,"cookieNodeMapping":{"northamerica":"\/","asiapacific":"\/ap","europe":"\/emea","latin-en":"\/lac-en","latin-es":"\/lac-es","europe_clone":"\/"},"cookieLinkMapping":{"northamerica":{"link_text":"Go to the \u003Cem class=\u0022placeholder\u0022\u003ENorth America\u003C\/em\u003E site","link_url":"\/","link_class":"area-edition-gohome"},"asiapacific":{"link_text":"Go to the \u003Cem class=\u0022placeholder\u0022\u003EAsia-Pacific\u003C\/em\u003E site","link_url":"\/ap","link_class":"area-edition-gohome"},"europe":{"link_text":"Go to the \u003Cem class=\u0022placeholder\u0022\u003EEurope, Middle East and Africa\u003C\/em\u003E site","link_url":"\/emea","link_class":"area-edition-gohome"},"latin-en":{"link_text":"Go to the \u003Cem class=\u0022placeholder\u0022\u003ELatin America and the Caribbean\u003C\/em\u003E site","link_url":"\/lac-en","link_class":"area-edition-gohome"},"latin-es":{"link_text":"Go to the \u003Cem class=\u0022placeholder\u0022\u003EAm\u00e9rica Latina y el Caribe\u003C\/em\u003E site","link_url":"\/lac-es","link_class":"area-edition-gohome"},"europe_clone":{"link_text":"Go to the \u003Cem class=\u0022placeholder\u0022\u003EClone of Europe, Middle East and Africa\u003C\/em\u003E site","link_url":"\/","link_class":"area-edition-gohome"}},"interstitialCookieName":false},"habIsSubsite":false,"views":{"ajax_path":"\/views\/ajax","ajaxViews":{"views_dom_id:d8548f0e7bf7b1c2abe291b1486172d19552fd8974756d1598e715281916d3a0":{"view_name":"embeddable_content_list","view_display_id":"content_list_eva","view_args":"15716","view_path":"\/node\/15919","view_base_path":"\/node\/15919","view_dom_id":"d8548f0e7bf7b1c2abe291b1486172d19552fd8974756d1598e715281916d3a0","pager_element":0},"views_dom_id:87b3d05683a0ddfdc6775fe6ad6f0c5a6dbb22fcb9b5172db3f84796b42a5be0":{"view_name":"embeddable_content_list","view_display_id":"content_list_eva","view_args":"15711","view_path":"\/node\/15919","view_base_path":"\/node\/15919","view_dom_id":"87b3d05683a0ddfdc6775fe6ad6f0c5a6dbb22fcb9b5172db3f84796b42a5be0","pager_element":0}}},"sitewideAlert":{"refreshInterval":15000,"automaticRefresh":false,"showCount":false,"serverSideRender":false,"pathPrioritySort":true},"icon_select":{"icon_select_url":"\/sites\/default\/files\/icons\/icon_select_map.svg?hash=bde5fbf55d1c77a06190f2d43e2e5060"},"ckeditor5Premium":{"isMediaInstalled":true},"user":{"uid":0,"permissionsHash":"93e5b1b6c324a2669bfa87b10e60c625ec0d75596af365cda7104d3478a318ec"}}</script>
+<script src="/sites/default/files/js/js_PPM6EBLtLlWnWrjEqSrrrcwDJjuggB_RmsIMOEYv27Q.js?scope=header&amp;delta=0&amp;language=en-003&amp;theme=hab_theme&amp;include=eJyFjksOwjAMRC-UkA33iUwzTYzSGCWGcnzSD6iwYWN7nkbWiyIxwytFF_sw8Tuf6EpPk87Ja8IERxeraHogo4iimkQXTxXkEVhZiluC3YOt_agY9G8tyYS11BJy_6sYkh95Od22rErshmvpx-lDghTSYyVUuQWZi51Q7geeQGGX38DUVcg0Vswc4Cl3BceF1TwYc_NcxiXBt6FKzm6l9k3tRl9OeoKo"></script>
+<script src="/modules/contrib/google_tag/js/gtag.js?tdyrbj"></script>
+ 
+      </head>
+  <body class="optimize__ribbon-hidden">
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-NXHV9Q8" height="0" width="0"></iframe></noscript>
+                <a href="#main-content" class="visually-hidden focusable">Skip to main content</a>
+      
+        <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+    
+
+
+<div class="page">
+        
+
+<header class="header">
+  <div class="header__content">
+    
+
+<a href="/" rel="home" class="header__logo site-logo__link active">            <?xml version="1.0" encoding="UTF-8"?><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40"><path d="M116.61,29.16h.46c.31,0,.4-.11.4-.33,0-.19-.14-.3-.34-.3h-.52v.63ZM116.61,30.24h-.28v-1.95h.74c.46,0,.68.18.68.55s-.23.5-.51.54l.56.86h-.31l-.53-.85h-.36v.85ZM116.97,30.7c.78,0,1.37-.61,1.37-1.42s-.6-1.42-1.37-1.42-1.38.62-1.38,1.42.59,1.42,1.38,1.42M116.97,27.61c.92,0,1.68.72,1.68,1.67s-.77,1.68-1.68,1.68-1.69-.72-1.69-1.68.77-1.67,1.69-1.67"/><path d="M60.49,11.21c-.08.98-.1,2.12-.1,3.34v2.3c.44.02.88.04,1.52.04s1.08-.02,1.52-.04v-2.3c0-1.22-.02-2.36-.1-3.34h3.78c-.2,2.06-.2,3.74-.2,7.14s0,5.08.2,7.14h-3.78c.08-.98.1-2.12.1-3.34v-2.92c-.44-.02-.88-.04-1.52-.04s-1.08.02-1.52.04v2.92c0,1.22.02,2.36.1,3.34h-3.78c.2-2.06.2-3.74.2-7.14s0-5.08-.2-7.14h3.78Z"/><path d="M73.2,20.29c-1.26.32-2.04,1.1-2.04,2.1,0,.7.44,1.24,1.08,1.24.42,0,.84-.26.96-.44v-2.9ZM68.85,15.33c.28-.04,1.36-.16,2.1-.16,4.14,0,5.4,1.62,5.4,4.3v2.5c0,.96,0,2.04.52,3.52h-3.18c-.24-.32-.32-.54-.34-.62-.54.4-1.28.78-2.24.78-1.94,0-3.2-1.34-3.2-3.02,0-1.84,1.46-3.08,3.36-3.7l1.66-.54c-.02-.7-.48-1.3-1.42-1.3-.64,0-1.64.3-2.66,1.04v-2.8Z"/><path d="M81.33,22.69c0,.58.22,1.04.86,1.04.82,0,1.4-.84,1.4-3.22,0-1.7-.44-3.16-1.44-3.16-.54,0-.82.34-.82.82v4.52ZM81.33,11.21v4.52c.5-.3,1.22-.56,1.94-.56,1.9,0,3.68,1.4,3.68,5.04,0,2.82-1.54,5.52-4.38,5.52-.76,0-1.64-.26-2.58-1l-1.12.96-.96-.58c.18-1.28.18-2.64.18-4.08v-5.74c0-.74,0-1.56-.2-4.08h3.44Z"/><path d="M91.47,15.41c-.04,1.04-.04,2.56-.04,4.72,0,2.72,0,4.08.18,5.36h-3.6c.18-1.28.18-2.64.18-4.08v-1.92c0-1.44,0-2.8-.18-4.08h3.46ZM89.81,11.06c1,0,1.8.8,1.8,1.8s-.8,1.8-1.8,1.8-1.8-.8-1.8-1.8.8-1.8,1.8-1.8"/><path d="M96.99,12.35c-.04.62-.06,1.8-.06,3.06h1.5v1.92h-1.5v5.04c0,.82.3,1.28,1.1,1.28.12,0,.24,0,.42-.02v1.8c-.66.22-1.34.3-2.02.3-.9,0-1.62-.32-2.16-.96-.42-.5-.58-1.34-.58-2.36v-5.08h-1.16v-1.92h1.16c0-1.26-.02-2.44-.06-3.06h3.36Z"/><path d="M104.74,20.29c-1.26.32-2.04,1.1-2.04,2.1,0,.7.44,1.24,1.08,1.24.42,0,.84-.26.96-.44v-2.9ZM100.4,15.33c.28-.04,1.36-.16,2.1-.16,4.14,0,5.4,1.62,5.4,4.3v2.5c0,.96,0,2.04.52,3.52h-3.18c-.24-.32-.32-.54-.34-.62-.54.4-1.28.78-2.24.78-1.94,0-3.2-1.34-3.2-3.02,0-1.84,1.46-3.08,3.36-3.7l1.66-.54c-.02-.7-.48-1.3-1.42-1.3-.64,0-1.64.3-2.66,1.04v-2.8Z"/><path d="M113.32,12.35c-.04.62-.06,1.8-.06,3.06h1.5v1.92h-1.5v5.04c0,.82.3,1.28,1.1,1.28.12,0,.24,0,.42-.02v1.8c-.66.22-1.34.3-2.02.3-.9,0-1.62-.32-2.16-.96-.42-.5-.58-1.34-.58-2.36v-5.08h-1.16v-1.92h1.16c0-1.26-.02-2.44-.06-3.06h3.36Z"/><path d="M59.97,28.97s-.18-.11-.42-.11c-.46,0-.67.35-.67.72,0,.22.06.43.11.54h.81v1.04h-.82v2.21c0,.78,0,1.52.1,2.21h-1.95c.1-.69.1-1.43.1-2.21v-2.21h-.6v-1.04h.6v-.42c0-.64.11-1.07.62-1.5.43-.35.97-.47,1.45-.47.26,0,.54.04.68.1v1.14Z"/><path d="M61.82,32.85c0,1.31.28,1.78.61,1.78s.61-.47.61-1.78-.28-1.78-.61-1.78-.61.47-.61,1.78M64.97,32.85c0,1.84-1.21,2.86-2.54,2.86s-2.54-1.02-2.54-2.86,1.21-2.86,2.54-2.86,2.54,1.02,2.54,2.86"/><path d="M67.25,30.12c.06.19.14.55.15.73.38-.51.83-.86,1.38-.86.12,0,.18.01.24.03v1.44c-.12-.03-.27-.04-.33-.04-.82,0-1.18.76-1.18,1.95,0,.78,0,1.52.1,2.21h-2.02c.1-.69.1-1.43.1-2.21v-1.04c0-.78,0-1.52-.18-2.21h1.74Z"/><path d="M74.8,27.84c-.04.53-.05,1.15-.05,1.81v1.25c.24.01.48.02.82.02s.59-.01.82-.02v-1.25c0-.66,0-1.28-.05-1.81h2.05c-.11,1.12-.11,2.03-.11,3.87s0,2.75.11,3.87h-2.05c.04-.53.05-1.15.05-1.81v-1.58c-.24-.01-.48-.02-.82-.02s-.59.01-.82.02v1.58c0,.66.01,1.28.05,1.81h-2.05c.11-1.12.11-2.03.11-3.87s0-2.75-.11-3.87h2.05Z"/><path d="M82.34,35.58c-.08-.16-.13-.35-.16-.49-.4.39-.81.62-1.38.62-.92,0-1.53-.67-1.53-1.71v-1.67c0-.78,0-1.52-.1-2.21h1.85v3.63c0,.43.17.68.49.68.27,0,.55-.2.55-.57v-1.53c0-.78,0-1.52-.1-2.21h1.95c-.1.69-.1,1.43-.1,2.21v1.04c0,.78,0,1.52.1,2.21h-1.58Z"/><path d="M86.46,30.12c.08.16.13.35.16.49.4-.37.89-.62,1.43-.62.59,0,.95.34,1.21.69.39-.35.82-.69,1.53-.69,1.06,0,1.46.75,1.46,1.82v1.56c0,.78,0,1.52.1,2.21h-1.95c.1-.69.1-1.43.1-2.21v-1.51c0-.38-.11-.66-.44-.66-.37,0-.58.28-.58.66v1.51c0,.78,0,1.52.1,2.21h-1.95c.1-.69.1-1.43.1-2.21v-1.53c0-.36-.11-.64-.44-.64-.3,0-.57.25-.57.57v1.59c0,.78,0,1.52.1,2.21h-1.95c.1-.69.1-1.43.1-2.21v-1.04c0-.78,0-1.52-.1-2.21h1.6Z"/><path d="M95.76,32.76c-.68.17-1.11.6-1.11,1.14,0,.38.24.67.59.67.23,0,.46-.14.52-.24v-1.57ZM93.41,30.07c.15-.02.74-.09,1.14-.09,2.24,0,2.93.88,2.93,2.33v1.35c0,.52,0,1.11.28,1.91h-1.72c-.13-.17-.17-.29-.18-.34-.29.22-.69.42-1.21.42-1.05,0-1.74-.73-1.74-1.64,0-1,.79-1.67,1.82-2.01l.9-.29c-.01-.38-.26-.71-.77-.71-.35,0-.89.16-1.44.56v-1.52Z"/><path d="M99.84,30.12c.08.16.13.35.16.49.4-.39.81-.62,1.38-.62.92,0,1.53.67,1.53,1.71v1.67c0,.78,0,1.52.1,2.21h-1.95c.1-.69.1-1.43.1-2.21v-1.5c0-.34-.14-.61-.47-.61-.27,0-.57.19-.57.52v1.58c0,.78,0,1.52.1,2.21h-1.95c.1-.69.1-1.43.1-2.21v-1.04c0-.78,0-1.52-.1-2.21h1.58Z"/><path d="M105.52,30.12c-.02.56-.02,1.39-.02,2.56,0,1.47,0,2.21.1,2.9h-1.95c.1-.69.1-1.43.1-2.21v-1.04c0-.78,0-1.52-.1-2.21h1.87ZM104.62,27.77c.54,0,.98.43.98.98s-.43.98-.98.98-.98-.43-.98-.98.43-.98.98-.98"/><path d="M108.61,28.46c-.02.34-.03.98-.03,1.66h.81v1.04h-.81v2.73c0,.44.16.69.59.69.07,0,.13,0,.23-.01v.98c-.36.12-.73.16-1.1.16-.49,0-.88-.17-1.17-.52-.23-.27-.31-.73-.31-1.28v-2.75h-.63v-1.04h.63c0-.68-.01-1.32-.03-1.66h1.82Z"/><path d="M111.78,30.12c.14.84.55,2.38.77,3.09h.02c.3-1.11.53-2.35.63-3.09h1.55c-.36,1.48-1.17,4.5-1.86,5.92-.36.73-.9,1.6-2.39,1.6-.15,0-.38-.01-.52-.05v-1.39c.1.05.34.16.61.16.56,0,.94-.47.94-.87,0-.21-.04-.34-.48-1.48-.59-1.54-1.03-3.17-1.15-3.89h1.87Z"/><path d="M51.93,32.84l2.2-4.75c.07-.12-.02-.28-.16-.28h-7.05c-.17,0-.25.22-.11.33l1.81,1.55c.14.11.06.33-.11.33H8.31c-.17,0-.25-.22-.11-.33l1.8-1.55c.14-.11.06-.33-.11-.33H2.84c-.14,0-.22.14-.17.26l2.22,4.77c.03.06.02.14-.02.19l-3.49,4.37c-.09.12,0,.29.15.29h6.06c.1,0,.18.08.18.18v1.93c0,.1.08.18.18.18h40.9c.1,0,.18-.08.18-.18v-1.93c0-.1.08-.18.18-.18h6.06c.16,0,.24-.18.14-.3l-3.47-4.35c-.05-.06-.06-.14-.02-.21" style="fill:#cb9731;"/><path d="M23.33,17.67c1.09-.08,1.92-1.03,1.84-2.12-.08-1.09-1.03-1.92-2.13-1.84-1.09.08-1.92,1.03-1.84,2.12.08,1.09,1.03,1.92,2.12,1.84"/><path d="M18.72,27.28c-.25-1.85-.37-2.99-2.59-4.13-.92-.48-3.25-1.48-3.75-1.55-.12.73-.02,4.89.01,6.23h6.39c-.02-.19-.04-.37-.07-.54"/><path d="M48.59,18.23c-.83.22-3.71,1.02-6.26.83-1.84-.13-3.63-1.66-4.75-2.71,1.11-1.28,2.54-2.65,2.87-3.04.47-.55.55-1.42.16-1.82-.39-.39-1.11-.16-1.82.32-.71.47-3.4,3.18-5.96,3.18s-5.34-2.71-6.05-3.18c-.71-.47-1.74-.39-2.13,0-.39.39,0,.95.47,1.5.34.39,1.82,1.82,2.94,3.12-1.12,1.04-2.87,2.5-4.66,2.63-2.56.19-5.44-.61-6.26-.83-1.05-.27-2.24-.14-2.47.72-.15.54.31,1.13.92,1.53.61.4,3.78,1.01,4.67,2.38.36.56.6,2.66.81,4.96h4.9c.47-2.79.91-5.46,1.22-6.12.38-.82,1.33-2.03,2.18-3.06.36,1.68.73,5.59,1.11,9.18h4.59c.39-3.71.79-7.75,1.16-9.34.88,1.06,1.91,2.36,2.31,3.21.31.66.75,3.34,1.22,6.12h4.9c.21-2.31.45-4.4.81-4.96.89-1.36,4.06-1.98,4.67-2.38.61-.4,1.07-.99.92-1.53-.23-.86-1.42-.99-2.47-.72"/><path d="M51.45,11.76c-.4-.63-22.3-10.9-23.64-11.4-1.94-.73-2.99-.26-4.76.63-1.54.77-14.72,8.69-15.67,9.57.95.64,5.29,2.93,5.86,3.23,1.71.88,3.34.98,5.18,0,1.26-.67,12.67-7.69,14.56-7.51,1.9.17,14.58,6.96,15.88,7.25,1.54.35,3.57-.22,2.6-1.75"/><path d="M42.39,17.67c1.09.08,2.05-.74,2.13-1.84.08-1.09-.74-2.04-1.84-2.12-1.09-.08-2.05.74-2.12,1.84-.08,1.09.74,2.05,1.84,2.12"/><path d="M34.85,11.62c0-1.1-.89-1.99-1.99-1.99s-1.99.89-1.99,1.99.89,1.99,1.99,1.99,1.99-.89,1.99-1.99"/><path d="M11.07,36.14h1.2c.08.42.44.63.88.63.5,0,.81-.35.81-.85s-.33-.82-.82-.82c-.32,0-.58.14-.71.31h-1.15l.51-2.76h3.09v.98h-2.21l-.17.89h.01c.18-.17.52-.3.97-.3.95,0,1.72.66,1.72,1.71s-.82,1.82-2.02,1.82-1.99-.55-2.11-1.61"/><path d="M18.83,35.14c0-.97-.27-1.65-.94-1.65s-.95.68-.95,1.65.28,1.65.95,1.65.94-.66.94-1.65M15.69,35.14c0-1.59.9-2.61,2.21-2.61s2.21,1.02,2.21,2.61-.89,2.61-2.21,2.61-2.2-1.02-2.2-2.61"/><path d="M23.45,35.71l-1.76-3.28h1.4l.67,1.35c.17.36.34.79.34.79h.01s.18-.44.36-.79l.66-1.35h1.36l-1.76,3.28v1.92h-1.29v-1.92Z"/><polygon points="27.01 32.42 30.96 32.42 30.96 33.49 28.3 33.49 28.3 34.42 30.58 34.42 30.58 35.42 28.3 35.42 28.3 36.54 31 36.54 31 37.63 27.01 37.63 27.01 32.42"/><path d="M34.52,35.76l-.39-1.26c-.09-.27-.2-.73-.2-.73h-.01s-.12.47-.21.73l-.4,1.26h1.22ZM33.27,32.42h1.32l1.88,5.2h-1.35l-.31-.94h-1.82l-.3.94h-1.3l1.87-5.2Z"/><path d="M39.22,34.72c.51,0,.77-.24.77-.63s-.25-.65-.74-.65h-1v1.28h.97ZM36.96,32.42h2.49c1.03,0,1.82.53,1.82,1.5,0,.6-.3,1.05-.9,1.26v.02c.45.15.68.44.76.95.11.68.04,1.34.22,1.4v.07h-1.25c-.14-.08-.12-.69-.2-1.21-.07-.48-.31-.74-.87-.74h-.78v1.95h-1.29v-5.2Z"/><path d="M41.76,35.99h1.3c.06.52.4.74,1.02.74.42,0,.84-.15.84-.55,0-.41-.42-.5-1.14-.68-.9-.21-1.86-.49-1.86-1.58s.9-1.6,2.07-1.6,2,.51,2.05,1.6h-1.26c-.05-.4-.36-.63-.84-.63-.45,0-.75.2-.75.49,0,.36.4.45,1.18.63.97.23,1.84.52,1.84,1.64s-.93,1.7-2.13,1.7c-1.38,0-2.29-.61-2.32-1.76"/></svg>
+  </a>
+    <div class="header__menu-search dropdown-menu--main">
+      <div class="header__main-menu">
+                  
+
+
+
+
+
+<nav class="dropdown-menu dropdown-menu--main-header" aria-label="Dropdown menu" data-collapse-group>
+  <button class="dropdown-menu__toggle">
+    <span class="dropdown-menu__toggle--content collapse">
+      Collapse all
+      <span class="dropdown-menu__toggle--icon close">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><clipPath id="a"><path d="m0 0h24v24h-24z"/></clipPath><g clip-path="url(#a)"><path d="m18.38 5.65c3.51 3.52 3.49 9.22-.03 12.73s-9.22 3.49-12.73-.03-3.49-9.22.03-12.73c3.51-3.49 9.18-3.49 12.69 0l.03.03m-1.89 7.93v-2.72h-8.95v2.72h8.96z"/></g></svg>
+      </span>
+    </span>
+
+    <span class="dropdown-menu__toggle--content expand">
+      Expand all
+      <span class="dropdown-menu__toggle--icon open">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M18.364 5.636a9 9 0 1 1-12.728 0c3.5-3.514 9.185-3.528 12.693-.035l.035.035Zm-7.347 7.347v3.493h1.966v-3.493h3.493v-1.966h-3.493V7.524h-1.966v3.493H7.524v1.966h3.493Z" />
+</svg>
+
+      </span>
+    </span>
+  </button>
+  <ul class="dropdown-menu__menu">
+          
+  
+                                      <li class="dropdown-menu__menu-item  dropdown-menu__menu-item--with-sub-items " data-is-collapsible>
+              <button class="dropdown-menu__menu-button" data-collapsible-toggle>
+          <div class="dropdown-menu__menu-button--text">Volunteer</div>
+          <div class="dropdown-menu__menu-button--icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><clipPath id="a"><path d="m0 0h24v24h-24z"/></clipPath><g clip-path="url(#a)"><path class="plusminus__horizontal" d="m3.47 10.5h17.06c.23 0 .43.15.47.37v2.25c-.04.22-.24.38-.47.37h-17.06c-.23 0-.43-.15-.47-.37v-2.06c-.04-.27.16-.52.43-.56z"/><path class="plusminus__vertical" d="m13.5 3.47v17.06c0 .23-.15.43-.37.47h-2.25c-.22-.04-.38-.24-.37-.47v-17.06c0-.23.15-.43.37-.47h2.06c.27-.04.52.16.56.43z"/></g></svg>
+          </div>
+                  </button>
+        <div class="dropdown-menu__panel" data-collapsible-content>
+          <div class="dropdown-menu__panel-wrapper" data-collapsible-content-wrapper>
+            <div class="dropdown-menu__panel-header">
+                              <a href="/volunteer" class="dropdown-menu__panel-header--link">
+                  <h2 class="dropdown-menu__panel-header--text">Volunteer</h2>
+                </a>
+                                        </div>
+            <ul class="dropdown-menu__submenu">
+                
+                                <li class="dropdown-menu__submenu-item">
+          <a href="/volunteer/near-you" class="dropdown-menu__submenu-link">Near you</a>
+                      <ul class="dropdown-menu__tertiarymenu">
+                
+                                <li class="dropdown-menu__tertiarymenu-item">
+          <a href="/volunteer/near-you/find-your-local-habitat" class="dropdown-menu__tertiarymenu-link">Find your local Habitat</a>
+        </li>
+                                          <li class="dropdown-menu__tertiarymenu-item">
+          <a href="/volunteer/near-you/women-build" class="dropdown-menu__tertiarymenu-link">Women Build</a>
+        </li>
+                                          <li class="dropdown-menu__tertiarymenu-item">
+          <a href="/volunteer/near-you/home-preservation" class="dropdown-menu__tertiarymenu-link">Home Preservation</a>
+        </li>
+                                          <li class="dropdown-menu__tertiarymenu-item">
+          <a href="/volunteer/near-you/veterans-build" class="dropdown-menu__tertiarymenu-link">Veterans Build</a>
+        </li>
+                                          <li class="dropdown-menu__tertiarymenu-item">
+          <a href="/volunteer/near-you/youth-programs" class="dropdown-menu__tertiarymenu-link">Youth Programs</a>
+        </li>
+            
+            </ul>
+                  </li>
+                                          <li class="dropdown-menu__submenu-item">
+          <a href="/volunteer/travel-and-build" class="dropdown-menu__submenu-link">Travel &amp; build</a>
+                      <ul class="dropdown-menu__tertiarymenu">
+                
+                                <li class="dropdown-menu__tertiarymenu-item">
+          <a href="/volunteer/travel-and-build/global-village" class="dropdown-menu__tertiarymenu-link">Global Village</a>
+        </li>
+                                          <li class="dropdown-menu__tertiarymenu-item">
+          <a href="/volunteer/travel-and-build/rv-care-a-vanners" class="dropdown-menu__tertiarymenu-link">RV Care-A-Vanners</a>
+        </li>
+                                          <li class="dropdown-menu__tertiarymenu-item">
+          <a href="/volunteer/travel-and-build/collegiate-challenge" class="dropdown-menu__tertiarymenu-link">Collegiate Challenge</a>
+        </li>
+                                          <li class="dropdown-menu__tertiarymenu-item">
+          <a href="/volunteer/travel-and-build/habitat-thrivent-worldwide" class="dropdown-menu__tertiarymenu-link">Habitat and Thrivent</a>
+        </li>
+            
+            </ul>
+                  </li>
+                                          <li class="dropdown-menu__submenu-item">
+          <a href="/volunteer/long-term-opportunities" class="dropdown-menu__submenu-link">Long-term service</a>
+                      <ul class="dropdown-menu__tertiarymenu">
+                
+                                <li class="dropdown-menu__tertiarymenu-item">
+          <a href="/volunteer/long-term-opportunities/international" class="dropdown-menu__tertiarymenu-link">International</a>
+        </li>
+                                          <li class="dropdown-menu__tertiarymenu-item">
+          <a href="/volunteer/long-term-opportunities/united-states" class="dropdown-menu__tertiarymenu-link">United States</a>
+        </li>
+                                          <li class="dropdown-menu__tertiarymenu-item">
+          <a href="/volunteer/long-term-opportunities/americorps" class="dropdown-menu__tertiarymenu-link">AmeriCorps</a>
+        </li>
+            
+            </ul>
+                  </li>
+                                          <li class="dropdown-menu__submenu-item">
+          <a href="/volunteer/group-opportunities" class="dropdown-menu__submenu-link">Group opportunities</a>
+                      <ul class="dropdown-menu__tertiarymenu">
+                
+                                <li class="dropdown-menu__tertiarymenu-item">
+          <a href="/volunteer/group-opportunities/business-partners" class="dropdown-menu__tertiarymenu-link">Business partners</a>
+        </li>
+                                          <li class="dropdown-menu__tertiarymenu-item">
+          <a href="/volunteer/group-opportunities/faith-partners" class="dropdown-menu__tertiarymenu-link">Faith partners</a>
+        </li>
+                                          <li class="dropdown-menu__tertiarymenu-item">
+          <a href="/volunteer/group-opportunities/community-organizations" class="dropdown-menu__tertiarymenu-link">Community organizations</a>
+        </li>
+            
+            </ul>
+                  </li>
+                                          <li class="dropdown-menu__submenu-item">
+          <a href="/volunteer/build-events" class="dropdown-menu__submenu-link">Build events</a>
+                      <ul class="dropdown-menu__tertiarymenu">
+                
+                                <li class="dropdown-menu__tertiarymenu-item">
+          <a href="/carter-work-project" class="dropdown-menu__tertiarymenu-link">Carter Work Project</a>
+        </li>
+                                          <li class="dropdown-menu__tertiarymenu-item">
+          <a href="/volunteer/build-events/world-habitat-day" class="dropdown-menu__tertiarymenu-link">World Habitat Day</a>
+        </li>
+            
+            </ul>
+                  </li>
+            
+            </ul>
+          </div>
+        </div>
+          </li>
+                                      <li class="dropdown-menu__menu-item  dropdown-menu__menu-item--with-sub-items " data-is-collapsible>
+              <button class="dropdown-menu__menu-button" data-collapsible-toggle>
+          <div class="dropdown-menu__menu-button--text">Advocate</div>
+          <div class="dropdown-menu__menu-button--icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><clipPath id="a"><path d="m0 0h24v24h-24z"/></clipPath><g clip-path="url(#a)"><path class="plusminus__horizontal" d="m3.47 10.5h17.06c.23 0 .43.15.47.37v2.25c-.04.22-.24.38-.47.37h-17.06c-.23 0-.43-.15-.47-.37v-2.06c-.04-.27.16-.52.43-.56z"/><path class="plusminus__vertical" d="m13.5 3.47v17.06c0 .23-.15.43-.37.47h-2.25c-.22-.04-.38-.24-.37-.47v-17.06c0-.23.15-.43.37-.47h2.06c.27-.04.52.16.56.43z"/></g></svg>
+          </div>
+                  </button>
+        <div class="dropdown-menu__panel" data-collapsible-content>
+          <div class="dropdown-menu__panel-wrapper" data-collapsible-content-wrapper>
+            <div class="dropdown-menu__panel-header">
+                              <a href="/about/advocacy" class="dropdown-menu__panel-header--link">
+                  <h2 class="dropdown-menu__panel-header--text">Advocate</h2>
+                </a>
+                                        </div>
+            <ul class="dropdown-menu__submenu">
+                
+                                <li class="dropdown-menu__submenu-item">
+          <a href="/advocate/united-states/habitat-voices-in-action" class="dropdown-menu__submenu-link">United States</a>
+                  </li>
+                                          <li class="dropdown-menu__submenu-item">
+          <a href="/home-equals" class="dropdown-menu__submenu-link">International</a>
+                  </li>
+            
+            </ul>
+          </div>
+        </div>
+          </li>
+                                      <li class="dropdown-menu__menu-item  dropdown-menu__menu-item--with-sub-items " data-is-collapsible>
+              <button class="dropdown-menu__menu-button" data-collapsible-toggle>
+          <div class="dropdown-menu__menu-button--text">Support</div>
+          <div class="dropdown-menu__menu-button--icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><clipPath id="a"><path d="m0 0h24v24h-24z"/></clipPath><g clip-path="url(#a)"><path class="plusminus__horizontal" d="m3.47 10.5h17.06c.23 0 .43.15.47.37v2.25c-.04.22-.24.38-.47.37h-17.06c-.23 0-.43-.15-.47-.37v-2.06c-.04-.27.16-.52.43-.56z"/><path class="plusminus__vertical" d="m13.5 3.47v17.06c0 .23-.15.43-.37.47h-2.25c-.22-.04-.38-.24-.37-.47v-17.06c0-.23.15-.43.37-.47h2.06c.27-.04.52.16.56.43z"/></g></svg>
+          </div>
+                  </button>
+        <div class="dropdown-menu__panel" data-collapsible-content>
+          <div class="dropdown-menu__panel-wrapper" data-collapsible-content-wrapper>
+            <div class="dropdown-menu__panel-header">
+                              <a href="https://www.habitat.org/support" class="dropdown-menu__panel-header--link">
+                  <h2 class="dropdown-menu__panel-header--text">Support</h2>
+                </a>
+                                        </div>
+            <ul class="dropdown-menu__submenu">
+                
+                                <li class="dropdown-menu__submenu-item">
+          <a href="https://www.habitat.org/donate/?keyword=menu-top" class="dropdown-menu__submenu-link">Donate now</a>
+                      <ul class="dropdown-menu__tertiarymenu">
+                
+                                <li class="dropdown-menu__tertiarymenu-item">
+          <a href="https://www.habitat.org/donate/?keyword=menu-one-time" class="dropdown-menu__tertiarymenu-link">One time donations</a>
+        </li>
+                                          <li class="dropdown-menu__tertiarymenu-item">
+          <a href="/support/monthly-recurring-donation" class="dropdown-menu__tertiarymenu-link">Monthly donations</a>
+        </li>
+                                          <li class="dropdown-menu__tertiarymenu-item">
+          <a href="/support/honor-memorial-gifts" class="dropdown-menu__tertiarymenu-link">Honor and memorial gifts</a>
+        </li>
+                                          <li class="dropdown-menu__tertiarymenu-item">
+          <a href="https://secure.habitat.org/site/Ecommerce/?store_id=2482&amp;VIEW_HOMEPAGE=true&amp;FOLDER=0&amp;s_subsrc=menu" class="dropdown-menu__tertiarymenu-link">Gift catalog</a>
+        </li>
+            
+            </ul>
+                  </li>
+                                          <li class="dropdown-menu__submenu-item">
+          <a href="/support/donate-items" class="dropdown-menu__submenu-link">Donate items</a>
+                      <ul class="dropdown-menu__tertiarymenu">
+                
+                                <li class="dropdown-menu__tertiarymenu-item">
+          <a href="/restores/donate-goods" class="dropdown-menu__tertiarymenu-link">Goods and materials</a>
+        </li>
+                                          <li class="dropdown-menu__tertiarymenu-item">
+          <a href="/support/donate-your-car" class="dropdown-menu__tertiarymenu-link">Donate your car</a>
+        </li>
+            
+            </ul>
+                  </li>
+                                          <li class="dropdown-menu__submenu-item">
+          <a href="/support/partnerships" class="dropdown-menu__submenu-link">Partnerships</a>
+                      <ul class="dropdown-menu__tertiarymenu">
+                
+                                <li class="dropdown-menu__tertiarymenu-item">
+          <a href="/support/workplace-giving" class="dropdown-menu__tertiarymenu-link">Workplace giving</a>
+        </li>
+                                          <li class="dropdown-menu__tertiarymenu-item">
+          <a href="/support/corporate-giving" class="dropdown-menu__tertiarymenu-link">Corporate giving</a>
+        </li>
+                                          <li class="dropdown-menu__tertiarymenu-item">
+          <a href="/support/gifts-in-kind" class="dropdown-menu__tertiarymenu-link">Gifts-in-kind partnerships</a>
+        </li>
+                                          <li class="dropdown-menu__tertiarymenu-item">
+          <a href="/about/partners/cause-marketing" class="dropdown-menu__tertiarymenu-link">Cause marketing</a>
+        </li>
+            
+            </ul>
+                  </li>
+                                          <li class="dropdown-menu__submenu-item">
+          <a href="/support/planned-giving" class="dropdown-menu__submenu-link">Planned giving</a>
+                      <ul class="dropdown-menu__tertiarymenu">
+                
+                                <li class="dropdown-menu__tertiarymenu-item">
+          <a href="/support/donate-stock" class="dropdown-menu__tertiarymenu-link">Stock donations</a>
+        </li>
+                                          <li class="dropdown-menu__tertiarymenu-item">
+          <a href="/support/donor-advised-funds" class="dropdown-menu__tertiarymenu-link">Donor-advised funds</a>
+        </li>
+                                          <li class="dropdown-menu__tertiarymenu-item">
+          <a href="https://www.habitat.org/multimedia/case-for-support/" class="dropdown-menu__tertiarymenu-link">Case for support</a>
+        </li>
+            
+            </ul>
+                  </li>
+            
+            </ul>
+          </div>
+        </div>
+          </li>
+                                      <li class="dropdown-menu__menu-item  dropdown-menu__menu-item--with-sub-items " data-is-collapsible>
+              <button class="dropdown-menu__menu-button" data-collapsible-toggle>
+          <div class="dropdown-menu__menu-button--text">Shop</div>
+          <div class="dropdown-menu__menu-button--icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><clipPath id="a"><path d="m0 0h24v24h-24z"/></clipPath><g clip-path="url(#a)"><path class="plusminus__horizontal" d="m3.47 10.5h17.06c.23 0 .43.15.47.37v2.25c-.04.22-.24.38-.47.37h-17.06c-.23 0-.43-.15-.47-.37v-2.06c-.04-.27.16-.52.43-.56z"/><path class="plusminus__vertical" d="m13.5 3.47v17.06c0 .23-.15.43-.37.47h-2.25c-.22-.04-.38-.24-.37-.47v-17.06c0-.23.15-.43.37-.47h2.06c.27-.04.52.16.56.43z"/></g></svg>
+          </div>
+                  </button>
+        <div class="dropdown-menu__panel" data-collapsible-content>
+          <div class="dropdown-menu__panel-wrapper" data-collapsible-content-wrapper>
+            <div class="dropdown-menu__panel-header">
+                              <a href="/shop" class="dropdown-menu__panel-header--link">
+                  <h2 class="dropdown-menu__panel-header--text">Shop</h2>
+                </a>
+                                        </div>
+            <ul class="dropdown-menu__submenu">
+                
+                                <li class="dropdown-menu__submenu-item">
+          <a href="/restores-3" class="dropdown-menu__submenu-link">Habitat ReStores</a>
+                  </li>
+                                          <li class="dropdown-menu__submenu-item">
+          <a href="https://habitatshop.org/" class="dropdown-menu__submenu-link">Habitat-branded merchandise</a>
+                  </li>
+            
+            </ul>
+          </div>
+        </div>
+          </li>
+                                      <li class="dropdown-menu__menu-item  dropdown-menu__menu-item--with-sub-items " data-is-collapsible>
+              <button class="dropdown-menu__menu-button" data-collapsible-toggle>
+          <div class="dropdown-menu__menu-button--text">Our work</div>
+          <div class="dropdown-menu__menu-button--icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><clipPath id="a"><path d="m0 0h24v24h-24z"/></clipPath><g clip-path="url(#a)"><path class="plusminus__horizontal" d="m3.47 10.5h17.06c.23 0 .43.15.47.37v2.25c-.04.22-.24.38-.47.37h-17.06c-.23 0-.43-.15-.47-.37v-2.06c-.04-.27.16-.52.43-.56z"/><path class="plusminus__vertical" d="m13.5 3.47v17.06c0 .23-.15.43-.37.47h-2.25c-.22-.04-.38-.24-.37-.47v-17.06c0-.23.15-.43.37-.47h2.06c.27-.04.52.16.56.43z"/></g></svg>
+          </div>
+                  </button>
+        <div class="dropdown-menu__panel" data-collapsible-content>
+          <div class="dropdown-menu__panel-wrapper" data-collapsible-content-wrapper>
+            <div class="dropdown-menu__panel-header">
+                              <a href="/our-work" class="dropdown-menu__panel-header--link">
+                  <h2 class="dropdown-menu__panel-header--text">Our work</h2>
+                </a>
+                                        </div>
+            <ul class="dropdown-menu__submenu dropdown-menu__submenu--vertical">
+                
+                                <li class="dropdown-menu__submenu-item">
+          <a href="/our-work" class="dropdown-menu__submenu-link">Overview</a>
+                  </li>
+                                          <li class="dropdown-menu__submenu-item">
+          <a href="/our-work/home-construction" class="dropdown-menu__submenu-link">Home construction</a>
+                  </li>
+                                          <li class="dropdown-menu__submenu-item">
+          <a href="/our-work/aging-in-place" class="dropdown-menu__submenu-link">Older adults&#039; home repair</a>
+                  </li>
+                                          <li class="dropdown-menu__submenu-item">
+          <a href="/our-work/neighborhood-revitalization" class="dropdown-menu__submenu-link">Revitalizing communities</a>
+                  </li>
+                                          <li class="dropdown-menu__submenu-item">
+          <a href="/impact/our-work/disaster-response" class="dropdown-menu__submenu-link">Disaster response</a>
+                  </li>
+                                          <li class="dropdown-menu__submenu-item">
+          <a href="/our-work/terwilliger-center-innovation-in-shelter" class="dropdown-menu__submenu-link">Innovation</a>
+                  </li>
+                                          <li class="dropdown-menu__submenu-item">
+          <a href="/our-work/impact" class="dropdown-menu__submenu-link">Impact and stories</a>
+                  </li>
+                                          <li class="dropdown-menu__submenu-item">
+          <a href="/where-we-work" class="dropdown-menu__submenu-link">Where we work</a>
+                  </li>
+                                          <li class="dropdown-menu__submenu-item">
+          <a href="/you-thought-leadership-series" class="dropdown-menu__submenu-link">Live stream events</a>
+                  </li>
+            
+            </ul>
+          </div>
+        </div>
+          </li>
+                                      <li class="dropdown-menu__menu-item  dropdown-menu__menu-item--with-sub-items " data-is-collapsible>
+              <button class="dropdown-menu__menu-button" data-collapsible-toggle>
+          <div class="dropdown-menu__menu-button--text">Housing help</div>
+          <div class="dropdown-menu__menu-button--icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><clipPath id="a"><path d="m0 0h24v24h-24z"/></clipPath><g clip-path="url(#a)"><path class="plusminus__horizontal" d="m3.47 10.5h17.06c.23 0 .43.15.47.37v2.25c-.04.22-.24.38-.47.37h-17.06c-.23 0-.43-.15-.47-.37v-2.06c-.04-.27.16-.52.43-.56z"/><path class="plusminus__vertical" d="m13.5 3.47v17.06c0 .23-.15.43-.37.47h-2.25c-.22-.04-.38-.24-.37-.47v-17.06c0-.23.15-.43.37-.47h2.06c.27-.04.52.16.56.43z"/></g></svg>
+          </div>
+                  </button>
+        <div class="dropdown-menu__panel" data-collapsible-content>
+          <div class="dropdown-menu__panel-wrapper" data-collapsible-content-wrapper>
+            <div class="dropdown-menu__panel-header">
+                              <a href="/housing-help" class="dropdown-menu__panel-header--link">
+                  <h2 class="dropdown-menu__panel-header--text">Housing help</h2>
+                </a>
+                                        </div>
+            <ul class="dropdown-menu__submenu dropdown-menu__submenu--vertical">
+                
+                                <li class="dropdown-menu__submenu-item">
+          <a href="/housing-help" class="dropdown-menu__submenu-link">Housing help overview</a>
+                  </li>
+                                          <li class="dropdown-menu__submenu-item">
+          <a href="/housing-help/apply" class="dropdown-menu__submenu-link">How to apply</a>
+                  </li>
+                                          <li class="dropdown-menu__submenu-item">
+          <a href="/housing-help/habitat-homeowners" class="dropdown-menu__submenu-link">Habitat homeowners</a>
+                  </li>
+            
+            </ul>
+          </div>
+        </div>
+          </li>
+                                      <li class="dropdown-menu__menu-item  dropdown-menu__menu-item--with-sub-items " data-is-collapsible>
+              <button class="dropdown-menu__menu-button" data-collapsible-toggle>
+          <div class="dropdown-menu__menu-button--text">About</div>
+          <div class="dropdown-menu__menu-button--icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><clipPath id="a"><path d="m0 0h24v24h-24z"/></clipPath><g clip-path="url(#a)"><path class="plusminus__horizontal" d="m3.47 10.5h17.06c.23 0 .43.15.47.37v2.25c-.04.22-.24.38-.47.37h-17.06c-.23 0-.43-.15-.47-.37v-2.06c-.04-.27.16-.52.43-.56z"/><path class="plusminus__vertical" d="m13.5 3.47v17.06c0 .23-.15.43-.37.47h-2.25c-.22-.04-.38-.24-.37-.47v-17.06c0-.23.15-.43.37-.47h2.06c.27-.04.52.16.56.43z"/></g></svg>
+          </div>
+                  </button>
+        <div class="dropdown-menu__panel" data-collapsible-content>
+          <div class="dropdown-menu__panel-wrapper" data-collapsible-content-wrapper>
+            <div class="dropdown-menu__panel-header">
+                              <a href="/about" class="dropdown-menu__panel-header--link">
+                  <h2 class="dropdown-menu__panel-header--text">About</h2>
+                </a>
+                                        </div>
+            <ul class="dropdown-menu__submenu">
+                
+                                <li class="dropdown-menu__submenu-item">
+          <a href="/about/what-we-do" class="dropdown-menu__submenu-link">What we do</a>
+                      <ul class="dropdown-menu__tertiarymenu">
+                
+                                <li class="dropdown-menu__tertiarymenu-item">
+          <a href="/about/faq" class="dropdown-menu__tertiarymenu-link">Frequently asked questions</a>
+        </li>
+                                          <li class="dropdown-menu__tertiarymenu-item">
+          <a href="/about/mission-and-vision" class="dropdown-menu__tertiarymenu-link">Mission and vision</a>
+        </li>
+            
+            </ul>
+                  </li>
+                                          <li class="dropdown-menu__submenu-item">
+          <a href="/about/who-we-are" class="dropdown-menu__submenu-link">Who we are</a>
+                      <ul class="dropdown-menu__tertiarymenu">
+                
+                                <li class="dropdown-menu__tertiarymenu-item">
+          <a href="/about/history" class="dropdown-menu__tertiarymenu-link">History</a>
+        </li>
+                                          <li class="dropdown-menu__tertiarymenu-item">
+          <a href="/about/habitat-for-humanity-leadership" class="dropdown-menu__tertiarymenu-link">Leadership</a>
+        </li>
+                                          <li class="dropdown-menu__tertiarymenu-item">
+          <a href="/about/partners" class="dropdown-menu__tertiarymenu-link">Partners</a>
+        </li>
+            
+            </ul>
+                  </li>
+                                          <li class="dropdown-menu__submenu-item">
+          <a href="/about/resources" class="dropdown-menu__submenu-link">Resources</a>
+                      <ul class="dropdown-menu__tertiarymenu">
+                
+                                <li class="dropdown-menu__tertiarymenu-item">
+          <a href="/about/annual-reports-990s" class="dropdown-menu__tertiarymenu-link">Annual Reports and 990s</a>
+        </li>
+                                          <li class="dropdown-menu__tertiarymenu-item">
+          <a href="/about/habitat-learns" class="dropdown-menu__tertiarymenu-link">Habitat Learns</a>
+        </li>
+                                          <li class="dropdown-menu__tertiarymenu-item">
+          <a href="/about/state-support-organizations" class="dropdown-menu__tertiarymenu-link">State support organizations</a>
+        </li>
+                                          <li class="dropdown-menu__tertiarymenu-item">
+          <a href="/about/raising-concerns" class="dropdown-menu__tertiarymenu-link">Raising concerns</a>
+        </li>
+            
+            </ul>
+                  </li>
+                                          <li class="dropdown-menu__submenu-item">
+          <a href="/about/careers" class="dropdown-menu__submenu-link">Careers</a>
+                  </li>
+                                          <li class="dropdown-menu__submenu-item">
+          <a href="/newsroom" class="dropdown-menu__submenu-link">Newsroom</a>
+                  </li>
+            
+            </ul>
+          </div>
+        </div>
+          </li>
+  
+  </ul>
+</nav>
+
+              </div>
+      <div class="header__search" data-collapse-group data-is-collapsible>
+        <div class="header__search-icon" data-collapsible-toggle tabindex="0">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><clipPath id="a"><path d="m0 0h24v24h-24z"/></clipPath><g clip-path="url(#a)"><path d="m15.2 5.3c-2.73-2.73-7.17-2.73-9.9 0s-2.73 7.17 0 9.9c2.45 2.46 6.33 2.73 9.1.65l.25.9 4 4 2.1-2.1-4-4-.9-.25c2.06-2.78 1.78-6.64-.65-9.1zm-1.95 7.95c-1.63 1.67-4.31 1.7-5.98.07-.02-.02-.05-.05-.07-.07-1.67-1.67-1.67-4.38 0-6.05s4.38-1.67 6.05 0 1.67 4.38 0 6.05z"/></g></svg>
+        </div>
+        <div class="header__search-search" data-collapsible-content>
+          <div class="header__search-wrapper" data-collapsible-content-wrapper>
+            
+
+<div class="header-search">
+  <form class="header-search__form" action="/search">
+    <label class="header-search__label" for="search">Search habitat.org</label>
+    <input class="header-search__input" title="Search" type="search" name="search" value="">
+    <button class="header-search__submit" type="submit">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><clipPath id="a"><path d="m0 0h24v24h-24z"/></clipPath><g clip-path="url(#a)"><path d="m15.2 5.3c-2.73-2.73-7.17-2.73-9.9 0s-2.73 7.17 0 9.9c2.45 2.46 6.33 2.73 9.1.65l.25.9 4 4 2.1-2.1-4-4-.9-.25c2.06-2.78 1.78-6.64-.65-9.1zm-1.95 7.95c-1.63 1.67-4.31 1.7-5.98.07-.02-.02-.05-.05-.07-.07-1.67-1.67-1.67-4.38 0-6.05s4.38-1.67 6.05 0 1.67 4.38 0 6.05z"/></g></svg>
+    </button>
+  </form>
+</div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="header__supplementary-nav">
+              
+
+  <nav class="donate-menu" role="navigation" aria-label="Donate Menu">
+    <button class="donate-cta" aria-label="donate toggle button" aria-pressed="false">
+      <span class="donate-cta__icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><clipPath id="a"><path d="m0 0h24v24h-24z"/></clipPath><g clip-path="url(#a)"><path d="m19.53 5.57c-1.95-1.99-5.14-2.02-7.12-.08-.03.02-.05.05-.08.08l-.33.27-.33-.33c-1.95-1.99-5.14-2.02-7.12-.08-.03.02-.05.05-.08.08-1.97 2.02-1.97 5.24 0 7.26l7.53 7.64 7.53-7.58c1.97-2.02 1.97-5.24 0-7.26z"/></g></svg>      </span>
+      donate
+    </button>
+    <ul class="donate-menu__list" aria-expanded="false" aria-label="Donate menu items">
+              <li class="donate-menu__item">
+          
+
+  <a href="https://secure.habitat.org/site/Donation2?df_id=7753&amp;mfc_pref=T&amp;7753.donation=form1&amp;keyword=button-header-single&amp;s_subsrc=button-header-single" class="lb-btn btn-donate" role="button">Donate Now </a>
+
+        </li>
+              <li class="donate-menu__item">
+          
+
+  <a href="https://secure.habitat.org/site/Donation2?df_id=7754&amp;mfc_pref=T&amp;7754.donation=form1&amp;keyword=button-header-hopebuilder&amp;s_subsrc=button-header-hopebuilder" class="lb-btn btn-donate" role="button">Donate Monthly </a>
+
+        </li>
+          </ul>
+  </nav>
+
+            <button class="header__main-menu-control header__main-menu-control--main" aria-label="Toggle sidebar menu">
+        <span class="header__main-menu-open-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><clipPath id="a"><path d="m0 0h24v24h-24z"/></clipPath><g clip-path="url(#a)"><path d="m3.47 4.51h17.06c.23 0 .43.15.47.37v2.25c-.04.22-.24.38-.47.37h-17.06c-.23 0-.43-.15-.47-.37v-2.06c-.04-.27.16-.52.43-.56z"/><path d="m3.47 10.51h17.06c.23 0 .43.15.47.37v2.25c-.04.22-.24.38-.47.37h-17.06c-.23 0-.43-.15-.47-.37v-2.06c-.04-.27.16-.52.43-.56z"/><path d="m3.47 16.49h17.06c.23 0 .43.15.47.37v2.25c-.04.22-.24.38-.47.37h-17.06c-.23 0-.43-.15-.47-.37v-2.06c-.04-.27.16-.52.43-.56z"/></g></svg>
+        </span>
+        <span class="header__main-menu-close-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="m7.03 4.91 12.06 12.06c.17.16.19.41.07.6l-1.59 1.59c-.19.13-.44.1-.6-.07l-12.06-12.06c-.17-.16-.19-.41-.07-.6l1.46-1.46c.17-.22.48-.26.7-.09.01 0 .02.02.03.03z" fill="currentColor"/><path d="m19.09 7.03-12.06 12.06c-.16.17-.41.19-.6.07l-1.59-1.59c-.13-.19-.1-.44.07-.6l12.06-12.06c.16-.17.41-.19.6-.07l1.46 1.46c.22.17.26.48.09.7 0 .01-.02.02-.03.03z" fill="currentColor"/></g></svg>
+
+        </span>
+        Menu
+      </button>
+    </div>
+  </div>
+</header>
+
+      <div data-drupal-messages-fallback class="hidden"></div>
+
+
+
+      
+    
+  
+    <main role="main">
+    <a id="main-content" tabindex="-1"></a>
+          <div id="hab-area-edition-rehome-wrapper" class="l-padded l-padded--top l-padded--bottom hidden hab-area-edition-rehome-wrapper"><div class="hab-area-edition-rehome-notice">This page is about our work in the <em class="placeholder">North America</em> region.</div>
+<ul class="hab-area-edition-rehome-messages"><li><a href="/where-we-work" class="area-edition-rehome" data-node-cookieval="northamerica" hreflang="en-003">Make <em class="placeholder">North America</em> your preferred site edition</a></li></ul></div>
+    
+    <div class="page__content">
+        <div data-sitewide-alert aria-live="polite" id="block-hab-theme-sitewidealert">
+  
+    
+      <div></div>
+
+  </div>
+<div id="block-hab-theme-content">
+  
+    
+      <article data-history-node-id="15919">
+    
+  
+    
+  <div id="hab-area-edition-rehome-wrapper" class="l-padded l-padded--top l-padded--bottom hidden hab-area-edition-rehome-wrapper"><div class="hab-area-edition-rehome-notice">This page is about our work in the <em class="placeholder">North America</em> region.</div>
+<ul class="hab-area-edition-rehome-messages"><li><a href="/where-we-work" class="area-edition-rehome" data-node-cookieval="northamerica" hreflang="en-003">Make <em class="placeholder">North America</em> your preferred site edition</a></li></ul></div>
+
+  <section class="layout layout--full-hero-section color-theme--light hero--width-centered space--after-1 layout--full-hero">
+    <div class="layout__inner">
+          <div  class="layout__region layout__region--first">
+        
+  
+  
+<div class="lb-block--center-content lb-hero-wrapper">
+  
+  
+      
+
+  
+
+
+
+<div class="hero-lb hero-lb--media- hero-lb--media-width--100  hero-lb--overlay-position-left">
+            <div class="hero-lb__media">
+      
+    </div>
+  
+          <div class="hero-lb__content">
+              <div class="hero-lb__content-icon">
+          
+        </div>
+                    <div class="hero-lb__content-title">
+          
+
+  <h1 class="heading">
+              
+
+
+  Where we work
+
+      </h2>
+
+        </div>
+                    <div class="hero-lb__content-body">
+          
+        </div>
+                    
+          </div>
+  
+  </div>
+  </div>
+
+      </div>
+        </div>
+  </section>
+      <div id="block-hab-theme-breadcrumbs">
+  
+    
+      
+
+
+  <nav class="breadcrumb " role="navigation" aria-labelledby="system-breadcrumb">
+    <div id="system-breadcrumb" class="visually-hidden">Breadcrumb</div>
+    <ol class="breadcrumb__menu">
+                        <li class="breadcrumb__list-item">
+            <a href="/">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><clipPath id="a"><path d="m0 0h24v24h-24z"/></clipPath><g clip-path="url(#a)"><path d="m12 3-9 6.17v2.42h2.16v7.77h4.78v-5.71h4.11v5.71h4.78v-7.77h2.16v-2.42z"/></g></svg>            </a>
+            <div class="breadcrumb__caret">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><clipPath id="a"><path d="m0 0h24v24h-24z"/></clipPath><g clip-path="url(#a)"><path d="m18.21 12-9 9-2.21-2.21 6.74-6.79-6.74-6.79 2.21-2.21z"/></g></svg>            </div>
+          </li>
+                                <li class="breadcrumb__list-item">
+                          Where we work
+                      </li>
+                  </ol>
+  </nav>
+
+
+  </div>
+
+  
+
+
+  <section class="layout layout--columns-section layout--columns-section--100 section--width-full space--after-2" id="">
+
+    
+    
+          <div class="layout__inner">
+                  <div  class="layout__region layout__region--first">
+            
+
+  
+<div class="hab-inline-block">
+  
+    
+      
+
+    <div class="hab-image original">
+            
+
+
+  
+  <div class="inline-image">
+      <picture>
+                  <source srcset="/sites/default/files/styles/780w_scale/public/images/where-we-work-map.png?itok=E15o5i9I 1x" media="(max-width: 543px)" type="image/png" width="780" height="390"/>
+              <source srcset="/sites/default/files/styles/780w_scale/public/images/where-we-work-map.png?itok=E15o5i9I 1x" media="(min-width: 544px) and (max-width: 767px)" type="image/png" width="780" height="390"/>
+              <source srcset="/sites/default/files/styles/960w/public/images/where-we-work-map.png?itok=jUN_6SYd 1x" media="(min-width: 768px) and (max-width: 1023px)" type="image/png" width="960" height="480"/>
+              <source srcset="/sites/default/files/styles/960w/public/images/where-we-work-map.png?itok=jUN_6SYd 1x" media="(min-width: 1024px) and (max-width: 1199px)" type="image/png" width="960" height="480"/>
+              <source srcset="/sites/default/files/styles/1200w/public/images/where-we-work-map.png?itok=KHxf2560 1x" media="(min-width: 1200px) and (max-width: 1439px)" type="image/png" width="1200" height="600"/>
+              <source srcset="/sites/default/files/styles/1600w/public/images/where-we-work-map.png?itok=TbXJU-Un 1x" media="(min-width: 1440px)" type="image/png" width="1600" height="800"/>
+                  <img loading="eager" width="1600" height="800" src="/sites/default/files/styles/1600w/public/images/where-we-work-map.png?itok=TbXJU-Un" alt="World map with United States and Canada in Blue, Latin America and the Caribbean in orange, Europe and the Middle East in navy, Africa in red and Asia and the Pacific in green. Some countries are lighter colors, which means &quot;Partnership program partnership programs are where Habitat for Humanity works through partners, with no Habitat office.&quot;" />
+
+  </picture>
+
+
+</div>
+
+
+
+
+          </div>
+
+
+
+  </div>
+
+          </div>
+              </div>
+    
+  </section>
+
+
+
+  <section class="layout layout--columns-section layout--columns-section--100 section--width-centered space--after-3" id="">
+
+    
+    
+          <div class="layout__inner">
+                  <div  class="layout__region layout__region--first">
+            
+<div class="hab-inline-block text-block">
+  
+  
+      
+
+            
+
+              
+
+            <div><p>Habitat for Humanity works in more than 60 countries grouped into five regions — we have helped more than 65 million people improve their living conditions since 1976.</p><p>Habitat works together with families, local communities, volunteers and partners from around the world so that more people are able to live in affordable and safe homes. Our advocacy efforts focus on policy reform to remove systemic barriers preventing low-income and historically underserved families from accessing adequate, affordable shelter.</p><p><a href="https://www.habitat.org/where-we-work/capacity-statements"><strong>Read our capacity statements</strong></a><strong>&nbsp;for some of the countries we work in and learn about our specific areas of programming and expertise in various sectors,&nbsp;</strong>from land tenure security and disaster response to microfinance and water, sanitation and hygiene, or WASH.</p></div>
+      
+      
+  </div>
+
+          </div>
+              </div>
+    
+  </section>
+
+
+
+  <section class="layout layout--columns-section layout--columns-section--100" id="">
+
+    
+    
+          <div class="layout__inner">
+                  <div  class="layout__region layout__region--first">
+            
+
+
+
+
+
+
+<div class="hab-inline-block content-list content-list-default">
+  
+  
+      
+
+
+    <div class="views-element-container"><div class="view view-eva view-embeddable-content-list view-id-embeddable_content_list view-display-id-content_list_eva js-view-dom-id-87b3d05683a0ddfdc6775fe6ad6f0c5a6dbb22fcb9b5172db3f84796b42a5be0">
+  
+    
+
+  
+  
+
+  <ul data-drupal-views-infinite-scroll-content-wrapper class="views-infinite-scroll-content-wrapper clearfix content-list--items resp-grid--standard">    <li class="content-list--item">
+                
+
+
+<article data-history-node-id="40646" class="hab-inline-block card-block list-teaser type-page">
+  
+  
+      
+
+  <a href="/where-we-work/capacity-statements" class="link-group">
+    <div class="card-heading">
+    
+
+  <h3 class="heading card-title">
+              <a href="/where-we-work/capacity-statements"><span>Capacity statements</span>
+</a>
+      </h2>
+  </div>
+  </a>
+<div class="card-content">
+    <p>See our global capacity overview or read Habitat’s country level capacity statements, which include specific areas of programming and expertise.&nbsp;</p>
+      <div class="card-button">
+      
+
+  <a href="/where-we-work/capacity-statements" class="lb-btn" role="button">Read more </a>
+    </div>
+  </div>
+
+  </article>
+</li>
+    <li class="content-list--item">
+                
+
+
+<article data-history-node-id="15918" class="hab-inline-block card-block list-teaser type-page">
+  
+  
+      
+
+  <a href="/where-we-work/united-states-canada" class="link-group">
+    <div class="card-heading">
+    
+
+  <h3 class="heading card-title">
+              <a href="/where-we-work/united-states-canada"><span>United States and Canada</span>
+</a>
+      </h2>
+  </div>
+  </a>
+<div class="card-content">
+    <p>In the U.S., we work in all 50 states, the District of Columbia and Puerto Rico. In Canada, we work in all 10 provinces and each of the three territories.</p>
+      <div class="card-button">
+      
+
+  <a href="/where-we-work/united-states-canada" class="lb-btn" role="button">Read more </a>
+    </div>
+  </div>
+
+  </article>
+</li>
+    <li class="content-list--item">
+                
+
+
+<article data-history-node-id="15914" class="hab-inline-block card-block list-teaser type-page">
+  
+  
+      
+
+  <a href="/where-we-work/latin-america-caribbean" class="link-group">
+    <div class="card-heading">
+    
+
+  <h3 class="heading card-title">
+              <a href="/where-we-work/latin-america-caribbean"><span>Latin America and the Caribbean</span>
+</a>
+      </h2>
+  </div>
+  </a>
+<div class="card-content">
+    <p>We work in many countries in Latin America and the Caribbean, including Mexico, Brazil, the Dominican Republic, Argentina and more.</p>
+      <div class="card-button">
+      
+
+  <a href="/where-we-work/latin-america-caribbean" class="lb-btn" role="button">Read more </a>
+    </div>
+  </div>
+
+  </article>
+</li>
+</ul>
+
+  
+  
+
+
+  
+  
+
+  
+  </div>
+</div>
+
+
+
+  </div>
+
+
+
+
+
+
+
+<div class="hab-inline-block content-list content-list-default">
+  
+  
+      
+
+
+    <div class="views-element-container"><div class="view view-eva view-embeddable-content-list view-id-embeddable_content_list view-display-id-content_list_eva js-view-dom-id-d8548f0e7bf7b1c2abe291b1486172d19552fd8974756d1598e715281916d3a0">
+  
+    
+
+  
+  
+
+  <ul data-drupal-views-infinite-scroll-content-wrapper class="views-infinite-scroll-content-wrapper clearfix content-list--items resp-grid--standard">    <li class="content-list--item">
+                
+
+
+<article data-history-node-id="15915" class="hab-inline-block card-block list-teaser type-page">
+  
+  
+      
+
+  <a href="/where-we-work/europe-middle-east" class="link-group">
+    <div class="card-heading">
+    
+
+  <h3 class="heading card-title">
+              <a href="/where-we-work/europe-middle-east"><span>Europe and the Middle East</span>
+</a>
+      </h2>
+  </div>
+  </a>
+<div class="card-content">
+    <p>We work in many countries in Europe and the Middle East region, including the United Kingdom, Germany, Ireland, Jordan, Poland and more.</p>
+      <div class="card-button">
+      
+
+  <a href="/where-we-work/europe-middle-east" class="lb-btn" role="button">Read more </a>
+    </div>
+  </div>
+
+  </article>
+</li>
+    <li class="content-list--item">
+                
+
+
+<article data-history-node-id="15916" class="hab-inline-block card-block list-teaser type-page">
+  
+  
+      
+
+  <a href="/where-we-work/asia-pacific" class="link-group">
+    <div class="card-heading">
+    
+
+  <h3 class="heading card-title">
+              <a href="/where-we-work/asia-pacific"><span>Asia and the Pacific</span>
+</a>
+      </h2>
+  </div>
+  </a>
+<div class="card-content">
+    <p>We work in many countries in Asia and the Pacific, including the Philippines, India, Nepal, Australia, New Zealand and more.</p>
+      <div class="card-button">
+      
+
+  <a href="/where-we-work/asia-pacific" class="lb-btn" role="button">Read more </a>
+    </div>
+  </div>
+
+  </article>
+</li>
+    <li class="content-list--item">
+                
+
+
+<article data-history-node-id="37986" class="hab-inline-block card-block list-teaser type-page">
+  
+  
+      
+
+  <a href="/where-we-work/africa" class="link-group">
+    <div class="card-heading">
+    
+
+  <h3 class="heading card-title">
+              <a href="/where-we-work/africa"><span>Africa</span>
+</a>
+      </h2>
+  </div>
+  </a>
+<div class="card-content">
+    <p>We work in many countries in sub-Saharan Africa, including Ethiopia, Kenya, Uganda and more.</p>
+      <div class="card-button">
+      
+
+  <a href="/where-we-work/africa" class="lb-btn" role="button">Read more </a>
+    </div>
+  </div>
+
+  </article>
+</li>
+</ul>
+
+  
+  
+
+
+  
+  
+
+  
+  </div>
+</div>
+
+
+
+  </div>
+
+          </div>
+              </div>
+    
+  </section>
+
+      
+
+  </article>
+
+  </div>
+
+
+    </div>
+  </main>
+
+                  
+<svg style="display: none" height="0" width="0" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="search-icon" viewBox="0 0 36 36">
+    <path d="M24.4 4.6C18.9-.9 10.1-.9 4.6 4.6s-5.5 14.3 0 19.8c5 5 12.8 5.4 18.2 1.3l.5 1.8 8 8 4.2-4.2-8-8-1.8-.5c4.1-5.4 3.6-13.2-1.3-18.2zm-3.9 15.9c-3.4 3.4-8.8 3.4-12.1 0-3.3-3.4-3.4-8.8 0-12.1 3.4-3.3 8.8-3.4 12.1 0 3.3 3.4 3.4 8.8 0 12.1z"/></path>
+  </symbol>
+  <symbol id="share-icon" width="20" height="20" viewBox="0 0 20 20">
+    <path d="M13.571 11.429q1.484 0 2.528 1.044t1.044 2.528-1.044 2.528-2.528 1.044-2.528-1.044-1.044-2.528q0-.134.022-.379l-4.018-2.009q-1.027.96-2.433.96-1.484 0-2.528-1.044t-1.044-2.528 1.044-2.528T3.57 6.429q1.406 0 2.433.96l4.018-2.009q-.022-.246-.022-.379 0-1.484 1.044-2.528t2.528-1.044 2.528 1.044 1.044 2.528-1.044 2.528-2.528 1.044q-1.406 0-2.433-.96L7.12 9.622q.022.246.022.379t-.022.379l4.018 2.009q1.027-.96 2.433-.96z"/></path>
+  </symbol>
+  <symbol id="facebook-icon" viewBox="0 0 20 20">
+    <path d="M11.4657143 19.4371429v-6.6228572h2.2257143l.4342857-2.7685714h-2.66V8.2542857c0-.76.38-1.4657143 1.5742857-1.4657143h1.1942857V4.4542857s-1.0857143-.1628571-2.1171428-.1628571c-2.1714286 0-3.5828572 1.3028571-3.5828572 3.6914285V10.1H6.1457143v2.7685714h2.3885714v6.6228572C3.9742857 18.7857143.5 14.8228571.5 10.1.5 4.8342857 4.7342857.6 10 .6s9.5 4.2342857 9.5 9.5c0 4.6685714-3.4742857 8.6314286-8.0342857 9.3371429z"/></path>
+  </symbol>
+  <symbol id="twitter-icon" viewBox="0 0 19 16">
+    <path d="M16.794842 4.9260745c0 4.8997135-3.713467 10.52149-10.52149 10.52149-2.114613 0-4.022922-.6189112-5.673352-1.6504298.309456.0515759.567335.0515759.876791.0515759 1.753581 0 3.300859-.5673352 4.590258-1.5988539-1.65043-.0515759-2.991404-1.0830945-3.455588-2.5787965.206304.0515759.464184.0515759.722063.0515759.309456 0 .670487-.0515759.979943-.1031519-1.702006-.3610315-2.991404-1.8567335-2.991404-3.6103151v-.051576c.515759.2578797 1.083095.4641834 1.65043.4641834-.979943-.6704871-1.65043-1.8051576-1.65043-3.0945559 0-.6704871.206304-1.3409742.515759-1.8567335C3.64298 3.7398281 6.376504 5.1839542 9.47106 5.3386819c-.051576-.2578796-.103152-.5673352-.103152-.8252149C9.367908 2.4504298 11.018338.8 13.081375.8c1.083095 0 2.011462.4641834 2.681949 1.1862464.825215-.1547278 1.65043-.4641834 2.372493-.8767908-.25788.8767908-.876791 1.5988539-1.65043 2.0630372.722063-.1031518 1.444126-.3094556 2.114613-.5673352-.515759.722063-1.13467 1.3925501-1.856734 1.9083094.051576.1031519.051576.2578797.051576.4126075z"/></path>
+  </symbol>
+  <symbol id="youtube-icon" viewBox="0 0 20 21">
+    <path d="M20 10.0053476s0 3.2620321-.4278075 4.8128342c-.2139037.855615-.9090909 1.4973262-1.7647059 1.7647059C16.2566845 17.0106952 10 17.0106952 10 17.0106952s-6.25668449 0-7.80748663-.4278075C1.3368984 16.368984.64171123 15.6737968.42780749 14.8181818 0 13.2673797 0 10.0053476 0 10.0053476s0-3.26203209.42780749-4.81283423c.21390374-.85561497.90909091-1.55080214 1.76470588-1.76470588C3.74331551 3 10 3 10 3s6.2566845 0 7.8074866.42780749c.855615.21390374 1.5508022.90909091 1.7647059 1.76470588C20 6.74331551 20 10.0053476 20 10.0053476zm-6.8449198 0L7.9144385 7.01069519v5.93582891l5.2406417-2.9411765z"/></path>
+  </symbol>
+  <symbol id="pinterest-icon" viewBox="0 0 20 20">
+    <path d="M10 19.5c-.977143 0-1.9-.1628571-2.822857-.4342857.38-.6514286.977143-1.6828572 1.194286-2.4971429.108571-.4342857.597142-2.28.597142-2.28.325715.5971429 1.194286 1.0857143 2.171429 1.0857143 2.877143 0 4.94-2.66 4.94-5.9171428 0-3.1485715-2.551429-5.4828572-5.862857-5.4828572-4.125714 0-6.297143 2.7685714-6.297143 5.7542857C3.92 11.14 4.68 12.8771429 5.82 13.42c.162857.1085714.271429.0542857.325714-.1085714.054286-.1085715.217143-.76.271429-1.0857143 0-.1085714 0-.1628572-.054286-.2714286-.38-.4885714-.705714-1.3571428-.705714-2.1714286 0-2.1171428 1.574286-4.1257142 4.288571-4.1257142 2.334286 0 3.962857 1.5742857 3.962857 3.8542857 0 2.5514285-1.302857 4.3428571-2.985714 4.3428571-.922857 0-1.628571-.76-1.411428-1.7371428.271428-1.14.76-2.3342858.76-3.1485715 0-.7057143-.38-1.3571428-1.194286-1.3571428-.977143 0-1.737143.9771428-1.737143 2.28 0 .8685714.271429 1.4114285.271429 1.4114285s-.922858 3.9628572-1.085715 4.7228572C6.308571 16.84 6.417143 17.98 6.471429 18.74 2.997143 17.4914286.5 14.0171429.5 10 .5 4.7342857 4.734286.5 10 .5s9.5 4.2342857 9.5 9.5-4.234286 9.5-9.5 9.5z"/></path>
+  </symbol>
+  <symbol id="instagram-icon" viewBox="0 0 20 20">
+    <path d="M19.417542 13.9276799c-.05427 1.5195742-.434164 2.8763369-1.519574 3.961747-1.08541 1.1396806-2.442173 1.4653037-3.961747 1.5195742-1.573845.108541-6.241108.108541-7.814953 0-1.519574-.0542705-2.876337-.4341641-3.961747-1.5195742S.639947 15.4472541.531406 13.9276799c-.108541-1.5738447-.108541-6.2411083 0-7.814953.05427-1.5195741.434164-2.8763368 1.519574-3.961747C3.13639 1.0655698 4.493153.6856763 6.012727.6314058c1.573845-.1085411 6.241108-.1085411 7.814953 0 1.519574.0542705 2.876337.434164 3.961747 1.5195741 1.139681 1.0854102 1.465304 2.4421729 1.519574 3.961747.162812 1.5738447.162812 6.2411083.108541 7.814953zm-1.682386-3.9074765c0-1.3567626.108541-4.3416405-.379893-5.5898622-.325623-.8140576-.976869-1.4653037-1.790927-1.7909267-1.248222-.4884346-4.233099-.3798935-5.589862-.3798935s-4.341641-.1085411-5.589862.3798935c-.814058.325623-1.465304.9768691-1.790927 1.7909267-.488435 1.2482217-.379894 4.2330996-.379894 5.5898622 0 1.3567627-.108541 4.3416406.379894 5.5898622.325623.8140576.976869 1.4653037 1.790927 1.7909267 1.248221.4884346 4.233099.3798936 5.589862.3798936s4.34164.108541 5.589862-.3798936c.814058-.325623 1.465304-.9768691 1.790927-1.7909267.542705-1.2482216.379893-4.2330995.379893-5.5898622zm-2.876336 0c0 2.7135254-2.170821 4.8843456-4.884346 4.8843456-2.713525 0-4.884346-2.1708202-4.884346-4.8843456 0-2.7135253 2.170821-4.8843456 4.884346-4.8843456 2.713525 0 4.884346 2.1708203 4.884346 4.8843456zm-1.736657 0c0-1.7366562-1.411033-3.1476894-3.147689-3.1476894-1.736656 0-3.147689 1.4110332-3.147689 3.1476894 0 1.7366562 1.411033 3.1476894 3.147689 3.1476894 1.736656 0 3.147689-1.4110332 3.147689-3.1476894zm1.899468-3.9074765c-.651246 0-1.139681-.4884345-1.139681-1.1396806 0-.6512461.488435-1.1396806 1.139681-1.1396806s1.139681.4884345 1.139681 1.1396806c0 .5969756-.488435 1.1396806-1.139681 1.1396806z"/>
+  </symbol>
+  <symbol id="x-icon" viewBox="0 0 24 24">
+    <path d="m17.2 3.9h2.8l-6 6.9 7.1 9.4h-5.6l-4.4-5.7-5 5.7h-2.7l6.4-7.4-6.8-8.9h5.7l3.9 5.2zm-1 14.6h1.5l-9.8-13.1h-1.7z"/>
+  </symbol>
+</svg>
+<footer role="contentinfo" class="footer">
+  <div class="footer__over">
+    <div class="footer__search">
+                      <div class="views-exposed-form" data-drupal-selector="views-exposed-form-search-page" id="block-exposedformsearchpage">
+  
+    
+      
+<form action="/search" method="get" id="views-exposed-form-search-page" accept-charset="UTF-8" class="site-search">
+  <div class="js-form-item js-form-type-textfield js-form-item-search site-search__group">
+      <label for="edit-search" class="visually-hidden">Fulltext search</label>
+        <input placeholder="Looking for something?" class="site-search__input form-text" data-drupal-selector="edit-search" type="text" id="edit-search" name="search" value="" size="30" maxlength="128" />
+
+        </div>
+<div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions"><button data-drupal-selector="edit-submit-search" type="submit" id="edit-submit-search" class="button js-form-submit form-submit btn site-search__btn">  <svg aria-hidden="true" role="img" class="icon site-search__icon" width="36" height="36">
+  <use xlink:href="#search-icon"></use>
+</svg>
+<span class="visually-hidden">Search</span></button>
+</div>
+
+
+</form>
+
+  </div>
+
+
+          </div>
+    <div class="footer__social footer-hide-small">
+      
+<div class="social-bar  ">
+  <button
+    data-toggle-class="is-visible"
+    data-target=".js-social-bar"
+    class="btn social-bar__btn">  <svg aria-hidden="true" role="img" class="social-bar__share" width="20" height="20">
+  <use xlink:href="#share-icon"></use>
+</svg>
+</button>
+  <div class="social-bar__container">
+    <div class="social-bar__wrapper js-social-bar">
+      <ul class="social-bar__list">
+                <li class="social-bar__item">
+          <a
+            class="social-bar__link social-bar__link--facebook"
+            href="https://www.facebook.com/habitat/"
+            target="_blank"
+            title="Facebook"
+            aria-label="Facebook"
+          >
+              <svg aria-hidden="true" role="img" class="social-bar__icon" width="20" height="20">
+  <use xlink:href="#facebook-icon"></use>
+</svg>
+
+          </a>
+        </li>
+                <li class="social-bar__item">
+          <a
+            class="social-bar__link social-bar__link--x"
+            href="https://twitter.com/habitat_org"
+            target="_blank"
+            title="X"
+            aria-label="X"
+          >
+              <svg aria-hidden="true" role="img" class="social-bar__icon" width="20" height="20">
+  <use xlink:href="#x-icon"></use>
+</svg>
+
+          </a>
+        </li>
+                <li class="social-bar__item">
+          <a
+            class="social-bar__link social-bar__link--youtube"
+            href="https://www.youtube.com/user/HabitatForHumanity"
+            target="_blank"
+            title="Youtube"
+            aria-label="Youtube"
+          >
+              <svg aria-hidden="true" role="img" class="social-bar__icon" width="20" height="20">
+  <use xlink:href="#youtube-icon"></use>
+</svg>
+
+          </a>
+        </li>
+                <li class="social-bar__item">
+          <a
+            class="social-bar__link social-bar__link--pinterest"
+            href="https://www.pinterest.com/habitathumanity"
+            target="_blank"
+            title="Pinterest"
+            aria-label="Pinterest"
+          >
+              <svg aria-hidden="true" role="img" class="social-bar__icon" width="20" height="20">
+  <use xlink:href="#pinterest-icon"></use>
+</svg>
+
+          </a>
+        </li>
+                <li class="social-bar__item">
+          <a
+            class="social-bar__link social-bar__link--instagram"
+            href="https://www.instagram.com/habitatforhumanity/"
+            target="_blank"
+            title="Instagram"
+            aria-label="Instagram"
+          >
+              <svg aria-hidden="true" role="img" class="social-bar__icon" width="20" height="20">
+  <use xlink:href="#instagram-icon"></use>
+</svg>
+
+          </a>
+        </li>
+              </ul>
+    </div>
+  </div>
+</div>
+    </div>
+    <div class="footer__donate">
+      <a class="btn btn--donate footer__btn" href="https://secure.habitat.org/site/Donation2?df_id=7753&amp;mfc_pref=T&amp;7753.donation=form1&amp;keyword=button-footer-menu-single&amp;s_subsrc=button-footer-menu-single">donate</a>
+    </div>
+    <div class="footer__copyright footer-show-small">
+      <div class="footer__copyright-content">
+                <p>&copy; 2026 Habitat for Humanity&reg; International.</p><p>All rights reserved. &#8220;Habitat for Humanity®&#8221; is a registered service mark owned by Habitat for Humanity International. Habitat® is a service mark of Habitat for Humanity International.</p>
+<p>Habitat for Humanity® International is a tax-exempt 501(C)(3) nonprofit organization. Your gift is tax-deductible as allowed by law.</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer__container">
+    <div class="footer__content l-center">
+      <div class="footer__logo">
+        
+<div class="site-logo site-logo--footer">
+  <a href="/" rel="home" class="site-logo__link active"><svg class="site-logo__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" width="120" height="40"><title>Logo</title><path d="M14.9,17.06a2.14,2.14,0,1,1,2.29,2,2.14,2.14,0,0,1-2.29-2h0Z"/><path d="M40,17.06a2.14,2.14,0,1,0-2.29,2,2.14,2.14,0,0,0,2.29-2h0Z"/><path d="M47.06,20.41c-0.25-.93-1.53-1.07-2.66-0.78a22.2,22.2,0,0,1-6.75.89c-2-.14-3.91-1.79-5.12-2.92,1.2-1.38,2.74-2.86,3.09-3.27a1.57,1.57,0,0,0,.17-2c-0.43-.43-1.19-0.17-2,0.34s-3.66,3.43-6.42,3.43-5.75-2.92-6.52-3.43a2,2,0,0,0-2.3,0c-0.43.43,0,1,.51,1.62,0.36,0.42,2,2,3.17,3.36-1.21,1.12-3.1,2.69-5,2.83a22.19,22.19,0,0,1-6.75-.89c-1.13-.29-2.41-0.15-2.66.78a1.72,1.72,0,0,0,1,1.65c0.66,0.43,4.07,1.09,5,2.56s1.11,12.82,2,13.2a3.36,3.36,0,0,0,2.41,0c0.87-.44,2.33-12.82,3.06-14.41a19.35,19.35,0,0,1,2.35-3.3c0.79,3.7,1.65,17.48,2.48,17.76a4.44,4.44,0,0,0,2.38,0c0.82-.35,1.72-14.5,2.52-17.93a20.35,20.35,0,0,1,2.49,3.46c0.74,1.59,2.2,14,3.06,14.41a3.37,3.37,0,0,0,2.41,0c0.89-.38,1-11.73,2-13.2s4.37-2.13,5-2.56a1.72,1.72,0,0,0,1-1.65h0Z"/><path d="M25.31,12.52a2.14,2.14,0,1,1,2.14,2.14,2.14,2.14,0,0,1-2.14-2.14h0Z"/><path d="M47.49,12.67c1,1.65-1.14,2.27-2.8,1.89-1.39-.32-15.06-7.62-17.11-7.81s-14.33,7.37-15.69,8.1a5.53,5.53,0,0,1-5.59,0C5.7,14.53,1,12.06,0,11.37c1-1,15.23-9.49,16.89-10.31,1.9-1,3-1.46,5.13-.67,1.45,0.54,25,11.6,25.47,12.28h0Z"/><path d="M5.39,23.27a28.24,28.24,0,0,1,4,1.67c2.39,1.23,2.52,2.46,2.79,4.45s0.54,6.08.58,7.58a53.62,53.62,0,0,1-5.86-4.52c-0.72-.63-1.54-1.08-1.53-2.05,0-.37-0.17-6.22,0-7.14h0Z"/><path d="M117.56,29.24A1.79,1.79,0,1,1,115.75,31a1.79,1.79,0,0,1,1.81-1.79h0Zm0,3.31A1.52,1.52,0,1,0,116.08,31a1.47,1.47,0,0,0,1.48,1.53h0Zm-0.39-.49h-0.3V30h0.8a0.59,0.59,0,0,1,.73.59,0.55,0.55,0,0,1-.55.58l0.6,0.92h-0.33l-0.57-.91h-0.39v0.91h0Zm0-1.16h0.49c0.33,0,.43-0.12.43-0.35a0.32,0.32,0,0,0-.37-0.32h-0.56V30.9h0Z"/><path d="M57,11.65c-0.09,1.05-.11,2.27-0.11,3.58V17.7c0.47,0,.94,0,1.63,0s1.16,0,1.63,0V15.23c0-1.31,0-2.53-.11-3.58h4.06a75.66,75.66,0,0,0-.21,7.66A75.67,75.67,0,0,0,64.09,27H60c0.09-1.05.11-2.28,0.11-3.58V20.25c-0.47,0-.94,0-1.63,0s-1.16,0-1.63,0v3.13c0,1.31,0,2.53.11,3.58H52.93a75.42,75.42,0,0,0,.21-7.66,75.41,75.41,0,0,0-.21-7.66H57Z"/><path d="M66,16.07a20.71,20.71,0,0,1,2.25-.17c4.44,0,5.79,1.74,5.79,4.61v2.68A10.26,10.26,0,0,0,74.56,27H71.15a2.13,2.13,0,0,1-.37-0.67,4,4,0,0,1-2.4.84,3.22,3.22,0,0,1-3.43-3.24c0-2,1.57-3.31,3.61-4l1.78-.58A1.39,1.39,0,0,0,68.81,18,5.27,5.27,0,0,0,66,19.07v-3h0Zm4.66,5.32a2.49,2.49,0,0,0-2.19,2.25A1.21,1.21,0,0,0,69.58,25a1.42,1.42,0,0,0,1-.47V21.39h0Z"/><path d="M79.34,11.65V16.5a4.24,4.24,0,0,1,2.08-.6c2,0,3.95,1.5,3.95,5.41,0,3-1.65,5.92-4.7,5.92a4.45,4.45,0,0,1-2.77-1.07l-1.2,1-1-.62a31.83,31.83,0,0,0,.19-4.38V16c0-.79,0-1.67-0.22-4.38h3.69Zm0,12.32a0.93,0.93,0,0,0,.92,1.12c0.88,0,1.5-.9,1.5-3.45,0-1.82-.47-3.39-1.55-3.39a0.81,0.81,0,0,0-.88.88V24h0Z"/><path d="M88.43,11.5a1.93,1.93,0,1,1-1.93,1.93,1.92,1.92,0,0,1,1.93-1.93h0Zm1.78,4.66c0,1.11,0,2.75,0,5.06A43.3,43.3,0,0,0,90.36,27H86.49a31.92,31.92,0,0,0,.19-4.38V20.53a31.9,31.9,0,0,0-.19-4.38h3.71Z"/><path d="M96.13,12.87c0,0.66-.07,1.93-0.07,3.28h1.61v2.06H96.07v5.41A1.12,1.12,0,0,0,97.25,25a3.63,3.63,0,0,0,.45,0v1.93a6.81,6.81,0,0,1-2.17.32,2.88,2.88,0,0,1-2.32-1,4,4,0,0,1-.62-2.53V18.21H91.34V16.15h1.24c0-1.35,0-2.62-.07-3.28h3.61Z"/><path d="M99.78,16.07A20.75,20.75,0,0,1,102,15.9c4.44,0,5.79,1.74,5.79,4.61v2.68a10.27,10.27,0,0,0,.56,3.78H105a2.06,2.06,0,0,1-.36-0.67,4,4,0,0,1-2.4.84,3.22,3.22,0,0,1-3.43-3.24c0-2,1.57-3.31,3.6-4l1.78-.58A1.39,1.39,0,0,0,102.64,18a5.28,5.28,0,0,0-2.86,1.12v-3h0Zm4.66,5.32a2.49,2.49,0,0,0-2.19,2.25A1.21,1.21,0,0,0,103.41,25a1.42,1.42,0,0,0,1-.47V21.39h0Z"/><path d="M113.64,12.87c0,0.66-.06,1.93-0.06,3.28h1.61v2.06h-1.61v5.41A1.12,1.12,0,0,0,114.76,25a3.63,3.63,0,0,0,.45,0v1.93a6.81,6.81,0,0,1-2.17.32,2.88,2.88,0,0,1-2.32-1,4,4,0,0,1-.62-2.53V18.21h-1.25V16.15h1.25c0-1.35,0-2.62-.07-3.28h3.61Z"/><path d="M56.42,30.7A0.78,0.78,0,0,0,56,30.58a0.71,0.71,0,0,0-.72.77,1.7,1.7,0,0,0,.12.58h0.87V33H55.35v2.37a17.39,17.39,0,0,0,.1,2.37H53.36a17.28,17.28,0,0,0,.1-2.37V33H52.83V31.93h0.64V31.48a1.8,1.8,0,0,1,.66-1.6,2.49,2.49,0,0,1,1.56-.5,2.38,2.38,0,0,1,.73.11V30.7h0Z"/><path d="M61.79,34.86a2.74,2.74,0,1,1-5.44,0,2.74,2.74,0,1,1,5.44,0h0Zm-3.37,0c0,1.41.3,1.91,0.65,1.91s0.65-.5.65-1.91S59.42,33,59.07,33s-0.65.5-.65,1.91h0Z"/><path d="M64.24,31.93a4.08,4.08,0,0,1,.16.78,1.91,1.91,0,0,1,1.48-.92,0.67,0.67,0,0,1,.26,0v1.55a1.57,1.57,0,0,0-.35,0c-0.88,0-1.27.81-1.27,2.09a17.31,17.31,0,0,0,.1,2.37H62.46a17.19,17.19,0,0,0,.11-2.37V34.3a9.27,9.27,0,0,0-.2-2.37h1.87Z"/><path d="M72.33,29.49c0,0.57-.06,1.23-0.06,1.94v1.34l0.88,0,0.88,0V31.43c0-.71,0-1.37-0.06-1.94h2.2a41,41,0,0,0-.12,4.15,41,41,0,0,0,.12,4.15H74c0-.57.06-1.23,0.06-1.94v-1.7c-0.25,0-.51,0-0.88,0s-0.63,0-.88,0v1.7c0,0.71,0,1.37.06,1.94h-2.2a41.17,41.17,0,0,0,.12-4.15,41.16,41.16,0,0,0-.12-4.15h2.2Z"/><path d="M80.42,37.79a2.63,2.63,0,0,1-.17-0.52,2,2,0,0,1-1.48.66,1.64,1.64,0,0,1-1.64-1.84V34.3A17,17,0,0,0,77,31.93h2v3.89a0.57,0.57,0,1,0,1.12.12V34.3a17.34,17.34,0,0,0-.1-2.37h2.09A17.18,17.18,0,0,0,82,34.3v1.12a17.19,17.19,0,0,0,.11,2.37h-1.7Z"/><path d="M84.84,31.93a2.89,2.89,0,0,1,.18.52,2.28,2.28,0,0,1,1.53-.66,1.57,1.57,0,0,1,1.3.74,2.35,2.35,0,0,1,1.64-.74c1.14,0,1.57.8,1.57,2v1.67a17.51,17.51,0,0,0,.1,2.37H89.07a17.51,17.51,0,0,0,.1-2.37V33.8c0-.41-0.12-0.71-0.48-0.71a0.63,0.63,0,0,0-.62.71v1.62a17.19,17.19,0,0,0,.11,2.37H86.1a17.19,17.19,0,0,0,.11-2.37V33.78c0-.38-0.12-0.69-0.48-0.69a0.62,0.62,0,0,0-.62.62v1.71a17.27,17.27,0,0,0,.1,2.37H83.12a17.35,17.35,0,0,0,.1-2.37V34.3a17.34,17.34,0,0,0-.1-2.37h1.72Z"/><path d="M92.29,31.88a11.54,11.54,0,0,1,1.22-.09c2.41,0,3.14.94,3.14,2.5v1.45a5.57,5.57,0,0,0,.3,2H95.11a1.09,1.09,0,0,1-.2-0.36,2.16,2.16,0,0,1-1.3.45,1.75,1.75,0,0,1-1.86-1.76,2.41,2.41,0,0,1,2-2.15l1-.31a0.75,0.75,0,0,0-.83-0.76,2.86,2.86,0,0,0-1.55.61V31.88h0Zm2.52,2.88A1.35,1.35,0,0,0,93.63,36a0.66,0.66,0,0,0,.63.72,0.76,0.76,0,0,0,.56-0.26V34.77h0Z"/><path d="M99.19,31.93a2.8,2.8,0,0,1,.17.52,2,2,0,0,1,1.48-.66,1.64,1.64,0,0,1,1.64,1.84v1.79a17.2,17.2,0,0,0,.11,2.37h-2.09a17.19,17.19,0,0,0,.11-2.37v-1.6a0.54,0.54,0,0,0-.5-0.65,0.59,0.59,0,0,0-.62.56v1.7a17.52,17.52,0,0,0,.1,2.37H97.49a17.5,17.5,0,0,0,.1-2.37V34.3a17.5,17.5,0,0,0-.1-2.37h1.7Z"/><path d="M104.31,29.41a1,1,0,1,1-1,1,1,1,0,0,1,1-1h0Zm1,2.52c0,0.6,0,1.49,0,2.74a23.42,23.42,0,0,0,.1,3.12h-2.09a17.27,17.27,0,0,0,.1-2.37V34.3a17.26,17.26,0,0,0-.1-2.37h2Z"/><path d="M108.59,30.15c0,0.36,0,1,0,1.78h0.87V33h-0.87V36a0.61,0.61,0,0,0,.64.74h0.24v1a3.7,3.7,0,0,1-1.18.17,1.56,1.56,0,0,1-1.25-.56,2.17,2.17,0,0,1-.34-1.37V33H106V31.93h0.67c0-.73,0-1.42,0-1.78h2Z"/><path d="M112,31.93a33.43,33.43,0,0,0,.83,3.31h0a27.4,27.4,0,0,0,.68-3.31h1.66a40.54,40.54,0,0,1-2,6.35A2.61,2.61,0,0,1,110.63,40a2.22,2.22,0,0,1-.56-0.06V38.45a1.41,1.41,0,0,0,.65.17,1,1,0,0,0,1-.93,5.32,5.32,0,0,0-.51-1.59A26.18,26.18,0,0,1,110,31.93h2Z"/></svg></a>
+</div>
+      </div>
+      <div class="footer__social footer-show-small">
+        
+<div class="social-bar social-bar--footer social-bar--dark ">
+  <button
+    data-toggle-class="is-visible"
+    data-target=".js-social-bar"
+    class="btn social-bar__btn">  <svg aria-hidden="true" role="img" class="social-bar__share" width="20" height="20">
+  <use xlink:href="#share-icon"></use>
+</svg>
+</button>
+  <div class="social-bar__container">
+    <div class="social-bar__wrapper js-social-bar">
+      <ul class="social-bar__list">
+                <li class="social-bar__item">
+          <a
+            class="social-bar__link social-bar__link--facebook"
+            href="https://www.facebook.com/habitat/"
+            target="_blank"
+            title="Facebook"
+            aria-label="Facebook"
+          >
+              <svg aria-hidden="true" role="img" class="social-bar__icon" width="20" height="20">
+  <use xlink:href="#facebook-icon"></use>
+</svg>
+
+          </a>
+        </li>
+                <li class="social-bar__item">
+          <a
+            class="social-bar__link social-bar__link--x"
+            href="https://twitter.com/habitat_org"
+            target="_blank"
+            title="X"
+            aria-label="X"
+          >
+              <svg aria-hidden="true" role="img" class="social-bar__icon" width="20" height="20">
+  <use xlink:href="#x-icon"></use>
+</svg>
+
+          </a>
+        </li>
+                <li class="social-bar__item">
+          <a
+            class="social-bar__link social-bar__link--youtube"
+            href="https://www.youtube.com/user/HabitatForHumanity"
+            target="_blank"
+            title="Youtube"
+            aria-label="Youtube"
+          >
+              <svg aria-hidden="true" role="img" class="social-bar__icon" width="20" height="20">
+  <use xlink:href="#youtube-icon"></use>
+</svg>
+
+          </a>
+        </li>
+                <li class="social-bar__item">
+          <a
+            class="social-bar__link social-bar__link--pinterest"
+            href="https://www.pinterest.com/habitathumanity"
+            target="_blank"
+            title="Pinterest"
+            aria-label="Pinterest"
+          >
+              <svg aria-hidden="true" role="img" class="social-bar__icon" width="20" height="20">
+  <use xlink:href="#pinterest-icon"></use>
+</svg>
+
+          </a>
+        </li>
+                <li class="social-bar__item">
+          <a
+            class="social-bar__link social-bar__link--instagram"
+            href="https://www.instagram.com/habitatforhumanity/"
+            target="_blank"
+            title="Instagram"
+            aria-label="Instagram"
+          >
+              <svg aria-hidden="true" role="img" class="social-bar__icon" width="20" height="20">
+  <use xlink:href="#instagram-icon"></use>
+</svg>
+
+          </a>
+        </li>
+              </ul>
+    </div>
+  </div>
+</div>
+      </div>
+      <div class="footer__menu">
+        <nav class="footer-menu">
+  <ul class="footer-menu__list">
+      <li class="footer-menu__item">
+      <a class="footer-menu__link" href="/volunteer">Volunteer</a>
+    </li>
+      <li class="footer-menu__item">
+      <a class="footer-menu__link" href="/about/advocacy">Advocate</a>
+    </li>
+      <li class="footer-menu__item">
+      <a class="footer-menu__link" href="https://www.habitat.org/support">Support</a>
+    </li>
+      <li class="footer-menu__item">
+      <a class="footer-menu__link" href="/shop">Shop</a>
+    </li>
+      <li class="footer-menu__item">
+      <a class="footer-menu__link" href="/our-work">Our work</a>
+    </li>
+      <li class="footer-menu__item">
+      <a class="footer-menu__link" href="/housing-help">Housing help</a>
+    </li>
+      <li class="footer-menu__item">
+      <a class="footer-menu__link" href="/about">About</a>
+    </li>
+    </ul>
+</nav>
+      </div>
+      <div class="footer__submenu">
+        <nav class="footer-submenu">
+  <ul class="footer-submenu__list">
+        <li class="footer-submenu__item">
+      <a class="footer-submenu__link" href="https://www.habitat.org/support">Support</a>
+                    <ul class="footer-submenu__sub">
+                      <li class="footer-submenu__subitem">
+              <a class="footer-submenu__link footer-submenu__sublink" href="https://secure.habitat.org/site/Donation2?df_id=7753&amp;mfc_pref=T&amp;7753.donation=form1&amp;keyword=footer-menu-single-text&amp;s_subsrc=footer-menu-single-text">Donate one time</a>
+            </li>
+                      <li class="footer-submenu__subitem">
+              <a class="footer-submenu__link footer-submenu__sublink" href="https://secure.habitat.org/site/Donation2?df_id=7754&amp;mfc_pref=T&amp;7754.donation=form1&amp;keyword=footer-menu-monthly-text&amp;s_subsrc=footer-menu-monthly-text">Donate monthly</a>
+            </li>
+                      <li class="footer-submenu__subitem">
+              <a class="footer-submenu__link footer-submenu__sublink" href="/support/corporate-giving">Partnerships</a>
+            </li>
+                      <li class="footer-submenu__subitem">
+              <a class="footer-submenu__link footer-submenu__sublink" href="/restores/donate-goods">Donate goods</a>
+            </li>
+                  </ul>
+          </li>
+      <li class="footer-submenu__item">
+      <a class="footer-submenu__link" href="/contact">Contact Us</a>
+                    <ul class="footer-submenu__sub">
+                      <li class="footer-submenu__subitem">
+              <a class="footer-submenu__link footer-submenu__sublink" href="/newsroom">Newsroom</a>
+            </li>
+                      <li class="footer-submenu__subitem">
+              <a class="footer-submenu__link footer-submenu__sublink" href="/about/careers">Careers</a>
+            </li>
+                      <li class="footer-submenu__subitem">
+              <a class="footer-submenu__link footer-submenu__sublink" href="/privacy-policy">Privacy policy updated July 1, 2024</a>
+            </li>
+                      <li class="footer-submenu__subitem">
+              <a class="footer-submenu__link footer-submenu__sublink" href="/colorado-privacy-policy">Colorado residents privacy</a>
+            </li>
+                      <li class="footer-submenu__subitem">
+              <a class="footer-submenu__link footer-submenu__sublink" href="/terms-of-service">Terms of service</a>
+            </li>
+                  </ul>
+          </li>
+    </ul>
+</nav>
+      </div>
+      <div class="footer__copyright footer-hide-small">
+        <div class="footer__copyright-content">
+                    <p>&copy; 2026 Habitat for Humanity&reg; International.</p><p>All rights reserved. &#8220;Habitat for Humanity®&#8221; is a registered service mark owned by Habitat for Humanity International. Habitat® is a service mark of Habitat for Humanity International.</p>
+<p>Habitat for Humanity® International is a tax-exempt 501(C)(3) nonprofit organization. Your gift is tax-deductible as allowed by law.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+      </div>
+  </div>
+
+      
+              <script src="/core/assets/vendor/jquery/jquery.min.js?v=4.0.0"></script>
+<script src="/sites/default/files/js/js_BAj-mq4VaUqKGynXpo2lYePKlEoJKkzfCar2ynR9L1k.js?scope=footer&amp;delta=1&amp;language=en-003&amp;theme=hab_theme&amp;include=eJyFjksOwjAMRC-UkA33iUwzTYzSGCWGcnzSD6iwYWN7nkbWiyIxwytFF_sw8Tuf6EpPk87Ja8IERxeraHogo4iimkQXTxXkEVhZiluC3YOt_agY9G8tyYS11BJy_6sYkh95Od22rErshmvpx-lDghTSYyVUuQWZi51Q7geeQGGX38DUVcg0Vswc4Cl3BceF1TwYc_NcxiXBt6FKzm6l9k3tRl9OeoKo"></script>
+<script src="https://try.abtasty.com/d3ee30fb9a165fb849a81ac281ba8ba1.js"></script>
+<script src="/sites/default/files/js/js_I0xzzSAijZjew7YI1qkR-cfICfqciWUDc8up-ev-eu8.js?scope=footer&amp;delta=3&amp;language=en-003&amp;theme=hab_theme&amp;include=eJyFjksOwjAMRC-UkA33iUwzTYzSGCWGcnzSD6iwYWN7nkbWiyIxwytFF_sw8Tuf6EpPk87Ja8IERxeraHogo4iimkQXTxXkEVhZiluC3YOt_agY9G8tyYS11BJy_6sYkh95Od22rErshmvpx-lDghTSYyVUuQWZi51Q7geeQGGX38DUVcg0Vswc4Cl3BceF1TwYc_NcxiXBt6FKzm6l9k3tRl9OeoKo"></script>
+
+      </body>
+</html>

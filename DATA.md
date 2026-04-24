@@ -23,6 +23,10 @@ As of April 2026, the directory contains **24,508 aligned organizations** across
 | Manual curation | 13 | 0.1% | Individually verified and described entries. |
 | Wikidata (labor unions) | ~498 | new | Trade union federations, national unions, works councils (Q3395115, Q11038979, Q178790, Q1141395). |
 | ITUC affiliates | ~299 | new | ITUC-affiliated national trade union centers, parsed from the Wikipedia mirror when ituc-csi.org blocks automated requests. |
+| Wikidata (land trusts) | ~444 | new | Community land trusts (Q3278937) and housing cooperatives (Q562166); subclasses included via P279*. |
+| Grounded Solutions | ~41 | new | Curated seed list of US, UK, Canadian, and Belgian CLTs plus the Grounded Solutions Network member-spotlight feed. Primary directory URL is a 404 as of 2026-04-24. |
+| Habitat affiliates | ~66 | new | Habitat for Humanity international country offices. The ~355 US Habitat affiliates already in IRS_EO_BMF are enriched in place with the sweat-equity-program tags; no duplicates created. |
+| Construction coops | ~81 | new | Worker-owned construction and trades firms. Wikidata SPARQL plus seed list for Mondragon, Italian construction co-ops, French SCOPs, and US/UK worker co-ops. |
 
 ### Quality profile
 
@@ -131,6 +135,30 @@ Organizations are classified into one of 10 framework sections. Counts reflect t
 - **Legibility:** `formal` on every row (federation-tier by ITUC definition).
 - **Cache:** wikitext and HTML attempts cached at `data/sources/ituc-cache/`.
 - **Script:** `data/ingest_ituc.py` (supports `--dry-run` and `--refresh`). Idempotent on Wikipedia article slug.
+
+### Wikidata (land trusts and housing coops) — source=`wikidata_land_trusts`
+- **Classes queried:** Q3278937 (community land trust), Q562166 (housing cooperative). Subclasses included via `wdt:P279*`.
+- **Legibility:** `formal` on every row.
+- **Evidence:** Wikidata item URL on each row.
+- **Script:** `data/ingest_land_trusts.py` (supports `--dry-run` and `--limit`). Idempotent on QID.
+
+### Grounded Solutions Network (and seed CLTs) — source=`grounded_solutions`
+- **Source order:** `https://groundedsolutions.org/tools-for-success/resource-library/us-clt-directory` (HTTP 404 as of 2026-04-24, no Wayback snapshot). Fallback uses the WordPress REST API on the Member Profile and Member Spotlight categories, plus a curated seed list of 35 well-documented CLTs.
+- **Legibility:** `formal` on every row.
+- **Cache:** `data/sources/grounded-solutions-cache/`.
+- **Script:** `data/ingest_grounded_solutions.py` (supports `--dry-run` and `--refresh`). Idempotent on WP post id or seed slug.
+
+### Habitat for Humanity — source=`habitat_affiliates` (international) plus in-place enrichment of existing IRS rows
+- **Source order:** `https://www.habitat.org/where-we-work` (HTML shell only; affiliate list is rendered client-side). The ingester therefore enriches the ~355 US Habitat rows already in IRS_EO_BMF and inserts a hand-maintained list of ~65 international Habitat country offices.
+- **Legibility:** `formal` on every row.
+- **Cache:** `data/sources/habitat-cache/`.
+- **Script:** `data/ingest_habitat.py` (supports `--dry-run` and `--refresh`). Idempotent on `<cc>:<name-slug>` for country offices; existing IRS rows update in place on re-run.
+
+### Construction cooperatives — source=`construction_coops`
+- **Source order:** Wikidata SPARQL for cooperatives whose label contains a construction- or trades-specific token (construction, building, trades, Bau), plus a seed list of about 45 worker-owned construction firms from Mondragon, Italian cooperative federations, French SCOPs, and US/UK worker co-ops.
+- **Legibility:** `formal` on every row.
+- **Notes:** Rows land in `framework_area='cooperatives'` (not `housing_land`) because construction co-ops are fundamentally worker co-ops whose industry happens to be construction.
+- **Script:** `data/ingest_construction_coops.py` (supports `--dry-run` and `--limit`). Idempotent on QID for Wikidata rows and on `seed:<slug>` for seed rows.
 
 ## How to Add Data
 
