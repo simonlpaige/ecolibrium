@@ -1032,3 +1032,28 @@ categories:
       - name: "Cryptographic Identity"
         wiserearth_id: null
         note: "[NEW_2026] Self-sovereign identity systems. No platform controls your identity."
+
+  - name: "Labor Unions"
+    wiserearth_id: null
+    note: "[NEW_2026] Worker power and democratic labor organizations. Labor unions are one of the oldest working examples of democratic ownership of a commons (collective labor power). Federations and national-level unions only; locals are out of scope for v1."
+    sub_issues:
+      - name: "Union Federation"
+        wiserearth_id: null
+        wikidata_ids: [Q3395115, Q11038979]
+        note: "[NEW_2026] National or international federations of unions (AFL-CIO, ITUC, IG Metall). Wikidata classes: trade union federation (Q3395115), national trade union center (Q11038979)."
+      - name: "National Union"
+        wiserearth_id: null
+        wikidata_ids: [Q178790]
+        note: "[NEW_2026] National-level trade unions. Wikidata class: trade union (Q178790). Filtered to orgs with country and HQ set to exclude locals."
+      - name: "Worker Cooperative Federation"
+        wiserearth_id: null
+        wikidata_ids: [Q4539]
+        note: "[NEW_2026] Federations of worker cooperatives, distinct from individual worker co-ops. Sourced from cooperative federation class (Q4539), filtered by worker subtype in code."
+      - name: "Works Council System"
+        wiserearth_id: null
+        wikidata_ids: [Q1141395]
+        note: "[NEW_2026] Legally-mandated worker representation bodies (German Betriebsrat, Dutch OR, Austrian Arbeitnehmervertretung). Legibility: formal where embedded in law."
+      - name: "Labor Education Organization"
+        wiserearth_id: null
+        wikidata_ids: []
+        note: "[NEW_2026] Worker education, labor colleges, union training institutes. Manual curation or Wikidata text search, no dedicated class."
