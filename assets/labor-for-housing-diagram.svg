@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" font-family="Inter, -apple-system, Segoe UI, Georgia, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f7f3eb"/>
+      <stop offset="1" stop-color="#eee7d6"/>
+    </linearGradient>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3a5a32"/>
+    </marker>
+    <marker id="arr-light" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#7a8a6a"/>
+    </marker>
+    <marker id="arr-warm" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#b88a3a"/>
+    </marker>
+    <filter id="soft" x="-5%" y="-5%" width="110%" height="110%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feOffset dx="0" dy="2" in="b" result="o"/>
+      <feComponentTransfer in="o" result="oo"><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode in="oo"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="1600" fill="url(#bg)"/>
+
+  <!-- Title -->
+  <text x="600" y="56" text-anchor="middle" font-size="28" font-weight="800" fill="#2d4026" letter-spacing="0.5">The labor-for-housing pipeline</text>
+  <text x="600" y="84" text-anchor="middle" font-size="14" fill="#5e7a52" font-style="italic">member &#8594; union / co-op + CLT &#8594; labor hours &#8594; sweat-equity escrow &#8594; home on permanent land &#8594; repair crew</text>
+
+  <!-- ============ ROW 1: THE PERSON ============ -->
+  <text x="60" y="128" font-size="13" font-weight="700" fill="#5e7a52" letter-spacing="1.5">1. THE PERSON</text>
+  <line x1="60" y1="136" x2="1140" y2="136" stroke="#d4c9a8" stroke-width="1"/>
+
+  <g filter="url(#soft)">
+    <rect x="470" y="160" width="260" height="72" rx="10" fill="#ffffff" stroke="#c8bfa0"/>
+  </g>
+  <g font-size="14" fill="#2d4026" text-anchor="middle">
+    <text x="600" y="190" font-weight="800">Member joins</text>
+    <text x="600" y="212" font-size="12" fill="#5e7a52">union local &nbsp;or&nbsp; worker cooperative</text>
+  </g>
+
+  <!-- arrows from member down to leg 1 and leg 2 -->
+  <path d="M 600 232 L 600 280" stroke="#3a5a32" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+
+  <!-- ============ ROW 2: THREE PARALLEL LEGS ============ -->
+  <text x="60" y="312" font-size="13" font-weight="700" fill="#5e7a52" letter-spacing="1.5">2. THREE LEGS OF THE STOOL</text>
+  <line x1="60" y1="320" x2="1140" y2="320" stroke="#d4c9a8" stroke-width="1"/>
+
+  <g filter="url(#soft)">
+    <!-- CLT box -->
+    <rect x="80"  y="340" width="320" height="140" rx="10" fill="#ffffff" stroke="#9cb58a" stroke-width="2"/>
+    <!-- Union/co-op box -->
+    <rect x="440" y="340" width="320" height="140" rx="10" fill="#ffffff" stroke="#9cb58a" stroke-width="2"/>
+    <!-- Sweat-equity program -->
+    <rect x="800" y="340" width="320" height="140" rx="10" fill="#ffffff" stroke="#9cb58a" stroke-width="2"/>
+  </g>
+
+  <!-- CLT text -->
+  <text x="240" y="372" text-anchor="middle" font-size="15" font-weight="800" fill="#2d4026">Community land trust</text>
+  <text x="240" y="396" text-anchor="middle" font-size="12" fill="#5e7a52">holds land in common, forever</text>
+  <text x="240" y="424" text-anchor="middle" font-size="11" fill="#3a5a32" font-style="italic">Champlain Housing Trust (VT)</text>
+  <text x="240" y="440" text-anchor="middle" font-size="11" fill="#3a5a32" font-style="italic">Dudley Neighbors Inc (MA)</text>
+  <text x="240" y="456" text-anchor="middle" font-size="11" fill="#3a5a32" font-style="italic">CLT Brussels, London CLT</text>
+
+  <!-- Union text -->
+  <text x="600" y="372" text-anchor="middle" font-size="15" font-weight="800" fill="#2d4026">Union or worker co-op</text>
+  <text x="600" y="396" text-anchor="middle" font-size="12" fill="#5e7a52">organized skill, trained labor</text>
+  <text x="600" y="424" text-anchor="middle" font-size="11" fill="#3a5a32" font-style="italic">IG BAU (Germany)</text>
+  <text x="600" y="440" text-anchor="middle" font-size="11" fill="#3a5a32" font-style="italic">CMC Ravenna, CMB Carpi (Italy)</text>
+  <text x="600" y="456" text-anchor="middle" font-size="11" fill="#3a5a32" font-style="italic">Mondragon construction co-ops</text>
+
+  <!-- Sweat-equity text -->
+  <text x="960" y="372" text-anchor="middle" font-size="15" font-weight="800" fill="#2d4026">Sweat-equity program</text>
+  <text x="960" y="396" text-anchor="middle" font-size="12" fill="#5e7a52">legal way to credit labor hours</text>
+  <text x="960" y="424" text-anchor="middle" font-size="11" fill="#3a5a32" font-style="italic">Habitat for Humanity</text>
+  <text x="960" y="440" text-anchor="middle" font-size="11" fill="#3a5a32" font-style="italic">~355 US affiliates + 65 int'l</text>
+  <text x="960" y="456" text-anchor="middle" font-size="11" fill="#3a5a32" font-style="italic">Cooper Square MHA (NYC)</text>
+
+  <!-- horizontal connectors between legs -->
+  <line x1="400" y1="410" x2="440" y2="410" stroke="#7a8a6a" stroke-width="2" stroke-dasharray="4,3"/>
+  <line x1="760" y1="410" x2="800" y2="410" stroke="#7a8a6a" stroke-width="2" stroke-dasharray="4,3"/>
+
+  <!-- arrows down to agreement row -->
+  <path d="M 240 480 L 240 540" stroke="#3a5a32" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+  <path d="M 600 480 L 600 540" stroke="#3a5a32" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+  <path d="M 960 480 L 960 540" stroke="#3a5a32" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+
+  <!-- ============ ROW 3: THE AGREEMENTS ============ -->
+  <text x="60" y="520" font-size="13" font-weight="700" fill="#5e7a52" letter-spacing="1.5">3. LEGAL STITCHING</text>
+  <line x1="60" y1="528" x2="1140" y2="528" stroke="#d4c9a8" stroke-width="1"/>
+
+  <g filter="url(#soft)">
+    <rect x="200" y="560" width="800" height="104" rx="10" fill="#fffbf0" stroke="#c4a55d" stroke-width="2"/>
+  </g>
+  <text x="600" y="590" text-anchor="middle" font-size="15" font-weight="800" fill="#2d4026">Project labor agreement + sweat-equity escrow + ground lease</text>
+  <text x="600" y="614" text-anchor="middle" font-size="12" fill="#5e7a52">501(c)(3) or equivalent wraps the land &nbsp;&nbsp;&#8226;&nbsp;&nbsp; PLA wraps the union hours</text>
+  <text x="600" y="632" text-anchor="middle" font-size="12" fill="#5e7a52">escrow holds the sweat-equity credit &nbsp;&nbsp;&#8226;&nbsp;&nbsp; ground lease ensures permanent affordability</text>
+  <text x="600" y="652" text-anchor="middle" font-size="11" font-style="italic" fill="#b88a3a">insurance and liability coverage must be in place before any volunteer hammer swings</text>
+
+  <!-- arrow down -->
+  <path d="M 600 664 L 600 720" stroke="#3a5a32" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+
+  <!-- ============ ROW 4: THE BUILD ============ -->
+  <text x="60" y="700" font-size="13" font-weight="700" fill="#5e7a52" letter-spacing="1.5">4. THE BUILD</text>
+  <line x1="60" y1="708" x2="1140" y2="708" stroke="#d4c9a8" stroke-width="1"/>
+
+  <g filter="url(#soft)">
+    <rect x="80"  y="740" width="280" height="120" rx="10" fill="#ffffff" stroke="#c8bfa0"/>
+    <rect x="440" y="740" width="280" height="120" rx="10" fill="#ffffff" stroke="#c8bfa0"/>
+    <rect x="820" y="740" width="280" height="120" rx="10" fill="#ffffff" stroke="#c8bfa0"/>
+  </g>
+  <text x="220" y="770" text-anchor="middle" font-size="14" font-weight="800" fill="#2d4026">Union labor</text>
+  <text x="220" y="794" text-anchor="middle" font-size="12" fill="#5e7a52">~1,600 hours / home</text>
+  <text x="220" y="812" text-anchor="middle" font-size="12" fill="#5e7a52">paid at union scale</text>
+  <text x="220" y="834" text-anchor="middle" font-size="11" fill="#3a5a32" font-style="italic">apprentices + journeymen</text>
+
+  <text x="580" y="770" text-anchor="middle" font-size="14" font-weight="800" fill="#2d4026">Homeowner labor</text>
+  <text x="580" y="794" text-anchor="middle" font-size="12" fill="#5e7a52">~400 hours</text>
+  <text x="580" y="812" text-anchor="middle" font-size="12" fill="#5e7a52">credited to escrow</text>
+  <text x="580" y="834" text-anchor="middle" font-size="11" fill="#3a5a32" font-style="italic">own home + others'</text>
+
+  <text x="960" y="770" text-anchor="middle" font-size="14" font-weight="800" fill="#2d4026">Subcontracted trades</text>
+  <text x="960" y="794" text-anchor="middle" font-size="12" fill="#5e7a52">electrical, plumbing, HVAC</text>
+  <text x="960" y="812" text-anchor="middle" font-size="12" fill="#5e7a52">paid at prevailing rate</text>
+  <text x="960" y="834" text-anchor="middle" font-size="11" fill="#3a5a32" font-style="italic">regulated specialty work</text>
+
+  <!-- arrow down to closing -->
+  <path d="M 600 864 L 600 920" stroke="#3a5a32" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+
+  <!-- ============ ROW 5: CLOSING ============ -->
+  <text x="60" y="900" font-size="13" font-weight="700" fill="#5e7a52" letter-spacing="1.5">5. CLOSING AND MOVE-IN</text>
+  <line x1="60" y1="908" x2="1140" y2="908" stroke="#d4c9a8" stroke-width="1"/>
+
+  <g filter="url(#soft)">
+    <rect x="280" y="940" width="640" height="116" rx="10" fill="#f4efe2" stroke="#9cb58a" stroke-width="2"/>
+  </g>
+  <text x="600" y="970" text-anchor="middle" font-size="15" font-weight="800" fill="#2d4026">Member gets a 99-year ground lease and title to the building</text>
+  <text x="600" y="994" text-anchor="middle" font-size="12" fill="#5e7a52">escrow hours &nbsp;+&nbsp; small cash &nbsp;=&nbsp; down payment</text>
+  <text x="600" y="1012" text-anchor="middle" font-size="12" fill="#5e7a52">CLT keeps the land &nbsp;&#8226;&nbsp; member keeps the building</text>
+  <text x="600" y="1032" text-anchor="middle" font-size="11" font-style="italic" fill="#3a5a32">zero-interest or low-interest mortgage from partner bank / CDFI</text>
+  <text x="600" y="1048" text-anchor="middle" font-size="11" font-style="italic" fill="#b88a3a">resale restricted to income-qualified buyer at CLT formula price</text>
+
+  <!-- arrow down to loop -->
+  <path d="M 600 1056 L 600 1112" stroke="#3a5a32" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+
+  <!-- ============ ROW 6: CONTINUATION ============ -->
+  <text x="60" y="1092" font-size="13" font-weight="700" fill="#5e7a52" letter-spacing="1.5">6. THE LOOP</text>
+  <line x1="60" y1="1100" x2="1140" y2="1100" stroke="#d4c9a8" stroke-width="1"/>
+
+  <g filter="url(#soft)">
+    <rect x="80"  y="1132" width="420" height="120" rx="10" fill="#ffffff" stroke="#c8bfa0"/>
+    <rect x="700" y="1132" width="420" height="120" rx="10" fill="#ffffff" stroke="#c8bfa0"/>
+  </g>
+  <text x="290" y="1164" text-anchor="middle" font-size="14" font-weight="800" fill="#2d4026">Home stays permanently affordable</text>
+  <text x="290" y="1188" text-anchor="middle" font-size="12" fill="#5e7a52">resale formula holds across every sale</text>
+  <text x="290" y="1208" text-anchor="middle" font-size="12" fill="#5e7a52">next family gets the home at a price they can carry</text>
+  <text x="290" y="1230" text-anchor="middle" font-size="11" fill="#3a5a32" font-style="italic">land never leaves the commons</text>
+
+  <text x="910" y="1164" text-anchor="middle" font-size="14" font-weight="800" fill="#2d4026">Member joins repair crew</text>
+  <text x="910" y="1188" text-anchor="middle" font-size="12" fill="#5e7a52">paid maintenance work across CLT portfolio</text>
+  <text x="910" y="1208" text-anchor="middle" font-size="12" fill="#5e7a52">union apprenticeship hours toward journeyman card</text>
+  <text x="910" y="1230" text-anchor="middle" font-size="11" fill="#3a5a32" font-style="italic">skill stays in the neighborhood</text>
+
+  <!-- loop-back arrow, repair crew back to member top -->
+  <path d="M 910 1252 Q 1160 1252 1160 196 Q 1160 160 830 160 L 730 160" stroke="#7a8a6a" stroke-width="2" fill="none" stroke-dasharray="6,4" marker-end="url(#arr-light)"/>
+  <text x="1080" y="730" font-size="11" fill="#7a8a6a" font-style="italic" text-anchor="middle">next apprentice class</text>
+
+  <!-- The firewall box at bottom -->
+  <g filter="url(#soft)">
+    <rect x="80" y="1320" width="1040" height="150" rx="12" fill="#fffbf0" stroke="#c4a55d" stroke-width="3"/>
+  </g>
+  <text x="600" y="1356" text-anchor="middle" font-size="18" font-weight="800" fill="#7a5b20">THE FIREWALL</text>
+  <text x="600" y="1386" text-anchor="middle" font-size="14" fill="#2d4026">The thing that separates this pipeline from a company town:</text>
+  <text x="600" y="1412" text-anchor="middle" font-size="13" font-weight="700" fill="#3a5a32">democratic ownership of the land, by the residents, with resale restrictions that hold.</text>
+  <text x="600" y="1442" text-anchor="middle" font-size="12" fill="#5e7a52" font-style="italic">If any one of those three is missing, the pipeline is an extraction mechanism wearing better clothes.</text>
+
+  <!-- footer -->
+  <text x="600" y="1520" text-anchor="middle" font-size="11" fill="#7a8a6a">Companion to commonweave.earth/directory &nbsp;&#8226;&nbsp; version 1 &nbsp;&#8226;&nbsp; 2026-04-24</text>
+
+</svg>
