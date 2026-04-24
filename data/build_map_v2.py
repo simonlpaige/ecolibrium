@@ -204,10 +204,23 @@ def build_edges(points, max_distance_km=50, max_edges_per_org=5):
                 if edge_count_per_org[p2['id']] >= max_edges_per_org:
                     continue
                     
+                # Build human-readable explanation
+                if same_section:
+                    explanation = f"Both are in the {p1['f']} section and within {round(dist, 1)} km of each other"
+                else:
+                    explanation = f"Complementary sections ({p1['f']} + {p2['f']}) within {round(dist, 1)} km"
+
                 edges.append({
                     's': [p1['lo'], p1['la']],  # source [lng, lat]
                     't': [p2['lo'], p2['la']],  # target [lng, lat]
-                    'e': edge_type[0],           # 's' or 'c'
+                    # Provenance fields (per review 2026-04-23)
+                    'edge_type': 'geographic_nearby' if not same_section else 'same_section',
+                    'confidence': round(weight, 2),
+                    'explanation': explanation,
+                    'created_at': '2026-04-23',
+                    'source_script': 'data/build_map_v2.py',
+                    # Compact display fields
+                    'e': edge_type[0],           # 's' or 'c' (for renderer)
                     'f': p1['f'],                # section (for coloring)
                     'w': round(weight, 2),
                 })

@@ -367,7 +367,7 @@ html, body {
     <div class="sb-scroll">
       <div class="sb-stats">
         <div class="stat-card"><div class="stat-value" id="stat-orgs">—</div><div class="stat-label">Organizations</div></div>
-        <div class="stat-card"><div class="stat-value" id="stat-edges">—</div><div class="stat-label">Connections</div></div>
+        <div class="stat-card"><div class="stat-value" id="stat-edges">—</div><div class="stat-label">Shared-area links</div></div>
         <div class="stat-card"><div class="stat-value" id="stat-visible">—</div><div class="stat-label">Visible</div></div>
         <div class="stat-card"><div class="stat-value" id="stat-tiers">—</div><div class="stat-label">Tiers</div></div>
       </div>
@@ -382,15 +382,17 @@ html, body {
       <div class="sb-label">Data Quality</div>
       <div id="tier-filter">
         <button class="tier-btn active" data-tier="A" title="Curated: manually verified">A Curated</button>
-        <button class="tier-btn active" data-tier="B" title="Verified: cross-referenced">B Verified</button>
-        <button class="tier-btn active" data-tier="C" title="Inferred: algorithmically derived">C Inferred</button>
+        <button class="tier-btn active" data-tier="B" title="Verified: registry-backed">B Verified</button>
+        <button class="tier-btn inactive" data-tier="C" title="Inferred: algorithmically derived — lower confidence">C Inferred</button>
       </div>
       <div class="sb-label">View Mode</div>
       <div class="view-mode-wrap">
         <button class="view-btn active" id="btn-network">🕸 Network</button>
         <button class="view-btn" id="btn-geo">🌍 Geographic</button>
       </div>
-      <div class="sb-label">Explore</div>
+      <div class="sb-label">Guided Views</div>
+      <div id="presets"></div>
+      <div class="sb-label">Explore by Section</div>
       <div id="regions"></div>
     </div>
     <div class="sb-health">
@@ -503,7 +505,8 @@ let zoomBehavior = null;
 let transform = d3.zoomIdentity;
 let viewMode = 'network';        // 'network' | 'geo'
 let activeSection = null;
-let activeTiers = new Set(['A', 'B', 'C']);
+// Default: high-confidence only (Tier A + B). Tier C toggled off until user enables.
+let activeTiers = new Set(['A', 'B']);
 let searchTerm = '';
 let hoveredNode = null;
 let selectedNode = null;
@@ -734,6 +737,7 @@ function screenToSim(sx, sy) {
 function isNodeVisible(node) {
   if (activeSection && node.f !== activeSection) return false;
   if (!activeTiers.has(node.t)) return false;
+  if (activePresetFilterFn && !activePresetFilterFn(node)) return false;
   if (searchTerm) {
     const s = searchTerm.toLowerCase();
     if (!(node.n || '').toLowerCase().includes(s) && !(node.cc || '').toLowerCase().includes(s)) return false;
@@ -1140,6 +1144,7 @@ function setupSidebar(tierCounts) {
   document.querySelectorAll('.tier-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const tier = btn.dataset.tier;
+      activePresetFilterFn = null; // manual override clears preset filter
       if (activeTiers.has(tier)) { activeTiers.delete(tier); btn.classList.remove('active'); btn.classList.add('inactive'); }
       else { activeTiers.add(tier); btn.classList.add('active'); btn.classList.remove('inactive'); }
       rebuildQuadtree();
@@ -1161,6 +1166,9 @@ function setupSidebar(tierCounts) {
   document.getElementById('btn-network').addEventListener('click', () => setViewMode('network'));
   document.getElementById('btn-geo').addEventListener('click', () => setViewMode('geo'));
 
+  // Narrative presets
+  setupPresets();
+
   // Region/section jump
   setupRegions();
 
@@ -1179,6 +1187,105 @@ function setViewMode(mode) {
   if (mode === 'geo') loadWorldData();
   fitView(true);
   render();
+}
+
+// ══════════════════════════════════════════════════════════════
+// NARRATIVE PRESETS
+// ══════════════════════════════════════════════════════════════
+const PRESETS = [
+  {
+    id: 'skeptic',
+    label: 'Start with the skeptic view',
+    desc: 'Tier B (registry-backed) only. The honest map.',
+    tiers: new Set(['B']),
+    section: null,
+  },
+  {
+    id: 'high_confidence',
+    label: 'High-confidence only',
+    desc: 'Tier A + B. ~15,854 orgs.',
+    tiers: new Set(['A', 'B']),
+    section: null,
+  },
+  {
+    id: 'land_trusts',
+    label: 'Housing & land trusts',
+    desc: 'Community land trusts, cooperative housing.',
+    tiers: new Set(['A', 'B', 'C']),
+    section: 'housing_land',
+  },
+  {
+    id: 'food_sovereignty',
+    label: 'Food sovereignty',
+    desc: 'Food commons, community gardens, food co-ops.',
+    tiers: new Set(['A', 'B', 'C']),
+    section: 'food',
+  },
+  {
+    id: 'participatory_democracy',
+    label: 'Participatory democracy',
+    desc: 'Democratic infrastructure, participatory budgeting.',
+    tiers: new Set(['A', 'B', 'C']),
+    section: 'democracy',
+  },
+  {
+    id: 'healthcare_commons',
+    label: 'Healthcare commons',
+    desc: 'Community health, mutual aid health networks.',
+    tiers: new Set(['A', 'B', 'C']),
+    section: 'healthcare',
+  },
+  {
+    id: 'underrepresented',
+    label: 'Outside US/UK',
+    desc: 'All orgs excluding US and UK records.',
+    tiers: new Set(['A', 'B', 'C']),
+    section: null,
+    filterFn: (node) => node.cc !== 'US' && node.cc !== 'GB',
+  },
+];
+
+let activePresetFilterFn = null;
+
+function applyPreset(preset) {
+  activeTiers = new Set(preset.tiers);
+  activeSection = preset.section || null;
+  activePresetFilterFn = preset.filterFn || null;
+
+  // Update tier buttons
+  document.querySelectorAll('.tier-btn').forEach(btn => {
+    const tier = btn.dataset.tier;
+    if (activeTiers.has(tier)) {
+      btn.classList.add('active');
+      btn.classList.remove('inactive');
+    } else {
+      btn.classList.remove('active');
+      btn.classList.add('inactive');
+    }
+  });
+
+  // Update section filter buttons
+  document.querySelectorAll('.filter-btn').forEach(b => {
+    b.classList.toggle('active', !activeSection || b.dataset.area === activeSection);
+  });
+
+  rebuildQuadtree();
+  updateVisibleCount();
+  render();
+}
+
+function setupPresets() {
+  const presetsEl = document.getElementById('presets');
+  if (!presetsEl) return;
+  presetsEl.innerHTML = '';
+  PRESETS.forEach(preset => {
+    const btn = document.createElement('button');
+    btn.className = 'region-btn';
+    btn.title = preset.desc;
+    btn.textContent = preset.label;
+    btn.addEventListener('click', () => applyPreset(preset));
+    presetsEl.appendChild(btn);
+  });
 }
 
 function setupRegions() {
