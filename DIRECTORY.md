@@ -1,6 +1,6 @@
 # 🌍 Commonweave Global Civil Society Directory
 
-*Last updated: 2026-04-24 20:59 UTC*
+*Last updated: 2026-04-24 21:53 UTC*
 
 
 ## Coverage
@@ -1692,14 +1692,13 @@ Model: nonprofit
 
 # 🌐 Indonesia (ID) Civil Society Directory
 
-*Compiled: 2026-04-15 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-24 | Source: Web research | Organizations: 0*
 
 ---
 
 ## Organizations
 
-### Indonesia Civil Society Network
-> Primary civil society network in Indonesia
+_No evidence-backed organizations found in this pass._
 
 
 ---
