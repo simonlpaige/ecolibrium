@@ -22,14 +22,20 @@ It's not a manifesto. It's more like an engineering problem with a lot of politi
 
 This framework does not assume post-scarcity arrives as a binary switch. Some goods are becoming radically cheaper to produce: information, energy, basic nutrition, digital services. Other goods remain genuinely scarce: land, fresh water, skilled human care, rare materials, attention. The honest framing is *selective abundance* -- a world where the challenge is distributing what's abundant while governing what's scarce.
 
-Different categories of goods require different governance mechanisms:
-- **Trending toward abundance** (energy, information, basic food production): commons-based distribution, universal access
-- **Persistently scarce** (land, water, rare minerals, skilled care): democratic allocation, stewardship models, Ostrom-style commons governance with monitoring and graduated sanctions
-- **Attention and meaning** (the scarcities automation creates): these require cultural and institutional responses, not just economic ones
+Different resource categories require different governance mechanisms. The table below is the operative claim: if the framework is right, we should find organizations already governing each type correctly.
+
+| Resource type | Examples | Constraint | Governance mode | Failure mode | Directory examples (score >=5) |
+|---|---|---|---|---|---|
+| Trending toward abundance (energy, information, basic food) | Solar power, open-source software, community gardens | Distribution access, not production cost | Commons-based distribution; universal access rights | Platform capture, artificial scarcity re-imposed by incumbents | Centre for Renewable Energy and Action on Climate Change [NG] |
+| Persistently scarce (land, fresh water, rare minerals) | Urban land, aquifers, lithium | Physical limits; rival consumption | Democratic allocation; stewardship/usufruct models; Ostrom-style commons with monitoring and graduated sanctions | Enclosure; privatization of the governance body itself | ADDISON COURT HOUSING COOPERATIVE INC [US]; LANDWELL HOUSING COOPERATIVE [US] |
+| Skilled care (healthcare, childcare, eldercare) | Community health workers, midwives, teachers | Human labor hours; training pipeline | Recognized as essential work; compensation premiums; community health worker networks | Burnout and wage suppression when treated as volunteer surplus | [NEEDS EXAMPLE] |
+| Ecological systems (atmosphere, oceans, biodiversity) | Carbon cycle, ocean fisheries, pollinator networks | Non-rival but fragile; slow feedback loops | Scientific governance bodies with democratic accountability; use limits insulated from short-term majorities | Democratic override of ecological limits; regulatory capture | Environmental Monitoring Group (EMG) [ZA] |
+| Attention and meaning | Culture, community, creative work | Cannot be manufactured or stockpiled | Cultural and institutional responses; time sovereignty | Commodification; algorithmic capture of attention for extraction | [NEEDS EXAMPLE] |
+| Cooperative economics (worker ownership, mutual aid) | Worker co-ops, mutual aid networks, credit unions | Capital access; competition from non-cooperative firms | Solidarity economy networks; preferential sourcing between co-ops; policy support (Marcora Law model) | Scale pressure causes drift back to conventional employment (Mondragon precedent) | Mutual Aid Twin Cities Housing Cooperative [US]; PRAGYA [GB] |
+
+The "Directory examples" column is the test. If the framework is falsifiable, then organizations with alignment_score >= 5 in matching areas should be doing what the framework predicts. Cells marked [NEEDS EXAMPLE] are gaps -- either the directory doesn't have good coverage there yet, or the framework's prediction is wrong. Both are worth investigating.
 
 The framework is designed to work under conditions of *partial* abundance and *persistent* scarcity -- not to wait for a threshold that may never fully arrive.
-
-Some of this is worked out in detail. A lot of it isn't. The parts that aren't worked out are listed as open questions, which is honest. If you know something we don't, that's what the pull requests are for.
 
 ---
 
