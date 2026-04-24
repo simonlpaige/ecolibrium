@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>A Field Guide to Labor-for-Housing Cooperatives</title>
+  <style>
+@page {
+  size: Letter;
+  margin: 24mm 20mm 22mm 20mm;
+  @bottom-right { content: "page " counter(page) " / " counter(pages); }
+}
+html, body {
+  font-family: 'Inter', 'Segoe UI', Georgia, serif;
+  font-size: 10.5pt;
+  line-height: 1.55;
+  color: #2d2d2d;
+  background: #ffffff;
+}
+body { max-width: 720px; margin: 0 auto; }
+h1 {
+  font-size: 26pt;
+  font-weight: 800;
+  color: #2d4026;
+  letter-spacing: -0.3px;
+  margin: 0 0 4pt 0;
+  line-height: 1.15;
+}
+h1 + p em {
+  color: #5e7a52;
+  font-size: 12pt;
+  font-style: italic;
+}
+h2 {
+  font-size: 16pt;
+  font-weight: 800;
+  color: #2d4026;
+  margin: 20pt 0 8pt 0;
+  letter-spacing: -0.2px;
+  border-bottom: 1px solid #d4c9a8;
+  padding-bottom: 4pt;
+}
+h3 {
+  font-size: 12pt;
+  font-weight: 700;
+  color: #3a5a32;
+  margin: 14pt 0 4pt 0;
+}
+h4 {
+  font-size: 11pt;
+  font-weight: 700;
+  color: #5e7a52;
+  margin: 10pt 0 3pt 0;
+}
+p {
+  margin: 0 0 8pt 0;
+}
+ul, ol {
+  margin: 2pt 0 10pt 0;
+  padding-left: 22pt;
+}
+li {
+  margin-bottom: 4pt;
+}
+code, tt {
+  font-family: 'Menlo', 'Consolas', 'Courier New', monospace;
+  font-size: 9.3pt;
+  background: #f4efe2;
+  padding: 1px 4px;
+  border-radius: 3px;
+  color: #3a5a32;
+}
+pre {
+  background: #f4efe2;
+  padding: 10pt 12pt;
+  border-radius: 4px;
+  border-left: 3px solid #9cb58a;
+  overflow-x: auto;
+}
+pre code { background: transparent; padding: 0; }
+strong { color: #2d4026; }
+em { color: #5e7a52; }
+a { color: #3a5a32; text-decoration: none; border-bottom: 1px dotted #9cb58a; }
+hr {
+  border: none;
+  border-top: 1px solid #d4c9a8;
+  margin: 14pt 0;
+}
+img, svg {
+  display: block;
+  max-width: 100%;
+  margin: 10pt auto;
+  page-break-inside: avoid;
+}
+figure, .figure {
+  margin: 10pt 0;
+  page-break-inside: avoid;
+  text-align: center;
+}
+figure + p em, .figure + p em {
+  font-size: 10pt;
+  color: #7a8a6a;
+}
+blockquote {
+  border-left: 3px solid #9cb58a;
+  padding-left: 12pt;
+  color: #5e7a52;
+  font-style: italic;
+  margin: 10pt 0;
+}
+.pagebreak { page-break-before: always; }
+.cover {
+  text-align: center;
+  padding-top: 90pt;
+  page-break-after: always;
+}
+.cover h1 {
+  font-size: 32pt;
+  color: #2d4026;
+  margin-bottom: 20pt;
+  line-height: 1.15;
+}
+.cover .subtitle {
+  font-size: 14pt;
+  color: #5e7a52;
+  font-style: italic;
+  margin-bottom: 60pt;
+  line-height: 1.5;
+}
+.cover .tagline {
+  font-size: 11pt;
+  color: #7a8a6a;
+  margin-bottom: 24pt;
+}
+.cover .date {
+  font-size: 10pt;
+  color: #7a8a6a;
+  font-family: 'Menlo', 'Consolas', monospace;
+}
+.cover-rule {
+  width: 80pt;
+  border-top: 2px solid #c4a55d;
+  margin: 40pt auto;
+}
+h3, h4 { page-break-after: avoid; }
+h2 { page-break-after: avoid; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <h1>A Field Guide<br>to Labor-for-Housing<br>Cooperatives</h1>
+  <div class="cover-rule"></div>
+  <div class="subtitle">How to stitch labor, land, and housing<br>into one democratic pipeline.</div>
+  <div class="tagline">Companion to the Commonweave directory and pipeline.pdf</div>
+  <div class="date">Version 1 &middot; 2026-04-24</div>
+</div>
+
+<h2 id="what-you-are-holding">What you are holding</h2>
+<p>Two things are happening at the same time, and they do not solve each other by accident.</p>
+<p>The first is that a lot of people are running out of paid work. Some of that is the usual churn, and some of it is newer: language models and cheap robots are eating the bottom rungs of white collar and trade labor, and the curve does not look like it is bending back soon. The second is that housing has become too expensive almost everywhere a person might want to live. A median home in most of the OECD costs more than a median household can carry. Rents take up the paycheck before the paycheck can do anything else.</p>
+<p>These two problems sit next to each other and glare. Surplus hours on one side. A roof shortage on the other. The obvious thing to do is to put them in a room together and see what happens. That idea is not new. People have been doing it, in pieces, for about a hundred and fifty years. They call the pieces different things in different places, and the pieces do not usually know about each other. This guide is about what happens when you put the pieces in one picture.</p>
+<p>The picture has three legs. A <strong>community land trust</strong> holds the land as a commons, so housing on it stays affordable forever. A <strong>labor union</strong> or a <strong>worker cooperative</strong> organizes the skill that turns dirt into walls. A <strong>sweat-equity program</strong> lets residents pay part of the price of a home in hours instead of dollars. Stitched together, these become a pipeline: a person with hours but no dollars goes in, and a stable home on permanently-affordable land comes out.</p>
+<p>That pipeline is real. Parts of it exist in the United States, Spain, Italy, Germany, the United Kingdom, Belgium, Canada, and a few dozen other countries. No one has documented the full playbook in one place. We will.</p>
+<p>This guide is plain language on purpose. If you are a carpenter wondering whether your local could run a housing program, you should be able to read it. If you are a city council member, you should be able to read it. If you have been displaced from your job and are wondering whether there is still a way to own a home that does not involve a million-dollar mortgage, you should be able to read it. It is not a marketing brochure. There is a dark-history chapter in the back, because the idea of working for your housing has been used to trap people before, and the only way to keep it honest is to stare at the trap squarely.</p>
+<p>The rest of this guide is the pieces, the pipeline, the law, the math, and the warnings.</p>
+<div class="pagebreak"></div>
+
+<h2 id="part-1-the-problem-honestly-stated">Part 1 - The problem, honestly stated</h2>
+<h3 id="work-is-getting-weirder">Work is getting weirder</h3>
+<p>For about two hundred years the standard deal in industrialized countries has been: you go to a job, you earn wages, you rent or buy a place to live with the wages. That deal had holes from the start, and the holes have been getting bigger.</p>
+<p>AI displacement is the newest pressure, and it is already visible in the data on junior software engineering, call centers, translation, basic legal drafting, accounts payable, and the first rungs of graphic design and copywriting. These are not the "repetitive factory jobs" economists used to worry about. They are the jobs people went into college to get. Trades work is partly shielded so far, because hanging a door and rewiring an old house are still hard for a robot. But trades work has its own problem: the people who know how to do it are older than the people who don't, and the apprenticeship pipeline is not filling fast enough. A 55-year-old journeyman carpenter and a 23-year-old whose entry-level office job was automated are both standing in the same weather and looking at the same question: what now?</p>
+<p>There is more than one honest answer, and this guide is not about any of the bigger ones. It is about one answer: if you have hours, and someone near you has land but not enough hands, you have the start of a deal.</p>
+<h3 id="housing-is-a-stuck-problem">Housing is a stuck problem</h3>
+<p>The housing shortage is not the same thing in every country, but the rough shape is the same. Not enough homes are being built. The homes that exist have been turned, over the past thirty years, into an investment asset instead of a place to live. The price of a home and the price of rent have both climbed faster than wages in every OECD country except Japan since 2000.</p>
+<p>The US has around 5 to 7 million fewer homes than it needs, depending on how you count. The UK has a roughly similar gap relative to population. Germany has started writing emergency budgets for housing. Canada now lists housing as its top domestic concern in national polls. The numbers are different. The story is the same. Building is too slow, too expensive, and too tangled in rules that serve existing owners.</p>
+<p>You cannot fix a 5 million home shortage with volunteer weekends. But you can fix a ten-home pilot in one neighborhood with a union local and a land trust in eighteen months. And then you can do it again. That is the scale this guide is aimed at.</p>
+<h3 id="why-the-two-problems-do-not-solve-each-other-by-default">Why the two problems do not solve each other by default</h3>
+<p>It would be tidy if surplus workers simply went out and built housing. They do not, and the reasons are structural.</p>
+<p>Surplus workers do not own land. Land is expensive. The people who do own land mostly want it to appreciate, not be used. The people who know how to build a house are organized in unions that have their own internal priorities (keeping wages high for members, mostly, which is the whole reason unions exist). Construction is regulated from a dozen directions at once. Banks will not lend to projects that do not look like normal for-profit developments. The political conversation about housing is about zoning and subsidy, not about who actually swings the hammer. So the hours pile up in unemployment lines, and the homes pile up in the price column of real-estate listings, and nothing touches.</p>
+<p>The question this guide tries to answer is: what is the minimum stitching between those piles?</p>
+<h3 id="the-one-sentence-thesis">The one-sentence thesis</h3>
+<p><strong>Democratic ownership of land, combined with organized labor, can convert surplus hours into permanent homes.</strong> Everything else in this guide is either evidence that this works in fragments, or instructions for stitching the fragments into something that works as a whole.</p>
+<div class="pagebreak"></div>
+
+<h2 id="part-2-the-three-legs-of-the-stool">Part 2 - The three legs of the stool</h2>
+<p>The pipeline stands on three things. Each one is a whole movement on its own, with its own language and its own history. You do not need all three to build something useful, but you will want all three if you want it to last. Here is a short walk through each leg, with real organizations named from the Commonweave directory so you can look them up.</p>
+<h3 id="leg-1-community-land-trusts">Leg 1 - Community land trusts</h3>
+<p>A community land trust, or CLT, is a nonprofit that owns the land under housing and leases it to the people who live there. The resident owns the building (the house, the apartment, whatever sits on the land). The CLT keeps the land itself in common. When the resident moves out, they can only sell the building to someone whose income is under a defined cap, and only for a price the CLT approves. The math on resale is set so the seller gets some equity back but the home stays affordable for the next family.</p>
+<p>That is the whole trick, and it is a big one. By separating the land from the building and letting only the building change hands at a restricted price, a CLT turns a house from an investment asset into a place to live. The land is no longer speculating. The building is not a lottery ticket. It is where you live.</p>
+<p>The oldest US example is <strong>Dudley Neighbors Inc</strong>, the CLT arm of the Dudley Street Neighborhood Initiative in Boston, Massachusetts. In 1988 the Dudley Street neighborhood did something no community had ever done in the United States: it got the city to delegate eminent-domain authority to a resident-led nonprofit, and the nonprofit used it to buy up vacant lots from absentee owners. Those lots became permanently-affordable housing that has been housing working-class Boston families for a third of a century. You can look them up in the directory.</p>
+<p>The biggest US example is <strong>Champlain Housing Trust</strong>, founded in 1984 in Burlington, Vermont, as the Burlington Community Land Trust. It manages more than three thousand permanently-affordable homes across northwestern Vermont. It is the largest CLT in North America by a wide margin and is the organization most responsible for turning "CLT" from a local-Burlington idea into a movement.</p>
+<p>Internationally, two to know: <strong>Community Land Trust Brussels</strong> (CLTB), which was founded in 2012 and had delivered about 150 permanently-affordable homes across the Brussels region by 2025, and <strong>London Community Land Trust</strong>, which ran the St Clements Hospital redevelopment in East London (the first CLT housing inside the M25). Both show that the model translates cleanly out of its US origin context into European cities with different property law and much higher land costs.</p>
+<p>The CLT movement's federated spine in the US is the <strong>Grounded Solutions Network</strong>, headquartered in Portland, Oregon. They publish technical manuals, run a member-spotlight directory, and are the closest thing the movement has to a national office. The Commonweave directory carries their seed list of about 40 well-documented CLTs (US, UK, Canada, Belgium), plus a larger Wikidata-derived set.</p>
+<p><strong>Where CLTs break.</strong> Three places. First, they are expensive to start. The CLT has to buy or be given the land, which in hot markets is not cheap. Second, once a CLT controls only a small fraction of the homes in its neighborhood, it cannot hold back the rising tide of the surrounding market - the CLT homes stay affordable, but the families renting nearby get priced out anyway. Third, the resale formula is a hard design problem: make the appreciation too slow and CLT homeowners feel cheated compared to market owners; make it too fast and affordability for the next family evaporates. Every CLT has had to draw that line, and the lines are different.</p>
+<h3 id="leg-2-labor-unions-especially-the-construction-trades">Leg 2 - Labor unions, especially the construction trades</h3>
+<p>Labor unions are one of the oldest working examples of democratic ownership of a commons. A union is a group of workers who pool their bargaining power so they do not have to negotiate individually with an employer who holds all the cards. In exchange for pooling, they share some rules: a scale of wages, a set of standards for the work, a dispute procedure, a training program. When the union works, the trade gets a floor under it. When it does not, wages collapse the way they did in US private-sector employment from the 1960s to today, where union density fell from 35% to about 6%.</p>
+<p>For a labor-for-housing pipeline, the unions that matter most are in the construction and building trades. They know how to build. They run apprenticeship programs that produce the exact skill the pipeline needs. Many of them have pension funds and strike funds that could in principle be used as patient capital for housing they help build. Many of them have joint-management training centers that already have workshops, tools, and experienced instructors.</p>
+<p>The canonical European example is <strong>IG Bauen-Agrar-Umwelt</strong> (IG BAU), Germany's building, agriculture, and environment industrial union. It is the successor to a building-trades union that was folded into the DGB federation after World War II and it covers everything from bricklayers to landscape workers to forestry. IG BAU has institutional experience with the kind of multi-year apprenticeships that the pipeline requires, and Germany's co-determination ("Mitbestimmung") legal framework lets unions sit on the boards of major construction companies as an equal party with management.</p>
+<p><strong>IG Metall</strong>, also German, is the metalworkers' union, and while it is not primarily construction, its regional structure (over a hundred local divisions catalogued in the Commonweave directory from Wikidata) is a useful template for how a large industrial union federates itself across a country. If a US or UK construction union ever wanted to federate the same way, IG Metall is what it would look like.</p>
+<p>In the United States, the construction trades are fragmented across several international unions - the Carpenters, the Laborers, the Electrical Workers (IBEW), the Plumbers and Pipefitters, the Painters, the Ironworkers, and so on - plus the AFL-CIO Building and Construction Trades Department as an umbrella. The Commonweave directory's current pass indexes the national federations (AFL-CIO, SEIU, UAW, USW, AFSCME, and so on) via Wikidata's Q178790 "trade union" class. Locals are out of scope for v1; a later pass will need them, probably by scraping each international's local directory.</p>
+<p>Internationally, the spine is the <strong>International Trade Union Confederation</strong> (ITUC), whose affiliates are listed in the directory via the <code>ituc_affiliates</code> source. The Australian Council of Trade Unions (ACTU, about 1.76 million members), the Canadian Labour Congress (CLC), Kenya's Central Organisation of Trade Unions (COTU, about 234,000 members), Italy's CGIL-CISL-UIL, Spain's CCOO and UGT, and India's SEWA (the Self-Employed Women's Association, about a million members) are all in the list.</p>
+<p><strong>Where labor unions break.</strong> Three places. First, US construction trades historically excluded Black workers, women, and immigrants. That is not ancient history. It is 1960s and 1970s history. Many locals have reformed; some have not; the legacy lingers in every demographic slice of the membership data. Any labor-for-housing pipeline that does not name this problem and set up a hiring pipeline that addresses it is going to reproduce the exclusion. Second, unions have their own internal politics. A local that is busy fighting for its next contract may have no bandwidth for a side project in housing. Third, in places where unions have been hollowed out, there is nobody organized to do this work. A construction trade with 6% density cannot carry a pipeline on its own.</p>
+<h3 id="leg-3-sweat-equity-programs">Leg 3 - Sweat-equity programs</h3>
+<p>A sweat-equity program is one where a person earns part of the price of their home in hours worked instead of dollars paid. The canonical modern example is <strong>Habitat for Humanity</strong>, founded in 1976 in Americus, Georgia. The classic Habitat deal is: the future homeowner puts in around 300 to 500 hours of labor on their own home and on homes for other Habitat families (the number varies by affiliate). That labor is credited as part of the down payment. The rest of the mortgage is a zero-interest loan, underwritten by the Habitat affiliate. The math, for affiliates that are run well, comes out to a family getting a home for somewhere around 60% to 70% of what the same home would cost on the open market.</p>
+<p>Habitat is enormous. The US has around 355 affiliates (a number the Commonweave directory confirms from IRS Form 990 filings). Habitat for Humanity International lists country offices in more than seventy countries; the directory currently carries around sixty-five of them with verified websites, including Habitat New Zealand, Habitat Brazil, Habitat Kenya, Habitat Philippines, Habitat Romania, and Habitat Palestine.</p>
+<p>Habitat is also controversial, and we will get to that in the dark-history chapter. For now, the relevant point is this: the mechanism - hours-for-equity, with a legal structure that holds the credit safely - works. It has been working for fifty years. The critiques of Habitat are mostly not about whether sweat equity can build a home (it can) but about what theological framing, what kind of debt, and what relationship to gentrification the program is embedded in.</p>
+<p>Less famous variants matter too. <strong>Cooper Square Mutual Housing Association</strong> in New York City converted a bloc of Lower East Side buildings into a 328-unit, resident-controlled mutual housing association in the 1990s after a decade-long fight against urban renewal. Residents put labor into rehab work as part of getting the housing up to code, and the association owns the buildings cooperatively. The Commonweave directory has them.</p>
+<p><strong>Where sweat-equity programs break.</strong> Four places. First, not everyone can swing a hammer. A program that requires physical labor excludes people with disabilities unless it has alternate ways to earn hours (childcare for other work days, bookkeeping, painting, organizing). A serious program builds the alternates in from the start. Second, the hours are usually unpaid. For a person working a full-time job, 400 volunteer hours on top is several months of weekends. For a displaced worker with time but no income, the hours cost nothing but food and transport, and the food and transport still cost money the person may not have. Third, the quality control on sweat-equity work is nontrivial - professional supervision matters, and that costs money. Fourth, the theological framing of Habitat in particular has generated legitimate criticism from homeowner-advocacy groups that the deal is framed as charity-for-the-deserving rather than infrastructure-for-a-right. That framing affects who shows up and who stays.</p>
+<h3 id="how-the-three-legs-fit">How the three legs fit</h3>
+<p>You can run any one leg alone. A CLT can exist without a labor union. A union can exist without a CLT or a sweat-equity program. Habitat can build houses without either. The fit matters because each leg covers the others' weaknesses.</p>
+<p>A CLT alone has affordable land but has to hire general contractors at market rates, which eats the budget. A union alone has the skill but needs somewhere to put it that is not the private market. A sweat-equity program alone has the labor-credit mechanism but no control over the land and has to buy it at market. Put the three together and you have: permanent land, organized skill, and a legal way to credit labor. That is the minimum viable pipeline.</p>
+<div class="pagebreak"></div>
+
+<h2 id="part-3-the-pipeline-diagrammed">Part 3 - The pipeline, diagrammed</h2>
+<p>Here is the pipeline as a picture.</p>
+<p><figure class="figure"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" font-family="Inter, -apple-system, Segoe UI, Georgia, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f7f3eb"/>
+      <stop offset="1" stop-color="#eee7d6"/>
+    </linearGradient>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3a5a32"/>
+    </marker>
+    <marker id="arr-light" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#7a8a6a"/>
+    </marker>
+    <marker id="arr-warm" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#b88a3a"/>
+    </marker>
+    <filter id="soft" x="-5%" y="-5%" width="110%" height="110%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feOffset dx="0" dy="2" in="b" result="o"/>
+      <feComponentTransfer in="o" result="oo"><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode in="oo"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="1600" fill="url(#bg)"/>
+
+  <!-- Title -->
+  <text x="600" y="56" text-anchor="middle" font-size="28" font-weight="800" fill="#2d4026" letter-spacing="0.5">The labor-for-housing pipeline</text>
+  <text x="600" y="84" text-anchor="middle" font-size="14" fill="#5e7a52" font-style="italic">member &#8594; union / co-op + CLT &#8594; labor hours &#8594; sweat-equity escrow &#8594; home on permanent land &#8594; repair crew</text>
+
+  <!-- ============ ROW 1: THE PERSON ============ -->
+  <text x="60" y="128" font-size="13" font-weight="700" fill="#5e7a52" letter-spacing="1.5">1. THE PERSON</text>
+  <line x1="60" y1="136" x2="1140" y2="136" stroke="#d4c9a8" stroke-width="1"/>
+
+  <g filter="url(#soft)">
+    <rect x="470" y="160" width="260" height="72" rx="10" fill="#ffffff" stroke="#c8bfa0"/>
+  </g>
+  <g font-size="14" fill="#2d4026" text-anchor="middle">
+    <text x="600" y="190" font-weight="800">Member joins</text>
+    <text x="600" y="212" font-size="12" fill="#5e7a52">union local &nbsp;or&nbsp; worker cooperative</text>
+  </g>
+
+  <!-- arrows from member down to leg 1 and leg 2 -->
+  <path d="M 600 232 L 600 280" stroke="#3a5a32" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+
+  <!-- ============ ROW 2: THREE PARALLEL LEGS ============ -->
+  <text x="60" y="312" font-size="13" font-weight="700" fill="#5e7a52" letter-spacing="1.5">2. THREE LEGS OF THE STOOL</text>
+  <line x1="60" y1="320" x2="1140" y2="320" stroke="#d4c9a8" stroke-width="1"/>
+
+  <g filter="url(#soft)">
+    <!-- CLT box -->
+    <rect x="80"  y="340" width="320" height="140" rx="10" fill="#ffffff" stroke="#9cb58a" stroke-width="2"/>
+    <!-- Union/co-op box -->
+    <rect x="440" y="340" width="320" height="140" rx="10" fill="#ffffff" stroke="#9cb58a" stroke-width="2"/>
+    <!-- Sweat-equity program -->
+    <rect x="800" y="340" width="320" height="140" rx="10" fill="#ffffff" stroke="#9cb58a" stroke-width="2"/>
+  </g>
+
+  <!-- CLT text -->
+  <text x="240" y="372" text-anchor="middle" font-size="15" font-weight="800" fill="#2d4026">Community land trust</text>
+  <text x="240" y="396" text-anchor="middle" font-size="12" fill="#5e7a52">holds land in common, forever</text>
+  <text x="240" y="424" text-anchor="middle" font-size="11" fill="#3a5a32" font-style="italic">Champlain Housing Trust (VT)</text>
+  <text x="240" y="440" text-anchor="middle" font-size="11" fill="#3a5a32" font-style="italic">Dudley Neighbors Inc (MA)</text>
+  <text x="240" y="456" text-anchor="middle" font-size="11" fill="#3a5a32" font-style="italic">CLT Brussels, London CLT</text>
+
+  <!-- Union text -->
+  <text x="600" y="372" text-anchor="middle" font-size="15" font-weight="800" fill="#2d4026">Union or worker co-op</text>
+  <text x="600" y="396" text-anchor="middle" font-size="12" fill="#5e7a52">organized skill, trained labor</text>
+  <text x="600" y="424" text-anchor="middle" font-size="11" fill="#3a5a32" font-style="italic">IG BAU (Germany)</text>
+  <text x="600" y="440" text-anchor="middle" font-size="11" fill="#3a5a32" font-style="italic">CMC Ravenna, CMB Carpi (Italy)</text>
+  <text x="600" y="456" text-anchor="middle" font-size="11" fill="#3a5a32" font-style="italic">Mondragon construction co-ops</text>
+
+  <!-- Sweat-equity text -->
+  <text x="960" y="372" text-anchor="middle" font-size="15" font-weight="800" fill="#2d4026">Sweat-equity program</text>
+  <text x="960" y="396" text-anchor="middle" font-size="12" fill="#5e7a52">legal way to credit labor hours</text>
+  <text x="960" y="424" text-anchor="middle" font-size="11" fill="#3a5a32" font-style="italic">Habitat for Humanity</text>
+  <text x="960" y="440" text-anchor="middle" font-size="11" fill="#3a5a32" font-style="italic">~355 US affiliates + 65 int'l</text>
+  <text x="960" y="456" text-anchor="middle" font-size="11" fill="#3a5a32" font-style="italic">Cooper Square MHA (NYC)</text>
+
+  <!-- horizontal connectors between legs -->
+  <line x1="400" y1="410" x2="440" y2="410" stroke="#7a8a6a" stroke-width="2" stroke-dasharray="4,3"/>
+  <line x1="760" y1="410" x2="800" y2="410" stroke="#7a8a6a" stroke-width="2" stroke-dasharray="4,3"/>
+
+  <!-- arrows down to agreement row -->
+  <path d="M 240 480 L 240 540" stroke="#3a5a32" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+  <path d="M 600 480 L 600 540" stroke="#3a5a32" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+  <path d="M 960 480 L 960 540" stroke="#3a5a32" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+
+  <!-- ============ ROW 3: THE AGREEMENTS ============ -->
+  <text x="60" y="520" font-size="13" font-weight="700" fill="#5e7a52" letter-spacing="1.5">3. LEGAL STITCHING</text>
+  <line x1="60" y1="528" x2="1140" y2="528" stroke="#d4c9a8" stroke-width="1"/>
+
+  <g filter="url(#soft)">
+    <rect x="200" y="560" width="800" height="104" rx="10" fill="#fffbf0" stroke="#c4a55d" stroke-width="2"/>
+  </g>
+  <text x="600" y="590" text-anchor="middle" font-size="15" font-weight="800" fill="#2d4026">Project labor agreement + sweat-equity escrow + ground lease</text>
+  <text x="600" y="614" text-anchor="middle" font-size="12" fill="#5e7a52">501(c)(3) or equivalent wraps the land &nbsp;&nbsp;&#8226;&nbsp;&nbsp; PLA wraps the union hours</text>
+  <text x="600" y="632" text-anchor="middle" font-size="12" fill="#5e7a52">escrow holds the sweat-equity credit &nbsp;&nbsp;&#8226;&nbsp;&nbsp; ground lease ensures permanent affordability</text>
+  <text x="600" y="652" text-anchor="middle" font-size="11" font-style="italic" fill="#b88a3a">insurance and liability coverage must be in place before any volunteer hammer swings</text>
+
+  <!-- arrow down -->
+  <path d="M 600 664 L 600 720" stroke="#3a5a32" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+
+  <!-- ============ ROW 4: THE BUILD ============ -->
+  <text x="60" y="700" font-size="13" font-weight="700" fill="#5e7a52" letter-spacing="1.5">4. THE BUILD</text>
+  <line x1="60" y1="708" x2="1140" y2="708" stroke="#d4c9a8" stroke-width="1"/>
+
+  <g filter="url(#soft)">
+    <rect x="80"  y="740" width="280" height="120" rx="10" fill="#ffffff" stroke="#c8bfa0"/>
+    <rect x="440" y="740" width="280" height="120" rx="10" fill="#ffffff" stroke="#c8bfa0"/>
+    <rect x="820" y="740" width="280" height="120" rx="10" fill="#ffffff" stroke="#c8bfa0"/>
+  </g>
+  <text x="220" y="770" text-anchor="middle" font-size="14" font-weight="800" fill="#2d4026">Union labor</text>
+  <text x="220" y="794" text-anchor="middle" font-size="12" fill="#5e7a52">~1,600 hours / home</text>
+  <text x="220" y="812" text-anchor="middle" font-size="12" fill="#5e7a52">paid at union scale</text>
+  <text x="220" y="834" text-anchor="middle" font-size="11" fill="#3a5a32" font-style="italic">apprentices + journeymen</text>
+
+  <text x="580" y="770" text-anchor="middle" font-size="14" font-weight="800" fill="#2d4026">Homeowner labor</text>
+  <text x="580" y="794" text-anchor="middle" font-size="12" fill="#5e7a52">~400 hours</text>
+  <text x="580" y="812" text-anchor="middle" font-size="12" fill="#5e7a52">credited to escrow</text>
+  <text x="580" y="834" text-anchor="middle" font-size="11" fill="#3a5a32" font-style="italic">own home + others'</text>
+
+  <text x="960" y="770" text-anchor="middle" font-size="14" font-weight="800" fill="#2d4026">Subcontracted trades</text>
+  <text x="960" y="794" text-anchor="middle" font-size="12" fill="#5e7a52">electrical, plumbing, HVAC</text>
+  <text x="960" y="812" text-anchor="middle" font-size="12" fill="#5e7a52">paid at prevailing rate</text>
+  <text x="960" y="834" text-anchor="middle" font-size="11" fill="#3a5a32" font-style="italic">regulated specialty work</text>
+
+  <!-- arrow down to closing -->
+  <path d="M 600 864 L 600 920" stroke="#3a5a32" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+
+  <!-- ============ ROW 5: CLOSING ============ -->
+  <text x="60" y="900" font-size="13" font-weight="700" fill="#5e7a52" letter-spacing="1.5">5. CLOSING AND MOVE-IN</text>
+  <line x1="60" y1="908" x2="1140" y2="908" stroke="#d4c9a8" stroke-width="1"/>
+
+  <g filter="url(#soft)">
+    <rect x="280" y="940" width="640" height="116" rx="10" fill="#f4efe2" stroke="#9cb58a" stroke-width="2"/>
+  </g>
+  <text x="600" y="970" text-anchor="middle" font-size="15" font-weight="800" fill="#2d4026">Member gets a 99-year ground lease and title to the building</text>
+  <text x="600" y="994" text-anchor="middle" font-size="12" fill="#5e7a52">escrow hours &nbsp;+&nbsp; small cash &nbsp;=&nbsp; down payment</text>
+  <text x="600" y="1012" text-anchor="middle" font-size="12" fill="#5e7a52">CLT keeps the land &nbsp;&#8226;&nbsp; member keeps the building</text>
+  <text x="600" y="1032" text-anchor="middle" font-size="11" font-style="italic" fill="#3a5a32">zero-interest or low-interest mortgage from partner bank / CDFI</text>
+  <text x="600" y="1048" text-anchor="middle" font-size="11" font-style="italic" fill="#b88a3a">resale restricted to income-qualified buyer at CLT formula price</text>
+
+  <!-- arrow down to loop -->
+  <path d="M 600 1056 L 600 1112" stroke="#3a5a32" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+
+  <!-- ============ ROW 6: CONTINUATION ============ -->
+  <text x="60" y="1092" font-size="13" font-weight="700" fill="#5e7a52" letter-spacing="1.5">6. THE LOOP</text>
+  <line x1="60" y1="1100" x2="1140" y2="1100" stroke="#d4c9a8" stroke-width="1"/>
+
+  <g filter="url(#soft)">
+    <rect x="80"  y="1132" width="420" height="120" rx="10" fill="#ffffff" stroke="#c8bfa0"/>
+    <rect x="700" y="1132" width="420" height="120" rx="10" fill="#ffffff" stroke="#c8bfa0"/>
+  </g>
+  <text x="290" y="1164" text-anchor="middle" font-size="14" font-weight="800" fill="#2d4026">Home stays permanently affordable</text>
+  <text x="290" y="1188" text-anchor="middle" font-size="12" fill="#5e7a52">resale formula holds across every sale</text>
+  <text x="290" y="1208" text-anchor="middle" font-size="12" fill="#5e7a52">next family gets the home at a price they can carry</text>
+  <text x="290" y="1230" text-anchor="middle" font-size="11" fill="#3a5a32" font-style="italic">land never leaves the commons</text>
+
+  <text x="910" y="1164" text-anchor="middle" font-size="14" font-weight="800" fill="#2d4026">Member joins repair crew</text>
+  <text x="910" y="1188" text-anchor="middle" font-size="12" fill="#5e7a52">paid maintenance work across CLT portfolio</text>
+  <text x="910" y="1208" text-anchor="middle" font-size="12" fill="#5e7a52">union apprenticeship hours toward journeyman card</text>
+  <text x="910" y="1230" text-anchor="middle" font-size="11" fill="#3a5a32" font-style="italic">skill stays in the neighborhood</text>
+
+  <!-- loop-back arrow, repair crew back to member top -->
+  <path d="M 910 1252 Q 1160 1252 1160 196 Q 1160 160 830 160 L 730 160" stroke="#7a8a6a" stroke-width="2" fill="none" stroke-dasharray="6,4" marker-end="url(#arr-light)"/>
+  <text x="1080" y="730" font-size="11" fill="#7a8a6a" font-style="italic" text-anchor="middle">next apprentice class</text>
+
+  <!-- The firewall box at bottom -->
+  <g filter="url(#soft)">
+    <rect x="80" y="1320" width="1040" height="150" rx="12" fill="#fffbf0" stroke="#c4a55d" stroke-width="3"/>
+  </g>
+  <text x="600" y="1356" text-anchor="middle" font-size="18" font-weight="800" fill="#7a5b20">THE FIREWALL</text>
+  <text x="600" y="1386" text-anchor="middle" font-size="14" fill="#2d4026">The thing that separates this pipeline from a company town:</text>
+  <text x="600" y="1412" text-anchor="middle" font-size="13" font-weight="700" fill="#3a5a32">democratic ownership of the land, by the residents, with resale restrictions that hold.</text>
+  <text x="600" y="1442" text-anchor="middle" font-size="12" fill="#5e7a52" font-style="italic">If any one of those three is missing, the pipeline is an extraction mechanism wearing better clothes.</text>
+
+  <!-- footer -->
+  <text x="600" y="1520" text-anchor="middle" font-size="11" fill="#7a8a6a">Companion to commonweave.earth/directory &nbsp;&#8226;&nbsp; version 1 &nbsp;&#8226;&nbsp; 2026-04-24</text>
+
+</svg></figure></p>
+<div class="pagebreak"></div>
+
+<p>Walk through it left to right.</p>
+<p><strong>Member joins.</strong> A person joins a union local (as an apprentice if new to the trade, or as a journeyman if already trained) or a worker cooperative (as a member, usually with a small capital contribution earned over the first year of work). That person now has a seat at a democratic table, the right to a fair wage for pipeline-external work, and access to training.</p>
+<p><strong>Labor-sharing agreement.</strong> The union or cooperative has a written agreement with a community land trust. The agreement spells out how many hours the union will contribute per home, at what skill mix (a mix of apprentices, journeymen, and supervision), under whose liability insurance, and with what supervision standards. Labor-sharing agreements are not unusual: unions routinely set up similar agreements with nonprofit housing developers. The new part is that the housing is on CLT land rather than subsidized for-profit land.</p>
+<p><strong>CLT owns the land.</strong> The CLT has either bought the land, been given it, or negotiated a long-term ground lease from a public owner (a city, a transit agency, a school district). The land is held in a 501(c)(3) nonprofit in the US, or the equivalent legal wrapper in the relevant country. The CLT's board is at least one-third residents, per the classic "three-way" governance model. The rest are community members and technical experts.</p>
+<p><strong>Member contributes N hours.</strong> The member works on the houses - their own and a few others - for a defined number of hours. The hours are tracked. In the classic Habitat model, N is around 300 to 500. In a union-integrated pipeline, N can be smaller, because professional labor is filling most of the build and the member hours are credited at a realistic rate.</p>
+<p><strong>Escrow credits the hours.</strong> Every hour worked is credited into a sweat-equity account at a defined dollar rate. At closing, the balance in the account counts as part of the down payment. The escrow structure matters legally - it prevents the hours from being treated as taxable income (because they are going into the member's own home) and it documents the credit for the mortgage underwriter.</p>
+<p><strong>Member gets a 99-year lease.</strong> The member signs a ground lease with the CLT (typically 99 years, renewable). They also get title to the building itself. They make mortgage payments on the building portion, at whatever rate the underwriter approved. The land payment is either zero (the CLT just charges a small monthly ground-lease fee) or a modest amount that covers the CLT's operating costs.</p>
+<p><strong>Permanent affordability.</strong> When the member eventually sells, they sell only the building, only to another income-qualified buyer, at a price determined by the CLT's resale formula. The member walks away with some equity. The next family gets a home at a price they can actually afford. The home stays inside the CLT's portfolio forever.</p>
+<p><strong>Repair crew.</strong> The member stays connected to the pipeline by joining a neighborhood repair crew. The crew is a loose arrangement - union-organized or co-op-organized - that handles routine maintenance across the CLT's portfolio. The crew's hours are paid, at whatever the local wage is. This is the continuing leg: a member builds one home, then stays in the trades and works on others.</p>
+<p>That is the full circuit. Most existing implementations are missing one or two pieces. The point of the diagram is to show what all the pieces look like when they are present.</p>
+<h3 id="a-few-design-choices-worth-naming">A few design choices worth naming</h3>
+<p><strong>Ground lease versus fee simple.</strong> The CLT model in the US uses a 99-year renewable ground lease, so the land is legally separate from the building. In other countries (the UK, Belgium) the legal structure is different but the economic effect is the same: land is held in common, building is held privately.</p>
+<p><strong>Hours credited at what rate.</strong> Most sweat-equity programs credit hours at roughly the local minimum wage for unskilled work and roughly the prevailing wage for skilled work. A carpenter working on their own house gets credited at something like the local journeyman scale. This matters because it sets how many hours N has to be to meaningfully offset the purchase price. At $25/hour and a $40,000 down payment target, N is 1,600 hours - which is a year of weekends.</p>
+<p><strong>Who carries the liability.</strong> Someone has to carry the general liability insurance and the workers' comp. In a union-led pipeline the union's existing insurance infrastructure usually carries it. In a Habitat-led pipeline the affiliate carries it. In a CLT-led pipeline without a union, the CLT has to arrange it - and this is usually the biggest administrative surprise for new CLTs, because construction insurance is expensive.</p>
+<p><strong>Who trains the members.</strong> Apprentices learn from journeymen. The pipeline works better if there is an established trades training program attached - a union joint-apprenticeship center, or a co-op's internal training program. Without structured training, the sweat-equity hours produce a house that has subtle quality problems that surface in year five.</p>
+<div class="pagebreak"></div>
+
+<h2 id="part-4-the-legal-scaffolding">Part 4 - The legal scaffolding</h2>
+<p>Most projects die in the legal weeds. Not because the law is hostile (it is mostly not) but because the wrappers have to match, and matching them takes a lawyer who has done it before. Here are the main pieces in plain language.</p>
+<h3 id="the-501c3-clt-us">The 501(c)(3) CLT (US)</h3>
+<p>In the United States, a community land trust is almost always organized as a 501(c)(3) public charity. Its charitable purpose is "the provision of affordable housing" (and relieving the poor, and combatting community deterioration - you want all three named in the articles, because the IRS reads charity purposes narrowly). The classic CLT has a three-way board: residents, community members (people who live in the CLT's service area but not in CLT housing), and technical experts. Grounded Solutions Network publishes a model bylaws document that most new CLTs use as a starting point.</p>
+<p>Outside the US, the wrappers are different. The UK uses a Community Benefit Society (CBS) or a Community Land Trust registered under the Housing and Regeneration Act 2008. France uses an Office Foncier Solidaire (OFS), a mechanism specifically built in 2014 for this kind of split-ownership housing. Belgium uses an asbl (association sans but lucratif) or a cooperative. The specific wrapper is less important than the thing it does: separate the land from the building, hold the land in a nonprofit, set a resale formula, give residents a seat.</p>
+<h3 id="housing-cooperative-versus-condo-versus-clt">Housing cooperative versus condo versus CLT</h3>
+<p>These three words are often used interchangeably. They are not the same thing.</p>
+<p>A <strong>condominium</strong> is a set of apartments where each resident owns their unit and shares ownership of the hallways, roof, and amenities through a homeowners' association. The market sets the price of each unit. Condos are not a tool for permanent affordability; they are a real-estate product.</p>
+<p>A <strong>housing cooperative</strong> is a legal entity (usually a corporation) where residents own shares in the cooperative, and the cooperative owns the whole building. Residents have a proprietary lease for their unit. Housing co-ops can be market-rate (most New York City co-ops) or limited-equity (where the resale price of the shares is capped). Limited-equity housing cooperatives are the most common mechanism for permanent affordability in Europe. The Swiss and Scandinavian housing markets are dominated by them. The Commonweave directory carries hundreds of German and Swiss Baugenossenschaften (building cooperatives).</p>
+<p>A <strong>community land trust</strong> is an organization that owns the land. The housing on the land can be owned any number of ways - as a cooperative, as individually-owned houses with ground leases, as a mutual housing association, even as rentals. The CLT structure is about the land. The housing structure is on top of the land.</p>
+<p>The three can be combined. You can have a housing cooperative whose building sits on CLT land. You can have a mutual housing association that sits on CLT land. This is in fact the most robust configuration for permanent affordability, because it puts two forms of resale restriction in series.</p>
+<h3 id="worker-cooperative-structures">Worker cooperative structures</h3>
+<p>If the construction arm is a worker cooperative rather than a union, the legal structure is different. In the US, a worker co-op is usually a cooperative corporation under state law (the specific statute varies; Massachusetts, California, and Minnesota have particularly good ones) or an LLC with a cooperative operating agreement. Every worker is a member. Each member has one vote. Profits are distributed as patronage dividends based on hours worked. There is a trial period of six to twelve months before a new worker becomes a full member.</p>
+<p>The canonical large-scale example is the <strong>Mondragon Corporation</strong> in the Basque Country of Spain, founded in 1956. Mondragon runs worker-owned construction and construction-adjacent cooperatives: <strong>LKS</strong> (architecture, engineering, and construction management), <strong>Urssa</strong> (industrial steel structures), <strong>Orona</strong> (elevators with full installation service), <strong>Alkargo</strong> (electrical and wind-power transformers). In Italy, the canonical large construction cooperatives are <strong>CMC Ravenna</strong> (founded 1901) and <strong>CMB Carpi</strong> (founded 1908), both members of the Legacoop federation. In France, the equivalent is the SCOP (Societe Cooperative et Participative) framework, which has about 3,500 co-ops total, a few hundred in trades work. All of these are in the Commonweave directory under <code>source='construction_coops'</code>.</p>
+<h3 id="how-labor-hours-are-credited">How labor hours are credited</h3>
+<p>Legally, this is the part where people mess up, so read carefully.</p>
+<p>A sweat-equity program has to structure the labor credit so the hours are not treated as taxable income. The mechanism is usually: the hours go into an <strong>escrow account</strong> in the homebuyer's name, the escrow releases at closing as a credit against the down payment, and the homebuyer is working on their own future home. IRS guidance (Revenue Ruling 75-493 and a line of private letter rulings since) treats this as a legitimate self-help arrangement rather than income.</p>
+<p>Alternate structures exist. A <strong>sweat-equity note</strong> is a promissory note from the homeowner to the nonprofit that is forgiven dollar-for-dollar as hours are worked. This is used in some Habitat affiliates when the home is already built and the buyer's hours are going toward improvement, rather than on a house they will own.</p>
+<p><strong>Informal tracking</strong> - a notebook, a spreadsheet, a hand-shake - is sometimes what you have when the program is small. Do not run this way once you are above five homes. A state attorney general will eventually find the program, and if the tracking does not hold up under scrutiny, the IRS will reclassify the credit as income and the homeowners will owe back taxes. Use a CPA who has done at least three housing nonprofits. It is not the part to skimp on.</p>
+<h3 id="liability-and-insurance-the-boring-stuff-that-kills-projects">Liability and insurance (the boring stuff that kills projects)</h3>
+<p>Three things to get insured before any volunteer walks onto a construction site.</p>
+<p><strong>General liability</strong> - covers the program if a volunteer hurts a third party (a passerby, a neighbor, a city inspector). Get a policy with at least $1 million per occurrence and $2 million aggregate. Construction-specific liability is pricier than nonprofit-general liability, which surprises everyone the first time.</p>
+<p><strong>Workers' compensation</strong> - covers volunteers if they hurt themselves. This is legally complicated. A pure volunteer on a nonprofit construction site may or may not be covered by state workers' comp, depending on the state and the classification. A union-run pipeline routes around this by running volunteers through the union's workers' comp plan. A CLT-led pipeline has to buy volunteer-specific coverage. Ask specifically for a "special events" rider or a volunteer workers' comp endorsement; do not let the insurer sell you standard workers' comp.</p>
+<p><strong>Builders' risk</strong> - covers the structure itself during construction (fire, theft, storm). This one is straightforward. Buy it.</p>
+<p>If the budget for insurance comes out under 6% of total project cost, recheck the numbers. It is rarely that cheap on a real build.</p>
+<div class="pagebreak"></div>
+
+<h2 id="part-5-the-math">Part 5 - The math</h2>
+<h3 id="how-many-hours-to-build-a-home">How many hours to build a home</h3>
+<p>The reliable number from Habitat for Humanity is about <strong>400 hours</strong> of sweat equity per home from the homeowner and another homeowner's family, plus a much larger number of hours (typically 1,500 to 2,500) from volunteers, skilled tradespeople, and subcontractors. The total labor on a typical Habitat 1,200-square-foot three-bedroom is something like 2,500 to 3,500 hours, depending on how much is stick-built versus pre-fabricated.</p>
+<p>For a union-built home, the number is lower, because the labor is more productive: somewhere around 1,500 to 2,000 total hours for the same size house. This is why a labor-for-housing pipeline with union labor can deliver a home faster than Habitat usually does - and also why the homeowner's sweat-equity fraction is a smaller share of the total, even if the absolute number is the same.</p>
+<p>A reasonable design target for a pilot pipeline: <strong>400 homeowner hours</strong> credited toward the down payment, plus <strong>1,600 union hours</strong> at market rate (about $25-40/hour depending on locality and trade mix), plus subcontractor work for electrical, plumbing, and HVAC that is not yet easily volunteer-done.</p>
+<h3 id="how-clts-price-affordable">How CLTs price "affordable"</h3>
+<p>US CLTs typically define "affordable" as: total housing costs (mortgage, taxes, insurance, ground-lease fee) under 30% of gross household income, for a household earning at or below 80% of Area Median Income (AMI). Some CLTs go lower (60% AMI) and some go higher (120% AMI) depending on the local market and the mission statement. AMI is published by HUD every year for every US metropolitan area, and the number matters: 80% of AMI in San Francisco is a household income around $104,000; 80% of AMI in rural Mississippi is around $41,000. Same definition, different universe.</p>
+<p>The <strong>resale formula</strong> is the other half of the pricing equation. Most CLTs use one of three formulas:</p>
+<ul>
+<li><strong>Appraisal-based:</strong> The resale price is the original price plus a percentage of the change in the appraised value of the home between purchase and sale. The percentage is usually 25%, meaning the seller keeps a quarter of the appreciation and the CLT retains three quarters for the next buyer.</li>
+<li><strong>Indexed:</strong> The resale price is the original price plus a fixed annual percentage (often around 2%) or the change in AMI over the holding period, whichever is less.</li>
+<li><strong>Fixed:</strong> The seller gets back their down payment, principal paid on the mortgage, and a set amount for improvements. Rare, because it gives homeowners almost no appreciation.</li>
+</ul>
+<p>The formula is the hinge of the whole thing. A CLT that gives too much appreciation to the seller will run out of its affordability subsidy within a few sales cycles. One that gives too little will not be able to recruit homeowners at all. Grounded Solutions publishes a formula calculator that lets you model a CLT's portfolio under different formula choices; it is worth an afternoon of any CLT's technical committee.</p>
+<h3 id="how-unions-could-pay-union-wages-for-non-pipeline-work-and-contribute-hours-for-pipeline-work">How unions could pay union wages for non-pipeline work and contribute hours for pipeline work</h3>
+<p>The cleanest legal arrangement is a <strong>project labor agreement</strong> (PLA) between the union and the CLT (or the union's housing nonprofit) that specifies: union workers are paid full union scale for pipeline work, out of the construction budget; a defined number of hours per home are contributed by the union's apprenticeship program as a training commitment; and a defined number of hours per home are contributed by the union's members as voluntary labor, credited to the homeowners' sweat-equity escrow.</p>
+<p>This is legally clean because it mirrors a PLA the union would sign with any other general contractor. The "contributed hours" portion is modeled on the contributions unions already make to joint labor-management trust funds (training, pension, health) under the Taft-Hartley Act. The IRS has accepted similar arrangements before.</p>
+<p>Politically, the union needs to treat pipeline work as training for apprentices rather than as wage-undercutting. Apprentices get on-the-job hours toward their journeyman card; journeymen get a way to mentor apprentices in a lower-stakes environment than commercial work. That framing holds the local together when critics inside the union call the pipeline "charity work for non-members." It is not: it is a structured apprenticeship program whose graduates go on to commercial jobs where they are paid full scale.</p>
+<h3 id="rough-budget-for-a-10-home-pilot">Rough budget for a 10-home pilot</h3>
+<p>These numbers are rough. Use them as a sanity check, not a quote.</p>
+<ul>
+<li>Land acquisition: <strong>$1.0M - $3.0M</strong> (varies wildly by market; assume a CLT is buying a ten-lot parcel or getting a ground lease from a public owner; in some markets this is $250k/lot, in some it is $25k/lot).</li>
+<li>Site preparation, utilities, roads: <strong>$400k - $800k</strong>.</li>
+<li>Hard construction (materials + labor): <strong>$2.5M - $3.5M</strong> (assumes 1,200 sq ft homes at roughly $250/sq ft all-in).</li>
+<li>Soft costs (design, permits, insurance, legal): <strong>$400k - $700k</strong>.</li>
+<li>Project contingency: <strong>$500k</strong>.</li>
+</ul>
+<p>Total: somewhere around <strong>$5M - $8M for ten homes</strong>, or <strong>$500k - $800k per home</strong>. This is inside the normal range for affordable housing development in the US, and cheaper than many cities' 100%-subsidized projects because the union labor contribution reduces the hard-construction line.</p>
+<p>Against that cost, homeowners put in down payments made of sweat equity and cash: <strong>~$40,000 per home</strong>, of which maybe $10,000 is cash and $30,000 is credited labor at ~$30/hour. The rest of the price is a zero-interest or low-interest mortgage, covered by a combination of CLT subsidy (grant-funded or impact-investor), low-interest construction financing, and the eventual homeowner's mortgage payments.</p>
+<p>The subsidy gap - the difference between what it costs to build and what a low-income homebuyer can actually afford - is real and has to be funded. This is where Low-Income Housing Tax Credits (LIHTC) in the US, or a housing-first municipal program elsewhere, or a philanthropic capital stack, comes in. A pilot pipeline cannot be self-funding. The union's contribution and the sweat equity reduce the gap; they do not close it. Anyone who tells you they can run this without subsidy either has a very unusual local market or has not yet looked at the budget.</p>
+<div class="pagebreak"></div>
+
+<h2 id="part-6-how-to-start-one">Part 6 - How to start one</h2>
+<p>Numbered steps. Follow them in the order that matches who you are.</p>
+<h3 id="if-you-are-a-union-local">If you are a union local</h3>
+<ol>
+<li><strong>Find your nearest CLT.</strong> The US directory of CLTs is at <a href="https://simonlpaige.com/commonweave/directory.html">commonweave.earth/directory</a> and the Grounded Solutions Network member map at <a href="https://groundedsolutions.org">groundedsolutions.org</a>. If there is a CLT within 50 miles of your local, start there.</li>
+<li><strong>Ask them one question.</strong> Do they have a site acquired or a development project in pre-construction? If yes, you have a pilot. If no, do not try to start a CLT from scratch - recruit one that already exists.</li>
+<li><strong>Draft a one-page project labor agreement.</strong> Use your local's standard PLA template. Add a clause for "contributed apprenticeship training hours" and a clause for "sweat-equity labor supervision". Your international's legal department has done this before.</li>
+<li><strong>Commit to a defined pilot.</strong> Three to five homes, eighteen months, named tradespeople, named homeowners. Do not commit to more. Pilot-size matters because the first one teaches the local how to do it.</li>
+<li><strong>Build the insurance and back-office scaffold before any member lifts a hammer.</strong> Workers' comp, builders' risk, liability. See Part 4.</li>
+</ol>
+<h3 id="if-you-are-a-clt">If you are a CLT</h3>
+<ol>
+<li><strong>Find your nearest construction trades union local.</strong> Start with the Building and Construction Trades Department of AFL-CIO; they have a locator. If you are outside the US, find your country's equivalent (the TUC Construction Affiliates in the UK, the Building and Wood Workers' International for global federation).</li>
+<li><strong>Ask them one question.</strong> Do they have apprentices who need hours on a structured training project? If yes, you have a pilot. If no, check with the next nearest local.</li>
+<li><strong>Run the skill-matching problem.</strong> A CLT's project requires a specific mix of skills at specific times - framing carpenters in month 1, electricians in month 3, finish carpenters in month 6. A single local usually has depth in one or two trades. You will probably need to bring in two or three locals (a carpenters' local plus an IBEW local plus a plumbers' local, say) and coordinate them through the Building Trades Department.</li>
+<li><strong>Draft the project labor agreement.</strong> Same template as above, from the CLT side.</li>
+<li><strong>Budget honestly for insurance and supervision.</strong> Volunteer-hour work on a construction site without professional supervision produces houses with subtle problems that surface in year five. Pay for the supervision. It is cheaper than the repair in year five.</li>
+</ol>
+<h3 id="if-you-are-neither">If you are neither</h3>
+<p>If you are a displaced worker, a policy person, a journalist, or just someone who wants to help, the ordering is slightly different.</p>
+<ol>
+<li><strong>Find the land.</strong> Somewhere in your region there is either a CLT with a site, a public agency with surplus land (a school district closing a school, a transit agency sitting on a depot, a city with tax-delinquent lots), or a church that owns land it cannot afford to keep. Land is the hardest piece. Find it first.</li>
+<li><strong>Find the trades.</strong> Once land exists, the union locals are easier to approach - you are showing up with a project, not asking them to make one.</li>
+<li><strong>Find the homeowners.</strong> This is usually done through a combination of a public lottery, a waiting list run by the CLT, and referrals from social-service agencies. Do not pre-select a small group of "deserving" families. The CLT should be income-qualified, publicly-posted, and transparent.</li>
+<li><strong>Find the subsidy.</strong> Municipal affordable-housing trust funds, state housing finance authorities, LIHTC, philanthropic capital. The CLT's development officer will know the local stack.</li>
+<li><strong>Wrap it up in a project labor agreement</strong> between the CLT and the unions. Insurance. Sweat-equity escrow. Ground lease. Mortgage underwriter.</li>
+</ol>
+<h3 id="minimum-viable-pilot">Minimum viable pilot</h3>
+<p>A defensible first project:</p>
+<ul>
+<li><strong>3 to 5 homes</strong> (not 10; start small).</li>
+<li><strong>18 months from site acquisition to certificate of occupancy.</strong></li>
+<li><strong>One CLT as the anchor organization</strong> (existing 501(c)(3) or equivalent).</li>
+<li><strong>One to three construction trades locals</strong> as the labor contributors.</li>
+<li><strong>One bank or CDFI</strong> as the mortgage underwriter for the eventual homebuyers.</li>
+<li><strong>One subsidy source</strong> as the construction-financing gap-filler (LIHTC allocation, a state housing trust fund grant, or philanthropic capital).</li>
+<li><strong>A named apprenticeship class</strong> using the project as their training.</li>
+<li><strong>A signed project labor agreement.</strong> Not a memo of understanding. An actual PLA.</li>
+</ul>
+<p>Below those thresholds, the organizational overhead is not worth the output. Above them, on a first attempt, you are taking on too many coordination failures at once. Three to five homes is the unit size that lets a team learn.</p>
+<div class="pagebreak"></div>
+
+<h2 id="part-7-failure-modes-and-dark-history">Part 7 - Failure modes and dark history</h2>
+<p>This chapter is the honest one. Skip the rest of the guide if you have to. Do not skip this.</p>
+<h3 id="company-towns-and-the-history-of-housing-for-labor-coercion">Company towns and the history of housing-for-labor coercion</h3>
+<p>The idea of working for your housing has a history, and much of that history is ugly. For roughly a century, from around 1840 to around 1940, US industrial corporations built and operated "company towns" - whole settlements where the employer owned the housing, the store, the church, the school, and often the local police. <strong>Pullman, Illinois</strong>, built by the Pullman sleeping-car company in 1880, is the textbook example. Miners' and mill towns across Appalachia, Pennsylvania, and the Rocky Mountain West followed the same pattern. Mexican and South African mining operations did too.</p>
+<p>The mechanism was: the worker rented housing from the employer, often at inflated rates. Wages were paid in scrip - company-issued tokens - that could only be spent at the company store. If the worker lost the job, they lost the housing the same day. If the worker went on strike, the same. The Pullman Strike of 1894 started when workers living in company housing had their wages cut but their rents kept at the old level. Federal troops eventually broke the strike and killed workers.</p>
+<p>The lesson is not that tying work to housing is inherently coercive. The lesson is that when the <strong>same entity</strong> owns the job, the land, the house, the store, and the police, the worker has no exit. Any labor-for-housing pipeline that puts a single organization in charge of all those roles is reproducing the company-town structure, no matter how nice the organization's mission statement reads. The firewall, which we will get to at the end of this chapter, is democratic ownership of the land, by the residents, separate from whoever employs them.</p>
+<h3 id="habitat-for-humanitys-paternalism-critiques">Habitat for Humanity's paternalism critiques</h3>
+<p>Habitat does real work. Its affiliates have built hundreds of thousands of homes. Its model is the clearest proof that sweat equity plus zero-interest mortgages plus volunteer labor can produce durable, affordable housing at scale.</p>
+<p>It also has legitimate critics. The critiques fall into three buckets.</p>
+<p><strong>Theological framing.</strong> Habitat was founded by Millard Fuller, a Baptist evangelical, and its early documents frame the work as "putting God's love into action." In practice, affiliates vary enormously in how religious the operation is; some are fully secular, some are explicitly evangelical. For homeowners whose religion differs from the affiliate's, this can feel like a condition of the aid. Habitat International has worked to secularize the national-level messaging over the past fifteen years, but the local-affiliate variation remains.</p>
+<p><strong>Debt.</strong> A Habitat home comes with a zero-interest mortgage that can run 20 to 30 years. The mortgage is held by the affiliate (in the US) or by a partner bank. Some critics, particularly from disability-rights and homeowner-advocacy communities, have argued that a zero-interest mortgage is still debt, and that the power relationship between a first-time low-income homeowner and the nonprofit that both built their house and holds their loan is unbalanced. If the homeowner misses payments, the affiliate can foreclose, same as any bank. Most affiliates are softer about this than commercial lenders, but the legal structure is still a mortgage.</p>
+<p><strong>Gentrification.</strong> In cities where Habitat has built in historically disinvested neighborhoods, the affiliate's building and rehab work has sometimes been a leading indicator of rising property values in the surrounding blocks. The Habitat homeowners benefit; the renters next door often do not. This is not unique to Habitat - any affordable housing construction has the same effect - but the critique is worth naming, and the only defense against it is CLT-style land control of a large enough fraction of the neighborhood that the rising tide does not swamp the renters.</p>
+<h3 id="clt-gentrification-resistance-failures">CLT gentrification-resistance failures</h3>
+<p>Community land trusts are sometimes described as "immune to gentrification." They are not.</p>
+<p>A CLT holds its own portfolio at permanent affordability. It does not hold the housing next door. In hot markets (the Boston metro area, the Bay Area, Washington DC, London, Dublin), CLT homeowners stay affordable while their neighbors' rents double. The CLT has then sometimes become a de facto gentrification agent: the only low-income residents left in the area are the CLT's members, who serve as a kind of proof of the neighborhood's "diversity" in developer marketing materials. This critique has been made about specific CLTs by the movement's own researchers, notably in John Davis's "The City-CLT Partnership" and in the Lincoln Institute's ongoing CLT evaluation studies.</p>
+<p>The defense is to <strong>scale fast enough in a neighborhood that the CLT's portfolio becomes the anchor</strong>, not the island. The Champlain Housing Trust's 3,000+ homes in a metro area of 200,000 is close to anchor-scale for Burlington; a 40-home CLT in a city of 8 million is not. If a CLT is going to protect against gentrification, it needs to be at least 10-15% of the neighborhood's housing stock. Otherwise it is helping its own members and not the neighborhood.</p>
+<h3 id="sweat-equity-and-disability-access">Sweat-equity and disability access</h3>
+<p>A sweat-equity requirement that is physical-labor only excludes people with disabilities. A program that does not think about this carefully is either excluding disabled homebuyers or quietly violating the Fair Housing Act.</p>
+<p>The legal solution is to provide <strong>equivalent alternate ways to earn hours</strong>. Childcare for volunteers' kids. Bookkeeping and data entry. Painting (which is lighter work). Organizing outreach events. Meal preparation for volunteer days. A serious program will publish its alternate-hour menu as part of the homeowner application packet.</p>
+<p>The programs that do not do this tend to be the small volunteer-run affiliates without a dedicated compliance person. It is not malice; it is capacity. If you are reading this and you run such a program, set up the alternate-hours menu now. The Fair Housing Center of your region will help you write it, often for free.</p>
+<h3 id="union-corruption-and-closed-shop-exclusion">Union corruption and closed-shop exclusion</h3>
+<p>The US construction trades have a history of racial exclusion that is not ancient. Black workers were kept out of most building-trades apprenticeships until the civil rights movement; in some locals, well into the 1970s. The 1971 Philadelphia Plan was the federal government's first attempt to force construction unions to admit Black workers; it took a decade of enforcement to move the numbers. Immigrant workers have faced similar exclusion in some trades in some cities.</p>
+<p>Some construction locals have reformed. Some have not fully. The demographic data on journeyman rosters is public and uneven. If a pipeline is going to work with union labor, the pipeline has to look at who is actually in the apprenticeship class - not who is on the union's website - and notice if the class does not reflect the neighborhood where the houses are going up. The only useful response is not to skip the union (that reproduces the non-union low-wage substitute, which is worse) but to structure the apprenticeship class inside the pipeline as a recruitment tool for the categories of people the local has historically excluded.</p>
+<p>Corruption is a separate issue, mostly historical at the international level but still present in some locals. The federal racketeering consent decrees of the 1980s and 1990s largely cleaned up the old-guard problems in the Teamsters and the Laborers. Newer problems around pension fund management surface occasionally. A pipeline that runs union money through its own books needs an audit trail, a conflict-of-interest policy, and an outside accountant. This is boring, and it is how you prevent the 1970s version of this chapter from repeating.</p>
+<h3 id="where-ai-and-agent-coordination-could-make-it-worse">Where AI and agent coordination could make it worse</h3>
+<p>Some of the people writing about labor-for-housing pipelines (including the Commonweave project that publishes this guide) are enthusiastic about using AI agents to coordinate them. That enthusiasm is partly misplaced.</p>
+<p>Three specific risks.</p>
+<p><strong>Opacity.</strong> An AI coordination layer that sits between homeowners, unions, and CLTs can obscure decisions that previously were democratic. A homeowner whose sweat-equity hours are tracked by an agent has a harder time auditing the tracking than a homeowner whose hours are in a paper ledger. Any AI-coordinated pipeline needs an export-to-human-readable-format button on every module, and it needs to be used, not just exist.</p>
+<p><strong>Data extraction.</strong> If the pipeline is running on a third-party AI platform, the homeowners' financial and labor data is flowing through that platform. Whose ToS applies? Whose data is it? A pipeline serving low-income homeowners should not route their data through a platform whose business model is advertising or LLM training. Run on local infrastructure, or on a platform whose terms explicitly prohibit secondary use.</p>
+<p><strong>Reinforcing existing exclusions.</strong> A screening algorithm that predicts which applicants will be good sweat-equity homeowners will almost certainly reproduce every historical exclusion in its training data. If the training data is the last fifty years of Habitat affiliate records, the algorithm will disfavor the categories of people Habitat has historically served poorly. This is the well-documented failure mode of "objective" algorithmic screening across every domain where it has been tried. The defense is to not algorithmically screen applicants beyond the income-qualification threshold. Use a public waiting list or a lottery.</p>
+<p>The Commonweave project has been explicit that its role is directory-and-framework, not coordination platform. The reasons above are why. A coordination layer may eventually be useful; it is not the first thing to build.</p>
+<h3 id="the-firewall">The firewall</h3>
+<p>The thing that separates this pipeline from a company town is <strong>democratic ownership of the land, by the residents, with resale restrictions that hold.</strong></p>
+<p>If any one of those three pieces is missing, the pipeline is an extraction mechanism wearing better clothes.</p>
+<ul>
+<li>If the <strong>land is privately owned</strong> (by an employer, a developer, a private landlord), the housing is conditional on the owner's goodwill and the worker has no real exit. This is company-town logic.</li>
+<li>If <strong>residents do not control the entity that holds the land</strong> (through a CLT board where they hold at least a third of the seats, or a housing cooperative where they hold shares and votes), the land's use can be redirected against them at the next board election or the next corporate restructuring.</li>
+<li>If the <strong>resale restrictions are voluntary or can be waived</strong>, the first hot market will end the affordability within one or two cycles. The restrictions must be recorded in the ground lease, survive refinance, and be enforceable by the CLT as a party to the contract.</li>
+</ul>
+<p>All three together: land-in-commons, resident-controlled-entity, enforceable-resale-restrictions. That is the firewall. Everything else in this guide sits on top of it. Without it, the rest is decoration.</p>
+<div class="pagebreak"></div>
+
+<h2 id="part-8-what-commonweave-does-and-doesnt-do">Part 8 - What Commonweave does and doesn't do</h2>
+<h3 id="what-commonweave-is">What Commonweave is</h3>
+<p>Commonweave is three things.</p>
+<p><strong>A directory</strong> of organizations already doing this work, currently about <strong>27,000 active entries across 172 countries</strong>, of which about <strong>1,700 are explicitly tagged as formal legal entities</strong> (the rest are a mix of registered nonprofits whose legibility hasn't been confirmed yet, and imported entries awaiting verification). The directory is searchable at <a href="https://simonlpaige.com/commonweave/directory.html">commonweave.earth/directory</a> by country, by framework area, and by organization type. Every row is CC0 - use the data for anything.</p>
+<p><strong>A framework document</strong> called BLUEPRINT.md, which names the fourteen systems we think have to exist (in prototype, at least) before a peaceful transition out of the current concentrated-ownership economy is plausible. Community land trusts and labor unions and housing cooperatives are three of those systems. Eleven others are in the blueprint - healthcare, food sovereignty, energy democracy, and so on.</p>
+<p><strong>This field guide</strong>, plus the earlier <a href="pipeline.pdf">pipeline.pdf</a> that explains how the directory gets built and graded.</p>
+<h3 id="what-commonweave-isnt">What Commonweave isn't</h3>
+<ul>
+<li><strong>Not a platform.</strong> We do not host your homeowner applications, your project labor agreements, or your sweat-equity escrow. That is what your local CLT's software does.</li>
+<li><strong>Not a broker.</strong> We do not match specific unions to specific CLTs. We publish the directory; you read it.</li>
+<li><strong>Not a funder.</strong> We do not give grants. We do not have a capital stack. We have an open-source repository and a few Saturdays a month of volunteer time.</li>
+<li><strong>Not a standards body.</strong> We have opinions about what counts as a labor-for-housing pipeline. We do not certify anyone.</li>
+</ul>
+<p>This matters because several readers of early drafts of this guide have asked if Commonweave could become "the Airbnb of labor-for-housing." The answer is no, for the reasons in the dark-history chapter: coordination platforms recapitulate the company town if they are not owned and governed by the people on the platform. A platform built by a funded startup team with a for-profit exit path is a company town with better branding. The only platform that could safely exist for this use case is one built and governed by a federation of existing CLTs and unions, on infrastructure they control.</p>
+<h3 id="a-tier-3-coordination-tool-as-a-future-option">A Tier 3 coordination tool as a future option</h3>
+<p>The Commonweave roadmap names a possible "Tier 3 coordination tool" as an option down the road. Tier 3 is what a coordination layer would look like if it ever existed: a federation of CLTs and unions, running the coordination software on infrastructure they pay for, with open-source code and a democratic governance body. Not a startup. Not a platform owned by a nonprofit that takes grants and has one executive director with final authority.</p>
+<p>Tier 3 is <strong>gated on a real pilot partner stepping forward</strong>. Nothing gets built until there is a specific CLT and a specific union local that have signed a specific project labor agreement and want a specific piece of software to exist. Most of what we've seen written about "coordination platforms for the commons" has been built before anyone asked for it, and then sat around unused because it didn't match what a specific pair of organizations actually needed. We are trying not to do that.</p>
+<p>If you are a CLT or a union local considering a pilot and you read this and wish there were software to make it easier, write to us. The contact email is in OUTREACH.md and on the Commonweave website.</p>
+<div class="pagebreak"></div>
+
+<h2 id="appendix-a-directory-quick-query">Appendix A - Directory quick-query</h2>
+<p>The Commonweave directory is at <a href="https://simonlpaige.com/commonweave/directory.html">commonweave.earth/directory</a>. Three ways to use it for this work.</p>
+<h3 id="pull-a-list-of-clts-in-your-state-or-country">Pull a list of CLTs in your state or country</h3>
+<p>Go to the directory page, select your country, and search for <strong>land trust</strong> or <strong>CLT</strong> in the search box. The filter results show organizations tagged with the land-and-housing framework area. For the US, the search will return both the Grounded Solutions seed list (well-documented, usually with websites) and the larger Wikidata-derived set (which includes many smaller CLTs and some housing cooperatives labeled "community land trust" loosely).</p>
+<p>If you want just the high-quality subset, filter additionally by <strong>source = grounded_solutions</strong>. That gives you about 40 well-documented US, UK, Canadian, and Belgian CLTs as of April 2026.</p>
+<h3 id="pull-a-list-of-construction-trades-unions">Pull a list of construction trades unions</h3>
+<p>Filter by framework area "labor" or by source tag <code>wikidata_unions</code> or <code>ituc_affiliates</code>. For US construction trades specifically, the current pull is federation-level only (AFL-CIO, USW, UAW, and so on). Locals are not yet in the directory - adding them is a v2 task.</p>
+<h3 id="pull-the-habitat-affiliates-near-you">Pull the Habitat affiliates near you</h3>
+<p>Filter by name contains "habitat for humanity" and your state. The US has about 355 affiliates from IRS data; Habitat International has country offices in about 65 countries. Not all of them run the sweat-equity pipeline in the same way. Check each affiliate's website before assuming.</p>
+<h3 id="raw-sql">Raw SQL</h3>
+<p>The full directory ships as a SQLite database at <code>data/commonweave_directory.db</code> in the repo, with a schema documented in DATA.md. Two useful queries:</p>
+<pre><code>SELECT name, city, description, website FROM organizations
+WHERE status='active' AND framework_area='housing_land'
+AND country_code='US' AND city LIKE '%Boston%';
+
+SELECT name, country_name, description, website FROM organizations
+WHERE status='active' AND source='construction_coops';
+</code></pre>
+<p>The database is gitignored. Clone the repo and run the ingesters (see PIPELINE.md) to regenerate it locally, or contact the project for a recent snapshot.</p>
+<div class="pagebreak"></div>
+
+<h2 id="appendix-b-further-reading">Appendix B - Further reading</h2>
+<p>Five books, three reports, and two ongoing resources. All real, all worth the time.</p>
+<p><strong>Books.</strong></p>
+<ul>
+<li>John Emmeus Davis, editor. <em>The Community Land Trust Reader.</em> Lincoln Institute of Land Policy, 2010. The single best introduction to the CLT movement, written by its researchers.</li>
+<li>Stefano Zamagni and Vera Zamagni. <em>Cooperative Enterprise: Facing the Challenge of Globalization.</em> Edward Elgar, 2010. The canonical history of the Italian cooperative movement, including the construction-co-op tradition that produced CMC Ravenna and CMB Carpi.</li>
+<li>James Gregory. <em>The Sweat Equity Investment in America.</em> University Press of America, 2005. A history of Habitat for Humanity and its critics from inside the homebuyer-advocacy world.</li>
+<li>William Foote Whyte and Kathleen King Whyte. <em>Making Mondragon.</em> ILR Press, 2nd edition, 1991. The standard English-language account of the Mondragon cooperatives and their construction-adjacent industrial cooperatives.</li>
+<li>Janelle Orsi. <em>Practicing Law in the Sharing Economy.</em> American Bar Association, 2012. The single most useful legal-practitioner book for the structuring questions in Part 4 of this guide.</li>
+</ul>
+<p><strong>Reports.</strong></p>
+<ul>
+<li>Grounded Solutions Network. <em>The 2024 State of Shared-Equity Homeownership.</em> Grounded Solutions, 2024. Empirical data on CLT performance across the US.</li>
+<li>Urban Institute. <em>Community Land Trusts and Gentrification.</em> Urban Institute, 2019. The honest look at where CLTs have and have not held back displacement.</li>
+<li>UK Collaborative Centre for Housing Evidence. <em>Community-Led Housing in the United Kingdom.</em> CaCHE, 2022. The UK counterpart to the Grounded Solutions report.</li>
+</ul>
+<p><strong>Ongoing resources.</strong></p>
+<ul>
+<li><strong>Grounded Solutions Network</strong> at <a href="https://groundedsolutions.org">groundedsolutions.org</a>. US CLT and shared-equity homeownership network; publishes technical manuals and a member directory.</li>
+<li><strong>International Center for Community Land Trusts</strong> at <a href="https://cltweb.org">cltweb.org</a>. Global CLT network; useful for international projects.</li>
+</ul>
+<hr />
+<h2 id="back-page">Back page</h2>
+<ul>
+<li>Commonweave: <a href="https://simonlpaige.com/commonweave">commonweave.earth</a></li>
+<li>Directory: <a href="https://simonlpaige.com/commonweave/directory.html">commonweave.earth/directory</a></li>
+<li>Pipeline explainer: <a href="https://simonlpaige.com/commonweave/pipeline.pdf">commonweave.earth/pipeline.pdf</a></li>
+<li>Source repository: <a href="https://github.com/simonlpaige/commonweave">github.com/simonlpaige/commonweave</a></li>
+<li>Contact: simonlpaige at protonmail dot com (see OUTREACH.md)</li>
+</ul>
+<p><em>This guide describes how to stitch labor, land, and housing into a working pipeline. The organizations already doing the work are in the directory. This document is a field guide, not a manifesto; corrections and pull requests are welcome.</em></p>
+</body>
+</html>

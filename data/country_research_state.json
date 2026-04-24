@@ -1,4 +1,12 @@
 {
+  "BD": {
+    "completed": true,
+    "completed_at": "2026-04-24T18:26:27.698761Z",
+    "country_name": "Bangladesh",
+    "last_attempted_at": "2026-04-24T18:26:27.698718Z",
+    "markdown_path": "C:\\Users\\simon\\.openclaw\\workspace\\commonweave\\data\\regional\\DIRECTORY_BD.md",
+    "org_count": 7
+  },
   "CN": {
     "completed": true,
     "completed_at": "2026-04-23T02:14:39.818577Z",
@@ -7,6 +15,22 @@
     "markdown_path": "C:\\Users\\simon\\.openclaw\\workspace\\commonweave\\data\\regional\\DIRECTORY_CN.md",
     "note": "Marked complete after 32 failed attempts; 0 orgs found (CN scraping blocked)",
     "org_count": 0
+  },
+  "DE": {
+    "completed": true,
+    "completed_at": "2026-04-24T18:46:06.354368Z",
+    "country_name": "Germany",
+    "last_attempted_at": "2026-04-24T18:46:06.354353Z",
+    "markdown_path": "C:\\Users\\simon\\.openclaw\\workspace\\commonweave\\data\\regional\\DIRECTORY_DE.md",
+    "org_count": 374
+  },
+  "FR": {
+    "completed": true,
+    "completed_at": "2026-04-24T18:57:51.621316Z",
+    "country_name": "France",
+    "last_attempted_at": "2026-04-24T18:57:51.621298Z",
+    "markdown_path": "C:\\Users\\simon\\.openclaw\\workspace\\commonweave\\data\\regional\\DIRECTORY_FR.md",
+    "org_count": 92
   },
   "IN": {
     "completed": true,
@@ -24,6 +48,22 @@
     "markdown_path": "C:\\Users\\simon\\.openclaw\\workspace\\commonweave\\data\\regional\\DIRECTORY_KR.md",
     "org_count": 2
   },
+  "PK": {
+    "completed": true,
+    "completed_at": "2026-04-24T17:50:21.011045Z",
+    "country_name": "Pakistan",
+    "last_attempted_at": "2026-04-24T17:50:21.010981Z",
+    "markdown_path": "C:\\Users\\simon\\.openclaw\\workspace\\commonweave\\data\\regional\\DIRECTORY_PK.md",
+    "org_count": 2
+  },
+  "PL": {
+    "completed": true,
+    "completed_at": "2026-04-24T18:38:05.664604Z",
+    "country_name": "Poland",
+    "last_attempted_at": "2026-04-24T18:38:05.664587Z",
+    "markdown_path": "C:\\Users\\simon\\.openclaw\\workspace\\commonweave\\data\\regional\\DIRECTORY_PL.md",
+    "org_count": 11
+  },
   "RU": {
     "completed": true,
     "completed_at": "2026-04-23T02:38:32.780268Z",
@@ -31,5 +71,29 @@
     "last_attempted_at": "2026-04-23T02:38:32.780254Z",
     "markdown_path": "C:\\Users\\simon\\.openclaw\\workspace\\commonweave\\data\\regional\\DIRECTORY_RU.md",
     "org_count": 1
+  },
+  "TR": {
+    "completed": true,
+    "completed_at": "2026-04-24T18:29:23.661127Z",
+    "country_name": "Turkey",
+    "last_attempted_at": "2026-04-24T18:29:23.661112Z",
+    "markdown_path": "C:\\Users\\simon\\.openclaw\\workspace\\commonweave\\data\\regional\\DIRECTORY_TR.md",
+    "org_count": 103
+  },
+  "UA": {
+    "completed": true,
+    "completed_at": "2026-04-24T18:41:52.291419Z",
+    "country_name": "Ukraine",
+    "last_attempted_at": "2026-04-24T18:41:52.291403Z",
+    "markdown_path": "C:\\Users\\simon\\.openclaw\\workspace\\commonweave\\data\\regional\\DIRECTORY_UA.md",
+    "org_count": 4
+  },
+  "VN": {
+    "completed": true,
+    "completed_at": "2026-04-24T18:34:25.870555Z",
+    "country_name": "Vietnam",
+    "last_attempted_at": "2026-04-24T18:34:25.870540Z",
+    "markdown_path": "C:\\Users\\simon\\.openclaw\\workspace\\commonweave\\data\\regional\\DIRECTORY_VN.md",
+    "org_count": 66
   }
 }
