@@ -14,7 +14,7 @@ Here is a thing that is true and that almost no one talks about clearly: the mac
 
 Right now the answer is: whoever owns the machines. That's a design choice, not a law of nature. You could design it differently.
 
-The directory catalogs who is already designing it differently: cooperatives, community land trusts, mutual aid networks, open-source health platforms, participatory governance experiments, community energy grids -- 24,508 aligned organizations across 60 countries, filtered from ~760K public registry records through multi-pass keyword scoring against the framework's mechanisms. The framework maps how those pieces fit together and what's still missing.
+The directory catalogs who is already designing it differently: cooperatives, community land trusts, mutual aid networks, open-source health platforms, participatory governance experiments, community energy grids -- 26,022 candidate organizations across 61 countries, filtered from ~760K public registry records through multi-pass keyword scoring against the framework's mechanisms. Of those, 3,657 score >=5 on framework alignment (the strongest matches); the rest are candidates awaiting review. The framework maps how those pieces fit together and what's still missing.
 
 It's not a manifesto. It's more like an engineering problem with a lot of political and historical constraints. The goal is to figure out what needs to be true for people to have food, shelter, healthcare, and a say in their own lives -- and then figure out how to make those things true.
 
@@ -39,24 +39,23 @@ This section matches ambition to evidence. Here is the concrete state of the pro
 
 ### The Directory
 
-The primary deliverable is a searchable database of organizations working in the framework's 10 areas. Numbers from `data/commonweave_directory.db` after the April 2026 alignment trim:
+The primary deliverable is a searchable database of organizations working in the framework's 10 areas. Numbers from `data/commonweave_directory.db`, verified 2026-04-23, filter: `WHERE merged_into IS NULL`:
 
-- **24,508 aligned organizations** across **60 countries**
-- **8,412 geocoded points** visible on the interactive map, with **2,687 network edges** connecting related organizations
+- **26,022 candidate organizations** across **61 countries**
+- **11,991 geocoded points** visible on the interactive map, with **2,687 network edges** connecting related organizations
 - **Sources:** UK Charity Commission (11,537), IRS Exempt Organizations BMF (9,402), Wikidata (2,894), ProPublica (604), web research (58), manual curation (13)
 - **Search interface:** per-country JSON index at `data/search/`, browsable at `directory.html`
 - **Interactive map:** network visualization at `map.html`
 - **Framework area breakdown:** healthcare (6,369), education (5,694), food (2,955), democracy (2,863), housing & land (2,406), ecology (2,346), conflict resolution (910), cooperatives (656), recreation & arts (269), energy & digital (40)
 
-Honest breakdown of what 24,508 records means:
+Honest breakdown of what 26,022 records means:
 
-- **11,737 entries (48%)** have a real description (>50 characters)
-- **10,262 entries (42%)** have a website
-- **10,067 entries (41%)** are verified (Tier A or B)
-- **2,805 entries (11%)** score >=5 on framework alignment -- the strongest keyword matches (community land trust, worker cooperative, mutual aid, food sovereignty, restorative justice)
-- **Geographic skew:** 88% of records come from US and UK open registries (21,559). The remaining 58 countries hold 2,949 organizations between them. Closing that gap is the main enrichment target.
+- **15,854 are registry-backed (Tier B)** - sourced from official charity registries or manually curated; 10,032 are unverified candidates (Tier D); 136 have no tier assigned
+- **3,657 entries (14%)** score >=5 on framework alignment -- the strongest keyword matches (community land trust, worker cooperative, mutual aid, food sovereignty, restorative justice)
+- **Geographic skew:** ~83% of records come from US and UK open registries (21,559 of 26,022). The remaining 59 countries hold 4,463 organizations between them. Closing that gap is the main enrichment target.
+- **Legibility data:** a `legibility` column (formal / hybrid / informal / unknown) was added 2026-04-22 to flag self-reported-bias signals. All 26,022 records currently read `unknown` - the column exists, backfill is pending. This is the intended countermeasure for the US/UK formal-NGO skew problem; it is not yet operational.
 
-The earlier 738K figure counted every non-removed row including 431K entries flagged as excluded by prior audit passes. The current 24,508 reflects what actually passed alignment scoring. The excluded rows are preserved as CSVs in `data/trim_audit/` for transparency and reversibility.
+The earlier 738K figure counted every non-removed row including 431K entries flagged as excluded by prior audit passes. The current 26,022 reflects what actually passed alignment scoring. The excluded rows are preserved as CSVs in `data/trim_audit/` for transparency and reversibility.
 
 ### The Framework
 
