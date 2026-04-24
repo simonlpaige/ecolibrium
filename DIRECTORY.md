@@ -1,6 +1,6 @@
 # 🌍 Commonweave Global Civil Society Directory
 
-*Last updated: 2026-04-24 01:51 UTC*
+*Last updated: 2026-04-24 02:32 UTC*
 
 
 ## Coverage
@@ -25,7 +25,7 @@
 | 🌐 Benin (BJ) | 0 | Field Research | ✅ |
 | 🌐 Brunei (BN) | 0 | Field Research | ✅ |
 | 🌐 Bolivia (BO) | 20 | Field Research | ✅ |
-| 🌐 Brazil (BR) | 99 | Field Research | ✅ |
+| 🌐 Brazil (BR) | 102 | Field Research | ✅ |
 | 🌐 Botswana (BW) | 0 | Field Research | ✅ |
 | 🌐 Belarus (BY) | 0 | Field Research | ✅ |
 | 🌐 Belize (BZ) | 0 | Field Research | ✅ |
@@ -167,7 +167,7 @@
 | 🌐 Zimbabwe (ZW) | 0 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 25,886 organizations indexed** across 61 countries
+**Total: 25,889 organizations indexed** across 61 countries
 
 
 ---
