@@ -1,6 +1,6 @@
 # 🌐 South Korea (KR) Civil Society Directory
 
-*Compiled: 2026-04-23 | Source: Web research | Organizations: 0*
+*Compiled: 2026-04-24 | Source: Web research | Organizations: 0*
 
 ---
 
