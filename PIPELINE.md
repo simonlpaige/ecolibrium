@@ -55,6 +55,7 @@ The sources we use today:
 - **ProPublica Nonprofit Explorer** (enriched US nonprofit records).
 - **Targeted web research** (one country at a time, written by a researcher bot that reads a recipe of searches).
 - **Manual curation** (hand-added entries, usually from DIRECTORY.md edits).
+- **Labor unions** (a Wikidata SPARQL pass for trade union federations and national unions, plus the ITUC affiliate list with a Wikipedia-mirror fallback).
 
 ### Stage 2 - Ingest
 
@@ -64,6 +65,7 @@ Every source has its own ingester. They all write into one SQLite database: `dat
 - `ingest_gov_registry.py` downloads bulk files from UK, France, Japan, Australia, and New Zealand registries. It knows how to read each one's quirks and has multilingual keyword lists for English, French, Japanese, Portuguese, Spanish, and German so a French association does not get scored with only English words.
 - `ingest_ofn.py` is a hand-written list of every Open Food Network instance around the world. It is short and specific because that platform has about twenty instances, not two million.
 - `ingest_india.py` is an honest dispatcher. Today it runs the India slice of the Wikidata pull and writes a log of every other India source we *should* be pulling from (NGO Darpan, NCDC, NABARD PACS, Kudumbashree, JEEViKA, Van Panchayats, and so on), what tier each belongs to, and how long it would take to build. The point of writing those TODOs into the code is that the weekly pipeline auditor will see the gap and keep nagging until it closes.
+- `ingest_labor.py` is another dispatcher. It runs `ingest_unions.py` (Wikidata SPARQL for trade union federations, national unions, and works councils) and then `ingest_ituc.py` (affiliates of the International Trade Union Confederation). Together they add roughly 800 federation- and national-tier labor organizations with `legibility='formal'` and `source` tags of `wikidata_unions` or `ituc_affiliates`. Locals are out of scope for this first pass.
 - `researcher_HN.py` and its siblings are per-country research bots. Each one runs a fixed set of searches in the local language, validates the results, and writes a markdown file under `data/regional/`. `run_next_country.py` is the orchestrator that picks the next country off `QUEUE.txt` that has not been completed, runs the researcher, and updates `country_research_state.json`.
 
 Every ingester tags the rows it writes with a **legibility** value (see Stage 4), a **source** string, and a **source_id** (for example the Wikidata QID, the IRS EIN, or the UK charity number). The source_id is what lets us avoid inserting the same row twice when we re-run.
@@ -169,6 +171,18 @@ The `alignment_score` column runs from about minus three to plus ten. It is the 
 Alignment is a text-matching score, not an ideological read. A health nonprofit that lobbies against universal healthcare would match the keyword "health" just fine. The framework acknowledges this openly and treats the score as a *sector relevance* signal, not a political one. Human review is the layer where political fit gets sharpened.
 
 ---
+
+## Labor unions
+
+Labor unions are one of the oldest working examples of democratic ownership of a commons, and yet the first pass of Commonweave did not include them. The labor branch closes that gap. It runs in two sources stitched together by `ingest_labor.py`.
+
+`ingest_unions.py` queries Wikidata for three classes: trade union federation (Q3395115), national trade union center (Q11038979), and trade union (Q178790). The third class is broad enough to include locals, so it is restricted to organizations with both a country (P17) and a headquarters (P159) set, which in practice keeps only the national-tier bodies. A fourth class, works council (Q1141395), is included for the legally-mandated worker representation systems in Germany, Austria, the Netherlands, and similar jurisdictions. Every row inserted gets `legibility='formal'`, because Wikidata-notable unions are by definition registered and documented. The Wikidata item URL is stored as the evidence URL so a reader can verify each row.
+
+`ingest_ituc.py` pulls the list of ITUC affiliates. The ITUC site itself returns 403 Forbidden to non-browser clients, so the script falls back to the Wikipedia article "International Trade Union Confederation", whose community-maintained affiliate table is the public mirror of the ITUC list. The fallback is documented in the script header. HTML and wikitext responses are cached under `data/sources/ituc-cache/` so a re-run does not re-hit the network.
+
+Both ingesters are idempotent. Wikidata unions key on the QID; ITUC affiliates key on the Wikipedia article title. Re-running updates the existing row rather than creating a duplicate. The federation-and-national-only scope is a deliberate v1 choice. Locals are a v2 conversation and would require either a country-by-country registry ingest or a much heavier scrape of each national federation's site.
+
+Federation names in the ITUC list are carried with their acronym and, where Wikipedia has it, their 2012 membership count in the description field, so a reader can see "CGT, 700,000 members" rather than just the name. Dedup is left to the normal `dedup_merge.py` pass, which will collapse the occasional Wikidata-plus-ITUC duplicate only when the location agrees.
 
 ## The self-improvement loop, up close
 

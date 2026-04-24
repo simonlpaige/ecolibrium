@@ -21,6 +21,8 @@ As of April 2026, the directory contains **24,508 aligned organizations** across
 | ProPublica Nonprofit Explorer | 604 | 2.5% | US nonprofits with descriptions and financials. |
 | Web research | 58 | 0.2% | Hand-researched entries with full profiles. |
 | Manual curation | 13 | 0.1% | Individually verified and described entries. |
+| Wikidata (labor unions) | ~498 | new | Trade union federations, national unions, works councils (Q3395115, Q11038979, Q178790, Q1141395). |
+| ITUC affiliates | ~299 | new | ITUC-affiliated national trade union centers, parsed from the Wikipedia mirror when ituc-csi.org blocks automated requests. |
 
 ### Quality profile
 
@@ -117,6 +119,18 @@ Organizations are classified into one of 10 framework sections. Counts reflect t
 - Organizations found through targeted web research for specific framework areas
 - Each entry includes source URLs and research date
 - These are the highest-quality entries in the directory
+
+### Wikidata (labor unions) — source=`wikidata_unions`
+- **Classes queried:** Q3395115 (trade union federation), Q11038979 (national trade union center), Q178790 (trade union, filtered to orgs with P17 country and P159 HQ set so locals are excluded), Q1141395 (works council).
+- **Legibility:** `formal` on every row (Wikidata-notable = registered and documented).
+- **Evidence:** Wikidata item URL stored on each row.
+- **Script:** `data/ingest_unions.py` (supports `--dry-run`). Idempotent on `source_id` (the QID).
+
+### ITUC affiliates — source=`ituc_affiliates`
+- **Source order:** `https://www.ituc-csi.org/list-of-affiliated-organisations` (returns HTTP 403 to non-browser clients as of 2026-04-24), with documented fallback to Wikipedia's `International Trade Union Confederation` article.
+- **Legibility:** `formal` on every row (federation-tier by ITUC definition).
+- **Cache:** wikitext and HTML attempts cached at `data/sources/ituc-cache/`.
+- **Script:** `data/ingest_ituc.py` (supports `--dry-run` and `--refresh`). Idempotent on Wikipedia article slug.
 
 ## How to Add Data
 
