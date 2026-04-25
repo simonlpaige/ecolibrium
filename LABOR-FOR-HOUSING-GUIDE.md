@@ -28,6 +28,23 @@ This guide is plain language on purpose. If you are a carpenter wondering whethe
 
 The rest of this guide is the pieces, the pipeline, the law, the math, and the warnings.
 
+---
+
+> **Legal review required before any pilot.**
+>
+> Nothing in this guide is legal, tax, or financial advice. Every structure named here - the project labor agreement, the sweat-equity ledger, the ground lease, the resale formula, the workers' comp arrangement - is a *design pattern*, not a vetted template. The patterns may be workable in your jurisdiction, or they may not. Before any organization commits a single homeowner or a single dollar to a pilot, the structure has to be reviewed by:
+>
+> - **Project counsel** experienced in affordable-housing development (not a generalist).
+> - **A housing nonprofit CPA** who has closed at least three sweat-equity projects.
+> - **The lender or CDFI** that will hold the eventual mortgages.
+> - **The labor attorney** for any participating union local, or the union's international.
+>
+> Where this guide says a structure is "clean" or "workable" or describes how the IRS or DOL has treated similar arrangements, treat that as a starting point for counsel review, not as a conclusion. Davis-Bacon triggers, state prevailing-wage rules, apprenticeship classification, workers' comp coverage for volunteer labor, and the tax treatment of sweat-equity credit all turn on facts specific to your project, your funding sources, and your state. The wrong call on any of them will sink a pilot.
+>
+> **Plan to spend $25,000 to $75,000 on legal and accounting review for a first pilot.** It is the cheapest mistake-prevention budget on the project.
+
+---
+
 \newpage
 
 ## Part 1 - The problem, honestly stated
@@ -190,7 +207,11 @@ The canonical large-scale example is the **Mondragon Corporation** in the Basque
 
 Legally, this is the part where people mess up, so read carefully.
 
-A sweat-equity program has to structure the labor credit so the hours are not treated as taxable income. The mechanism is usually: the hours go into an **escrow account** in the homebuyer's name, the escrow releases at closing as a credit against the down payment, and the homebuyer is working on their own future home. IRS guidance (Revenue Ruling 75-493 and a line of private letter rulings since) treats this as a legitimate self-help arrangement rather than income.
+A sweat-equity program has to structure the labor credit so the hours are not treated as taxable income to the homebuyer. The mechanism most established programs use is: the hours are tracked in a **sweat-equity ledger** (or, where counsel approves the structure, an escrow account) in the homebuyer's name, the balance releases at closing as a credit against the down payment, and the homebuyer is working on a home they will own.
+
+The practical argument is that a homebuyer working on their own future home is doing self-help work, not earning wages from the nonprofit. Habitat for Humanity affiliates have run sweat-equity programs at scale on this theory for decades, and HUD's Self-Help Homeownership Opportunity Program (SHOP) is built around it. **However: there is no single bright-line IRS revenue ruling that covers every variation of this structure.** Tax treatment varies by how the labor is documented, who controls the ledger, whether the labor is on the buyer's own home or on a neighbor's home, what the funding sources are, and what state you are in. Earlier drafts of this guide cited a specific revenue ruling as authority for the non-taxable treatment; that citation has been removed because the ruling does not in fact address housing sweat equity, and we do not want to send organizers to counsel with a wrong cite in hand.
+
+**Do not promise homebuyers that sweat-equity credit is non-taxable until your project's CPA and counsel have reviewed the ledger structure, the purchase contract, the closing documents, and the funding stack.** Treat the ledger as a design pattern, not as tax advice.
 
 Alternate structures exist. A **sweat-equity note** is a promissory note from the homeowner to the nonprofit that is forgiven dollar-for-dollar as hours are worked. This is used in some Habitat affiliates when the home is already built and the buyer's hours are going toward improvement, rather than on a house they will own.
 
@@ -236,7 +257,15 @@ The formula is the hinge of the whole thing. A CLT that gives too much appreciat
 
 The cleanest legal arrangement is a **project labor agreement** (PLA) between the union and the CLT (or the union's housing nonprofit) that specifies: union workers are paid full union scale for pipeline work, out of the construction budget; a defined number of hours per home are contributed by the union's apprenticeship program as a training commitment; and a defined number of hours per home are contributed by the union's members as voluntary labor, credited to the homeowners' sweat-equity escrow.
 
-This is legally clean because it mirrors a PLA the union would sign with any other general contractor. The "contributed hours" portion is modeled on the contributions unions already make to joint labor-management trust funds (training, pension, health) under the Taft-Hartley Act. The IRS has accepted similar arrangements before.
+This *may be* legally workable - it mirrors a PLA the union would sign with any other general contractor, and the "contributed hours" portion is loosely modeled on the contributions unions already make to joint labor-management trust funds (training, pension, health) under the Taft-Hartley Act. But "may be workable" is not "is clean," and several specific compliance questions have to be answered before any union member sets foot on the site:
+
+- **Davis-Bacon** applies whenever federal funds touch the project (HUD HOME, CDBG, SHOP grant funds for construction, certain HUD loan products). When it applies, every laborer and mechanic on the site has to be paid the prevailing wage for their classification, with apprentice ratios documented and fringe benefits paid or escrowed. Volunteer or "contributed" hours from union members on a Davis-Bacon project is a question that has to be cleared with DOL Wage and Hour, in writing, project by project. Do not assume.
+- **State prevailing wage** (the state-level equivalent of Davis-Bacon, sometimes called "little Davis-Bacon") applies in roughly half the US states whenever state housing trust fund money or state-issued bonds finance the project. The rules differ by state.
+- **Apprenticeship classification and ratios** are governed by the registered apprenticeship program's standards and by DOL Office of Apprenticeship rules. Calling an hour a "training hour" does not make it one; the hour has to be on a curriculum, supervised by a journeyman at the required ratio, and credited to the apprentice's hour log with the program sponsor.
+- **Workers' comp coverage** for union members performing "voluntary" labor outside the union's normal contract is *not automatic*. The local's standard workers' comp carrier may exclude voluntary work; a separate rider or a CLT-purchased volunteer-comp policy may be required. Find out which before the first hammer swings.
+- **Joint trust fund contributions under Taft-Hartley** are governed by ERISA and by the trust agreements themselves. A trust fund cannot necessarily "donate" labor or value the way a corporate sponsor might; the fiduciaries have duties to the participants and beneficiaries that may constrain what they can contribute to a labor-for-housing pipeline. The trust's counsel has to review.
+
+The IRS, DOL, and state wage agencies have not issued guidance addressing this specific stack of arrangements. "The IRS has accepted similar arrangements before" was an earlier-draft phrasing that overstated the precedent; we have removed it. There are *related* arrangements that have been blessed in pieces, but the full PLA-plus-contributed-hours-plus-sweat-equity-ledger combination has not been the subject of a single ruling that an organizer can rely on. Counsel review, project by project, is the only safe path.
 
 Politically, the union needs to treat pipeline work as training for apprentices rather than as wage-undercutting. Apprentices get on-the-job hours toward their journeyman card; journeymen get a way to mentor apprentices in a lower-stakes environment than commercial work. That framing holds the local together when critics inside the union call the pipeline "charity work for non-members." It is not: it is a structured apprenticeship program whose graduates go on to commercial jobs where they are paid full scale.
 
@@ -254,7 +283,22 @@ Total: somewhere around **$5M - $8M for ten homes**, or **$500k - $800k per home
 
 Against that cost, homeowners put in down payments made of sweat equity and cash: **~$40,000 per home**, of which maybe $10,000 is cash and $30,000 is credited labor at ~$30/hour. The rest of the price is a zero-interest or low-interest mortgage, covered by a combination of CLT subsidy (grant-funded or impact-investor), low-interest construction financing, and the eventual homeowner's mortgage payments.
 
-The subsidy gap - the difference between what it costs to build and what a low-income homebuyer can actually afford - is real and has to be funded. This is where Low-Income Housing Tax Credits (LIHTC) in the US, or a housing-first municipal program elsewhere, or a philanthropic capital stack, comes in. A pilot pipeline cannot be self-funding. The union's contribution and the sweat equity reduce the gap; they do not close it. Anyone who tells you they can run this without subsidy either has a very unusual local market or has not yet looked at the budget.
+The subsidy gap - the difference between what it costs to build and what a low-income homebuyer can actually afford - is real and has to be funded. A pilot pipeline cannot be self-funding. The union's contribution and the sweat equity reduce the gap; they do not close it. Anyone who tells you they can run this without subsidy either has a very unusual local market or has not yet looked at the budget.
+
+**Important note on LIHTC:** earlier drafts of this guide named Low-Income Housing Tax Credits (LIHTC) as a likely subsidy source for these projects. That was a mistake. LIHTC under Section 42 of the Internal Revenue Code is a **rental** housing tax credit; qualifying projects must be "residential rental property" held for low-income occupancy for the compliance period. LIHTC can sometimes participate in lease-purchase or eventual-tenant-ownership structures, but those structures are unusual, complex, and not the right starting point for a homeownership pilot. Naming LIHTC as the default subsidy in a homeownership guide will (rightly) cause any housing finance professional reading this to discount everything else in it.
+
+The right ranked stack of US homeownership subsidy sources for a labor-for-housing pilot, roughly in order of best fit:
+
+1. **Public land donation or long-term public ground lease.** A city, county, school district, transit agency, or land bank donates or ground-leases the land at a nominal rate. This is the single biggest cost reducer available, and it is how most successful CLT pilots get started.
+2. **HUD Self-Help Homeownership Opportunity Program (SHOP).** SHOP is the federal program built specifically for sweat-equity homeownership. It funds land acquisition, infrastructure, and modest admin costs for homebuyers who contribute significant sweat equity. Habitat for Humanity International and a handful of other intermediaries hold the SHOP allocations and re-grant to local affiliates.
+3. **HOME Investment Partnerships and CDBG (Community Development Block Grant) funds**, where the state or local participating jurisdiction allows them to be used for homeownership development. Triggers Davis-Bacon and HUD environmental review on most projects of meaningful size; plan accordingly.
+4. **State housing trust funds.** Most US states have one. The rules and uses vary widely; some are homeownership-friendly, some are rental-only.
+5. **Local affordable-housing trust funds** (city or county level). Often the most flexible and the easiest to access for a small pilot.
+6. **CDFI construction line of credit.** Community Development Financial Institutions like LISC, Enterprise, and regional CDFIs will lend short-term construction debt to a CLT or nonprofit developer at below-market rates.
+7. **Philanthropic Program-Related Investment (PRI) or recoverable grant.** A foundation lends or grants to the project at concessionary terms, with the expectation of recovery (PRI) or forgiveness on milestones (recoverable grant).
+8. **Buyer mortgage plus down-payment assistance.** State housing finance agencies run DPA programs that pair with first-time-buyer mortgage products; the sweat-equity credit can sometimes count toward the buyer's down-payment requirement, depending on the lender.
+
+A realistic capital stack for a 3-to-5-home pilot will combine three to five of these, not just one. Where this guide previously said "LIHTC allocation" as shorthand for the gap-filler, read "a homeownership-compatible subsidy from the stack above."
 
 \newpage
 
@@ -285,7 +329,7 @@ If you are a displaced worker, a policy person, a journalist, or just someone wh
 1. **Find the land.** Somewhere in your region there is either a CLT with a site, a public agency with surplus land (a school district closing a school, a transit agency sitting on a depot, a city with tax-delinquent lots), or a church that owns land it cannot afford to keep. Land is the hardest piece. Find it first.
 2. **Find the trades.** Once land exists, the union locals are easier to approach - you are showing up with a project, not asking them to make one.
 3. **Find the homeowners.** This is usually done through a combination of a public lottery, a waiting list run by the CLT, and referrals from social-service agencies. Do not pre-select a small group of "deserving" families. The CLT should be income-qualified, publicly-posted, and transparent.
-4. **Find the subsidy.** Municipal affordable-housing trust funds, state housing finance authorities, LIHTC, philanthropic capital. The CLT's development officer will know the local stack.
+4. **Find the subsidy.** Municipal and county affordable-housing trust funds, state housing finance authorities, HUD SHOP through an intermediary like Habitat International, HOME or CDBG funds where the participating jurisdiction allows homeownership uses, CDFI construction debt, philanthropic PRI or recoverable grants. The CLT's development officer will know the local stack. **LIHTC is not on this list** - it is a rental credit and does not fit a homeownership pilot.
 5. **Wrap it up in a project labor agreement** between the CLT and the unions. Insurance. Sweat-equity escrow. Ground lease. Mortgage underwriter.
 
 ### Minimum viable pilot
@@ -297,7 +341,7 @@ A defensible first project:
 - **One CLT as the anchor organization** (existing 501(c)(3) or equivalent).
 - **One to three construction trades locals** as the labor contributors.
 - **One bank or CDFI** as the mortgage underwriter for the eventual homebuyers.
-- **One subsidy source** as the construction-financing gap-filler (LIHTC allocation, a state housing trust fund grant, or philanthropic capital).
+- **A homeownership-compatible subsidy stack** as the construction-financing gap-filler. For US pilots: most likely a combination of public land donation or ground lease, HUD SHOP funds (where available through an intermediary), state or local housing trust fund grants, a CDFI construction line, and philanthropic recoverable-grant or PRI capital. **Not LIHTC** - LIHTC is a rental tax credit and is the wrong instrument for a homeownership pilot. See the subsidy-stack discussion in Part 5.
 - **A named apprenticeship class** using the project as their training.
 - **A signed project labor agreement.** Not a memo of understanding. An actual PLA.
 
