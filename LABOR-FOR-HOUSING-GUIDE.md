@@ -111,7 +111,7 @@ The canonical European example is **IG Bauen-Agrar-Umwelt** (IG BAU), Germany's 
 
 In the United States, the construction trades are fragmented across several international unions - the Carpenters, the Laborers, the Electrical Workers (IBEW), the Plumbers and Pipefitters, the Painters, the Ironworkers, and so on - plus the AFL-CIO Building and Construction Trades Department as an umbrella. The Commonweave directory's current pass indexes the national federations (AFL-CIO, SEIU, UAW, USW, AFSCME, and so on) via Wikidata's Q178790 "trade union" class. Locals are out of scope for v1; a later pass will need them, probably by scraping each international's local directory.
 
-Internationally, the spine is the **International Trade Union Confederation** (ITUC), whose affiliates are listed in the directory via the `ituc_affiliates` source. The Australian Council of Trade Unions (ACTU, about 1.76 million members), the Canadian Labour Congress (CLC), Kenya's Central Organisation of Trade Unions (COTU, about 234,000 members), Italy's CGIL-CISL-UIL, Spain's CCOO and UGT, and India's SEWA (the Self-Employed Women's Association, about a million members) are all in the list.
+Internationally, the spine is the **International Trade Union Confederation** (ITUC), whose affiliates are listed in the directory via the `ituc_affiliates` source. The Australian Council of Trade Unions (ACTU, about 1.76 million members), the Canadian Labour Congress (CLC), Kenya's Central Organisation of Trade Unions (COTU, about 234,000 members), Italy's CGIL-CISL-UIL, and Spain's CCOO and UGT are all in the list. India's SEWA (the Self-Employed Women's Association, about a million members) is also in the directory; SEWA is included as a model of large-scale informal-sector labor organizing rather than as a construction-trades pipeline partner specifically. The construction-trades leg of the pipeline as described in this guide assumes a Northern industrial-unionism model with a registered apprenticeship program and the ability to sign a project labor agreement, which most informal-sector and gig-economy worker organizations are not currently structured to do.
 
 **Where labor unions break.** Three places. First, US construction trades historically excluded Black workers, women, and immigrants. That is not ancient history. It is 1960s and 1970s history. Many locals have reformed; some have not; the legacy lingers in every demographic slice of the membership data. Any labor-for-housing pipeline that does not name this problem and set up a hiring pipeline that addresses it is going to reproduce the exclusion. Second, unions have their own internal politics. A local that is busy fighting for its next contract may have no bandwidth for a side project in housing. Third, in places where unions have been hollowed out, there is nobody organized to do this work. A construction trade with 6% density cannot carry a pipeline on its own.
 
@@ -125,7 +125,17 @@ Habitat is also controversial, and we will get to that in the dark-history chapt
 
 Less famous variants matter too. **Cooper Square Mutual Housing Association** in New York City converted a bloc of Lower East Side buildings into a 328-unit, resident-controlled mutual housing association in the 1990s after a decade-long fight against urban renewal. Residents put labor into rehab work as part of getting the housing up to code, and the association owns the buildings cooperatively. The Commonweave directory has them.
 
-**Where sweat-equity programs break.** Four places. First, not everyone can swing a hammer. A program that requires physical labor excludes people with disabilities unless it has alternate ways to earn hours (childcare for other work days, bookkeeping, painting, organizing). A serious program builds the alternates in from the start. Second, the hours are usually unpaid. For a person working a full-time job, 400 volunteer hours on top is several months of weekends. For a displaced worker with time but no income, the hours cost nothing but food and transport, and the food and transport still cost money the person may not have. Third, the quality control on sweat-equity work is nontrivial - professional supervision matters, and that costs money. Fourth, the theological framing of Habitat in particular has generated legitimate criticism from homeowner-advocacy groups that the deal is framed as charity-for-the-deserving rather than infrastructure-for-a-right. That framing affects who shows up and who stays.
+**Where sweat-equity programs break.** Five places.
+
+*First, not everyone can swing a hammer, and not everyone has the time to.* The classic 400-hour requirement assumes a homebuyer with physical capacity, predictable schedule, no caregiving load, and someone else doing dinner and the kids' homework on Saturdays. That assumption excludes most single parents, most people with chronic illness, most people with disabilities, most caregivers for elderly relatives, and most workers in unpredictable shift or gig schedules. A program that treats this as a carve-out for "people with disabilities" is fooling itself: the alternate-hours pathway is a **structural requirement** for any pipeline that wants to serve the populations most squeezed by the housing crisis. The alternates - childcare for other volunteers' kids on work days, bookkeeping, applicant outreach, meal prep, painting, light finish work, weekday-evening tasks - need to be in the application packet from day one, with the same hourly credit value, not as an exception you have to ask for.
+
+*Second, the hours are usually unpaid and the costs of showing up are not zero.* For a person working a full-time job, 400 volunteer hours on top is several months of weekends. For a displaced worker with time but no income, the hours cost nothing but food and transport, and the food and transport still cost money the person may not have. A pilot budget without transportation stipends, on-site meals on work days, childcare on work days, and a tools/PPE allowance is a budget that has decided who its homeowners will be.
+
+*Third, the quality control on sweat-equity work is nontrivial - professional supervision matters, and that costs money.*
+
+*Fourth, sweat-equity construction sites are mixed-gender environments with significant power differentials* (a male journeyman supervising a female homebuyer working toward her own home is a common configuration). Programs without a written anti-harassment policy, named reporting channels that bypass the supervisor, supervision ratios that avoid one-supervisor-alone-with-one-volunteer situations, and women's-committee involvement in policy and incident review are exposing volunteers to a real safety problem and the program to real legal liability. This is not theoretical; the construction industry has documented harassment rates that are an order of magnitude above the national workplace average. A pipeline serious about serving women homebuyers builds these protections in before the first work day.
+
+*Fifth, the theological framing of Habitat in particular has generated legitimate criticism from homeowner-advocacy groups* that the deal is framed as charity-for-the-deserving rather than infrastructure-for-a-right. That framing affects who shows up and who stays.
 
 ### How the three legs fit
 
@@ -153,6 +163,8 @@ Walk through it left to right.
 
 **Member contributes N hours.** The member works on the houses - their own and a few others - for a defined number of hours. The hours are tracked. In the classic Habitat model, N is around 300 to 500. In a union-integrated pipeline, N can be smaller, because professional labor is filling most of the build and the member hours are credited at a realistic rate.
 
+The N hours are not all swinging-hammer hours. A well-designed pipeline credits a menu of tasks at the same hourly rate: physical construction (framing, painting, finish carpentry under supervision), childcare for other homebuyers' kids on work days, applicant outreach and intake, bookkeeping, meal preparation, organizing community work events, post-occupancy stewardship work. This is not an exception for people who can't do physical labor; it is a structural requirement, because the pipeline is meant to serve single parents, caregivers, people with chronic illness, and people in unpredictable work schedules - all populations the housing crisis hits hardest, and all populations a hammer-only requirement excludes.
+
 **Escrow credits the hours.** Every hour worked is credited into a sweat-equity account at a defined dollar rate. At closing, the balance in the account counts as part of the down payment. The escrow structure matters legally - it prevents the hours from being treated as taxable income (because they are going into the member's own home) and it documents the credit for the mortgage underwriter.
 
 **Member gets a 99-year lease.** The member signs a ground lease with the CLT (typically 99 years, renewable). They also get title to the building itself. They make mortgage payments on the building portion, at whatever rate the underwriter approved. The land payment is either zero (the CLT just charges a small monthly ground-lease fee) or a modest amount that covers the CLT's operating costs.
@@ -175,7 +187,9 @@ That is the full circuit. Most existing implementations are missing one or two p
 
 \newpage
 
-## Part 4 - The legal scaffolding
+## Part 4 - The legal scaffolding (US focus)
+
+*This part is overwhelmingly US-specific. The legal wrappers, regulatory triggers, and funding-source acronyms below (501(c)(3), Davis-Bacon, HUD, AMI, LIHTC, SHOP, HOME, CDBG, ERISA, Taft-Hartley) are all US legal infrastructure. The underlying patterns - charitable land-holding entity, prevailing-wage rules on publicly-funded construction, sweat-equity ledger that does not create taxable income, project labor agreements, joint trust funds - exist in most countries with mature housing-nonprofit and labor-law sectors, but the names, thresholds, and procedures differ. International readers should treat this section as a worked example of the questions a legal scaffolding has to answer, and consult [Appendix C](#appendix-c---legal-wrappers-outside-the-us-stub) for the equivalent frameworks in other jurisdictions and the work that still needs to be done there.*
 
 Most projects die in the legal weeds. Not because the law is hostile (it is mostly not) but because the wrappers have to match, and matching them takes a lawyer who has done it before. Here are the main pieces in plain language.
 
@@ -245,6 +259,8 @@ A reasonable design target for a pilot pipeline: **400 homeowner hours** credite
 
 US CLTs typically define "affordable" as: total housing costs (mortgage, taxes, insurance, ground-lease fee) under 30% of gross household income, for a household earning at or below 80% of Area Median Income (AMI). Some CLTs go lower (60% AMI) and some go higher (120% AMI) depending on the local market and the mission statement. AMI is published by HUD every year for every US metropolitan area, and the number matters: 80% of AMI in San Francisco is a household income around $104,000; 80% of AMI in rural Mississippi is around $41,000. Same definition, different universe.
 
+**A position this guide will take, because the data forces it:** 80% AMI is a HUD default, not a justice standard. In high-cost coastal cities (San Francisco, New York, Boston, DC, Seattle), 80% AMI is solidly middle-class and not where the housing pain is concentrated. Pilots in those markets that target 80% AMI are likely to recruit working-class households who have other options, while bypassing the populations actually being displaced - people at 30% to 60% AMI, including many full-time workers in service, retail, healthcare, and care occupations. A pilot that wants to serve the most housing-insecure should target **60% AMI or lower in high-cost markets** and **track whether the applicant pool reflects the renters being displaced from the surrounding blocks**. If the pool skews toward higher incomes, the recruitment, the subsidy design, or both need adjustment. The guide names this explicitly because pilots that drift toward 80%-AMI-by-default end up looking, ten years later, like they served a different population than they meant to.
+
 The **resale formula** is the other half of the pricing equation. Most CLTs use one of three formulas:
 
 - **Appraisal-based:** The resale price is the original price plus a percentage of the change in the appraised value of the home between purchase and sale. The percentage is usually 25%, meaning the seller keeps a quarter of the appreciation and the CLT retains three quarters for the next buyer.
@@ -271,7 +287,7 @@ Politically, the union needs to treat pipeline work as training for apprentices 
 
 ### Rough budget for a 10-home pilot
 
-These numbers are rough. Use them as a sanity check, not a quote.
+These numbers are rough. Use them as a sanity check, not a quote. They assume a stick-built 1,200 sq ft single-family typology, which is the most common Habitat-style configuration in the US. Multifamily, modular, and adaptive-reuse typologies often produce significantly lower per-unit cost and lower embodied carbon; pilots should evaluate those alternatives before defaulting to greenfield single-family construction. **Do not site a permanently-affordable home in a mandatory-evacuation flood zone or a high-fire-risk zone without explicit hazard analysis** - permanent affordability in a place that will be uninhabitable in 2045 is not a housing solution.
 
 - Land acquisition: **$1.0M - $3.0M** (varies wildly by market; assume a CLT is buying a ten-lot parcel or getting a ground lease from a public owner; in some markets this is $250k/lot, in some it is $25k/lot).
 - Site preparation, utilities, roads: **$400k - $800k**.
@@ -332,6 +348,24 @@ If you are a displaced worker, a policy person, a journalist, or just someone wh
 4. **Find the subsidy.** Municipal and county affordable-housing trust funds, state housing finance authorities, HUD SHOP through an intermediary like Habitat International, HOME or CDBG funds where the participating jurisdiction allows homeownership uses, CDFI construction debt, philanthropic PRI or recoverable grants. The CLT's development officer will know the local stack. **LIHTC is not on this list** - it is a rental credit and does not fit a homeownership pilot.
 5. **Wrap it up in a project labor agreement** between the CLT and the unions. Insurance. Sweat-equity escrow. Ground lease. Mortgage underwriter.
 
+### A note on "finding the land"
+
+The steps above say "find the land" as if it is a matter of knowing where to look. It is not. Finding land for a labor-for-housing pilot is a political fight, not a directory search.
+
+Surplus public land is contested. For-profit developers want it for market-rate or mixed-income projects that produce more revenue per square foot. NIMBY homeowner associations oppose any low-income development near them, and have decades of practice using zoning, environmental review, and historic-preservation processes to delay and kill it. School districts, transit agencies, and municipal governments fight intra-governmentally over the same parcels. The political fight for a single ground lease can take three to five years.
+
+The groups that have actually won these fights have shared a few habits: early coalitions with tenant unions and housing-justice organizations that bring grassroots political power; relationships with sympathetic elected officials at the council and county-board level; sustained engagement in municipal budget processes where land-disposition decisions are actually made; willingness to name the antagonists publicly (specific developers, specific industry associations, specific NIMBY groups) rather than treating land allocation as a neutral technical process.
+
+A labor-for-housing pilot whose plan for finding land is "talk to the city's housing office" without that political infrastructure will not get land. *(Appendix D - Political strategy for land acquisition - is forthcoming in v2 of this guide.)*
+
+### Indigenous land and settler-colonial contexts
+
+In the United States, Canada, Australia, and Aotearoa/New Zealand, every parcel of land a CLT might acquire is on territory that was taken from Indigenous nations, often in violation of treaties, often within the last 200 years. A community land trust that does not engage this history is, however inadvertently, reinforcing the property regime built on it.
+
+This is not a rhetorical concern; it is a live critique that Indigenous organizers have raised against the CLT movement specifically. The movement has begun to respond - through land-back covenants, formal MOUs with local nations, rematriation pathways, and Indigenous-led CLTs - but the response is uneven and the issue is still mostly absent from CLT formation guides.
+
+A pilot in any settler-colonial context should: research which Indigenous nation(s) hold treaty or aboriginal-title interest in the project area; initiate consultation early, before site selection if possible; consider rematriation or co-management structures, not as a marketing flourish but as a substantive design element; engage with Indigenous-led housing organizations where they exist. The Commonweave [BLUEPRINT.md](BLUEPRINT.md) contains the project's fuller position on Indigenous land return; this guide will not duplicate that here, but no labor-for-housing pilot in a settler-colonial state should proceed without engaging it.
+
 ### Minimum viable pilot
 
 A defensible first project:
@@ -344,8 +378,91 @@ A defensible first project:
 - **A homeownership-compatible subsidy stack** as the construction-financing gap-filler. For US pilots: most likely a combination of public land donation or ground lease, HUD SHOP funds (where available through an intermediary), state or local housing trust fund grants, a CDFI construction line, and philanthropic recoverable-grant or PRI capital. **Not LIHTC** - LIHTC is a rental tax credit and is the wrong instrument for a homeownership pilot. See the subsidy-stack discussion in Part 5.
 - **A named apprenticeship class** using the project as their training.
 - **A signed project labor agreement.** Not a memo of understanding. An actual PLA.
+- **A consultation record with the local Indigenous nation(s)** in any settler-colonial context (US, Canada, Australia, Aotearoa/New Zealand). "We will start the conversation later" is not consultation.
+- **A written anti-harassment and incident-reporting policy** covering all workers and volunteers on site, with reporting channels that bypass the daily supervisor.
 
 Below those thresholds, the organizational overhead is not worth the output. Above them, on a first attempt, you are taking on too many coordination failures at once. Three to five homes is the unit size that lets a team learn.
+
+### Red flag checklist - do not proceed if any of these are true
+
+Before a CLT, a union local, a city, or a funder commits time or money to a labor-for-housing pilot, walk this checklist. If you cannot honestly answer "no" to every item, **do not proceed** until the gate is fixed. Each one is a known failure mode that has sunk earlier projects.
+
+Do not proceed if:
+
+- The **employer of the workers also owns or controls the land**. (Reproduces the company town.)
+- **Continued housing depends on continued employment** with any specific entity. (Same.)
+- **Sweat equity has no alternate path** for people with physical disabilities, chronic illness, or caregiving constraints. (Fair Housing Act risk and exclusionary in design.)
+- **The alternate-hours menu is treated as an exception rather than a structural option** equally available to single parents, caregivers, people with disabilities, and people in unpredictable work schedules. (See Part 2.)
+- **No transportation stipend, on-site meals, childcare, or tools/PPE budget** is built into the pilot. (The pilot has implicitly decided who can afford to participate.)
+- **No written anti-harassment policy and reporting channel that bypasses the daily supervisor** covers all workers and volunteers on site. (Construction sites have well-documented harassment rates; pretending it will not happen here is a legal and ethical exposure.)
+- The program **screens applicants for "deservingness"** beyond income qualification - tidy-house tests, marital status, religion, employment-history minimums, credit-score floors above what the lender requires. (Paternalism, often illegal.)
+- **The capital stack assumes resale restrictions can be waived later** to satisfy a lender or a refinance. (One hot market and the affordability is gone.)
+- **Homeowners cannot see their own labor-credit ledger** in real time, or the ledger is held only by the nonprofit. (Auditability failure; a state attorney general will eventually find it.)
+- **Unpaid labor is replacing paid trade work** that would otherwise be done by a paid worker. (Wage substitution. Davis-Bacon and union solidarity issue.)
+- **No general contractor or licensed builder of record** is named, with warranty obligations and superintendence. (Punch lists drown the project; year-five defects emerge with no party to call.)
+- **Residents cannot veto** decisions about land transfer, resale formula change, foreclosure policy, ground-lease amendment, or platform/data governance. (Representation without control - see Part 7 firewall.)
+- **Applicant or homeowner data is routed through a third-party AI or advertising platform** whose terms permit secondary use, model training, or marketing.
+- **The pilot is more than 5 homes**. (First attempt should be 3 to 5; learn first, scale second.)
+- **In a settler-colonial context, no consultation with the local Indigenous nation(s) has occurred** prior to site selection, and no written position on land acknowledgment or rematriation is in the project file.
+- **The pilot is sited in a mandatory-evacuation flood zone, an active fire-risk zone, or other climate-vulnerable area** without an explicit hazard analysis and a plan for the property over a 30-to-50-year horizon.
+- **No project counsel and no housing-nonprofit CPA have reviewed the structure** in writing. (Cf. the Legal Review Required callout in the front of this guide.)
+
+This list is intentionally short. It is not the full risk register; it is the list of things that turn this pipeline into a different, worse thing. Print it. Put it on the wall of the project meeting room. Read it before every quarterly review.
+
+### Labor compliance matrix
+
+Use this matrix as the agenda for a single all-day meeting between project counsel, the union's labor attorney, the CLT's development officer, the GC, the workers' comp broker, and (if applicable) the federal or state grant administrator. The point is to leave that meeting with a written answer in every cell, and to repeat the meeting if the funding stack changes.
+
+| Question | What to determine | Who answers |
+| --- | --- | --- |
+| **Davis-Bacon trigger** | Do any federal funds (HUD HOME, CDBG, SHOP, USDA Rural Housing, FHLB AHP, etc.) flow into construction costs, even indirectly? If yes, Davis-Bacon prevailing wage applies to all laborers and mechanics. | Project counsel + grant administrator |
+| **State prevailing wage trigger** | Does state housing trust fund money, state-issued bond proceeds, or state-administered federal pass-through trigger a state "little Davis-Bacon" rule? Half the US states have one; the threshold dollar amounts vary. | Project counsel + state housing finance agency |
+| **Wage classifications** | For each trade on the site, what is the prevailing wage rate, fringe benefit rate, and apprentice ratio under the applicable wage decision? | Project counsel + GC |
+| **Apprenticeship credit** | Are the apprentices working on this project enrolled in a DOL-registered apprenticeship program (or state-equivalent)? Are the journeyman-to-apprentice ratios documented? Are training hours signed off by the program sponsor? | Apprenticeship program sponsor + GC |
+| **Volunteer labor permitted?** | Under the applicable wage law, what (if any) volunteer labor by union members or homebuyers is permitted on this site? Get this in writing from DOL Wage and Hour or the state agency. Do not rely on "common practice". | Project counsel (with a written DOL or state opinion if needed) |
+| **Employer of record** | Who is the legal employer of paid workers on the site? The GC? A staffing entity? The union local? This determines payroll tax, workers' comp, and unemployment insurance obligations. | Project counsel + GC |
+| **Workers' comp - paid workers** | Whose workers' comp policy covers paid trade workers? At what classification rate? Is there a wrap policy or are individual subs covered? | GC + workers' comp broker |
+| **Workers' comp - volunteer / sweat-equity workers** | Are homebuyers performing sweat equity covered by workers' comp, special-events rider, or volunteer accident insurance? In what state, under what classification, with what limits? Without a clear answer here, do not let a homebuyer onto the site. | CLT + workers' comp broker |
+| **Workers' comp - union "contributed" hours** | Are union members performing voluntary contributed hours covered under the local's standard policy, or do those hours need a separate rider? | Union's labor attorney + insurer |
+| **OSHA site control** | Who is the OSHA-responsible party - the GC, the CLT, a separate construction manager? Who has stop-work authority? Who runs the daily safety briefing? | GC + CLT |
+| **Allowed volunteer tasks** | Which tasks may volunteers (homebuyer or community) perform? Painting, landscaping, framing under direct supervision, finish carpentry under direct supervision are typical yeses. Roofing above a certain height, electrical, gas, plumbing, structural welding, anything requiring a license are typical nos. Get the list signed by the GC's safety lead. | GC safety lead + project counsel |
+| **Prohibited volunteer tasks** | Which tasks are explicitly off-limits to volunteers? Document and post on site. | Same |
+| **Sweat-equity ledger custodian** | Who holds the labor-credit ledger? CLT? Third-party escrow administrator? Online platform with audit logs? Is it accessible to the homebuyer in real time? | CLT + project counsel + CPA |
+| **Joint trust fund participation** | If union pension, training, or health-and-welfare trusts contribute resources, does the trust agreement and ERISA permit it? Has the trust's counsel signed off? | Trust counsel |
+| **Tax treatment of sweat-equity credit** | What is the IRS and state position on the credit, given this funding stack and ledger structure? Get a written CPA opinion. | Housing nonprofit CPA |
+
+If any cell stays empty after the meeting, **that is the cell where the pilot will fail**. Reschedule and finish the answer before the first hammer swings.
+
+### Construction delivery - who is responsible for what
+
+The single most common failure mode in volunteer-assisted construction projects is "I thought you were handling that." The fix is a written RACI chart - **R**esponsible, **A**ccountable, **C**onsulted, **I**nformed - signed by everyone before site mobilization. The version below is a starting point; adjust for your project.
+
+| Function | Responsible (does the work) | Accountable (one person, owns the outcome) |
+| --- | --- | --- |
+| Site control and access | CLT | CLT executive director |
+| Permits and entitlements | Nonprofit developer or GC | Developer project manager |
+| Construction contract execution | GC | GC principal |
+| Site safety plan and OSHA compliance | GC safety lead + union training center | GC principal |
+| Daily safety briefing | GC site superintendent | GC site superintendent |
+| Homebuyer (sweat equity) labor supervision | Site supervisor (GC employee or contracted construction manager) | GC site superintendent |
+| Subcontractor contracts and payment | GC | GC principal |
+| Inspections (rough, mechanical, final) | Authority Having Jurisdiction (AHJ - city or county building dept) | AHJ inspector |
+| Punch list and closeout | GC | GC project manager |
+| Builder's warranty (typically 1 year structural, longer on systems) | GC or nonprofit developer | Whoever signs the warranty document |
+| Sweat-equity hour logging | CLT staff or third-party escrow administrator | CLT operations lead |
+| Sweat-equity ledger custody and audit | Third-party escrow admin or CLT (with annual outside audit) | CLT board treasurer |
+| Mortgage underwriting | CDFI or partner bank | CDFI lending officer |
+| Down-payment assistance administration | State HFA or local trust fund | Grant administrator |
+| Closing | Title company + closing attorney | Closing attorney |
+| Ground lease execution and recording | CLT | CLT executive director |
+| Resale formula and stewardship after move-in | CLT | CLT stewardship coordinator |
+| Homeowner counseling (pre-purchase + post) | HUD-approved counseling agency | Counseling agency director |
+| Default and foreclosure policy | CLT board (with policy document) | CLT board chair |
+| Insurance (general liability, builder's risk, workers' comp) | GC + CLT (split per policy) | GC principal for construction-period; CLT executive director for post-completion |
+| Communications with homebuyers during construction | CLT homeowner liaison | CLT executive director |
+| Press, public meetings, neighborhood outreach | CLT communications + project partners | CLT executive director |
+
+A RACI on paper is not enough. Have the named accountable people sign it at a kickoff meeting. Walk through it again at every monthly project meeting. When something goes wrong (and something will), the first question is "who is accountable for this row?" and the second is "do we need to update the chart?" Update it. Keep the version history.
 
 \newpage
 
@@ -418,10 +535,12 @@ The thing that separates this pipeline from a company town is **democratic owner
 If any one of those three pieces is missing, the pipeline is an extraction mechanism wearing better clothes.
 
 - If the **land is privately owned** (by an employer, a developer, a private landlord), the housing is conditional on the owner's goodwill and the worker has no real exit. This is company-town logic.
-- If **residents do not control the entity that holds the land** (through a CLT board where they hold at least a third of the seats, or a housing cooperative where they hold shares and votes), the land's use can be redirected against them at the next board election or the next corporate restructuring.
+- If **residents do not have meaningful control** over the entity that holds the land, the land's use can be redirected against them at the next board election or the next corporate restructuring. The classic CLT "three-way" board (one-third residents, one-third broader community members, one-third technical experts and public-interest representatives) is **representation, not control**. A one-third resident bloc can be outvoted by the other two-thirds on any contested question. The classic three-way board is acceptable for routine governance only if it is paired with **explicit resident-veto or supermajority requirements** in the bylaws and ground lease for a specific list of high-stakes decisions: changes to the resale formula; amendments to the ground lease itself; foreclosure policy; data-sharing or platform-adoption decisions affecting homeowners; sale, transfer, or encumbrance of the underlying land; merger or dissolution of the CLT; replacement of the stewardship rules. Without those specific protections written down and recorded, a benevolent nonprofit board can become the soft version of the company town, and a hostile one can dismantle the whole structure. **Resident voice is not resident veto, and resident veto is not resident control. The firewall requires veto, at minimum, on the decisions that most directly affect homeowners' homes.**
 - If the **resale restrictions are voluntary or can be waived**, the first hot market will end the affordability within one or two cycles. The restrictions must be recorded in the ground lease, survive refinance, and be enforceable by the CLT as a party to the contract.
 
-All three together: land-in-commons, resident-controlled-entity, enforceable-resale-restrictions. That is the firewall. Everything else in this guide sits on top of it. Without it, the rest is decoration.
+All three together: land-in-commons, resident-influenced-and-veto-protected entity, enforceable-resale-restrictions. That is the firewall. Everything else in this guide sits on top of it. Without it, the rest is decoration.
+
+**One honest tension** the firewall does not resolve: enforceable resale restrictions cap the homeowner's wealth-building. A CLT homeowner in a gentrifying neighborhood may watch market-rate neighbors a block over build six-figure home equity over fifteen years while her own appreciation is held to a 2% annual or formula-based bump. The CLT calls this "permanent affordability for the next family". Critics call it "permanent wealth exclusion for the current family". Both descriptions are accurate. There is no formula that closes this gap completely - any formula that lets sellers capture meaningful market appreciation breaks the affordability for the next buyer. **The pilot has to discuss this tradeoff explicitly with prospective homeowners before they apply, not after closing**, and homeowners should be able to make their housing decision with that math in front of them. Programs that obscure this tradeoff, however well-intentioned, are misleading the people they most need to serve.
 
 \newpage
 
@@ -431,7 +550,9 @@ All three together: land-in-commons, resident-controlled-entity, enforceable-res
 
 Commonweave is three things.
 
-**A directory** of organizations already doing this work, currently about **27,000 active entries across 172 countries**, of which about **1,700 are explicitly tagged as formal legal entities** (the rest are a mix of registered nonprofits whose legibility hasn't been confirmed yet, and imported entries awaiting verification). The directory is searchable at [commonweave.earth/directory](https://simonlpaige.com/commonweave/directory.html) by country, by framework area, and by organization type. Every row is CC0 - use the data for anything.
+**A directory** of organizations already doing this work, currently about **27,000 active entries across 172 countries**, of which about **1,700 are explicitly tagged as formal legal entities** with verified websites or registry records. The other ~25,000 entries are a mix of: registered nonprofits whose legibility we have not yet confirmed; bulk-imported entries from Wikidata, government registries, and partner directories that are awaiting human verification; and possibly-inactive organizations flagged for review. The directory is searchable at [commonweave.earth/directory](https://simonlpaige.com/commonweave/directory.html) by country, by framework area, and by organization type. Every row is CC0 - use the data for anything.
+
+**Read the directory as a research starting point, not as endorsement, certification, or operating-readiness signal.** Every row that matters to your project should be independently verified before outreach: website live, contact information current, jurisdiction of incorporation confirmed, organization actually doing the work the row claims. Per-row verification badges are on the v2 roadmap; until they ship, treat directory inclusion as "this organization plausibly exists and may be relevant" rather than as vetting.
 
 **A framework document** called BLUEPRINT.md, which names the fourteen systems we think have to exist (in prototype, at least) before a peaceful transition out of the current concentrated-ownership economy is plausible. Community land trusts and labor unions and housing cooperatives are three of those systems. Eleven others are in the blueprint - healthcare, food sovereignty, energy democracy, and so on.
 
@@ -513,6 +634,26 @@ Five books, three reports, and two ongoing resources. All real, all worth the ti
 
 - **Grounded Solutions Network** at [groundedsolutions.org](https://groundedsolutions.org). US CLT and shared-equity homeownership network; publishes technical manuals and a member directory.
 - **International Center for Community Land Trusts** at [cltweb.org](https://cltweb.org). Global CLT network; useful for international projects.
+
+---
+
+## Appendix C - Legal wrappers outside the US (stub)
+
+This is a stub. Version 1.5 of this guide is honest about what it does and does not yet cover. The legal scaffolding in Part 4 is US-specific - 501(c)(3) charity status, Davis-Bacon prevailing wage, HUD funding programs, IRS sweat-equity treatment, ERISA and Taft-Hartley constraints on union trust funds. Pilots outside the United States cannot use that scaffolding directly. The questions Part 4 asks (what entity holds the land at permanent affordability, what prevailing-wage and apprenticeship rules apply, who is the legal employer of paid workers, how is sweat equity treated for tax purposes, what insurance is required) are universal. The answers are jurisdiction-specific.
+
+A partial list of the equivalent frameworks in other places, as starting points for organizers and as known gaps for v2 of this guide:
+
+- **United Kingdom:** Community Benefit Societies (Co-operative and Community Benefit Societies Act 2014), the legal form most UK CLTs use. Asset locks under the Act enforce permanent affordability. The 2008 Housing and Regeneration Act formally defined CLTs in English law. National support body: [communitylandtrusts.org.uk](https://www.communitylandtrusts.org.uk).
+- **France:** *Organisme de Foncier Solidaire* (OFS, established by the 2014 ALUR Law), pairing a land-holding nonprofit with a *Bail Reel Solidaire* (BRS) lease that separates land ownership from building ownership. National network: [foncier-solidaire-france.fr](https://www.foncier-solidaire-france.fr).
+- **Germany, Austria, Switzerland:** *Baugenossenschaften* / housing cooperatives - a much older and more developed cooperative-housing tradition than US CLT, with municipal and state co-financing structures.
+- **Belgium:** Community Land Trust Brussels and Community Land Trust Gent, both modeled on US CLT structures but operating under Belgian charity and housing law.
+- **Uruguay:** *Federacion Uruguaya de Cooperativas de Vivienda por Ayuda Mutua* (FUCVAM), the federation of mutual-aid housing cooperatives. About 25,000 homes built since the 1968 housing law that authorized the model. The closest large-scale international parallel to a labor-for-housing pipeline as described in this guide.
+- **Philippines:** Community Mortgage Program (CMP) and the Social Housing Finance Corporation, a state-supported pathway for community associations to purchase the land their members already occupy.
+- **Kenya:** Savings and Credit Cooperatives (SACCOs) acting as housing finance vehicles for member-built housing; National Cooperative Housing Union of Kenya (NACHU) coordinates.
+- **India:** Cooperative housing societies under state Co-operative Societies Acts, plus federal apartment-ownership legislation. Land tenure is heavily state-dependent and informal-sector housing is a separate problem the framework above does not address.
+- **Australia, Aotearoa/New Zealand, Canada:** mature housing-cooperative sectors and emerging CLT movements; in all three, Indigenous land-rights frameworks (treaty and aboriginal title) are foundational and any housing pilot has to engage them, not work around them.
+
+A full international legal appendix - one that does the work Part 4 does for the US, jurisdiction by jurisdiction - is on the v2 roadmap. We name the gap here so international readers know it exists, and so v2 contributors know where the work is.
 
 ---
 
