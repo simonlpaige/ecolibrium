@@ -1,0 +1,551 @@
+# REGISTRIES.yaml
+#
+# Canonical catalog of every country's national legal-entity / nonprofit /
+# charity registry that Commonweave knows about. Sourced from
+# NEW-WAVE-RESEARCH-SOURCE.md (the "new wave" research doc) and the
+# strategic plan in NEW-WAVE-INGEST-PLAN.md, both written 2026-04-25.
+#
+# This file is the place to record what we know about each country's
+# drawer: the registrar, the search URL, what entity classes it exposes,
+# update frequency, and whether the URL was confirmed reachable. It
+# replaces the scattered notes that used to live in ingester docstrings.
+#
+# Schema per entry:
+#   country_code:  ISO 3166-1 alpha-2.
+#   country_name:  human-readable.
+#   registrar:     organization that owns the registry.
+#   registry_name: name of the registry as the registrar uses it.
+#   url:           canonical public search or bulk-download URL. null if
+#                  no confirmed public portal (then notes explain).
+#   bulk_data_url: bulk file URL when published. null if not bulk-able.
+#   languages:     ISO 639-1 codes.
+#   entity_classes_in_scope: kinds of entity searchable here that map to
+#                  Commonweave-aligned legal forms (charity, nonprofit,
+#                  community company, association, foundation, cooperative,
+#                  etc).
+#   api:           true if a documented API exists.
+#   bulk_csv:      true if a bulk CSV / dataset download exists.
+#   auth_required: true if login or paid access blocks public reads.
+#   update_frequency: 'real_time' | 'daily' | 'weekly' | 'monthly' |
+#                     'quarterly' | 'annually' | 'periodic' | 'unknown'.
+#   last_checked:  ISO date when a human or this script last verified URL.
+#   notes:         anything else worth knowing.
+#   wave_a_target: true if this brief covers it (AU, BG, BR for Wave A's
+#                  first three).
+#
+# Today this file lists the 17 Wave A countries plus the ~10 other
+# confirmed-reachable national portals named in the new wave doc. Wave B
+# and Wave C will extend it. We are not trying to enumerate all ~190
+# jurisdictions in one sitting.
+
+registries:
+
+  # ── Wave A: the three this brief actually ingests ─────────────────────
+
+  - country_code: AU
+    country_name: Australia
+    registrar: Australian Charities and Not-for-profits Commission
+    registry_name: ACNC Charity Register
+    url: https://www.acnc.gov.au/charity
+    bulk_data_url: https://data.gov.au/dataset/ds-dga-b050b242-4487-4306-abf5-07ca073e5594
+    languages: [en]
+    entity_classes_in_scope:
+      - registered_charity
+      - public_benevolent_institution
+      - health_promotion_charity
+      - charitable_purpose_advancement_of_education
+      - charitable_purpose_advancement_of_health
+      - charitable_purpose_advancement_of_social_or_public_welfare
+    api: true
+    bulk_csv: true
+    auth_required: false
+    update_frequency: monthly
+    last_checked: 2026-04-25
+    notes: National charity register. Quarterly/monthly CSV dump on data.gov.au; also has a public REST API at acnc-public-api.azure-api.net. Around 70k registered charities.
+    wave_a_target: true
+
+  - country_code: BG
+    country_name: Bulgaria
+    registrar: Registry Agency (Агенция по вписванията)
+    registry_name: Register of Non-profit Legal Entities (Регистър на юридическите лица с нестопанска цел)
+    url: https://portal.registryagency.bg/
+    bulk_data_url: null
+    languages: [bg]
+    entity_classes_in_scope:
+      - non_profit_legal_entity
+      - association
+      - foundation
+      - chitalishte
+    api: false
+    bulk_csv: false
+    auth_required: false
+    update_frequency: periodic
+    last_checked: 2026-04-25
+    notes: Commercial Register and Register of NPOs are integrated under one portal. Public search exists in Bulgarian (Cyrillic). Bulk export availability is uncertain. Wikidata SPARQL fallback for instance-of nonprofit organization (Q163740) + country (Q219) gives a smaller but reliable set.
+    wave_a_target: true
+
+  - country_code: BR
+    country_name: Brazil
+    registrar: IPEA (Instituto de Pesquisa Econômica Aplicada) and Receita Federal
+    registry_name: Mapa das Organizações da Sociedade Civil (OSCs) and CNPJ public bulk data
+    url: https://mapaosc.ipea.gov.br/
+    bulk_data_url: https://mapaosc.ipea.gov.br/
+    languages: [pt]
+    entity_classes_in_scope:
+      - organizacao_da_sociedade_civil
+      - associacao_privada
+      - fundacao_privada
+      - cooperativa
+    api: true
+    bulk_csv: true
+    auth_required: false
+    update_frequency: annually
+    last_checked: 2026-04-25
+    notes: Mapa das OSCs has ~860k organizations of the social-civil-society universe with CNAE activity codes. CNPJ legal-form codes include 3220 (Associação Privada), 3999 (Outras Fundações), 2143 (Cooperativa). Pre-filter by purpose / CNAE so we do not pull HOAs and religious-only associations. Aim for 30-60k aligned rows.
+    wave_a_target: true
+
+  # ── Wave A: not in this brief, but on the plan list and verified ──────
+
+  - country_code: NZ
+    country_name: New Zealand
+    registrar: Charities Services (Te Rātā Atawhai)
+    registry_name: Charities Services Register
+    url: https://www.charities.govt.nz/charities-in-new-zealand/the-charities-register/
+    bulk_data_url: https://www.charities.govt.nz/about-charities-services/our-data-and-research/open-data-portal/
+    languages: [en, mi]
+    entity_classes_in_scope: [registered_charity]
+    api: true
+    bulk_csv: true
+    auth_required: false
+    update_frequency: monthly
+    last_checked: 2026-04-25
+    notes: Strong national charity register with bulk CSV. Already pulls ~336 NZ rows via Wikidata; an ACNC-style ingester would bring in the long tail of small charities.
+    wave_a_target: false
+
+  - country_code: IL
+    country_name: Israel
+    registrar: Registrar of Associations and Public Trusts (Ministry of Justice)
+    registry_name: GuideStar Israel
+    url: https://www.guidestar.org.il/
+    bulk_data_url: null
+    languages: [he, en, ar]
+    entity_classes_in_scope: [association, public_benefit_company, public_trust]
+    api: false
+    bulk_csv: false
+    auth_required: false
+    update_frequency: periodic
+    last_checked: 2026-04-25
+    notes: GuideStar Israel is the de facto public nonprofit directory; underlying register is the Registrar of Associations. Hebrew + Arabic + English search.
+    wave_a_target: false
+
+  - country_code: SB
+    country_name: Solomon Islands
+    registrar: Solomon Islands Company Haus
+    registry_name: Company Haus
+    url: https://www.solomonbusinessregistry.gov.sb/
+    bulk_data_url: null
+    languages: [en]
+    entity_classes_in_scope:
+      - charitable_organization
+      - community_company
+      - private_company
+      - public_company
+    api: false
+    bulk_csv: false
+    auth_required: false
+    update_frequency: real_time
+    last_checked: 2026-04-25
+    notes: Real-time online updates. Charitable orgs and community companies are searchable as legal forms (rare and valuable). High mission-fit even though row count is small.
+    wave_a_target: false
+
+  - country_code: DM
+    country_name: Dominica
+    registrar: Companies and Intellectual Property Office
+    registry_name: CIPO Dominica
+    url: https://www.cipo.gov.dm/
+    bulk_data_url: null
+    languages: [en]
+    entity_classes_in_scope:
+      - non_profit_company
+      - business_name
+      - international_business_company
+    api: false
+    bulk_csv: false
+    auth_required: false
+    update_frequency: periodic
+    last_checked: 2026-04-25
+    notes: Non-profit company is an explicit registration class. Small island jurisdiction so the row count will be modest.
+    wave_a_target: false
+
+  - country_code: AG
+    country_name: Antigua and Barbuda
+    registrar: Antigua and Barbuda Intellectual Property and Commerce Office
+    registry_name: ABIPCO
+    url: https://abipco.gov.ag/searchtheregister/
+    bulk_data_url: null
+    languages: [en]
+    entity_classes_in_scope: [charity, society, company, business_name]
+    api: false
+    bulk_csv: false
+    auth_required: false
+    update_frequency: periodic
+    last_checked: 2026-04-25
+    notes: Charities and societies are searchable alongside firms. Public search free; ABIPCO warns its database is a working copy not the official record.
+    wave_a_target: false
+
+  - country_code: VU
+    country_name: Vanuatu
+    registrar: Vanuatu Financial Services Commission
+    registry_name: VFSC entity search
+    url: https://www.vfsc.vu/entity-search/
+    bulk_data_url: null
+    languages: [en, fr, bi]
+    entity_classes_in_scope: [charitable_association, company, business_name]
+    api: false
+    bulk_csv: false
+    auth_required: false
+    update_frequency: periodic
+    last_checked: 2026-04-25
+    notes: Charitable associations are explicitly searchable as a legal form. Trilingual portal.
+    wave_a_target: false
+
+  - country_code: PW
+    country_name: Palau
+    registrar: Financial Institutions Commission
+    registry_name: Corporations Registry
+    url: https://palauregistries.pw/
+    bulk_data_url: null
+    languages: [en]
+    entity_classes_in_scope:
+      - nonprofit_corporation
+      - for_profit_corporation
+      - foreign_corporation
+    api: false
+    bulk_csv: false
+    auth_required: false
+    update_frequency: real_time
+    last_checked: 2026-04-25
+    notes: Real-time online search stated. Nonprofit corporations are explicitly in scope and directors / shareholders are searchable.
+    wave_a_target: false
+
+  - country_code: WS
+    country_name: Samoa
+    registrar: Samoa Ministry of Commerce, Industry and Labour
+    registry_name: Samoa Companies Registry (BR)
+    url: https://www.businessregistries.gov.ws/samoa-br-companies/
+    bulk_data_url: null
+    languages: [en, sm]
+    entity_classes_in_scope: [company, overseas_company]
+    api: false
+    bulk_csv: false
+    auth_required: false
+    update_frequency: periodic
+    last_checked: 2026-04-25
+    notes: Company register with director / shareholder fields exposed. Charities live in a separate ministry register.
+    wave_a_target: false
+
+  - country_code: PH
+    country_name: Philippines
+    registrar: Securities and Exchange Commission
+    registry_name: SEC Express System / non-stock corporation search
+    url: https://www.sec.gov.ph/
+    bulk_data_url: null
+    languages: [en, tl]
+    entity_classes_in_scope: [non_stock_corporation, foundation, association]
+    api: false
+    bulk_csv: false
+    auth_required: false
+    update_frequency: periodic
+    last_checked: 2026-04-25
+    notes: Non-stock corporation is the Philippine nonprofit form. Search exists but is partly behind paid SEC Express services.
+    wave_a_target: false
+
+  - country_code: IN
+    country_name: India
+    registrar: Ministry of Corporate Affairs
+    registry_name: MCA21 (Section-8 / CSR companies)
+    url: https://www.mca.gov.in/
+    bulk_data_url: null
+    languages: [en, hi]
+    entity_classes_in_scope: [section_8_company, llp, csr_registered_entity]
+    api: false
+    bulk_csv: false
+    auth_required: true
+    update_frequency: periodic
+    last_checked: 2026-04-25
+    notes: Section-8 of the Companies Act 2013 = nonprofit form. Basic search free, richer filings via paid layers. India also has NGO Darpan and NCDC for separate slices; all wired through ingest_india.py as TODOs.
+    wave_a_target: false
+
+  - country_code: PL
+    country_name: Poland
+    registrar: Ministry of Justice
+    registry_name: Krajowy Rejestr Sądowy (KRS) and CEIDG
+    url: https://ekrs.ms.gov.pl/
+    bulk_data_url: null
+    languages: [pl]
+    entity_classes_in_scope: [stowarzyszenie, fundacja, spoldzielnia, company]
+    api: false
+    bulk_csv: false
+    auth_required: false
+    update_frequency: periodic
+    last_checked: 2026-04-25
+    notes: Associations (stowarzyszenia) and foundations (fundacje) are visible inside KRS alongside companies. Sólid Polish-language portal.
+    wave_a_target: false
+
+  - country_code: UA
+    country_name: Ukraine
+    registrar: Ministry of Justice of Ukraine
+    registry_name: Unified State Register and NGO register
+    url: null
+    bulk_data_url: null
+    languages: [uk]
+    entity_classes_in_scope: [public_organization, charitable_organization, ngo, company]
+    api: false
+    bulk_csv: false
+    auth_required: false
+    update_frequency: unknown
+    last_checked: 2026-04-25
+    notes: Authority anchor; the public-facing search portal has been intermittently reachable since 2022. Fall back to Wikidata SPARQL for now.
+    wave_a_target: false
+
+  - country_code: MD
+    country_name: Moldova
+    registrar: Ministry of Justice (State Registration Chamber)
+    registry_name: State Register of Non-profit Organizations
+    url: null
+    bulk_data_url: null
+    languages: [ro, ru]
+    entity_classes_in_scope: [association, foundation, ngo]
+    api: false
+    bulk_csv: false
+    auth_required: false
+    update_frequency: unknown
+    last_checked: 2026-04-25
+    notes: Authority anchor. Confirmed in the new wave doc but no clean public search URL yet. Wave B candidate.
+    wave_a_target: false
+
+  - country_code: SA
+    country_name: Saudi Arabia
+    registrar: Ministry of Human Resources and Social Development
+    registry_name: National nonprofit regulator
+    url: null
+    bulk_data_url: null
+    languages: [ar, en]
+    entity_classes_in_scope: [charity, association, endowment]
+    api: false
+    bulk_csv: false
+    auth_required: true
+    update_frequency: unknown
+    last_checked: 2026-04-25
+    notes: Authority-first; charities are governed by a national nonprofit regulator. Public search URL not yet confirmed.
+    wave_a_target: false
+
+  # ── Other confirmed-reachable Wave B candidates (from new wave gap list) ─
+
+  - country_code: DZ
+    country_name: Algeria
+    registrar: Centre National du Registre du Commerce
+    registry_name: CNRC / Sidjilcom
+    url: https://sidjilcom.cnrc.dz/
+    bulk_data_url: null
+    languages: [fr, ar]
+    entity_classes_in_scope: [company, cooperative, association]
+    api: false
+    bulk_csv: false
+    auth_required: false
+    update_frequency: periodic
+    last_checked: 2026-04-25
+    notes: Activity nomenclature and social-account filings are exposed. Basic info free, richer detail by subscription.
+    wave_a_target: false
+
+  - country_code: NG
+    country_name: Nigeria
+    registrar: Corporate Affairs Commission
+    registry_name: CAC public search
+    url: https://new.cac.gov.ng/home
+    bulk_data_url: null
+    languages: [en]
+    entity_classes_in_scope: [association, business_name, company, incorporated_trustees]
+    api: false
+    bulk_csv: false
+    auth_required: false
+    update_frequency: periodic
+    last_checked: 2026-04-25
+    notes: One of the better African anchors for formal nonprofits (registered as Incorporated Trustees) and companies.
+    wave_a_target: false
+
+  - country_code: ZM
+    country_name: Zambia
+    registrar: Patents and Companies Registration Agency
+    registry_name: PACRA search
+    url: https://search.pacra.org.zm
+    bulk_data_url: null
+    languages: [en]
+    entity_classes_in_scope: [company, business_name, society]
+    api: false
+    bulk_csv: false
+    auth_required: false
+    update_frequency: periodic
+    last_checked: 2026-04-25
+    notes: Free basic status / name / NACE / number search.
+    wave_a_target: false
+
+  - country_code: BW
+    country_name: Botswana
+    registrar: Companies and Intellectual Property Authority
+    registry_name: CIPA
+    url: https://www.cipa.co.bw/home
+    bulk_data_url: null
+    languages: [en]
+    entity_classes_in_scope: [company, business_name, society]
+    api: false
+    bulk_csv: false
+    auth_required: false
+    update_frequency: periodic
+    last_checked: 2026-04-25
+    notes: Role / officer search is exposed. Useful for governance overlap signals.
+    wave_a_target: false
+
+  - country_code: AO
+    country_name: Angola
+    registrar: Ministry of Justice and Human Rights
+    registry_name: Guiché Único da Empresa
+    url: https://gue.gov.ao/
+    bulk_data_url: null
+    languages: [pt]
+    entity_classes_in_scope: [company, sole_trader, cooperative]
+    api: false
+    bulk_csv: false
+    auth_required: false
+    update_frequency: periodic
+    last_checked: 2026-04-25
+    notes: Strong on cooperatives and SMEs. Use legal form plus business purpose.
+    wave_a_target: false
+
+  - country_code: FJ
+    country_name: Fiji
+    registrar: Fiji Government / Registrar of Companies
+    registry_name: businessNOW
+    url: https://www.businessnow.gov.fj/
+    bulk_data_url: null
+    languages: [en]
+    entity_classes_in_scope: [company, business_name, cooperative]
+    api: false
+    bulk_csv: false
+    auth_required: false
+    update_frequency: periodic
+    last_checked: 2026-04-25
+    notes: Business-start central flow. Coops and formal SMEs are the main aligned pool.
+    wave_a_target: false
+
+  - country_code: BN
+    country_name: Brunei
+    registrar: Ministry of Finance and Economy
+    registry_name: Registry of Companies and Business Names (ROCBN)
+    url: https://www.mofe.gov.bn/div_rocbn_corporateregistrysystem/
+    bulk_data_url: null
+    languages: [en, ms]
+    entity_classes_in_scope: [company, business_name]
+    api: false
+    bulk_csv: false
+    auth_required: true
+    update_frequency: periodic
+    last_checked: 2026-04-25
+    notes: Portal exists but parts gated behind login. Use for legal-existence checks.
+    wave_a_target: false
+
+  - country_code: DK
+    country_name: Denmark
+    registrar: Erhvervsstyrelsen
+    registry_name: CVR (Det Centrale Virksomhedsregister)
+    url: https://datacvr.virk.dk/
+    bulk_data_url: https://datacvr.virk.dk/data
+    languages: [da, en]
+    entity_classes_in_scope: [company, association, foundation, beneficial_owner]
+    api: true
+    bulk_csv: true
+    auth_required: false
+    update_frequency: daily
+    last_checked: 2026-04-25
+    notes: One of the cleanest machine-readable national registers globally. Strong filings, beneficial-ownership, and management data.
+    wave_a_target: false
+
+  - country_code: EE
+    country_name: Estonia
+    registrar: Centre of Registers and Information Systems
+    registry_name: e-Business Register
+    url: https://ariregister.rik.ee/
+    bulk_data_url: null
+    languages: [et, en]
+    entity_classes_in_scope: [company, ngo, foundation, cooperative]
+    api: true
+    bulk_csv: false
+    auth_required: false
+    update_frequency: real_time
+    last_checked: 2026-04-25
+    notes: Strong legal-form filtering; non-profit forms (mittetulundusühing, sihtasutus) are searchable.
+    wave_a_target: false
+
+  - country_code: CZ
+    country_name: Czech Republic
+    registrar: Ministry of Finance / public administration
+    registry_name: ARES (Administrative Register of Economic Subjects)
+    url: https://wwwinfo.mfcr.cz/ares/ares.html.en
+    bulk_data_url: null
+    languages: [cs, en]
+    entity_classes_in_scope: [company, association, foundation]
+    api: true
+    bulk_csv: false
+    auth_required: false
+    update_frequency: daily
+    last_checked: 2026-04-25
+    notes: Linked-register service that combines the public register, tax register, and others. Useful for cross-referencing legal forms.
+    wave_a_target: false
+
+  - country_code: JP
+    country_name: Japan
+    registrar: National Tax Agency
+    registry_name: Corporate Number Publication Site
+    url: https://www.houjin-bangou.nta.go.jp/
+    bulk_data_url: https://www.houjin-bangou.nta.go.jp/download/
+    languages: [ja, en]
+    entity_classes_in_scope: [company, npo_corporation, public_interest_corporation]
+    api: true
+    bulk_csv: true
+    auth_required: false
+    update_frequency: daily
+    last_checked: 2026-04-25
+    notes: NPO houjin (NPO法人) and koeki houjin (公益法人) are the aligned forms. Bulk CSV is excellent.
+    wave_a_target: false
+
+  - country_code: TW
+    country_name: Taiwan
+    registrar: Ministry of Economic Affairs
+    registry_name: Department of Commerce search
+    url: https://findbiz.nat.gov.tw/
+    bulk_data_url: null
+    languages: [zh, en]
+    entity_classes_in_scope: [company, association, foundation]
+    api: false
+    bulk_csv: false
+    auth_required: false
+    update_frequency: periodic
+    last_checked: 2026-04-25
+    notes: Strong formal-company anchor. Foundations and associations searchable through Ministry of Interior layer.
+    wave_a_target: false
+
+  - country_code: VN
+    country_name: Vietnam
+    registrar: Ministry of Planning and Investment
+    registry_name: National Business Registration Portal
+    url: https://dangkykinhdoanh.gov.vn/
+    bulk_data_url: null
+    languages: [vi, en]
+    entity_classes_in_scope: [company, cooperative, social_enterprise]
+    api: false
+    bulk_csv: false
+    auth_required: false
+    update_frequency: periodic
+    last_checked: 2026-04-25
+    notes: Strong formal-company anchor. Vietnamese law recognizes cooperatives and social enterprises explicitly.
+    wave_a_target: false

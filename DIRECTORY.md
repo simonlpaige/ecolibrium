@@ -1,6 +1,6 @@
 # 🌍 Commonweave Global Civil Society Directory
 
-*Last updated: 2026-04-26 03:34 UTC*
+*Last updated: 2026-04-26 04:04 UTC*
 
 
 ## Coverage
@@ -15,17 +15,17 @@
 | 🌐 Angola (AO) | 2 | Field Research | ✅ |
 | 🌐 Argentina (AR) | 108 | Field Research | ✅ |
 | 🌐 Austria (AT) | 10 | Field Research | ✅ |
-| 🌐 Australia (AU) | 334 | Field Research | ✅ |
+| 🌐 Australia (AU) | 49,463 | Field Research | ✅ |
 | 🌐 Bosnia and Herzegovina (BA) | 1 | Field Research | ✅ |
 | 🌐 Bangladesh (BD) | 7 | Field Research | ✅ |
 | 🌐 Belgium (BE) | 218 | Field Research | ✅ |
 | 🌐 Burkina Faso (BF) | 4 | Field Research | ✅ |
-| 🌐 Bulgaria (BG) | 4 | Field Research | ✅ |
+| 🌐 Bulgaria (BG) | 2,538 | Field Research | ✅ |
 | 🌐 Bahrain (BH) | 1 | Field Research | ✅ |
 | 🌐 Benin (BJ) | 7 | Field Research | ✅ |
 | 🌐 Brunei (BN) | 0 | Field Research | ✅ |
 | 🌐 Bolivia (BO) | 23 | Field Research | ✅ |
-| 🌐 Brazil (BR) | 135 | Field Research | ✅ |
+| 🌐 Brazil (BR) | 85,588 | Field Research | ✅ |
 | 🌐 Botswana (BW) | 2 | Field Research | ✅ |
 | 🌐 Belarus (BY) | 3 | Field Research | ✅ |
 | 🌐 Belize (BZ) | 1 | Field Research | ✅ |

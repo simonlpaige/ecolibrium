@@ -98,6 +98,77 @@ MODEL_TYPE_SIGNALS = {
 }
 
 
+# ── Legal-form score axis ────────────────────────────────────────────────
+# Wave A introduced ingesters whose rows are aligned by legal form rather
+# than by English-keyword presence in the description (a Bulgarian NPO does
+# not need to say "nonprofit" in English to be a nonprofit). We add a
+# second scoring axis here that bumps alignment_score based on model_type
+# and registration_type. The bump stacks with the description-keyword
+# score, capped by score_org's existing -10..10 ceiling.
+#
+# Keys are exact lowercased values found in the model_type or
+# registration_type columns. Ingesters set these at insert time, so we get
+# the bump without having to pattern-match against English text.
+
+LEGAL_FORM_BUMPS_MODEL = {
+    'cooperative': 3,
+    'community_land_trust': 4,
+    'community_company': 3,
+    'non_profit_company': 3,
+    'charitable_organization': 2,
+    'association': 2,
+    'foundation': 2,
+    'social_enterprise': 3,
+    'community_interest_company': 3,
+    'section_8_company': 3,        # India
+    'osc': 2,                       # Brazil's "organizacao da sociedade civil"
+    'public_benevolent_institution': 3,  # Australia
+    'benefit_corporation': 2,
+    'mutual_aid': 3,
+    'sweat_equity_program': 3,
+    'labor_union': 2,
+    'works_council': 2,
+}
+
+# registration_type carries the per-source registry tag (e.g. ACNC
+# registration, BR_CNPJ, BG_NPO_REGISTER, labor/union_federation). When the
+# legal form is encoded only in registration_type, we score by substring
+# match. Lowercased.
+LEGAL_FORM_BUMPS_REG = {
+    'acnc_registration': 2,             # any ACNC charity is by definition formal nonprofit
+    'br_cnpj': 1,                        # baseline; cooperatives get extra via model_type
+    'bg_npo_register': 2,
+    'community_land_trust': 4,
+    'land_and_housing/community_land_trust': 4,
+    'land_and_housing/sweat_equity_program': 3,
+    'labor/construction_cooperative': 3,
+    'labor/union_federation': 2,
+    'labor/national_union': 2,
+    'labor/works_council_system': 2,
+    'section_8': 3,
+    'india_section_8': 3,
+}
+
+
+def legal_form_bump(model_type, registration_type):
+    """Return the alignment-score bump for this row's encoded legal form."""
+    bump = 0
+    mt = (model_type or '').strip().lower()
+    if mt in LEGAL_FORM_BUMPS_MODEL:
+        bump += LEGAL_FORM_BUMPS_MODEL[mt]
+    rt = (registration_type or '').strip().lower()
+    if rt in LEGAL_FORM_BUMPS_REG:
+        bump += LEGAL_FORM_BUMPS_REG[rt]
+    else:
+        # Substring match for taxonomy-style "labor/union_federation",
+        # "land_and_housing/community_land_trust", etc.
+        for key, val in LEGAL_FORM_BUMPS_REG.items():
+            if '/' in key and key in rt:
+                bump += val
+                break
+    return bump
+
+
 def _normalize_for_match(text):
     # NFC first so composed/decomposed forms compare equal,
     # then lowercase. Keep Unicode intact, do not strip accents.
@@ -144,12 +215,18 @@ def _count_substring_hits(terms, text):
     return sum(1 for kw in terms if kw in text)
 
 
-def score_org(name, desc):
+def score_org(name, desc, model_type=None, registration_type=None):
+    """Combined alignment score. The keyword-on-text axis is the original
+    one. The legal-form axis is the addition Wave A required: a Bulgarian
+    or Brazilian row whose description is in the local language can still
+    score high because its model_type or registration_type encodes the
+    legal form directly."""
     combined = _normalize_for_match((name or '') + ' ' + (desc or ''))
     score = 0
     score += 3 * _count_unique_strong(combined)
     score += 1 * _count_substring_hits(MODERATE_POS, combined)
     score -= 3 * _count_substring_hits(NEGATIVE, combined)
+    score += legal_form_bump(model_type, registration_type)
     return max(-10, min(10, score))
 
 
@@ -180,7 +257,7 @@ def run():
     
     while True:
         c.execute("""
-            SELECT id, name, description
+            SELECT id, name, description, model_type, registration_type
             FROM organizations
             WHERE status='active' AND id > ?
             ORDER BY id
@@ -189,15 +266,22 @@ def run():
         rows = c.fetchall()
         if not rows:
             break
-        
+
         updates_active = []
         updates_downgrade = []
         updates_remove = []
-        
+
         for row in rows:
-            org_id, name, desc = row
-            score = score_org(name, desc)
-            mtype = get_model_type(name)
+            org_id, name, desc, existing_mtype, reg_type = row
+            score = score_org(name, desc, model_type=existing_mtype, registration_type=reg_type)
+            # Keep an existing model_type if the ingester already set it
+            # (cooperative / foundation / labor_union etc). Only fall back
+            # to name-based detection when the column is empty or the
+            # default 'nonprofit' was set by phase2_filter on a prior run.
+            if existing_mtype and existing_mtype not in ('nonprofit', '', None):
+                mtype = existing_mtype
+            else:
+                mtype = get_model_type(name)
             
             score_buckets[score] = score_buckets.get(score, 0) + 1
             model_type_counts[mtype] = model_type_counts.get(mtype, 0) + 1

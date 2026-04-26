@@ -2,41 +2,50 @@
 
 ## Honest Numbers
 
-As of April 2026, the directory contains **24,508 aligned organizations** across **60 countries**. This number is the result of a multi-pass alignment filter applied to a much larger raw import; both numbers matter and we keep the history.
+As of April 2026, after Wave A of the new-wave ingest, the directory contains **163,984 aligned organizations** across **171 countries**. The big jump from the prior 24,508-row state (88% US/UK) is the result of three new national-registry ingesters that hit Australia, Bulgaria, and Brazil all on the same day. That alone moves US/UK share from 88% to 13.1%, which was the headline goal Wave A was scoped to chase.
 
 ### Where the numbers came from
 
-1. We pulled ~760,000 records from three public registries (IRS BMF, UK Charity Commission, Wikidata) plus smaller ProPublica and hand-curated sets.
-2. Three audit passes removed obvious non-fits (alumni associations, cemeteries, homeowner associations, corporate retirement trusts, country clubs, etc.). That eliminated ~406,000 rows.
-3. The remaining rows were scored against a keyword list of framework mechanisms (community land trust, worker cooperative, mutual aid, food sovereignty, restorative justice, community health, open source, and so on). Rows scoring below 2 were removed.
-4. What remains: 24,508 rows with real framework signal. CSVs of every removed row are preserved in `data/trim_audit/` for transparency.
+1. We pulled raw records from a growing list of public registries (IRS BMF, UK Charity Commission, Wikidata, ACNC for Australia, Mapa das OSCs for Brazil, Wikidata-Bulgaria for Bulgarian NPOs) plus thematic sources for labor, land, and housing.
+2. Pre-filters at each ingest step drop obvious non-fits before they hit the database. Mapa OSCs is the loudest example: about 672,000 active Brazilian OSCs exist, of which 226,000 are pure religious orgs and another 18,000 are pure professional/employer associations. Both groups are skipped at ingest. The remaining ~85,000 are kept on a combination of IPEA area flags (saude, educacao, etc.) plus the brief's CNAE prefix whitelist.
+3. The audit and quality passes (`audit_pass1`, `audit_pass2`, `audit_pass3_ntee`, `audit_quality`) keep doing their job on top.
+4. `phase2_filter.py` re-scores everything with a combined keyword + legal-form score axis. The legal-form axis (added 2026-04-25) is the methodological win Wave A was about: a Bulgarian or Brazilian row whose description is in the local language can still score high because its `model_type` and `registration_type` columns encode the legal form directly.
+5. CSVs of every removed row are still preserved in `data/trim_audit/`.
 
 ### Current composition
 
-| Source | Records | % of Total | What You Get |
-|--------|---------|-----------|--------------|
-| UK Charity Commission | 11,537 | 47.1% | Name, registration ID, description available for many. |
-| IRS Exempt Organizations BMF | 9,402 | 38.4% | Name, EIN, state, city, NTEE code, filing year, revenue. |
-| Wikidata | 2,894 | 11.8% | Name, country, often website/description. |
-| ProPublica Nonprofit Explorer | 604 | 2.5% | US nonprofits with descriptions and financials. |
-| Web research | 58 | 0.2% | Hand-researched entries with full profiles. |
-| Manual curation | 13 | 0.1% | Individually verified and described entries. |
-| Wikidata (labor unions) | ~498 | new | Trade union federations, national unions, works councils (Q3395115, Q11038979, Q178790, Q1141395). |
-| ITUC affiliates | ~299 | new | ITUC-affiliated national trade union centers, parsed from the Wikipedia mirror when ituc-csi.org blocks automated requests. |
-| Wikidata (land trusts) | ~444 | new | Community land trusts (Q3278937) and housing cooperatives (Q562166); subclasses included via P279*. |
-| Grounded Solutions | ~41 | new | Curated seed list of US, UK, Canadian, and Belgian CLTs plus the Grounded Solutions Network member-spotlight feed. Primary directory URL is a 404 as of 2026-04-24. |
-| Habitat affiliates | ~66 | new | Habitat for Humanity international country offices. The ~355 US Habitat affiliates already in IRS_EO_BMF are enriched in place with the sweat-equity-program tags; no duplicates created. |
-| Construction coops | ~81 | new | Worker-owned construction and trades firms. Wikidata SPARQL plus seed list for Mondragon, Italian construction co-ops, French SCOPs, and US/UK worker co-ops. |
+| Source | Records | What You Get |
+|--------|--------:|--------------|
+| Mapa das OSCs (Brazil) | ~85,438 | CNPJ, IPEA area flags (saude, educacao, assistencia social, etc.), natureza juridica, CNAE primary, address, lat/lng. Filtered to skip pure-religion and pure-patronal rows; kept on IPEA-area or CNAE-prefix match. |
+| ACNC Charity Register (Australia) | ~48,542 | ABN, charitable purpose flags, beneficiary flags, address, website, PBI/HPC tags. Pure-religious-only rows dropped. |
+| UK Charity Commission | 11,396 | Name, registration ID, description available for many. |
+| IRS Exempt Organizations BMF | 9,392 | Name, EIN, state, city, NTEE code, filing year, revenue. |
+| Wikidata | 4,124 | Name, country, often website/description. |
+| Wikidata Bulgaria NPOs | ~2,528 | Bulgarian Cyrillic names of nonprofits, associations, foundations, and chitalishte (community cultural centers). Wikidata-side fallback because the Registry Agency portal is SSO-gated. |
+| ProPublica Nonprofit Explorer | 602 | US nonprofits with descriptions and financials. |
+| Wikidata (subregion) | 560 | Subnational Wikidata pulls. |
+| Wikidata (land trusts) | 444 | Community land trusts (Q3278937) and housing cooperatives (Q562166); subclasses via P279*. |
+| Wikidata (labor unions) | 405 | Trade union federations, national unions, works councils (Q3395115, Q11038979, Q178790, Q1141395). |
+| ITUC affiliates | 297 | ITUC-affiliated national trade union centers, parsed from the Wikipedia mirror when ituc-csi.org blocks automated requests. |
+| Construction coops | 81 | Worker-owned construction and trades firms. Wikidata plus seed list. |
+| Habitat affiliates | 66 | Habitat for Humanity international country offices; ~355 US affiliates enriched in place. |
+| Web research | 58 | Hand-researched entries with full profiles. |
+| Grounded Solutions | 38 | Curated seed list of US, UK, Canadian, and Belgian CLTs. |
+| Manual curation | 13 | Individually verified and described entries. |
 
-### Quality profile
+### Quality profile (after Wave A)
 
-- **11,737 entries (48%)** have a real description (>50 characters)
-- **10,262 entries (42%)** have a website on file
-- **10,067 entries (41%)** are verified (Tier A or B in the map)
-- **2,805 entries (11%)** score >=5 on framework alignment -- the strongest keyword matches
-- **US + UK: 21,559 entries (88%)** -- heavy English-language registry skew, with the remaining 58 countries holding 2,949 entries between them. Closing this gap is the main enrichment target.
+- **163,984 entries** total active, up from 24,508.
+- **171 countries** with at least one active org, up from 60.
+- **US + UK: 21,545 entries (13.1%)** -- the 88% English-language registry skew the prior `DATA.md` flagged is now Wave A's headline result, not an open issue.
+- **23,950 entries score >=2** on framework alignment after the legal-form bumps; **6,611 score >=5**.
+- **Brazil and Australia together** hold 134,449 entries (82% of the directory). That is a Brazilian-and-Australian skew of its own; Wave B and Wave C will rebalance.
 
-The earlier 738K figure counted every non-removed row including rows already flagged as excluded by prior audits. The 24,508 figure is what actually passed the full filter chain. We keep both histories documented rather than silently deleting them.
+The earlier 24,508 number is preserved in the git history. We keep that history documented rather than silently deleting it.
+
+### Wave A registry catalog
+
+The `data/sources/REGISTRIES.yaml` file (added 2026-04-25) is the canonical "what we know about each country's drawer." It documents the 17 Wave A target countries plus ~10 other confirmed-reachable national portals from the new wave research. Each entry records the registrar, the URL, the languages the portal speaks, the entity classes in scope, whether bulk data is published, and the last-checked date. New ingesters should update the `last_checked` field when they run.
 
 ## Data Schema
 
