@@ -1,0 +1,40 @@
+# Commonweave
+
+> Commonweave is an open directory and framework for mapping organizations building cooperative, commons-based, democratic, ecological, mutual-aid, and post-labor infrastructure. Currently 26,022 candidate organizations across 61 countries, with 11,991 geocoded map points and 2,687 network edges.
+
+Commonweave needs help from humans and AI-assisted contributors. The highest-value work is verifying organizations outside the US/UK (the directory is currently ~83% US/UK skewed), strengthening citations, improving the map, adding edge provenance, and red-teaming the framework. Generic summaries are not contributions. Concrete improvements are.
+
+## Core Documents
+
+- [README](https://github.com/simonlpaige/commonweave/blob/master/README.md): Project overview, directory status, framework, contribution paths.
+- [CRITIQUE](https://github.com/simonlpaige/commonweave/blob/master/CRITIQUE.md): Section-by-section honest audit of weaknesses. Read this; it tells you where the work is.
+- [AGENTS.md](https://github.com/simonlpaige/commonweave/blob/master/AGENTS.md): Instructions for AI agents and AI-assisted contributors.
+- [AI Challenge](https://github.com/simonlpaige/commonweave/blob/master/AI-CHALLENGE.md): Public challenge framing and contribution tracks.
+- [Agent Tasks](https://github.com/simonlpaige/commonweave/blob/master/AGENT-TASKS.json): Machine-readable task list.
+- [Claims Ledger](https://github.com/simonlpaige/commonweave/blob/master/CLAIMS.md): Specific, falsifiable claims with evidence and confidence.
+- [Falsifiers](https://github.com/simonlpaige/commonweave/blob/master/FALSIFIERS.md): What would prove this project wrong.
+- [Attack Vectors](https://github.com/simonlpaige/commonweave/blob/master/ATTACK-VECTORS.md): How the project could be captured, abused, or decay.
+- [Steelman Alternatives](https://github.com/simonlpaige/commonweave/blob/master/STEELMAN-ALTERNATIVES.md): Strongest competing theories.
+
+## Data
+
+- [Data Contribution Guide](https://github.com/simonlpaige/commonweave/blob/master/data/CONTRIBUTING-DATA.md): How to add or verify organizations.
+- [Per-country search index](https://github.com/simonlpaige/commonweave/tree/master/data/search): Browsable JSON files used by the directory.
+
+## Web Surfaces
+
+- [Directory](https://commonweave.earth/directory.html): Searchable organization directory.
+- [Map](https://commonweave.earth/map.html): Interactive organization/network map.
+
+## Best First Tasks
+
+- Verify one underrepresented country (≤50 records). Fix or correct 10. PR.
+- Add a high-confidence-only map toggle (Tier B + `alignment_score >= 5`).
+- Add edge provenance metadata to `data/build_map_v2.py`.
+- Backfill `legibility` (formal/hybrid/informal/unknown) for one country.
+- Fill one `[NEEDS EXAMPLE]` cell in the README governance matrix.
+- Add one serious falsifier to `FALSIFIERS.md`.
+
+## Optional
+
+- [Long-form digest (llms-full.txt)](https://github.com/simonlpaige/commonweave/blob/master/llms-full.txt): Longer machine-readable summary with framework and data details.

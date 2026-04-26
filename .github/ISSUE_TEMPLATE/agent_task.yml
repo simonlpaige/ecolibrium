@@ -1,0 +1,79 @@
+name: Agent-ready task
+description: A bounded task suitable for AI-assisted contribution.
+title: "[agent-ready]: "
+labels: ["agent-ready"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template to file a bounded task that an AI-assisted contributor (or careful human) can pick up. Read [AGENTS.md](../AGENTS.md) first.
+
+  - type: textarea
+    id: task
+    attributes:
+      label: Task
+      description: What should be changed? Be specific.
+      placeholder: e.g. "Add a high-confidence-only toggle to map.html that filters to Tier B + alignment_score >= 5."
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: How will we know this is done? Bullet list.
+      placeholder: |
+        - Toggle is visible on desktop and mobile
+        - Default map behavior unchanged
+        - Map still loads without console errors
+    validations:
+      required: true
+
+  - type: textarea
+    id: sources
+    attributes:
+      label: Relevant files or sources
+      description: Link files, docs, datasets, or examples that the contributor should read.
+      placeholder: |
+        - map.html
+        - data/build_map_v2.py
+        - README.md "What Exists Today" section
+
+  - type: textarea
+    id: safety
+    attributes:
+      label: Safety / misuse concerns
+      description: Could this expose vulnerable groups, invite spam, create false confidence, or be misused?
+      placeholder: e.g. "If the high-confidence toggle hides informal groups, that should be documented in the toggle help text so users don't read absence as low quality."
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Contribution type
+      options:
+        - data
+        - code
+        - research
+        - documentation
+        - governance
+        - other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: difficulty
+    attributes:
+      label: Difficulty
+      options:
+        - easy
+        - medium
+        - hard
+    validations:
+      required: true
+
+  - type: textarea
+    id: next
+    attributes:
+      label: Next task
+      description: What follow-up task should this unlock?
+      placeholder: e.g. "Once the toggle exists, add an explanation tooltip describing what high-confidence means and what it excludes."

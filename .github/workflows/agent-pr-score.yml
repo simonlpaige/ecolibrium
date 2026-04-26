@@ -1,0 +1,73 @@
+name: Agent PR Score
+
+# Score is informational only and does not block merges.
+# This workflow runs the rubric in evals/ against the changed files
+# and posts a JSON summary as a comment on the PR.
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  score:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Get changed files
+        id: changed
+        run: |
+          CHANGED=$(git diff --name-only origin/${{ github.base_ref }}...HEAD || git diff --name-only HEAD~1...HEAD)
+          echo "files<<EOF" >> $GITHUB_OUTPUT
+          echo "$CHANGED" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Score contribution
+        id: score
+        run: |
+          FILES=$(echo "${{ steps.changed.outputs.files }}" | tr '\n' ' ')
+          if [ -z "$FILES" ]; then
+            echo "No changed files detected; skipping."
+            echo "result={}" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          python evals/score_pr.py --json --files $FILES > score.json || true
+          cat score.json
+          {
+            echo "result<<EOF"
+            cat score.json
+            echo "EOF"
+          } >> $GITHUB_OUTPUT
+
+      - name: Comment score on PR
+        if: steps.score.outputs.result != '{}'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let body = "### Agent PR Score (informational only)\n\n";
+            try {
+              const score = fs.readFileSync('score.json', 'utf8');
+              body += "```json\n" + score + "\n```\n";
+            } catch (e) {
+              body += "Could not read score.json.\n";
+            }
+            body += "\nThis score does not block merges. See `evals/README.md` for the rubrics.\n";
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body
+            });

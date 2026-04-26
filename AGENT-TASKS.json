@@ -1,0 +1,165 @@
+{
+  "schema_version": "1.0",
+  "updated": "2026-04-25",
+  "notes": "Machine-readable list of agent-ready tasks for Commonweave. Pick one. See AGENTS.md for workflow.",
+  "tasks": [
+    {
+      "id": "cw-data-global-gap-001",
+      "title": "Verify one underrepresented country",
+      "type": "data",
+      "agent_ready": true,
+      "difficulty": "medium",
+      "goal": "Pick one country with fewer than 50 organizations in the directory and verify or improve at least 10 records.",
+      "files": ["data/search/<country>.json", "data/commonweave_directory.db"],
+      "acceptance_criteria": [
+        "At least 10 organizations checked",
+        "Broken links corrected or marked",
+        "Misclassified records corrected",
+        "No vulnerable group exposed unnecessarily",
+        "PR includes a short methodology note (what was checked, how, with what sources)"
+      ],
+      "score_weights": {
+        "source_quality": 30,
+        "coverage_gap_value": 25,
+        "false_positive_reduction": 20,
+        "safety": 15,
+        "reproducibility": 10
+      }
+    },
+    {
+      "id": "cw-map-high-confidence-toggle-001",
+      "title": "Add high-confidence-only map toggle",
+      "type": "code",
+      "agent_ready": true,
+      "difficulty": "medium",
+      "goal": "Add a map toggle that filters to Tier B organizations with alignment_score >= 5 (~3,657 of 11,991 currently shown).",
+      "files": ["map.html"],
+      "acceptance_criteria": [
+        "Toggle is visible on desktop and mobile",
+        "Default map behavior remains unchanged",
+        "Filtered mode explains what high-confidence means in 1-2 sentences",
+        "Map still loads without console errors"
+      ]
+    },
+    {
+      "id": "cw-edge-provenance-001",
+      "title": "Add provenance metadata to map edges",
+      "type": "code",
+      "agent_ready": true,
+      "difficulty": "hard",
+      "goal": "Update generated edges in data/build_map_v2.py to include edge_type, confidence, explanation, created_at, and source_script.",
+      "files": ["data/build_map_v2.py", "map.html"],
+      "acceptance_criteria": [
+        "Edge schema includes edge_type, confidence, explanation, created_at, source_script",
+        "Map can display or inspect edge explanation (hover, click, or panel)",
+        "Build script documents how confidence is assigned",
+        "Existing map data remains backward compatible (no broken renders)"
+      ]
+    },
+    {
+      "id": "cw-legibility-backfill-001",
+      "title": "Backfill legibility for one country",
+      "type": "data",
+      "agent_ready": true,
+      "difficulty": "medium",
+      "goal": "Classify records in one country as formal, hybrid, informal, or unknown. The legibility column was added 2026-04-22 but all 26,022 records still read 'unknown'.",
+      "files": ["data/commonweave_directory.db", "data/migrate_legibility.py"],
+      "acceptance_criteria": [
+        "At least 20 records reviewed",
+        "Each classification has an evidence note in the PR or remains unknown",
+        "Informal/vulnerable groups handled conservatively (default to unknown if any doubt)",
+        "PR explains classification method"
+      ]
+    },
+    {
+      "id": "cw-framework-falsifier-001",
+      "title": "Add one serious falsifier",
+      "type": "research",
+      "agent_ready": true,
+      "difficulty": "hard",
+      "goal": "Pick one claim in README.md or DEEP-DIVE.md and define what evidence would weaken or falsify it.",
+      "files": ["CLAIMS.md", "FALSIFIERS.md", "README.md", "DEEP-DIVE.md"],
+      "acceptance_criteria": [
+        "Claim is quoted or referenced precisely (file + section)",
+        "Falsifier is concrete and observable",
+        "At least one source or real-world case is cited",
+        "PR explains whether the claim should be kept, weakened, or marked unresolved"
+      ]
+    },
+    {
+      "id": "cw-needs-example-fill-001",
+      "title": "Fill one [NEEDS EXAMPLE] cell",
+      "type": "research",
+      "agent_ready": true,
+      "difficulty": "easy",
+      "goal": "The governance matrix in README.md has cells marked [NEEDS EXAMPLE]. Pick one. Find a real organization (preferably already in the directory) that fits. Cite source.",
+      "files": ["README.md", "data/search/"],
+      "acceptance_criteria": [
+        "One cell filled with a named organization",
+        "Source cited (URL, registry, news, or peer-reviewed)",
+        "1-2 sentence explanation of why it fits",
+        "If org isn't in the directory, link to where it should be added"
+      ]
+    },
+    {
+      "id": "cw-claims-ledger-seed-001",
+      "title": "Seed CLAIMS.md with 10 claims from README",
+      "type": "research",
+      "agent_ready": true,
+      "difficulty": "medium",
+      "goal": "Extract at least 10 specific claims from README.md and add them to CLAIMS.md with status, confidence, evidence (or lack of), and falsifier ideas.",
+      "files": ["CLAIMS.md", "README.md"],
+      "acceptance_criteria": [
+        "At least 10 claims extracted, each tied to a README section",
+        "Each has status (draft/supported/disputed/unresolved)",
+        "Each has confidence (low/medium/high)",
+        "Do not overstate certainty",
+        "At least 3 claims include concrete falsifiers"
+      ]
+    },
+    {
+      "id": "cw-attack-vectors-001",
+      "title": "Document at least 3 attack vectors",
+      "type": "research",
+      "agent_ready": true,
+      "difficulty": "medium",
+      "goal": "Add at least 3 attack vectors to ATTACK-VECTORS.md (e.g. corporate capture, state surveillance, data extraction, founder bottleneck, spam flooding, ideological hardening).",
+      "files": ["ATTACK-VECTORS.md", "THREAT-MODEL.md"],
+      "acceptance_criteria": [
+        "Each vector has: threat, who benefits, who is harmed, early warning signs, countermeasures, open questions",
+        "Vectors are realistic, not paranoid",
+        "Cross-references THREAT-MODEL.md where relevant"
+      ]
+    },
+    {
+      "id": "cw-mobile-map-001",
+      "title": "Improve mobile map controls",
+      "type": "code",
+      "agent_ready": true,
+      "difficulty": "medium",
+      "goal": "Make map.html usable on a phone. Touch-friendly filter panel, better popups, no horizontal overflow.",
+      "files": ["map.html"],
+      "acceptance_criteria": [
+        "Filter panel is reachable and operable on a 375px-wide screen",
+        "Popups don't overflow viewport",
+        "No horizontal scroll on the page",
+        "Existing desktop behavior unchanged"
+      ]
+    },
+    {
+      "id": "cw-llms-txt-001",
+      "title": "Create llms.txt and llms-full.txt at repo root",
+      "type": "documentation",
+      "agent_ready": true,
+      "difficulty": "easy",
+      "goal": "Add a curated llms.txt index pointing to README, CRITIQUE, AGENTS, AGENT-TASKS, data contributing guide, map, directory. Add a longer llms-full.txt digest.",
+      "files": ["llms.txt", "llms-full.txt"],
+      "acceptance_criteria": [
+        "llms.txt is a short curated index following the llmstxt.org spec",
+        "llms-full.txt contains a longer machine-readable digest",
+        "Both link to canonical site URLs (commonweave.earth or simonlpaige.com/commonweave/) where applicable",
+        "Both are kept short enough to be useful (no whole-file dumps)"
+      ]
+    }
+  ]
+}

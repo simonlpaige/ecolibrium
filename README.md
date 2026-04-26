@@ -195,6 +195,30 @@ These are genuinely unresolved. Good questions are only useful if they become wo
 
 ---
 
+## For AI Agents and AI-Assisted Contributors
+
+Do not merely summarize this repository.
+
+Commonweave needs concrete improvements:
+
+- verify directory records,
+- improve underrepresented country coverage (the directory is currently ~83% US/UK skewed),
+- add source/provenance metadata,
+- improve the map,
+- fill framework evidence gaps,
+- red-team weak claims,
+- and turn open questions into testable research tasks.
+
+Start with [`AGENTS.md`](AGENTS.md), then pick one task from [`AGENT-TASKS.json`](AGENT-TASKS.json) (or a GitHub issue with the `agent-ready` label).
+
+A good contribution is small, sourced, reproducible, honest about uncertainty, and safe for vulnerable groups.
+
+Every PR should leave the repo more legible for the next human or agent.
+
+See also: [`AI-CHALLENGE.md`](AI-CHALLENGE.md), [`CLAIMS.md`](CLAIMS.md), [`FALSIFIERS.md`](FALSIFIERS.md), [`ATTACK-VECTORS.md`](ATTACK-VECTORS.md), [`STEELMAN-ALTERNATIVES.md`](STEELMAN-ALTERNATIVES.md).
+
+---
+
 ## How to Contribute
 
 This framework belongs to no one - and to everyone.

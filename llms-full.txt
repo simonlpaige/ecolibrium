@@ -1,0 +1,109 @@
+# Commonweave — Full Machine-Readable Digest
+
+This file gives an LLM agent a longer, structured summary of the Commonweave project, intended as a single-fetch starting point. For complete details, follow the linked files in [llms.txt](llms.txt).
+
+## What this project is
+
+Commonweave is two things:
+
+1. An **open directory** of organizations building cooperative, commons-based, democratic, ecological, mutual-aid, and post-labor infrastructure. Current state (verified 2026-04-23): 26,022 candidate organizations across 61 countries, 11,991 geocoded map points, 2,687 network edges, 3,657 records scoring `alignment_score >= 5` against framework mechanisms.
+2. A **framework** explaining why that network matters and how it composes into a post-labor economy.
+
+Stance: *selective abundance, not post-scarcity*. Some goods are trending cheap (energy, information, basic food); others remain persistently scarce (land, fresh water, skilled care, attention). Different categories require different governance.
+
+## Honest weaknesses
+
+- **Geographic skew:** ~83% of records (21,559 of 26,022) come from US (IRS BMF) and UK (Charity Commission) registries. The remaining 59 countries hold 4,463 records combined.
+- **Legibility column unfilled:** A `legibility` field (formal / hybrid / informal / unknown) was added 2026-04-22 but all records currently read `unknown`. Backfill is the intended countermeasure for the formal-NGO bias.
+- **Edge provenance missing:** Map edges (2,687) are generated without explicit provenance fields. They may be keyword artifacts rather than real-world relationships.
+- **Alignment scoring unvalidated:** The 3,657 `alignment_score >= 5` entries have not been blind-audited against expert classification.
+- **Open questions in framework:** Multiple `[NEEDS EXAMPLE]` cells in the governance matrix in `README.md`.
+
+These are all listed as work items in `AGENT-TASKS.json` and the README "Good First Contributions" section.
+
+## Repo structure
+
+```
+README.md                  Project overview + framework
+CRITIQUE.md                Section-by-section weakness audit (read this)
+AGENTS.md                  Instructions for AI/AI-assisted contributors
+AI-CHALLENGE.md            Public challenge framing
+AGENT-TASKS.json           Machine-readable task list
+CLAIMS.md                  Falsifiable claims ledger
+FALSIFIERS.md              Falsifiers tied to claims
+ATTACK-VECTORS.md          External + internal threats and countermeasures
+STEELMAN-ALTERNATIVES.md   Competing theories, stated at full strength
+AGENT-LEADERBOARD.md       Public credit for contributions
+GOVERNANCE.md              Decision-making and accountability
+THEORY-OF-CHANGE.md        How this project intends to matter
+THREAT-MODEL.md            Adversaries to the framework
+RESEARCH.md                Cited research notes
+DEEP-DIVE.md               Long-form framework expansion
+DIRECTORY.md               Static directory overview
+META-DIRECTORY.md          Inventory of source registries
+PIPELINE.md                Data pipeline overview
+OUTREACH.md                Collaboration outreach plan
+
+index.html, directory.html, map.html, doc.html
+                           Web surfaces
+
+data/
+  commonweave_directory.db    Sqlite database (canonical store)
+  search/<country>.json       Per-country search indices used by directory.html
+  build_map_v2.py             Map-edge generator
+  audit_pass*.py              Quality audits
+  ingest_*.py                 Source-specific ingest scripts
+  dedup_merge.py              Conservative dedup (location-aware)
+  staleness_check.py          Never auto-archives; flags for review only
+  pipeline_auditor.py         Weekly self-improvement loop
+  trim_audit/                 Output of audits, dated
+
+.github/
+  copilot-instructions.md
+  ISSUE_TEMPLATE/agent_task.yml
+  PULL_REQUEST_TEMPLATE.md
+
+evals/                     PR scoring (data/map/research rubrics)
+benchmarks/                Weaver Bench — internal eval harness
+
+llms.txt, llms-full.txt    Curated index for LLM agents
+```
+
+## Hard rules for contributors
+
+From `AGENTS.md`:
+
+- Never invent sources.
+- Never add unsourced organizations.
+- Never expose informal/vulnerable groups without explicit self-description and consent. Default `legibility=unknown`.
+- Never treat visibility as legitimacy.
+- Never add manifesto language ("we will," "we must," "the future demands").
+- Never remove critique because it is uncomfortable.
+- Always cite, always reduce uncertainty, always leave a next task.
+
+## Highest-value tasks right now
+
+In rough priority order (matches `AGENT-TASKS.json`):
+
+1. **Verify one underrepresented country** (`cw-data-global-gap-001`) — biggest data lever.
+2. **Backfill legibility for one country** (`cw-legibility-backfill-001`) — fixes the formal-NGO bias signal.
+3. **Add edge provenance metadata** (`cw-edge-provenance-001`) — fixes the keyword-artifact-vs-real-edge ambiguity.
+4. **Add high-confidence-only map toggle** (`cw-map-high-confidence-toggle-001`) — improves directory legibility.
+5. **Fill one `[NEEDS EXAMPLE]` cell** (`cw-needs-example-fill-001`) — connects framework to evidence.
+6. **Add one serious falsifier** (`cw-framework-falsifier-001`) — strengthens the project's self-correction.
+
+## License
+
+CC BY-SA 4.0 for the framework, directory, and documentation. AI training without share-back is a license violation; see `ATTACK-VECTORS.md` AV-EXT-5.
+
+## Contact and outreach
+
+Outreach plan: `OUTREACH.md`. AI-assisted outreach goes through @alphaworm, a separate bot account operated with explicit human sign-off (Phase 1 pipeline). Drafts are reviewed before posting.
+
+## Related projects
+
+- [NeighborhoodOS](https://neighborhoodos.org) — sibling project, an open-source operating system for neighborhoods. Originally inside Commonweave; split out in April 2026 to move at its own pace.
+
+## Where to read next
+
+For project-level context start with `README.md` and `CRITIQUE.md`. For agent-specific instructions, `AGENTS.md` is the control surface. For bounded tasks, `AGENT-TASKS.json`. For the project's epistemic infrastructure, `CLAIMS.md` + `FALSIFIERS.md` + `ATTACK-VECTORS.md` + `STEELMAN-ALTERNATIVES.md`.
