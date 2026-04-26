@@ -65,11 +65,12 @@
     "org_count": 11481
   },
   "HR": {
-    "completed": false,
+    "completed": true,
+    "completed_at": "2026-04-26T13:16:37.598253Z",
     "country_name": "Croatia",
-    "last_attempted_at": "2026-04-26T12:13:55.548436Z",
+    "last_attempted_at": "2026-04-26T13:16:37.598224Z",
     "markdown_path": "C:\\Users\\simon\\.openclaw\\workspace\\commonweave\\data\\regional\\DIRECTORY_HR.md",
-    "org_count": 0
+    "org_count": 31
   },
   "ID": {
     "completed": true,
@@ -150,6 +151,14 @@
     "last_attempted_at": "2026-04-23T02:38:32.780254Z",
     "markdown_path": "C:\\Users\\simon\\.openclaw\\workspace\\commonweave\\data\\regional\\DIRECTORY_RU.md",
     "org_count": 1
+  },
+  "SI": {
+    "completed": true,
+    "completed_at": "2026-04-26T13:48:41.685138Z",
+    "country_name": "Slovenia",
+    "last_attempted_at": "2026-04-26T13:48:41.685122Z",
+    "markdown_path": "C:\\Users\\simon\\.openclaw\\workspace\\commonweave\\data\\regional\\DIRECTORY_SI.md",
+    "org_count": 23
   },
   "SK": {
     "completed": true,
