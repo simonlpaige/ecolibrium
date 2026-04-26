@@ -1,6 +1,6 @@
 # 🌍 Commonweave Global Civil Society Directory
 
-*Last updated: 2026-04-25 19:56 UTC*
+*Last updated: 2026-04-26 03:03 UTC*
 
 
 ## Coverage
@@ -168,6 +168,8 @@
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
 **Total: 27,533 organizations indexed** across 171 countries
+ — **16,628 of those have coordinates and appear on [the map](map.html)** (Tier A/B/C only).
+ *Counts from `data/map/stats.json`, last built 2026-04-26.*
 
 
 ---
@@ -1648,7 +1650,7 @@ Model: nonprofit
 
 # 🌐 Croatia (HR) Civil Society Directory
 
-*Compiled: 2026-04-25 | Source: Web research | Organizations: 0*
+*Compiled: 2026-04-26 | Source: Web research | Organizations: 0*
 
 ---
 

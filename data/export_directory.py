@@ -2,17 +2,35 @@
 Export commonweave DB + regional files into commonweave/DIRECTORY.md
 Strategy: curated summary page with stats + regional research embedded.
 US data: top orgs per category (not all 689K - that's a separate search tool).
+
+Phase 1 task 1.11: where data/map/stats.json is available, read the headline
+counts from there so DIRECTORY.md cannot drift away from the homepage and
+the map. The DB queries are still used for per-NTEE-category breakdowns
+because stats.json does not carry that detail.
 """
 import sqlite3
 import os
 import glob
+import json
 import re
 from datetime import datetime
 
 DB_PATH = r'C:\Users\simon\.openclaw\workspace\commonweave\data\commonweave_directory.db'
 REGIONAL_DIR = r'C:\Users\simon\.openclaw\workspace\commonweave\data\regional'
 OUTPUT_PATH = r'C:\Users\simon\.openclaw\workspace\commonweave\DIRECTORY.md'
+STATS_PATH = r'C:\Users\simon\.openclaw\workspace\commonweave\data\map\stats.json'
 ACTIVE_WHERE = "status='active'"
+
+# Single source of truth for public counts. If the file is missing we fall
+# back to live DB counts so the script keeps working before the first map
+# build of the day.
+STATS = None
+if os.path.exists(STATS_PATH):
+    try:
+        with open(STATS_PATH, 'r', encoding='utf-8') as _sf:
+            STATS = json.load(_sf)
+    except Exception as _e:
+        print(f"export_directory: could not read {STATS_PATH}: {_e}")
 
 db = sqlite3.connect(DB_PATH)
 c = db.cursor()
@@ -63,7 +81,26 @@ for f in regional_files:
 # Planned countries (from Paperclip todo issues)
 lines.append("| 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |")
 lines.append("")
-lines.append(f"**Total: {total_orgs:,} organizations indexed** across {len(country_counts):,} countries\n")
+# Headline counts: prefer the stats.json values so the homepage, the map,
+# and this page agree. Fall back to live DB counts if stats.json is missing.
+if STATS:
+    head_total = STATS.get('orgs_in_directory', total_orgs)
+    head_countries = STATS.get('countries_with_at_least_one_org', len(country_counts))
+    head_on_map = STATS.get('orgs_on_map')
+    head_built = STATS.get('last_built_date', '')
+    lines.append(
+        f"**Total: {head_total:,} organizations indexed** across {head_countries:,} countries"
+    )
+    if head_on_map is not None:
+        lines.append(
+            f" — **{head_on_map:,} of those have coordinates and appear on "
+            f"[the map](map.html)** (Tier A/B/C only)."
+        )
+    if head_built:
+        lines.append(f" *Counts from `data/map/stats.json`, last built {head_built}.*")
+    lines.append("")
+else:
+    lines.append(f"**Total: {total_orgs:,} organizations indexed** across {len(country_counts):,} countries\n")
 lines.append("")
 lines.append("---\n")
 
