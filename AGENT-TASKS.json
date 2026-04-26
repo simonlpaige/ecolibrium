@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated": "2026-04-25",
+  "updated": "2026-04-25T23:30-05:00",
   "notes": "Machine-readable list of agent-ready tasks for Commonweave. Pick one. See AGENTS.md for workflow.",
   "tasks": [
     {
@@ -9,7 +9,7 @@
       "type": "data",
       "agent_ready": true,
       "difficulty": "medium",
-      "goal": "Pick one country with fewer than 50 organizations in the directory and verify or improve at least 10 records.",
+      "goal": "Pick one country with fewer than 50 organizations in the directory (most of the 172 countries qualify) and verify or improve at least 10 records.",
       "files": ["data/search/<country>.json", "data/commonweave_directory.db"],
       "acceptance_criteria": [
         "At least 10 organizations checked",
@@ -32,7 +32,7 @@
       "type": "code",
       "agent_ready": true,
       "difficulty": "medium",
-      "goal": "Add a map toggle that filters to Tier B organizations with alignment_score >= 5 (~3,657 of 11,991 currently shown).",
+      "goal": "Add a map toggle that filters to Tier B organizations with alignment_score >= 5 (~10,824 of ~27,217 geocoded points currently shown).",
       "files": ["map.html"],
       "acceptance_criteria": [
         "Toggle is visible on desktop and mobile",
@@ -62,7 +62,7 @@
       "type": "data",
       "agent_ready": true,
       "difficulty": "medium",
-      "goal": "Classify records in one country as formal, hybrid, informal, or unknown. The legibility column was added 2026-04-22 but all 26,022 records still read 'unknown'.",
+      "goal": "Classify records in one country as formal, hybrid, informal, or unknown. The legibility column was added 2026-04-22; as of 2026-04-25, ~25,980 records still read 'unknown' and ~138,803 read 'formal' (auto-classified at ingest time). Either subset is worth working in -- pick a country and audit/backfill there.",
       "files": ["data/commonweave_directory.db", "data/migrate_legibility.py"],
       "acceptance_criteria": [
         "At least 20 records reviewed",

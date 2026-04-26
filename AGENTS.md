@@ -39,11 +39,11 @@ If a file you need is missing, that itself is a worthwhile thing to flag in a PR
 ## High-value contribution types
 
 ### Data
-- Improve coverage outside the US and UK. The directory is currently ~83% US/UK records — that imbalance is the single biggest data problem.
-- Verify organizations in countries with fewer than 50 records.
+- Verify organizations in countries with fewer than 50 records (still many; the long tail past Brazil/Australia/UK/US/Bulgaria thins out fast).
+- Audit the recent Wave A ingest (Brazil mapa_oscs, Australia ACNC, Bulgaria Wikidata NPO) for false positives and misclassifications.
 - Add missing source URLs to `data/commonweave_directory.db` rows (or to `data/search/<country>.json`).
 - Correct misclassified organizations.
-- Backfill the `legibility` field: `formal`, `hybrid`, `informal`, or `unknown`. All 26,022 records currently read `unknown`.
+- Backfill or audit the `legibility` field (`formal` / `hybrid` / `informal` / `unknown`). As of 2026-04-25, ~25,980 records still read `unknown`, and ~138,803 read `formal` from auto-classification at ingest time -- the latter is worth spot-auditing too.
 
 ### Map
 - Add a high-confidence-only toggle to `map.html` (Tier B + `alignment_score >= 5`).

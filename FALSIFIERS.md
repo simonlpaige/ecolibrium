@@ -24,11 +24,12 @@ Tied to: C6
 Test: Sample 50 edges from `map.html` after edge provenance lands. Independently verify whether the two organizations in each edge have any real-world connection (shared funding, shared members, shared strategy, public collaboration). If <40% are real, the edges are keyword artifacts and the network claim collapses.
 What changes if falsified: Either rebuild edge generation from a different signal, or remove the network framing from the README.
 
-### F-PROJ-2. Non-Western, informal, or hybrid groups are systematically missing at a scale that makes the framework parochial.
+### F-PROJ-2. Informal and hybrid groups are systematically missing at a scale that makes the framework parochial.
 
 Tied to: C1
-Test: After legibility backfill on at least 10 non-US/UK countries, if formal-registry records still account for >75% of high-alignment entries, the directory has not corrected for its origin bias.
-What changes if falsified: Reframe Commonweave as a "registry-visible commons directory" rather than a global directory. Or commit to a non-registry ingest pipeline as a hard prerequisite for v2.
+2026-04-25 update: The geographic-skew version of this falsifier ("Non-Western groups missing") has been partly addressed by the April 2026 Wave A ingest (Brazil, Australia, Bulgaria). The *informal/hybrid* version remains live and is now the sharper question.
+Test: After legibility audit and informal/hybrid source expansion, if formal-registry records still account for >75% of high-alignment entries (`alignment_score >= 5`), the directory has not corrected for its origin bias -- it has only added more registries.
+What changes if falsified: Reframe Commonweave as a "registry-visible commons directory" rather than a directory of commons work generally. Or commit to a non-registry ingest pipeline (mutual-aid networks, community lists, indigenous-community networks where consent-appropriate) as a hard prerequisite for v2.
 
 ### F-PROJ-3. High-alignment organizations don't actually do what the framework predicts.
 

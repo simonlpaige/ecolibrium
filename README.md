@@ -16,7 +16,7 @@ Here is a thing that is true and that almost no one talks about clearly: the mac
 
 Right now the answer is: whoever owns the machines. That's a design choice, not a law of nature. You could design it differently.
 
-The directory catalogs who is already designing it differently: cooperatives, community land trusts, mutual aid networks, open-source health platforms, participatory governance experiments, community energy grids -- 26,022 candidate organizations across 61 countries, filtered from ~760K public registry records through multi-pass keyword scoring against the framework's mechanisms. Of those, 3,657 score >=5 on framework alignment (the strongest matches); the rest are candidates awaiting review. The framework maps how those pieces fit together and what's still missing.
+The directory catalogs who is already designing it differently: cooperatives, community land trusts, mutual aid networks, open-source health platforms, participatory governance experiments, community energy grids -- 164,783 candidate organizations across 172 countries, filtered from public registry records through multi-pass keyword scoring against the framework's mechanisms. Of those, 10,824 score >=5 on framework alignment (the strongest matches); the rest are candidates awaiting review. The framework maps how those pieces fit together and what's still missing.
 
 It's not a manifesto. It's more like an engineering problem with a lot of political and historical constraints. The goal is to figure out what needs to be true for people to have food, shelter, healthcare, and a say in their own lives -- and then figure out how to make those things true.
 
@@ -49,21 +49,21 @@ This section matches ambition to evidence. Here is the concrete state of the pro
 
 The primary deliverable is a searchable database of organizations working in the framework's 10 areas. Numbers from `data/commonweave_directory.db`, verified 2026-04-23, filter: `WHERE merged_into IS NULL`:
 
-- **26,022 candidate organizations** across **61 countries**
-- **11,991 geocoded points** visible on the interactive map, with **2,687 network edges** connecting related organizations
-- **Sources:** UK Charity Commission (11,537), IRS Exempt Organizations BMF (9,402), Wikidata (2,894), ProPublica (604), web research (58), manual curation (13)
+- **164,783 candidate organizations** across **172 countries** (verified 2026-04-25 against `data/commonweave_directory.db`)
+- **27,217 geocoded points** visible on the interactive map; network edges are regenerated periodically
+- **Sources (top):** mapa_oscs_brazil (85,453), acnc_charity_register (49,129), uk_charity_commission (11,537), IRS_EO_BMF (9,402), wikidata (4,162), wikidata_bg_npo (2,534), ProPublica (602), wikidata_subregion (561), wikidata_land_trusts (444), wikidata_unions (405), ituc_affiliates (297). Plus smaller curated and web-research sources.
 - **Search interface:** per-country JSON index at `data/search/`, browsable at `directory.html`
 - **Interactive map:** network visualization at `map.html`
-- **Framework area breakdown:** healthcare (6,369), education (5,694), food (2,955), democracy (2,863), housing & land (2,406), ecology (2,346), conflict resolution (910), cooperatives (656), recreation & arts (269), energy & digital (40)
+- **Framework area breakdown:** housing & land (52,449), education (44,968), healthcare (32,396), democracy (12,724), ecology (5,277), recreation & arts (3,939), food (2,993), cooperatives (2,264), conflict resolution (1,118), energy & digital (72). ~6,500 records have no framework area set yet.
 
-Honest breakdown of what 26,022 records means:
+Honest breakdown of what 164,783 records means:
 
-- **15,854 are registry-backed (Tier B)** - sourced from official charity registries or manually curated; 10,032 are unverified candidates (Tier D); 136 have no tier assigned
-- **3,657 entries (14%)** score >=5 on framework alignment -- the strongest keyword matches (community land trust, worker cooperative, mutual aid, food sovereignty, restorative justice)
-- **Geographic skew:** ~83% of records come from US and UK open registries (21,559 of 26,022). The remaining 59 countries hold 4,463 organizations between them. Closing that gap is the main enrichment target.
-- **Legibility data:** a `legibility` column (formal / hybrid / informal / unknown) was added 2026-04-22 to flag self-reported-bias signals. All 26,022 records currently read `unknown` - the column exists, backfill is pending. This is the intended countermeasure for the US/UK formal-NGO skew problem; it is not yet operational.
+- **17,054 are registry-backed (Tier B)** -- sourced from official charity registries or manually curated; 10,480 are unverified candidates (Tier D); the remaining 137,249 are in-flight from recent ingest waves and have no tier assigned yet.
+- **10,824 entries (~7%)** score >=5 on framework alignment -- the strongest keyword matches (community land trust, worker cooperative, mutual aid, food sovereignty, restorative justice).
+- **Geographic skew:** US/UK now account for **13.2%** of records (21,697 of 164,783), down from ~83% before the April 2026 ingest waves. Brazil (85,588), Australia (49,464), and Bulgaria (2,538) are now the top non-US/UK contributors. The new long tail still needs verification and review.
+- **Legibility data:** a `legibility` column (formal / hybrid / informal / unknown) was added 2026-04-22. As of 2026-04-25, **138,803 records read `formal`** (auto-classified from registry-backed sources during ingest) and **25,980 read `unknown`**. Backfill of the `unknown` subset and audit of the auto-classified `formal` records is the current legibility task.
 
-The earlier 738K figure counted every non-removed row including 431K entries flagged as excluded by prior audit passes. The current 26,022 reflects what actually passed alignment scoring. The excluded rows are preserved as CSVs in `data/trim_audit/` for transparency and reversibility.
+The earlier 738K figure counted every non-removed row including 431K entries flagged as excluded by prior audit passes. The current 164,783 reflects what passed alignment scoring as of 2026-04-25, including the Wave A ingest (Brazil mapa_oscs, Australia ACNC, Bulgaria NPO Wikidata).
 
 ### The Framework
 

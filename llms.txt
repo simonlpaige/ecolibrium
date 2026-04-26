@@ -1,8 +1,8 @@
 # Commonweave
 
-> Commonweave is an open directory and framework for mapping organizations building cooperative, commons-based, democratic, ecological, mutual-aid, and post-labor infrastructure. Currently 26,022 candidate organizations across 61 countries, with 11,991 geocoded map points and 2,687 network edges.
+> Commonweave is an open directory and framework for mapping organizations building cooperative, commons-based, democratic, ecological, mutual-aid, and post-labor infrastructure. As of 2026-04-25: 164,783 candidate organizations across 172 countries, 27,217 geocoded map points, 10,824 records scoring `alignment_score >= 5`. US/UK now account for ~13.2% of records (down from ~83% before the April 2026 ingest waves).
 
-Commonweave needs help from humans and AI-assisted contributors. The highest-value work is verifying organizations outside the US/UK (the directory is currently ~83% US/UK skewed), strengthening citations, improving the map, adding edge provenance, and red-teaming the framework. Generic summaries are not contributions. Concrete improvements are.
+Commonweave needs help from humans and AI-assisted contributors. The highest-value work is auditing the recent Wave A ingest (Brazil mapa_oscs, Australia ACNC, Bulgaria Wikidata NPO) for false positives, expanding informal/hybrid coverage (the new long tail is mostly registry-formal), strengthening citations, improving the map, adding edge provenance, and red-teaming the framework. Generic summaries are not contributions. Concrete improvements are.
 
 ## Core Documents
 
@@ -28,10 +28,11 @@ Commonweave needs help from humans and AI-assisted contributors. The highest-val
 
 ## Best First Tasks
 
-- Verify one underrepresented country (≤50 records). Fix or correct 10. PR.
+- Verify one underrepresented country (≤50 records; most of the 172 countries qualify). Fix or correct 10. PR.
+- Audit the Wave A ingest: Brazil mapa_oscs, Australia ACNC, or Bulgaria Wikidata NPO -- spot-check 20 records each for framework-fit and false positives.
 - Add a high-confidence-only map toggle (Tier B + `alignment_score >= 5`).
 - Add edge provenance metadata to `data/build_map_v2.py`.
-- Backfill `legibility` (formal/hybrid/informal/unknown) for one country.
+- Audit auto-classified `legibility=formal` records (~138,803) or backfill `legibility=unknown` records (~25,980).
 - Fill one `[NEEDS EXAMPLE]` cell in the README governance matrix.
 - Add one serious falsifier to `FALSIFIERS.md`.
 
