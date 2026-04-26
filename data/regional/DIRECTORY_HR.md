@@ -1,6 +1,6 @@
 # 🌐 Croatia (HR) Civil Society Directory
 
-*Compiled: 2026-04-25 | Source: Web research | Organizations: 0*
+*Compiled: 2026-04-26 | Source: Web research | Organizations: 0*
 
 ---
 
