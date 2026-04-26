@@ -549,3 +549,192 @@ registries:
     last_checked: 2026-04-25
     notes: Strong formal-company anchor. Vietnamese law recognizes cooperatives and social enterprises explicitly.
     wave_a_target: false
+
+  # ── Wave B: thematic global directories (country_code GLOBAL) ─────────
+  #
+  # Wave B does not extend country coverage; it pulls in the mission-first
+  # networks that mostly span borders. country_code GLOBAL is a sentinel
+  # for these rosters - the Commonweave directory itself stores the real
+  # country per row, not on the registry record.
+
+  - country_code: GLOBAL
+    country_name: European Union (and a few neighbours)
+    registrar: TransforMap / RIPESS Europe (frozen 2018 snapshot)
+    registry_name: SUSY Map
+    url: https://github.com/TransforMap/transformap-viewer/raw/gh-pages/susydata-fallback.json
+    bulk_data_url: https://github.com/TransforMap/transformap-viewer/raw/gh-pages/susydata-fallback.json
+    languages: [en, de, fr, it, es]
+    entity_classes_in_scope: [cooperative, association, community_garden, makerspace, csa]
+    api: false
+    bulk_csv: false
+    bulk_json: true
+    auth_required: false
+    update_frequency: frozen
+    last_checked: 2026-04-26
+    notes: SUSY (2015-2018 EU project) curated 890 EU initiatives. Live frontend at solidarityeconomy.eu/susy-map/ is gone; we ingest the GeoJSON snapshot kept on the TransforMap viewer's gh-pages branch. Public Domain.
+    wave_b_target: true
+    legibility: formal
+
+  - country_code: GLOBAL
+    country_name: Global (Transition Network)
+    registrar: Transition Network
+    registry_name: Transition Network groups + hubs API
+    url: https://transitionnetwork.org/transition-near-me/
+    bulk_data_url: https://maps.transitionnetwork.org/wp-json/cds/v1/groups/
+    languages: [en, fr, es, pt, de, it, sv, ja, fi, nl, hu]
+    entity_classes_in_scope: [community_org, charity, cic, association]
+    api: true
+    bulk_csv: false
+    bulk_json: true
+    auth_required: false
+    update_frequency: weekly
+    last_checked: 2026-04-26
+    notes: Public REST API at /wp-json/cds/v1/groups and /hubs. About 1,000 local groups plus 18 regional hubs. Licence ODbL (Open Database License).
+    wave_b_target: true
+    legibility: hybrid
+
+  - country_code: GLOBAL
+    country_name: Global (mostly UK)
+    registrar: Covid Mutual Aid org
+    registry_name: Mutual Aid Wiki
+    url: https://mutualaid.wiki/
+    bulk_data_url: https://raw.githubusercontent.com/Covid-Mutual-Aid/mutual-aid-wiki/master/groups.json
+    languages: [en]
+    entity_classes_in_scope: [mutual_aid_group, neighborhood_network]
+    api: false
+    bulk_csv: false
+    bulk_json: true
+    auth_required: false
+    update_frequency: stale
+    last_checked: 2026-04-26
+    notes: Live API at mutualaid.wiki/api currently returns 502. Canonical data file checked into the GitHub repo. Licence CC BY-NC-SA 4.0. About 4,253 groups, mostly UK.
+    wave_b_target: true
+    legibility: informal
+
+  - country_code: GLOBAL
+    country_name: Global (mostly US)
+    registrar: Town Hall Project
+    registry_name: Mutual Aid Hub
+    url: https://www.mutualaidhub.org/
+    bulk_data_url: https://firestore.googleapis.com/v1/projects/townhallproject-86312/databases/(default)/documents/mutual_aid_networks
+    languages: [en]
+    entity_classes_in_scope: [mutual_aid_group, neighborhood_network]
+    api: true
+    bulk_csv: false
+    bulk_json: true
+    auth_required: false
+    update_frequency: irregular
+    last_checked: 2026-04-26
+    notes: Public Firestore document collection, no API key required. About 900 docs, mostly US. Licence PDDL-1.0.
+    wave_b_target: true
+    legibility: informal
+
+  - country_code: GLOBAL
+    country_name: United States and Canada
+    registrar: New Economy Coalition
+    registry_name: NEC member directory
+    url: https://neweconomy.net/member-directory/
+    bulk_data_url: null
+    languages: [en]
+    entity_classes_in_scope: [cooperative, nonprofit, foundation, community_org]
+    api: false
+    bulk_csv: false
+    bulk_json: false
+    auth_required: false
+    update_frequency: periodic
+    last_checked: 2026-04-26
+    notes: Member list embedded as a JavaScript variable on the directory page. About 181 US/Canada solidarity-economy orgs.
+    wave_b_target: true
+    legibility: formal
+
+  - country_code: GLOBAL
+    country_name: Global (Foundation for Intentional Community)
+    registrar: Foundation for Intentional Community
+    registry_name: ic.org directory
+    url: https://www.ic.org/directory/
+    bulk_data_url: https://www.ic.org/wp-json/v1/directory/entries/
+    languages: [en]
+    entity_classes_in_scope: [intentional_community, ecovillage, cohousing, commune]
+    api: true
+    bulk_csv: false
+    bulk_json: true
+    auth_required: false
+    update_frequency: rolling
+    last_checked: 2026-04-26
+    notes: Custom WP REST endpoint at /wp-json/v1/directory/entries (25 per page, totalCount in envelope). About 1,101 communities.
+    wave_b_target: true
+    legibility: hybrid
+
+  - country_code: GLOBAL
+    country_name: Global (Schumacher CLT World Map)
+    registrar: Schumacher Center for a New Economics
+    registry_name: CLT World Map
+    url: https://centerforneweconomics.org/community-land-trust/
+    bulk_data_url: null
+    languages: [en]
+    entity_classes_in_scope: [community_land_trust, cooperative_housing]
+    api: false
+    bulk_csv: false
+    bulk_json: false
+    auth_required: false
+    update_frequency: periodic
+    last_checked: 2026-04-26
+    notes: Toolset Views table, 44 paginated pages, ~406 CLTs globally. Many overlap with Grounded Solutions and Wikidata; idempotent upsert handles dedup.
+    wave_b_target: true
+    legibility: formal
+
+  - country_code: GLOBAL
+    country_name: Global (International Cooperative Alliance)
+    registrar: International Cooperative Alliance / Digital Commons Co-op
+    registry_name: ICA member directory (via Digital Commons LOD)
+    url: https://ica.coop/en/our-members/search-our-members
+    bulk_data_url: https://data.digitalcommons.coop/ica/standard.csv
+    languages: [en, fr, es, ko]
+    entity_classes_in_scope: [cooperative_apex, cooperative]
+    api: true
+    bulk_csv: true
+    bulk_json: false
+    auth_required: false
+    update_frequency: monthly
+    last_checked: 2026-04-26
+    notes: Linked Open Data dataset published by Digital Commons Co-op (lod.coop/ica/). Flat CSV companion at data.digitalcommons.coop/ica/standard.csv covers the same 322 rows.
+    wave_b_target: true
+    legibility: formal
+
+  - country_code: GLOBAL
+    country_name: Global (RIPESS umbrella + EU/LAC/NA chapters)
+    registrar: RIPESS / socioeco.org
+    registry_name: RIPESS family rosters
+    url: https://www.ripess.org/membres/
+    bulk_data_url: http://www.socioeco.org/reseau-471_en.json
+    languages: [en, fr, es]
+    entity_classes_in_scope: [solidarity_economy_network, cooperative_apex, association]
+    api: true
+    bulk_csv: false
+    bulk_json: true
+    auth_required: false
+    update_frequency: periodic
+    last_checked: 2026-04-26
+    notes: RIPESS umbrella + 6 continental affiliates seeded by hand. Members of RIPESS EU (45), RIPESS LAC (20), RIPESS NA (3) pulled from socioeco.org reseau-N_en.json. RAESS (Africa) at raess.org and ASEC (Asia) at asec.coop both fail DNS; outreach TODO under tools/mycelial-outreach/.
+    wave_b_target: true
+    legibility: formal
+
+  # ── Wave B exempted (outreach pending) ────────────────────────────────
+
+  - country_code: GLOBAL
+    country_name: Global (Find.coop / Data Commons Cooperative)
+    registrar: Data Commons Cooperative
+    registry_name: Find.coop
+    url: https://find.coop/
+    bulk_data_url: null
+    languages: [en]
+    entity_classes_in_scope: [cooperative]
+    api: false
+    bulk_csv: false
+    bulk_json: false
+    auth_required: false
+    update_frequency: rolling
+    last_checked: 2026-04-26
+    notes: 'Outreach pending. The brief explicitly tags Find.coop as "ask first, scrape later". TODO at tools/mycelial-outreach/drafts/pending/findcoop-partnership-2026-04-26.md.'
+    wave_b_target: false
+    legibility: formal
