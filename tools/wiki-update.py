@@ -171,6 +171,24 @@ def update_data_page(s):
 # Main
 # ---------------------------------------------------------------------------
 
+def rebuild_map_stats():
+    """Regenerate data/map/stats.json from the live DB."""
+    script = os.path.join(SCRIPT_DIR, '..', 'data', 'build_map_v2.py')
+    if not os.path.exists(script):
+        print('[wiki-update] build_map_v2.py not found, skipping map stats rebuild')
+        return
+    print('[wiki-update] Rebuilding data/map/stats.json...')
+    result = subprocess.run(
+        ['python', script],
+        cwd=os.path.join(SCRIPT_DIR, '..'),
+        capture_output=True, text=True
+    )
+    if result.returncode != 0:
+        print(f'[wiki-update] map rebuild warning: {result.stderr.strip()[-200:]}')
+    else:
+        print('[wiki-update] map stats rebuilt')
+
+
 def main():
     print('[wiki-update] Pulling stats from DB...')
     s = get_stats()
@@ -180,6 +198,9 @@ def main():
         print(f'[error] Wiki path not found: {WIKI_PATH}')
         print('  Clone it first: git clone https://github.com/simonlpaige/commonweave.wiki.git')
         sys.exit(1)
+
+    if not DRY_RUN:
+        rebuild_map_stats()
 
     print('[wiki-update] Pulling latest wiki from GitHub...')
     if not DRY_RUN:
