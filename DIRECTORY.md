@@ -1,6 +1,6 @@
 # 🌍 Commonweave Global Civil Society Directory
 
-*Last updated: 2026-04-27 04:41 UTC*
+*Last updated: 2026-04-27 05:13 UTC*
 
 
 ## Coverage
