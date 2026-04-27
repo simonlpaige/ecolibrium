@@ -196,9 +196,24 @@ main { max-width: 780px; margin: 0 auto; padding: 24px 20px 80px; }
 
 <main id="main">
   <div class="region-picker" id="region-picker">
-    <h2>Commonweave Audit Portal</h2>
-    <p>Review organizations for framework alignment. Each takes ~20 seconds.<br>Progress saves automatically in your browser.</p>
+    <h2>Help us verify the data</h2>
+    <p style="max-width:520px;margin:0 auto 8px;line-height:1.7">
+      Commonweave is an open directory of 168,000+ cooperatives, mutual aid networks, community land trusts,
+      and other organizations building alternatives to the systems that don't work.
+      The data comes from public registries and global networks -- but automated scoring can't replace human judgment.
+    </p>
+    <p style="max-width:520px;margin:0 auto 24px;line-height:1.7;color:var(--muted);font-size:14px">
+      Pick a region. Review a sample. For each organization: is it genuinely aligned with community ownership,
+      mutual aid, or democratic infrastructure? Each review takes about 20 seconds.
+      Your decisions are saved in your browser -- export them when done and share with
+      <a href="https://github.com/simonlpaige/commonweave" target="_blank" rel="noopener">the project</a>
+      or <a href="mailto:simon@simonlpaige.com">Simon directly</a>.
+    </p>
     <div class="region-grid" id="region-grid"></div>
+    <p style="margin-top:20px;font-size:12px;color:var(--dim)">
+      Progress saves in your browser. Export JSON when done.
+      <a href="https://github.com/simonlpaige/commonweave" target="_blank" rel="noopener" style="color:var(--muted)">Source &rarr;</a>
+    </p>
   </div>
 
   <div id="audit-view" style="display:none"></div>
