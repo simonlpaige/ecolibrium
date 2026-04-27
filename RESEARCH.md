@@ -82,7 +82,18 @@ At peak (2013-2014):
 - **Catalonia** — Piloting €800/month for adults, €300/month for children under 18 across 5,000 participants.
 - **Chicago Resilient Communities Pilot** — 5,000 households received $500/month for one year. UChicago evaluation showed improved financial stability, food security, and psychological wellness.
 - **Minneapolis Fed study** — Found $500/month GBI improved financial stability and food security with no negative effects on labor supply.
-- **GiveDirectly** — Long-running unconditional cash transfer program in Kenya, one of the most studied in the world.
+- **GiveDirectly (Kenya)** — The largest randomized control trial of UBI ever run. Hundreds of villages, thousands of adult recipients, unconditional cash transfers. Results: entrepreneurship up, labor supply did not drop, local prices absorbed the shock without runaway inflation. This is as close to a controlled experiment as social policy gets.
+- **Alaska Permanent Fund (1982-present)** — The oldest and most sustained working model. The state of Alaska takes royalties from its oil and gas industry, deposits them into a sovereign wealth fund, and every legal resident - newborn to governor - receives an annual dividend check of $1,000-$3,000 depending on fund performance. 40+ years of evidence: employment didn't drop, poverty fell 20-40%, senior poverty fell 40%+, child poverty fell by up to a third. Alaska ran *lower* inflation than the US average over the same period. The critics in 1982 predicted it would destroy the work ethic. They were wrong.
+- **Stockton SEED (2019)** — 125 randomly selected low-income Stockton residents received $500/month for 18-24 months, no strings attached. Full-time employment among recipients went from 28% to 40% (+12 points) vs. a 5-point gain in the control group. Recipients were 27 points more likely to cover a $400 emergency. Mental health improved, anxiety dropped. Less than 1% of the money went to vice spending. Has since been replicated in 100+ cities and counties across the US.
+- **Finland (2017 pilot)** — No employment decrease. Significant improvements in life satisfaction. Replicated the pattern: cash doesn't kill motivation, it reduces the panic that blocks good decisions.
+
+**The AI displacement context (added 2026-04-27):**
+The question of UBI is no longer speculative. AI is systematically replacing cognitive work - writing, coding, analysis, legal review, customer service - at a pace measured in quarters, not decades. 85% of US federal revenue comes from taxes on labor. When AI replaces wage earners, the tax base that funds Social Security, Medicare, roads, and schools shrinks at the same time the need for those programs goes up. The solution is to tax the thing causing the displacement (AI/robotics capital output) and use that revenue to fund displaced workers - the same mechanism Alaska used with oil royalties. The Alaska model IS the Commonweave model at state scale. The math is not ideology: either the output of AI gets distributed, or a large portion of the population falls out of the economic system. There is no third door.
+
+Key framing from the empirical record:
+- Production growing faster than money supply = disinflationary, not inflationary (Alaska, Kenya, BIS 2024 working paper)
+- Recipients don't stop working - they take *better* jobs, start businesses, get healthier (Stockton, OpenResearch, Finland)
+- Tax base reform from labor -> capital is a 40-year project compressed into maybe 5 (CBO can't model this yet - their projections assume demographics, not cognitive displacement at scale)
 
 **Cooperative and commons economics:**
 - **Mondragon Corporation** (Basque Country) — World's largest worker-owned cooperative: 80,000+ worker-owners, €12B+ revenue. Proof that democratic enterprise works at scale.
@@ -95,6 +106,13 @@ At peak (2013-2014):
 1. Link to the Guaranteed Income Pilots Dashboard as a living evidence base.
 2. Study the Preston Model as a concrete "Phase 1" pilot — it shows how existing local governments can begin redirecting wealth without national policy changes.
 3. The Mondragon cooperative structure should be documented as a template for enterprise transition.
+4. **Coalition orgs to add to directory and contact list:**
+   - **Economic Security Project** (economicsecurityproject.org) — guaranteed income advocacy, funded Stockton SEED
+   - **Humanity Forward** (groundhuman.org) — Andrew Yang's org, UBI policy + pilots
+   - **Stanford Basic Income Lab** (basicincome.stanford.edu) — academic research clearinghouse, useful for citations
+   - **Guaranteed Income Community of Practice** (guaranteedincome.us) — tracks all US pilots, live data
+   - **GiveDirectly US** (givedirectly.org) — running US pilots now alongside the Kenya RCT work
+5. **Community AI Dividend Fund** — see `commonweave/AI-DIVIDEND-FUND.md` for the full design note. Short version: community-owned AI tools generate surplus that accrues to a local fund, distributed as a per-household dividend. Alaska model at neighborhood scale. No federal action required to start.
 
 ---
 
