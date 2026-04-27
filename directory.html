@@ -5,6 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Commonweave — Global Directory</title>
 <meta name="description" content="Search 24,500+ aligned civil society organizations across 60 countries. CC0 open data.">
+<meta property="og:title" content="Commonweave - Global Directory">
+<meta property="og:description" content="Search 24,500+ aligned civil society organizations across 60 countries. CC0 open data.">
+<meta property="og:url" content="https://commonweave.earth/directory.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://commonweave.earth/directory.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DataCatalog",
+  "name": "Commonweave Global Directory",
+  "url": "https://commonweave.earth/directory.html",
+  "description": "Searchable directory of 24,500+ aligned civil-society organizations across 60+ countries.",
+  "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "isAccessibleForFree": true,
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Commonweave",
+    "url": "https://commonweave.earth/"
+  }
+}
+</script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -139,6 +161,7 @@ select:focus{border-color:var(--teal)}
 </style>
 </head>
 <body>
+<h1 style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">Commonweave Global Directory</h1>
 <nav>
   <a class="nav-logo" href="index.html">commonweave</a>
   <div class="nav-links">
@@ -172,7 +195,7 @@ select:focus{border-color:var(--teal)}
 
   <!-- Search & Filters -->
   <div class="search-row">
-    <input type="search" id="search-input" placeholder="Search by name, city, category…" autocomplete="off" spellcheck="false">
+    <label for="search-input" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">Search organizations</label><input type="search" id="search-input" placeholder="Search by name, city, category…" autocomplete="off" spellcheck="false" aria-label="Search organizations by name, city, or category">
     <button class="clear-btn" id="clear-btn" style="display:none">✕ Clear</button>
   </div>
   <div class="filter-row">

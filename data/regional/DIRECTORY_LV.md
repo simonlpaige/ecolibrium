@@ -1,10 +1,9 @@
 # 🌐 Latvia (LV) Civil Society Directory
 
-*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-26 | Source: Web research | Organizations: 0*
 
 ---
 
 ## Organizations
 
-### Latvia Civil Society Network
-> Primary civil society network in Latvia
+_No evidence-backed organizations found in this pass._

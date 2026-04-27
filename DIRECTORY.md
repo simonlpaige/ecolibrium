@@ -1,180 +1,182 @@
 # 🌍 Commonweave Global Civil Society Directory
 
-*Last updated: 2026-04-25 19:56 UTC*
+*Last updated: 2026-04-27 00:06 UTC*
 
 
 ## Coverage
 
 | Country / Region | Organizations | Source | Status |
 |-----------------|--------------|--------|--------|
-| 🇺🇸 United States | 10,087 | IRS EO Business Master File | ✅ Complete |
-| 🌐 United Arab Emirates (AE) | 0 | Field Research | ✅ |
+| 🇺🇸 United States | 12,359 | IRS EO Business Master File | ✅ Complete |
+| 🌐 United Arab Emirates (AE) | 1 | Field Research | ✅ |
 | 🌐 Afghanistan (AF) | 0 | Field Research | ✅ |
 | 🌐 Albania (AL) | 2 | Field Research | ✅ |
-| 🌐 Armenia (AM) | 2 | Field Research | ✅ |
+| 🌐 Armenia (AM) | 4 | Field Research | ✅ |
 | 🌐 Angola (AO) | 2 | Field Research | ✅ |
-| 🌐 Argentina (AR) | 108 | Field Research | ✅ |
-| 🌐 Austria (AT) | 10 | Field Research | ✅ |
-| 🌐 Australia (AU) | 334 | Field Research | ✅ |
+| 🌐 Argentina (AR) | 121 | Field Research | ✅ |
+| 🌐 Austria (AT) | 147 | Field Research | ✅ |
+| 🌐 Australia (AU) | 48,966 | Field Research | ✅ |
 | 🌐 Bosnia and Herzegovina (BA) | 1 | Field Research | ✅ |
-| 🌐 Bangladesh (BD) | 7 | Field Research | ✅ |
-| 🌐 Belgium (BE) | 218 | Field Research | ✅ |
+| 🌐 Bangladesh (BD) | 9 | Field Research | ✅ |
+| 🌐 Belgium (BE) | 256 | Field Research | ✅ |
 | 🌐 Burkina Faso (BF) | 4 | Field Research | ✅ |
-| 🌐 Bulgaria (BG) | 4 | Field Research | ✅ |
+| 🌐 Bulgaria (BG) | 2,543 | Field Research | ✅ |
 | 🌐 Bahrain (BH) | 1 | Field Research | ✅ |
 | 🌐 Benin (BJ) | 7 | Field Research | ✅ |
 | 🌐 Brunei (BN) | 0 | Field Research | ✅ |
-| 🌐 Bolivia (BO) | 23 | Field Research | ✅ |
-| 🌐 Brazil (BR) | 135 | Field Research | ✅ |
-| 🌐 Botswana (BW) | 2 | Field Research | ✅ |
-| 🌐 Belarus (BY) | 3 | Field Research | ✅ |
+| 🌐 Bolivia (BO) | 25 | Field Research | ✅ |
+| 🌐 Brazil (BR) | 85,596 | Field Research | ✅ |
+| 🌐 Botswana (BW) | 3 | Field Research | ✅ |
+| 🌐 Belarus (BY) | 4 | Field Research | ✅ |
 | 🌐 Belize (BZ) | 1 | Field Research | ✅ |
-| 🌐 Canada (CA) | 274 | Field Research | ✅ |
-| 🌐 Democratic Republic of the Congo (CD) | 3 | Field Research | ✅ |
+| 🌐 Canada (CA) | 435 | Field Research | ✅ |
+| 🌐 Democratic Republic of the Congo (CD) | 5 | Field Research | ✅ |
 | 🌐 Republic of the Congo (CG) | 3 | Field Research | ✅ |
-| 🌐 Switzerland (CH) | 261 | Field Research | ✅ |
-| 🌐 Cote d'Ivoire (CI) | 1 | Field Research | ✅ |
-| 🌐 Chile (CL) | 60 | Field Research | ✅ |
-| 🌐 Cameroon (CM) | 3 | Field Research | ✅ |
-| 🌐 China (CN) | 3 | Field Research | ✅ |
-| 🌐 Colombia (CO) | 69 | Field Research | ✅ |
-| 🌐 Costa Rica (CR) | 30 | Field Research | ✅ |
+| 🌐 Switzerland (CH) | 312 | Field Research | ✅ |
+| 🌐 Cote d'Ivoire (CI) | 4 | Field Research | ✅ |
+| 🌐 Chile (CL) | 71 | Field Research | ✅ |
+| 🌐 Cameroon (CM) | 6 | Field Research | ✅ |
+| 🌐 China (CN) | 12 | Field Research | ✅ |
+| 🌐 Colombia (CO) | 91 | Field Research | ✅ |
+| 🌐 Costa Rica (CR) | 64 | Field Research | ✅ |
 | 🌐 Cuba (CU) | 26 | Field Research | ✅ |
-| 🌐 Cyprus (CY) | 0 | Field Research | ✅ |
-| 🌐 Czechia (CZ) | 3 | Field Research | ✅ |
-| 🌐 Germany (DE) | 374 | Field Research | ✅ |
+| 🌐 Cyprus (CY) | 1 | Field Research | ✅ |
+| 🌐 Czechia (CZ) | 20 | Field Research | ✅ |
+| 🌐 Germany (DE) | 549 | Field Research | ✅ |
 | 🌐 Djibouti (DJ) | 0 | Field Research | ✅ |
-| 🌐 Denmark (DK) | 18 | Field Research | ✅ |
-| 🌐 Dominican Republic (DO) | 53 | Field Research | ✅ |
-| 🌐 Ecuador (EC) | 57 | Field Research | ✅ |
-| 🌐 Estonia (EE) | 2 | Field Research | ✅ |
-| 🌐 Egypt (EG) | 99 | Field Research | ✅ |
+| 🌐 Denmark (DK) | 30 | Field Research | ✅ |
+| 🌐 Dominican Republic (DO) | 58 | Field Research | ✅ |
+| 🌐 Ecuador (EC) | 75 | Field Research | ✅ |
+| 🌐 Estonia (EE) | 39 | Field Research | ✅ |
+| 🌐 Egypt (EG) | 101 | Field Research | ✅ |
 | 🌐 Eritrea (ER) | 0 | Field Research | ✅ |
-| 🌐 Spain (ES) | 118 | Field Research | ✅ |
-| 🌐 Ethiopia (ET) | 22 | Field Research | ✅ |
-| 🌐 Finland (FI) | 8 | Field Research | ✅ |
-| 🌐 Fiji (FJ) | 2 | Field Research | ✅ |
-| 🌐 France (FR) | 92 | Field Research | ✅ |
+| 🌐 Spain (ES) | 222 | Field Research | ✅ |
+| 🌐 Ethiopia (ET) | 27 | Field Research | ✅ |
+| 🌐 Finland (FI) | 39 | Field Research | ✅ |
+| 🌐 Fiji (FJ) | 3 | Field Research | ✅ |
+| 🌐 France (FR) | 224 | Field Research | ✅ |
 | 🌐 Gabon (GA) | 0 | Field Research | ✅ |
-| 🌐 United Kingdom (GB) | 11,481 | Field Research | ✅ |
+| 🌐 United Kingdom (GB) | 13,625 | Field Research | ✅ |
 | 🌐 Georgia (GE) | 0 | Field Research | ✅ |
-| 🌐 Ghana (GH) | 140 | Field Research | ✅ |
+| 🌐 Ghana (GH) | 143 | Field Research | ✅ |
 | 🌐 Gambia (GM) | 0 | Field Research | ✅ |
-| 🌐 Guinea (GN) | 3 | Field Research | ✅ |
-| 🌐 Greece (GR) | 143 | Field Research | ✅ |
+| 🌐 Guinea (GN) | 4 | Field Research | ✅ |
+| 🌐 Greece (GR) | 186 | Field Research | ✅ |
 | 🌐 Guatemala (GT) | 54 | Field Research | ✅ |
 | 🌐 Guinea-Bissau (GW) | 1 | Field Research | ✅ |
 | 🌐 Guyana (GY) | 4 | Field Research | ✅ |
-| 🌐 Honduras (HN) | 55 | Field Research | ✅ |
-| 🌐 Croatia (HR) | 0 | Field Research | ✅ |
-| 🌐 Haiti (HT) | 7 | Field Research | ✅ |
-| 🌐 Hungary (HU) | 126 | Field Research | ✅ |
-| 🌐 Indonesia (ID) | 24 | Field Research | ✅ |
-| 🌐 Ireland (IE) | 5 | Field Research | ✅ |
-| 🌐 India (IN) | 141 | Field Research | ✅ |
+| 🌐 Honduras (HN) | 59 | Field Research | ✅ |
+| 🌐 Croatia (HR) | 31 | Field Research | ✅ |
+| 🌐 Haiti (HT) | 8 | Field Research | ✅ |
+| 🌐 Hungary (HU) | 160 | Field Research | ✅ |
+| 🌐 Indonesia (ID) | 27 | Field Research | ✅ |
+| 🌐 Ireland (IE) | 37 | Field Research | ✅ |
+| 🌐 India (IN) | 175 | Field Research | ✅ |
 | 🌐 Iraq (IQ) | 1 | Field Research | ✅ |
-| 🌐 Iran (IR) | 1 | Field Research | ✅ |
+| 🌐 Iran (IR) | 7 | Field Research | ✅ |
 | 🌐 Iceland (IS) | 3 | Field Research | ✅ |
-| 🌐 Italy (IT) | 124 | Field Research | ✅ |
-| 🌐 Jamaica (JM) | 50 | Field Research | ✅ |
-| 🌐 Jordan (JO) | 2 | Field Research | ✅ |
-| 🌐 Japan (JP) | 41 | Field Research | ✅ |
-| 🌐 Kenya (KE) | 193 | Field Research | ✅ |
-| 🌐 Kyrgyzstan (KG) | 1 | Field Research | ✅ |
-| 🌐 Cambodia (KH) | 4 | Field Research | ✅ |
-| 🌐 South Korea (KR) | 3 | Field Research | ✅ |
+| 🌐 Italy (IT) | 283 | Field Research | ✅ |
+| 🌐 Jamaica (JM) | 53 | Field Research | ✅ |
+| 🌐 Jordan (JO) | 5 | Field Research | ✅ |
+| 🌐 Japan (JP) | 87 | Field Research | ✅ |
+| 🌐 Kenya (KE) | 206 | Field Research | ✅ |
+| 🌐 Kyrgyzstan (KG) | 2 | Field Research | ✅ |
+| 🌐 Cambodia (KH) | 5 | Field Research | ✅ |
+| 🌐 South Korea (KR) | 10 | Field Research | ✅ |
 | 🌐 Kuwait (KW) | 2 | Field Research | ✅ |
 | 🌐 Kazakhstan (KZ) | 2 | Field Research | ✅ |
 | 🌐 Laos (LA) | 0 | Field Research | ✅ |
 | 🌐 Lebanon (LB) | 1 | Field Research | ✅ |
-| 🌐 Sri Lanka (LK) | 5 | Field Research | ✅ |
-| 🌐 Liberia (LR) | 1 | Field Research | ✅ |
+| 🌐 Sri Lanka (LK) | 10 | Field Research | ✅ |
+| 🌐 Liberia (LR) | 2 | Field Research | ✅ |
 | 🌐 Lesotho (LS) | 2 | Field Research | ✅ |
-| 🌐 Lithuania (LT) | 4 | Field Research | ✅ |
-| 🌐 Luxembourg (LU) | 5 | Field Research | ✅ |
-| 🌐 Latvia (LV) | 1 | Field Research | ✅ |
+| 🌐 Lithuania (LT) | 5 | Field Research | ✅ |
+| 🌐 Luxembourg (LU) | 6 | Field Research | ✅ |
+| 🌐 Latvia (LV) | 5 | Field Research | ✅ |
 | 🌐 Libya (LY) | 1 | Field Research | ✅ |
-| 🌐 Morocco (MA) | 3 | Field Research | ✅ |
-| 🌐 Moldova (MD) | 1 | Field Research | ✅ |
+| 🌐 Morocco (MA) | 5 | Field Research | ✅ |
+| 🌐 Moldova (MD) | 2 | Field Research | ✅ |
 | 🌐 Montenegro (ME) | 1 | Field Research | ✅ |
 | 🌐 Madagascar (MG) | 4 | Field Research | ✅ |
-| 🌐 North Macedonia (MK) | 2 | Field Research | ✅ |
+| 🌐 North Macedonia (MK) | 3 | Field Research | ✅ |
 | 🌐 Mali (ML) | 2 | Field Research | ✅ |
-| 🌐 Myanmar (MM) | 2 | Field Research | ✅ |
-| 🌐 Mongolia (MN) | 1 | Field Research | ✅ |
-| 🌐 Malta (MT) | 2 | Field Research | ✅ |
+| 🌐 Myanmar (MM) | 3 | Field Research | ✅ |
+| 🌐 Mongolia (MN) | 3 | Field Research | ✅ |
+| 🌐 Malta (MT) | 28 | Field Research | ✅ |
 | 🌐 Malawi (MW) | 2 | Field Research | ✅ |
-| 🌐 Mexico (MX) | 122 | Field Research | ✅ |
-| 🌐 Malaysia (MY) | 1 | Field Research | ✅ |
-| 🌐 Mozambique (MZ) | 52 | Field Research | ✅ |
-| 🌐 Namibia (NA) | 2 | Field Research | ✅ |
+| 🌐 Mexico (MX) | 143 | Field Research | ✅ |
+| 🌐 Malaysia (MY) | 5 | Field Research | ✅ |
+| 🌐 Mozambique (MZ) | 53 | Field Research | ✅ |
+| 🌐 Namibia (NA) | 3 | Field Research | ✅ |
 | 🌐 Niger (NE) | 4 | Field Research | ✅ |
-| 🌐 DIRECTORY_NG.md (NG) | 306 | Field Research | ✅ |
-| 🌐 Nicaragua (NI) | 57 | Field Research | ✅ |
-| 🌐 Netherlands (NL) | 109 | Field Research | ✅ |
-| 🌐 Norway (NO) | 227 | Field Research | ✅ |
-| 🌐 Nepal (NP) | 8 | Field Research | ✅ |
-| 🌐 New Zealand (NZ) | 336 | Field Research | ✅ |
+| 🌐 DIRECTORY_NG.md (NG) | 310 | Field Research | ✅ |
+| 🌐 Nicaragua (NI) | 59 | Field Research | ✅ |
+| 🌐 Netherlands (NL) | 120 | Field Research | ✅ |
+| 🌐 Norway (NO) | 236 | Field Research | ✅ |
+| 🌐 Nepal (NP) | 12 | Field Research | ✅ |
+| 🌐 New Zealand (NZ) | 324 | Field Research | ✅ |
 | 🌐 Oman (OM) | 0 | Field Research | ✅ |
 | 🌐 Phase 2: (??) | 0 | Field Research | ✅ |
-| 🌐 Panama (PA) | 54 | Field Research | ✅ |
-| 🌐 Peru (PE) | 46 | Field Research | ✅ |
-| 🌐 Papua New Guinea (PG) | 0 | Field Research | ✅ |
-| 🌐 Philippines (PH) | 43 | Field Research | ✅ |
-| 🌐 Pakistan (PK) | 2 | Field Research | ✅ |
-| 🌐 Poland (PL) | 11 | Field Research | ✅ |
-| 🌐 Palestine (PS) | 2 | Field Research | ✅ |
-| 🌐 Portugal (PT) | 3 | Field Research | ✅ |
-| 🌐 Paraguay (PY) | 11 | Field Research | ✅ |
+| 🌐 Panama (PA) | 60 | Field Research | ✅ |
+| 🌐 Peru (PE) | 50 | Field Research | ✅ |
+| 🌐 Papua New Guinea (PG) | 1 | Field Research | ✅ |
+| 🌐 Philippines (PH) | 62 | Field Research | ✅ |
+| 🌐 Pakistan (PK) | 3 | Field Research | ✅ |
+| 🌐 Poland (PL) | 24 | Field Research | ✅ |
+| 🌐 Palestine (PS) | 8 | Field Research | ✅ |
+| 🌐 Portugal (PT) | 41 | Field Research | ✅ |
+| 🌐 Paraguay (PY) | 21 | Field Research | ✅ |
 | 🌐 Qatar (QA) | 0 | Field Research | ✅ |
-| 🌐 Romania (RO) | 5 | Field Research | ✅ |
-| 🌐 Serbia (RS) | 2 | Field Research | ✅ |
-| 🌐 Russia (RU) | 4 | Field Research | ✅ |
-| 🌐 Rwanda (RW) | 56 | Field Research | ✅ |
-| 🌐 Saudi Arabia (SA) | 0 | Field Research | ✅ |
+| 🌐 Romania (RO) | 38 | Field Research | ✅ |
+| 🌐 Serbia (RS) | 3 | Field Research | ✅ |
+| 🌐 Russia (RU) | 6 | Field Research | ✅ |
+| 🌐 Rwanda (RW) | 57 | Field Research | ✅ |
+| 🌐 Saudi Arabia (SA) | 1 | Field Research | ✅ |
 | 🌐 Sudan (SD) | 0 | Field Research | ✅ |
-| 🌐 Sweden (SE) | 82 | Field Research | ✅ |
-| 🌐 Slovenia (SI) | 0 | Field Research | ✅ |
-| 🌐 Slovakia (SK) | 3 | Field Research | ✅ |
+| 🌐 Sweden (SE) | 119 | Field Research | ✅ |
+| 🌐 Slovenia (SI) | 23 | Field Research | ✅ |
+| 🌐 Slovakia (SK) | 5 | Field Research | ✅ |
 | 🌐 Sierra Leone (SL) | 2 | Field Research | ✅ |
-| 🌐 Senegal (SN) | 64 | Field Research | ✅ |
-| 🌐 Somalia (SO) | 1 | Field Research | ✅ |
+| 🌐 Senegal (SN) | 63 | Field Research | ✅ |
+| 🌐 Somalia (SO) | 2 | Field Research | ✅ |
 | 🌐 Suriname (SR) | 18 | Field Research | ✅ |
 | 🌐 South Sudan (SS) | 1 | Field Research | ✅ |
-| 🌐 El Salvador (SV) | 2 | Field Research | ✅ |
+| 🌐 El Salvador (SV) | 3 | Field Research | ✅ |
 | 🌐 Syria (SY) | 0 | Field Research | ✅ |
-| 🌐 Eswatini (SZ) | 1 | Field Research | ✅ |
+| 🌐 Eswatini (SZ) | 3 | Field Research | ✅ |
 | 🌐 Chad (TD) | 2 | Field Research | ✅ |
 | 🌐 Togo (TG) | 3 | Field Research | ✅ |
-| 🌐 Thailand (TH) | 46 | Field Research | ✅ |
+| 🌐 Thailand (TH) | 54 | Field Research | ✅ |
 | 🌐 Tajikistan (TJ) | 0 | Field Research | ✅ |
 | 🌐 Timor-Leste (TL) | 1 | Field Research | ✅ |
 | 🌐 Turkmenistan (TM) | 1 | Field Research | ✅ |
 | 🌐 Tunisia (TN) | 2 | Field Research | ✅ |
-| 🌐 Turkey (TR) | 103 | Field Research | ✅ |
+| 🌐 Turkey (TR) | 109 | Field Research | ✅ |
 | 🌐 Trinidad and Tobago (TT) | 11 | Field Research | ✅ |
-| 🌐 Taiwan (TW) | 2 | Field Research | ✅ |
-| 🌐 Tanzania (TZ) | 38 | Field Research | ✅ |
-| 🌐 Ukraine (UA) | 4 | Field Research | ✅ |
-| 🌐 Uganda (UG) | 140 | Field Research | ✅ |
-| 🌐 Uruguay (UY) | 0 | Field Research | ✅ |
+| 🌐 Taiwan (TW) | 3 | Field Research | ✅ |
+| 🌐 Tanzania (TZ) | 41 | Field Research | ✅ |
+| 🌐 Ukraine (UA) | 6 | Field Research | ✅ |
+| 🌐 Uganda (UG) | 146 | Field Research | ✅ |
+| 🌐 Uruguay (UY) | 5 | Field Research | ✅ |
 | 🌐 Uzbekistan (UZ) | 0 | Field Research | ✅ |
-| 🌐 Venezuela (VE) | 30 | Field Research | ✅ |
-| 🌐 Vietnam (VN) | 66 | Field Research | ✅ |
+| 🌐 Venezuela (VE) | 32 | Field Research | ✅ |
+| 🌐 Vietnam (VN) | 68 | Field Research | ✅ |
 | 🌐 Yemen (YE) | 1 | Field Research | ✅ |
-| 🌐 South Africa (ZA) | 118 | Field Research | ✅ |
+| 🌐 South Africa (ZA) | 121 | Field Research | ✅ |
 | 🌐 Zambia (ZM) | 55 | Field Research | ✅ |
-| 🌐 Zimbabwe (ZW) | 1 | Field Research | ✅ |
+| 🌐 Zimbabwe (ZW) | 2 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
 **Total: 27,533 organizations indexed** across 171 countries
+ — **16,628 of those have coordinates and appear on [the map](map.html)** (Tier A/B/C only).
+ *Counts from `data/map/stats.json`, last built 2026-04-26.*
 
 
 ---
 
 ## 🇺🇸 United States
 
-*10,087 active registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
+*12,359 active registered nonprofits from IRS EO Business Master File (all 53 state/territory files)*
 
 
 ### Top Organizations by Category
@@ -203,7 +205,7 @@
 - **DELAWARE BAY AND RIVER COOPERATIVE INC** — LINWOOD, PA `C32` ($4,055,196/yr)
 - **ENVIRONMENTAL HEALTH WATCH INC** — CLEVELAND, OH `C600` ($4,034,955/yr)
 
-#### Health Care (1,612 orgs)
+#### Health Care (1,611 orgs)
 
 - **COOPER HEALTH SYSTEM A NEW JERSEY NON-PROFIT CORPORATION** — CAMDEN, NJ `E22` ($2,550,029,191/yr)
 - **COMMUNITY HEALTH NETWORK INC** — INDIANAPOLIS, IN `E20` ($2,322,217,395/yr)
@@ -455,90 +457,13 @@
 
 # 🌐 United Arab Emirates (AE) Civil Society Directory
 
-*Compiled: 2026-04-16 | Source: Web research | Organizations: 16*
+*Compiled: 2026-04-26 | Source: Web research | Organizations: 0*
 
 ---
 
 ## Organizations
 
-### NGO Directory of UAE | arab.org
-Framework: democracy
-Model: nonprofit
-> Information of Civil Society Organizations operating in the United Arab Emirates. Click here to view the Abu Dhabi NGO Directory. Click here to view the Dubai NGO Directory.
-
-### NGOs, Charities and Non-profits in United Arab Emirates
-Framework: democracy
-Model: nonprofit
-> Comprehensive list of NGOs, Charities and Nonprofits in United Arab Emirates. Browse organizations by their focus work areas. Page 1 of 8
-
-### AE/united-arab-emirates-ngos
-Framework: democracy
-Model: nonprofit
-> Comprehensive list of NGOs, Charities and Nonprofits in United Arab Emirates. Browse organizations by their focus work areas. Page 1 of 8
-
-### PDF NGO DATABASE - addcd.gov.ae
-Framework: energy_digital
-Model: nonprofit
-> Licenses for civil society founda ons Licenses for Social Security Fund
-
-### Project/DCD/DCD
-Framework: democracy
-Model: nonprofit
-> Licenses for civil society founda ons Licenses for Social Security Fund
-
-### List of Non-profit organizations in United Arab Emirates in 2026
-Framework: energy_digital
-Model: nonprofit
-> There are 574 Non-profit organizations in United Arab Emirates as of March, 2026. Download latest business data with contact info, ratings & locations.
-
-### List of UAE Based NGOs - NGO Report
-Framework: democracy
-Model: nonprofit
-> List of UAE Based NGOs - NGO Report List of UAE Based NGOs
-
-### List of UAE Based NGOs
-Framework: democracy
-Model: nonprofit
-> ## Top 41 Nonprofit Organizations in UAE - Apr 2026 - yello.ae
-
-### Top 41 Nonprofit Organizations in UAE - Apr 2026 - yello.ae
-Framework: democracy
-Model: nonprofit
-> Search results of Top 41 Nonprofit Organizations in UAE, near me. Listings are verified with accurate business information.
-
-### Associations and NGO in the United Arab Emirates - Expat.com
-Framework: democracy
-Model: nonprofit
-> List of associations and NGOs in the United Arab Emirates, non-governmental organization in the United Arab Emirates, non-profit organizations in the United Arab Emirates. United Arab Emirates charity
-
-### NGOs in the United Arab Emirates, non
-Framework: democracy
-Model: nonprofit
-> ## السجل الوطني لمؤسسات النفع العام
-
-### السجل الوطني لمؤسسات النفع العام
-Framework: democracy
-Model: nonprofit
-> Access the National Registry for Non-Profit Organizations in the UAE to explore opportunities and resources for social development.
-
-### Access the National Registry for Non
-Framework: democracy
-Model: nonprofit
-> ## List of Charity Organizations in UAE - khaleejfeed
-
-### List of Charity Organizations in UAE - khaleejfeed
-Framework: democracy
-Model: nonprofit
-> Explore and support impactful causes with our guide to charity organizations in UAE. Discover a curated list of reputable charities, their missions, and how you can make a difference. Join the philant
-
-### NGO Directory | arab.org
-Framework: democracy
-Model: nonprofit
-> The Arab NGO Directory (part of NGO Portal) is the dynamic reference for Arab-based and Arab-destined third sector organizations (the part of an economy or society comprising non-governmental and non-
-
-### The Arab NGO Directory
-Framework: democracy
-Model: nonprofit
+_No evidence-backed organizations found in this pass._
 
 
 ---
@@ -980,14 +905,13 @@ Model: nonprofit
 
 # 🌐 Belarus (BY) Civil Society Directory
 
-*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-26 | Source: Web research | Organizations: 0*
 
 ---
 
 ## Organizations
 
-### Belarus Civil Society Network
-> Primary civil society network in Belarus
+_No evidence-backed organizations found in this pass._
 
 
 ---
@@ -1161,14 +1085,13 @@ _No evidence-backed organizations found in this pass._
 
 # 🌐 Cyprus (CY) Civil Society Directory
 
-*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-26 | Source: Web research | Organizations: 0*
 
 ---
 
 ## Organizations
 
-### Cyprus Civil Society Network
-> Primary civil society network in Cyprus
+_No evidence-backed organizations found in this pass._
 
 
 ---
@@ -1257,14 +1180,13 @@ _No evidence-backed organizations found in this pass._
 
 # 🌐 Estonia (EE) Civil Society Directory
 
-*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-26 | Source: Web research | Organizations: 0*
 
 ---
 
 ## Organizations
 
-### Estonia Civil Society Network
-> Primary civil society network in Estonia
+_No evidence-backed organizations found in this pass._
 
 
 ---
@@ -1648,7 +1570,7 @@ Model: nonprofit
 
 # 🌐 Croatia (HR) Civil Society Directory
 
-*Compiled: 2026-04-25 | Source: Web research | Organizations: 0*
+*Compiled: 2026-04-26 | Source: Web research | Organizations: 0*
 
 ---
 
@@ -1729,14 +1651,13 @@ _No evidence-backed organizations found in this pass._
 
 # 🌐 Iraq (IQ) Civil Society Directory
 
-*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-26 | Source: Web research | Organizations: 0*
 
 ---
 
 ## Organizations
 
-### Iraq Civil Society Network
-> Primary civil society network in Iraq
+_No evidence-backed organizations found in this pass._
 
 
 ---
@@ -1757,96 +1678,13 @@ _No evidence-backed organizations found in this pass._
 
 # 🌐 Iceland (IS) Civil Society Directory
 
-*Compiled: 2026-04-16 | Source: Web research | Organizations: 17*
+*Compiled: 2026-04-26 | Source: Web research | Organizations: 0*
 
 ---
 
 ## Organizations
 
-### Government of Iceland | Cooperation with Civil Society and NGOs
-Framework: democracy
-Model: cooperative
-> Cooperation with Civil Society and NGOs Icelandic non-governmental organizations (NGOs) play a significant role in implementing Iceland's policy on international development cooperation.
-
-### Cooperation with Civil Society and NGOs Icelandic non
-Framework: democracy
-Model: cooperative
-> ## List of NGOs, Charities and Nonprofits in Reykjavík
-
-### List of NGOs, Charities and Nonprofits in Reykjavík
-Framework: democracy
-Model: nonprofit
-> Below is a directory/list of Ngos, charities and non-profits working in Reykjavík. Total Results = 30 Sort NGOs By: Default (By Popularity) Ngo Name (A to Z) Year Established (Newest to oldest)
-
-### Below is a directory/list of Ngos, charities and non
-Framework: democracy
-Model: nonprofit
-> ## Non-Profit Organization Iceland - yelu.is
-
-### Non-Profit Organization Iceland - yelu.is
-Framework: democracy
-Model: nonprofit
-> List of Non-Profit Organization in Iceland. Search for Non-Profit Organization with Phone numbers, Locations, Reviews, Photos
-
-### List of Non
-Framework: democracy
-Model: nonprofit
-> ## Iceland | Nonprofits In Iceland | PWI - Project World Impact
-
-### Iceland | Nonprofits In Iceland | PWI - Project World Impact
-Framework: education
-Model: nonprofit
-> Find out about what is really going on in Iceland and learn how nonprofits are making a difference in Iceland everyday.
-
-### Find out about what
-Framework: democracy
-Model: nonprofit
-> ## Worldwide NGO Directory
-
-### Worldwide NGO Directory
-Framework: democracy
-Model: nonprofit
-> The Worldwide NGO Directory is a leading source of information on and resource for connecting with NGOs globally. It includes over 54,000 organizations in all fields of activity in more than 190 count
-
-### The Worldwide NGO Directory
-Framework: democracy
-Model: nonprofit
-> ## Top 10 Charity Organizations in Iceland (2024 Guide)
-
-### Top 10 Charity Organizations in Iceland (2024 Guide)
-Framework: education
-Model: nonprofit
-> Discover the top 10 charity organizations in Iceland. Learn where to donate, how to volunteer, and support meaningful causes across the country in 2024.
-
-### Non-Governmental Organizations - United Nations Western Europe
-Framework: democracy
-Model: nonprofit
-> The system provides online registration of general profiles for civil society organizations, including address, contacts, activities and meeting participation, facilitates the application procedure fo
-
-### Economic and Social Council
-Framework: democracy
-Model: nonprofit
-> ## Nonprofit Organizations in Iceland - ecohubmap.com
-
-### Nonprofit Organizations in Iceland - ecohubmap.com
-Framework: ecology
-Model: nonprofit
-> Choose one of the best Non-Governmental Organizations in Iceland. Find an organization that shares your views on ecology and environmental protection
-
-### Choose one of the best Non
-Framework: democracy
-Model: nonprofit
-> ## United Nations Civil Society Participation - Advanced Search
-
-### United Nations Civil Society Participation
-Framework: democracy
-Model: nonprofit
-> Advanced search for Civil Society Organizations Please use any of the search combinations below to find organizations in our database. You can also expand the headings "Areas of Expertise & Fields of 
-
-### Iceland | NGO Explorer
-Framework: democracy
-Model: nonprofit
-> Found 112 UK NGOs working in Iceland Figures refer to charities registered with the Chari
+_No evidence-backed organizations found in this pass._
 
 
 ---
@@ -2116,14 +1954,13 @@ _No evidence-backed organizations found in this pass._
 
 # 🌐 Kuwait (KW) Civil Society Directory
 
-*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-26 | Source: Web research | Organizations: 0*
 
 ---
 
 ## Organizations
 
-### Kuwait Civil Society Network
-> Primary civil society network in Kuwait
+_No evidence-backed organizations found in this pass._
 
 
 ---
@@ -2214,104 +2051,39 @@ _No evidence-backed organizations found in this pass._
 
 # 🌐 Lithuania (LT) Civil Society Directory
 
-*Compiled: 2026-04-16 | Source: Web research | Organizations: 13*
+*Compiled: 2026-04-26 | Source: Web research | Organizations: 0*
 
 ---
 
 ## Organizations
 
-### Nacionalinė NVO koalicija - Vienijame 18 NVO ir jas vienijančių 
-Framework: democracy
-Model: nonprofit
-> The National Coalition of Non-Governmental Organisations (NGO Coalition) is an alliance of national umbrella NGOs and national NGOs working in various areas of public policy. The Coalition aims to cre
-
-### The National Coalition of Non-Governmental Organisations
-Framework: democracy
-Model: federation
-> ## About - NVO atlasas - nevyriausybinių organizacijų registras
-
-### About - NVO atlasas - nevyriausybinių organizacijų registras
-Framework: democracy
-Model: nonprofit
-> The NGO Atlas not only contains a list of non-governmental organizations (NGOs), but also includes public entities, associations or charity funds registered in Lithuania. The list of all public entiti
-
-### The NGO Atlas not only contains a list of non
-Framework: democracy
-Model: nonprofit
-> ## Non-governmental organizations (NGOs) operating in Lithuania
-
-### Non-governmental organizations (NGOs) operating in Lithuania
-Framework: energy_digital
-Model: nonprofit
-> Data about the institution are collected and stored in the Register of Legal Entities.
-
-### List of NGOs in Lithuania - GlobalGiving Atlas
-Framework: energy_digital
-Model: nonprofit
-> The largest database of NGOs GlobalGiving Atlas has more than 10.7 million validated nonprofits, charities, and NGOs, including 10,226 charities and nonprofits in Lithuania, making it the largest list
-
-### ALF - Atviros Lietuvos Fondas
-Framework: democracy
-Model: nonprofit
-> The Open Lithuania Foundation is a non-governmental organization that actively strengthens civil society in Lithuania as well as supports and promotes organizations working in the areas of human right
-
-### The Open Lithuania Foundation is a non
-Framework: democracy
-Model: foundation
-> ## Non-profit organizations in Lithuania - VisaLietuva.lt
-
-### Non-profit organizations in Lithuania - VisaLietuva.lt
-Framework: democracy
-Model: nonprofit
-> Homepage Lithuanian companies Unions, associations and other organisations Non-profit organizations in Lithuania Show on map Companies found: 75 AIESEC LIETUVA Inicijuojamas likvidavimas.2025-01-13.Du
-
-### Unions, associations and other organisations Non
-Framework: democracy
-Model: nonprofit
-> ## List Of Non-profit organizations in Lithuania
-
-### List Of Non-profit organizations in Lithuania
-Framework: democracy
-Model: nonprofit
-> There are 125 Non-profit organizations in Lithuania as of October 15, 2025; which is an 4.17% increase from 2023. Of these locations, 119 Non-profit organizations which is 95.20% of all Non-profit org
-
-### Non-profit organizations which
-Framework: democracy
-Model: nonprofit
-> ## Lithuania | NGO Explorer
-
-### Lithuania | NGO Explorer
-Framework: healthcare
-Model: nonprofit
-> Most common words from the description of a random set of 30 NGOs matching your search. research public care education educational trust world christian religious promoting penrose provision health pu
+_No evidence-backed organizations found in this pass._
 
 
 ---
 
 # 🌐 Luxembourg (LU) Civil Society Directory
 
-*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-26 | Source: Web research | Organizations: 0*
 
 ---
 
 ## Organizations
 
-### Luxembourg Civil Society Network
-> Primary civil society network in Luxembourg
+_No evidence-backed organizations found in this pass._
 
 
 ---
 
 # 🌐 Latvia (LV) Civil Society Directory
 
-*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-26 | Source: Web research | Organizations: 0*
 
 ---
 
 ## Organizations
 
-### Latvia Civil Society Network
-> Primary civil society network in Latvia
+_No evidence-backed organizations found in this pass._
 
 
 ---
@@ -2346,28 +2118,26 @@ Model: nonprofit
 
 # 🌐 Moldova (MD) Civil Society Directory
 
-*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-26 | Source: Web research | Organizations: 0*
 
 ---
 
 ## Organizations
 
-### Moldova Civil Society Network
-> Primary civil society network in Moldova
+_No evidence-backed organizations found in this pass._
 
 
 ---
 
 # 🌐 Montenegro (ME) Civil Society Directory
 
-*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-26 | Source: Web research | Organizations: 0*
 
 ---
 
 ## Organizations
 
-### Montenegro Civil Society Network
-> Primary civil society network in Montenegro
+_No evidence-backed organizations found in this pass._
 
 
 ---
@@ -2500,14 +2270,13 @@ Model: nonprofit
 
 # 🌐 Malta (MT) Civil Society Directory
 
-*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-26 | Source: Web research | Organizations: 0*
 
 ---
 
 ## Organizations
 
-### Malta Civil Society Network
-> Primary civil society network in Malta
+_No evidence-backed organizations found in this pass._
 
 
 ---
@@ -2856,14 +2625,13 @@ Model: nonprofit
 
 # 🌐 Oman (OM) Civil Society Directory
 
-*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-27 | Source: Web research | Organizations: 0*
 
 ---
 
 ## Organizations
 
-### Oman Civil Society Network
-> Primary civil society network in Oman
+_No evidence-backed organizations found in this pass._
 
 
 ---
@@ -3193,14 +2961,13 @@ _No evidence-backed organizations found in this pass._
 
 # 🌐 Saudi Arabia (SA) Civil Society Directory
 
-*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-26 | Source: Web research | Organizations: 0*
 
 ---
 
 ## Organizations
 
-### Saudi Arabia Civil Society Network
-> Primary civil society network in Saudi Arabia
+_No evidence-backed organizations found in this pass._
 
 
 ---
@@ -3296,14 +3063,13 @@ Model: nonprofit
 
 # 🌐 Slovenia (SI) Civil Society Directory
 
-*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-26 | Source: Web research | Organizations: 0*
 
 ---
 
 ## Organizations
 
-### Slovenia Civil Society Network
-> Primary civil society network in Slovenia
+_No evidence-backed organizations found in this pass._
 
 
 ---

@@ -3,3 +3,10 @@ KE
 ZA
 NG
 BO
+GB
+FR
+DE
+BR
+IN
+MX
+CO

@@ -1,41 +1,29 @@
 # Commonweave
 
-> Commonweave is an open directory and framework for mapping organizations building cooperative, commons-based, democratic, ecological, mutual-aid, and post-labor infrastructure. As of 2026-04-25: 164,783 candidate organizations across 172 countries, 27,217 geocoded map points, 10,824 records scoring `alignment_score >= 5`. US/UK now account for ~13.2% of records (down from ~83% before the April 2026 ingest waves).
+> An open framework for a regenerative global economy. Maps 27,000+ candidate civil-society organizations across 88 countries, scored against an alignment framework, and published as CC0 open data.
 
-Commonweave needs help from humans and AI-assisted contributors. The highest-value work is auditing the recent Wave A ingest (Brazil mapa_oscs, Australia ACNC, Bulgaria Wikidata NPO) for false positives, expanding informal/hybrid coverage (the new long tail is mostly registry-formal), strengthening citations, improving the map, adding edge provenance, and red-teaming the framework. Generic summaries are not contributions. Concrete improvements are.
+## What it is
+Commonweave is an open-source directory and framework. It identifies, scores, and maps organizations working on the transition to a regenerative economy: sustainability, mutual aid, cooperatives, commons-based governance, and adjacent fields. The data is public-domain (CC0) and runs on a multilingual bot pipeline across ~30 languages.
 
-## Core Documents
+## Who runs it
+Maintained by Simon L. Paige and contributors. Open contribution welcome.
 
-- [README](https://github.com/simonlpaige/commonweave/blob/master/README.md): Project overview, directory status, framework, contribution paths.
-- [CRITIQUE](https://github.com/simonlpaige/commonweave/blob/master/CRITIQUE.md): Section-by-section honest audit of weaknesses. Read this; it tells you where the work is.
-- [AGENTS.md](https://github.com/simonlpaige/commonweave/blob/master/AGENTS.md): Instructions for AI agents and AI-assisted contributors.
-- [AI Challenge](https://github.com/simonlpaige/commonweave/blob/master/AI-CHALLENGE.md): Public challenge framing and contribution tracks.
-- [Agent Tasks](https://github.com/simonlpaige/commonweave/blob/master/AGENT-TASKS.json): Machine-readable task list.
-- [Claims Ledger](https://github.com/simonlpaige/commonweave/blob/master/CLAIMS.md): Specific, falsifiable claims with evidence and confidence.
-- [Falsifiers](https://github.com/simonlpaige/commonweave/blob/master/FALSIFIERS.md): What would prove this project wrong.
-- [Attack Vectors](https://github.com/simonlpaige/commonweave/blob/master/ATTACK-VECTORS.md): How the project could be captured, abused, or decay.
-- [Steelman Alternatives](https://github.com/simonlpaige/commonweave/blob/master/STEELMAN-ALTERNATIVES.md): Strongest competing theories.
+## What you can do here
+- **Browse the directory**: search 24,500+ aligned organizations across 60+ countries.
+- **Explore the map**: see the geographic distribution.
+- **Read the framework**: governance models and evidence-based pathways toward ecological and social balance.
 
-## Data
+## Important pages
+- [Home](https://commonweave.earth/): framework overview
+- [Directory](https://commonweave.earth/directory.html): searchable org list
+- [Map](https://commonweave.earth/map.html): geographic view
+- [Doc](https://commonweave.earth/doc.html): framework writeup
 
-- [Data Contribution Guide](https://github.com/simonlpaige/commonweave/blob/master/data/CONTRIBUTING-DATA.md): How to add or verify organizations.
-- [Per-country search index](https://github.com/simonlpaige/commonweave/tree/master/data/search): Browsable JSON files used by the directory.
+## Data license
+CC0 - public domain. Use it however you want.
 
-## Web Surfaces
+## Contact
+- Repo: github.com/simonlpaige/commonweave
+- Email: simon@simonlpaige.com
 
-- [Directory](https://commonweave.earth/directory.html): Searchable organization directory.
-- [Map](https://commonweave.earth/map.html): Interactive organization/network map.
-
-## Best First Tasks
-
-- Verify one underrepresented country (≤50 records; most of the 172 countries qualify). Fix or correct 10. PR.
-- Audit the Wave A ingest: Brazil mapa_oscs, Australia ACNC, or Bulgaria Wikidata NPO -- spot-check 20 records each for framework-fit and false positives.
-- Add a high-confidence-only map toggle (Tier B + `alignment_score >= 5`).
-- Add edge provenance metadata to `data/build_map_v2.py`.
-- Audit auto-classified `legibility=formal` records (~138,803) or backfill `legibility=unknown` records (~25,980).
-- Fill one `[NEEDS EXAMPLE]` cell in the README governance matrix.
-- Add one serious falsifier to `FALSIFIERS.md`.
-
-## Optional
-
-- [Long-form digest (llms-full.txt)](https://github.com/simonlpaige/commonweave/blob/master/llms-full.txt): Longer machine-readable summary with framework and data details.
+Last updated: 2026-04-26

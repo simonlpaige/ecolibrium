@@ -79,6 +79,25 @@ def _load_align():
 
 ALIGNMENT_KEYWORDS, FRAMEWORK_KEYWORDS_ML, classify_org_ml = _load_align()
 
+def run_post_ingest(source=None, dry_run=False):
+    """
+    Call this at the end of every ingest script to enforce the quality gate.
+    Runs post_ingest.py against the named source (or last 36h if source=None).
+    """
+    import subprocess, sys
+    script = os.path.join(DATA_DIR, 'post_ingest.py')
+    args = [sys.executable, script]
+    if source:
+        args += ['--source', source]
+    if dry_run:
+        args += ['--dry-run']
+    result = subprocess.run(args, capture_output=True, text=True)
+    print(result.stdout.strip())
+    if result.returncode != 0:
+        print('[post_ingest ERROR]', result.stderr.strip())
+    return result.returncode
+
+
 NONPROFIT_ENTITY_TYPES = {
     'cooperative', 'co-op', 'coop', 'mutual', 'foundation', 'trust',
     'charity', 'ngo', 'npo', 'credit union', 'microfinance',

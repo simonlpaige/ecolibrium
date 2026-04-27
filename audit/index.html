@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Commonweave Audit Portal</title>
+<style>
+:root {
+  --bg:      #0d1a0d;
+  --surface: #132013;
+  --s2:      #192819;
+  --s3:      #1f321f;
+  --border:  #253825;
+  --border2: #30483a;
+  --text:    #cce8b0;
+  --muted:   #5e8a52;
+  --dim:     #3d5e35;
+  --accent:  #78c87a;
+  --warm:    #a8c87e;
+  --teal:    #4fc4b0;
+  --earth:   #c4a55d;
+  --red:     #e07070;
+  --orange:  #d4915a;
+  --yellow:  #c4b85a;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: system-ui, sans-serif; min-height: 100vh; }
+
+/* NAV */
+nav { display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 24px; border-bottom: 1px solid var(--border); }
+.nav-logo { color: var(--accent); font-weight: 900; letter-spacing: 3px;
+            font-size: 14px; text-decoration: none; text-transform: lowercase; }
+.nav-sub { font-size: 11px; color: var(--muted); letter-spacing: 1px; }
+
+/* PROGRESS BAR */
+.progress-wrap { background: var(--surface); border-bottom: 1px solid var(--border); padding: 10px 24px; }
+.progress-row { display: flex; align-items: center; gap: 12px; }
+.progress-bar-track { flex: 1; height: 6px; background: var(--s3); border-radius: 3px; overflow: hidden; }
+.progress-bar-fill { height: 100%; background: var(--accent); border-radius: 3px; transition: width 0.3s ease; }
+.progress-label { font-size: 12px; color: var(--muted); min-width: 80px; text-align: right; }
+.progress-stats { display: flex; gap: 16px; margin-top: 6px; font-size: 11px; }
+.ps-item { color: var(--muted); }
+.ps-item span { font-weight: 700; }
+.ps-aligned span { color: var(--accent); }
+.ps-remove span { color: var(--red); }
+.ps-section span { color: var(--earth); }
+.ps-enrich span { color: var(--teal); }
+.ps-skip span { color: var(--dim); }
+
+/* MAIN */
+main { max-width: 780px; margin: 0 auto; padding: 24px 20px 80px; }
+
+/* CARD */
+.org-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+            padding: 24px; margin-bottom: 20px; }
+.org-index { font-size: 11px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+.org-name { font-size: 22px; font-weight: 800; color: var(--text); line-height: 1.2; margin-bottom: 6px; }
+.org-name a { color: var(--accent); text-decoration: none; }
+.org-name a:hover { text-decoration: underline; }
+.org-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.badge { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; border-radius: 20px;
+         font-size: 11px; font-weight: 600; border: 1px solid; }
+.badge-location { background: var(--s2); border-color: var(--border); color: var(--text); }
+.badge-source   { background: var(--s2); border-color: var(--border2); color: var(--warm); }
+.badge-section  { background: var(--s2); border-color: var(--border2); color: var(--teal); }
+.badge-score-high  { background: rgba(120,200,122,0.12); border-color: var(--accent); color: var(--accent); }
+.badge-score-mid   { background: rgba(196,181,90,0.12); border-color: var(--yellow); color: var(--yellow); }
+.badge-score-low   { background: rgba(224,112,112,0.12); border-color: var(--red); color: var(--red); }
+.badge-legibility  { background: var(--s3); border-color: var(--dim); color: var(--muted); }
+
+.org-desc { font-size: 14px; color: var(--text); line-height: 1.6; margin-bottom: 14px;
+            padding: 12px 14px; background: var(--s2); border-radius: 6px;
+            border-left: 3px solid var(--border2); }
+.org-desc.no-desc { color: var(--muted); font-style: italic; }
+.org-extra { display: flex; flex-wrap: wrap; gap: 12px; font-size: 12px; color: var(--muted); margin-bottom: 18px; }
+.org-extra a { color: var(--accent); text-decoration: none; }
+.org-extra a:hover { text-decoration: underline; }
+
+/* TAGS */
+.org-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+.tag { padding: 2px 8px; border-radius: 12px; font-size: 10px; background: var(--s3);
+       border: 1px solid var(--dim); color: var(--muted); }
+
+/* OUTLIER FLAGS */
+.outlier-flags { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+.outlier-flag { padding: 8px 12px; border-radius: 6px; font-size: 12px; line-height: 1.4;
+                border-left: 3px solid; }
+.outlier-flag strong { display: block; font-size: 12px; margin-bottom: 2px; }
+.outlier-flag.fp_risk   { background: rgba(224,112,112,0.1); border-color: var(--red); color: var(--red); }
+.outlier-flag.fn_risk   { background: rgba(79,196,176,0.1); border-color: var(--teal); color: var(--teal); }
+.outlier-flag.scoring_bug { background: rgba(212,145,90,0.1); border-color: var(--orange); color: var(--orange); }
+.outlier-flag.section_mismatch { background: rgba(196,165,93,0.1); border-color: var(--earth); color: var(--earth); }
+.outlier-flag .flag-detail { font-size: 11px; opacity: 0.85; margin-top: 2px; }
+
+/* VERDICT BUTTONS */
+.verdict-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+@media (max-width: 500px) { .verdict-row { grid-template-columns: 1fr 1fr; } }
+.verdict-btn { padding: 12px 8px; border-radius: 8px; font-size: 13px; font-weight: 700;
+               cursor: pointer; border: 2px solid; text-align: center; transition: all 0.15s ease;
+               background: var(--s2); }
+.verdict-btn:hover { transform: translateY(-1px); }
+.verdict-btn.active { transform: translateY(0); }
+.btn-aligned  { border-color: var(--accent); color: var(--accent); }
+.btn-aligned.active  { background: rgba(120,200,122,0.18); }
+.btn-remove   { border-color: var(--red); color: var(--red); }
+.btn-remove.active   { background: rgba(224,112,112,0.18); }
+.btn-section  { border-color: var(--earth); color: var(--earth); }
+.btn-section.active  { background: rgba(196,165,93,0.18); }
+.btn-enrich   { border-color: var(--teal); color: var(--teal); }
+.btn-enrich.active   { background: rgba(79,196,176,0.15); }
+.btn-skip     { border-color: var(--dim); color: var(--muted); }
+.btn-skip.active     { background: rgba(61,94,53,0.2); }
+
+/* SECTION PICKER */
+.section-picker { display: none; margin-top: 12px; }
+.section-picker.visible { display: block; }
+.section-picker label { font-size: 12px; color: var(--muted); display: block; margin-bottom: 6px; }
+.section-picker select { width: 100%; background: var(--s3); border: 1px solid var(--border2);
+                          color: var(--text); padding: 8px 10px; border-radius: 6px; font-size: 13px;
+                          outline: none; }
+
+/* NOTE */
+.note-row { margin-top: 10px; }
+.note-row textarea { width: 100%; background: var(--s3); border: 1px solid var(--border);
+                     color: var(--text); padding: 8px 10px; border-radius: 6px; font-size: 13px;
+                     resize: vertical; min-height: 54px; outline: none; font-family: inherit; }
+.note-row textarea:focus { border-color: var(--teal); }
+.note-row textarea::placeholder { color: var(--dim); }
+
+/* NAV BUTTONS */
+.nav-btns { display: flex; gap: 10px; margin-top: 14px; }
+.nav-btn { flex: 1; padding: 11px; border-radius: 7px; font-size: 13px; font-weight: 700;
+           cursor: pointer; border: 1px solid var(--border2); background: var(--s2); color: var(--text);
+           transition: background 0.15s; }
+.nav-btn:hover { background: var(--s3); }
+.nav-btn-next { background: var(--s3); border-color: var(--accent); color: var(--accent); }
+.nav-btn-next:hover { background: rgba(120,200,122,0.12); }
+
+/* KEYBOARD HINT */
+.kbd-hints { display: flex; gap: 12px; margin-top: 8px; font-size: 11px; color: var(--dim);
+             flex-wrap: wrap; }
+.kbd-hints kbd { background: var(--s3); border: 1px solid var(--border2); border-radius: 3px;
+                 padding: 1px 5px; font-size: 10px; color: var(--muted); font-family: monospace; }
+
+/* DONE SCREEN */
+.done-screen { text-align: center; padding: 60px 20px; }
+.done-screen h2 { font-size: 28px; color: var(--accent); margin-bottom: 12px; }
+.done-screen p { color: var(--muted); margin-bottom: 24px; font-size: 15px; line-height: 1.6; }
+.export-btn { display: inline-block; padding: 14px 32px; background: var(--accent); color: #0d1a0d;
+              font-weight: 900; font-size: 15px; border-radius: 8px; cursor: pointer;
+              border: none; letter-spacing: 1px; }
+.export-btn:hover { background: var(--warm); }
+
+/* REGION PICKER */
+.region-picker { text-align: center; padding: 60px 20px; }
+.region-picker h2 { font-size: 22px; color: var(--accent); margin-bottom: 8px; }
+.region-picker p { color: var(--muted); margin-bottom: 28px; font-size: 14px; }
+.region-grid { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.region-card { padding: 20px 28px; background: var(--surface); border: 1px solid var(--border2);
+               border-radius: 10px; cursor: pointer; transition: all 0.15s; font-weight: 700;
+               color: var(--text); font-size: 15px; }
+.region-card:hover { border-color: var(--accent); color: var(--accent); }
+
+/* TOAST */
+.toast { position: fixed; bottom: 24px; right: 24px; padding: 10px 18px; border-radius: 8px;
+         font-size: 13px; font-weight: 600; opacity: 0; transition: opacity 0.3s;
+         pointer-events: none; z-index: 100; }
+.toast.show { opacity: 1; }
+.toast-aligned { background: rgba(120,200,122,0.2); border: 1px solid var(--accent); color: var(--accent); }
+.toast-remove  { background: rgba(224,112,112,0.2); border: 1px solid var(--red); color: var(--red); }
+.toast-section { background: rgba(196,165,93,0.2); border: 1px solid var(--earth); color: var(--earth); }
+.toast-skip    { background: rgba(61,94,53,0.2); border: 1px solid var(--dim); color: var(--muted); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/commonweave/" class="nav-logo">commonweave</a>
+  <span class="nav-sub">audit portal</span>
+</nav>
+
+<div class="progress-wrap" id="progress-wrap" style="display:none">
+  <div class="progress-row">
+    <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill"></div></div>
+    <div class="progress-label" id="progress-label">0 / 0</div>
+  </div>
+  <div class="progress-stats">
+    <div class="ps-item ps-aligned">✅ <span id="stat-aligned">0</span> aligned</div>
+    <div class="ps-item ps-remove">❌ <span id="stat-remove">0</span> remove</div>
+    <div class="ps-item ps-section">🔄 <span id="stat-section">0</span> wrong section</div>
+    <div class="ps-item ps-enrich">🔍 <span id="stat-enrich">0</span> needs docs</div>
+    <div class="ps-item ps-skip">⏭ <span id="stat-skip">0</span> skipped</div>
+  </div>
+</div>
+
+<main id="main">
+  <div class="region-picker" id="region-picker">
+    <h2>Commonweave Audit Portal</h2>
+    <p>Review organizations for framework alignment. Each takes ~20 seconds.<br>Progress saves automatically in your browser.</p>
+    <div class="region-grid" id="region-grid"></div>
+  </div>
+
+  <div id="audit-view" style="display:none"></div>
+  <div id="done-screen" style="display:none"></div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ---- Config ----------------------------------------------------------------
+const REGIONS = [
+  { id: 'usa',   label: '🇺🇸 USA',   file: 'usa.json' },
+  { id: 'india', label: '🇮🇳 India', file: 'india.json' },
+  { id: 'latam', label: '🌎 LatAm',  file: 'latam.json' },
+];
+
+const VERDICTS = {
+  aligned:  { label: '✅ Aligned',           cls: 'btn-aligned',  toast: 'toast-aligned'  },
+  remove:   { label: '❌ Remove',             cls: 'btn-remove',   toast: 'toast-remove'   },
+  section:  { label: '🔄 Wrong Section',     cls: 'btn-section',  toast: 'toast-section'  },
+  enrich:   { label: '🔍 Real, thin docs',   cls: 'btn-enrich',   toast: 'toast-enrich'   },
+  skip:     { label: '⏭ Skip',              cls: 'btn-skip',     toast: 'toast-skip'     },
+};
+
+// ---- State -----------------------------------------------------------------
+let data = null;        // loaded region JSON
+let idx = 0;            // current org index
+let decisions = {};     // { orgId: { verdict, correct_section, note } }
+let regionId = null;
+
+function storageKey() { return 'cw-audit-' + regionId; }
+
+function saveProgress() {
+  localStorage.setItem(storageKey(), JSON.stringify({ idx, decisions }));
+}
+
+function loadProgress() {
+  try {
+    const s = localStorage.getItem(storageKey());
+    if (s) { const p = JSON.parse(s); idx = p.idx || 0; decisions = p.decisions || {}; }
+  } catch(e) {}
+}
+
+// ---- Region picker ---------------------------------------------------------
+function showRegionPicker() {
+  const grid = document.getElementById('region-grid');
+  grid.innerHTML = '';
+  REGIONS.forEach(r => {
+    const card = document.createElement('div');
+    card.className = 'region-card';
+    card.textContent = r.label;
+    card.onclick = () => loadRegion(r);
+    grid.appendChild(card);
+  });
+}
+
+async function loadRegion(r) {
+  regionId = r.id;
+  loadProgress();
+  try {
+    const res = await fetch(r.file + '?_=' + Date.now());
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    data = await res.json();
+  } catch(e) {
+    alert('Could not load ' + r.file + '. Make sure gen-audit-data.py has been run for this region.\n\n' + e.message);
+    return;
+  }
+  document.getElementById('region-picker').style.display = 'none';
+  document.getElementById('progress-wrap').style.display = 'block';
+  document.getElementById('audit-view').style.display = 'block';
+  renderCard();
+}
+
+// ---- Card rendering --------------------------------------------------------
+function scoreBadgeClass(score) {
+  if (score >= 6) return 'badge-score-high';
+  if (score >= 3) return 'badge-score-mid';
+  return 'badge-score-low';
+}
+
+function esc(s) {
+  return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function locationStr(o) {
+  const parts = [o.city, o.state_province, o.country_code].filter(Boolean);
+  return parts.join(', ');
+}
+
+function renderCard() {
+  updateProgress();
+
+  if (idx >= data.orgs.length) { showDone(); return; }
+
+  const o = data.orgs[idx];
+  const dec = decisions[o.id] || {};
+  const loc = locationStr(o);
+  const score = o.alignment_score != null ? o.alignment_score : '?';
+
+  const sectionOptions = Object.entries(data.sections || {})
+    .map(([k,v]) => `<option value="${k}" ${dec.correct_section===k?'selected':''}>${v}</option>`)
+    .join('');
+
+  document.getElementById('audit-view').innerHTML = `
+    <div class="org-card">
+      <div class="org-index">${data.label} &middot; Org ${idx+1} of ${data.orgs.length}</div>
+      <div class="org-name">${o.website
+        ? `<a href="${esc(o.website)}" target="_blank" rel="noopener">${esc(o.name)}</a>`
+        : esc(o.name)}</div>
+
+      <div class="org-meta">
+        ${loc ? `<span class="badge badge-location">📍 ${esc(loc)}</span>` : ''}
+        <span class="badge badge-source">src: ${esc(o.source_label || o.source)}</span>
+        <span class="badge badge-section">📂 ${esc(o.section_label || o.framework_area)}</span>
+        <span class="badge ${scoreBadgeClass(score)}">score: ${score}</span>
+        ${o.legibility ? `<span class="badge badge-legibility">${esc(o.legibility)}</span>` : ''}
+        ${o.country_total <= 50 ? `<span class="badge badge-legibility" style="border-color:var(--teal);color:var(--teal)">🌍 ${o.country_total} orgs in ${esc(o.country_code)}</span>` : ''}
+      </div>
+
+      ${o.outlier_flags && o.outlier_flags.length ? `
+      <div class="outlier-flags">
+        ${o.outlier_flags.map(f => `
+          <div class="outlier-flag ${f.type}">
+            <strong>${f.label}</strong>
+            <div class="flag-detail">${esc(f.detail)}</div>
+          </div>`).join('')}
+      </div>` : ''}
+
+      <div class="org-desc ${!o.description || o.description==='None' ? 'no-desc' : ''}">
+        ${o.description && o.description !== 'None'
+          ? esc(o.description)
+          : '(no description in database)'}
+      </div>
+
+      ${o.registration_id ? `<div class="org-extra"><span>ID: ${esc(o.registration_id)}</span>${
+        o.website ? `<a href="${esc(o.website)}" target="_blank" rel="noopener">Visit website ↗</a>` : ''
+      }</div>` : o.website ? `<div class="org-extra"><a href="${esc(o.website)}" target="_blank" rel="noopener">Visit website ↗</a></div>` : ''}
+
+      ${o.tags_list && o.tags_list.length
+        ? `<div class="org-tags">${o.tags_list.slice(0,8).map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>`
+        : ''}
+
+      <div class="verdict-row">
+        ${Object.entries(VERDICTS).map(([k,v]) => `
+          <button class="verdict-btn ${v.cls} ${dec.verdict===k?'active':''}"
+                  onclick="setVerdict('${k}')" id="vbtn-${k}">
+            ${v.label}
+          </button>`).join('')}
+      </div>
+
+      <div class="section-picker ${dec.verdict==='section'?'visible':''}" id="section-picker">
+        <label>Correct section:</label>
+        <select id="section-select" onchange="setSectionCorrection(this.value)">
+          <option value="">-- pick the right section --</option>
+          ${sectionOptions}
+        </select>
+      </div>
+
+      <div class="note-row">
+        <textarea id="note-input" placeholder="Notes (optional) -- why it's a false positive, what section it belongs to, what the org actually does..."
+                  onchange="setNote(this.value)">${esc(dec.note || '')}</textarea>
+      </div>
+
+      <div class="nav-btns">
+        <button class="nav-btn" onclick="go(-1)" ${idx===0?'disabled':''}>← Prev</button>
+        <button class="nav-btn nav-btn-next" onclick="go(1)">
+          ${idx === data.orgs.length - 1 ? 'Finish →' : 'Next →'}
+        </button>
+      </div>
+
+      <div style="font-size:11px;color:var(--teal);margin-top:8px;line-height:1.5">
+        🔍 <strong>Real, thin docs</strong> = org is genuine and aligned, but underdocumented. Keeps it in the directory and adds it to the description enrichment queue.
+      </div>
+      <div class="kbd-hints">
+        <span><kbd>1</kbd> aligned</span>
+        <span><kbd>2</kbd> remove</span>
+        <span><kbd>3</kbd> wrong section</span>
+        <span><kbd>4</kbd> real, thin docs</span>
+        <span><kbd>5</kbd> skip</span>
+        <span><kbd>→</kbd> next</span>
+        <span><kbd>←</kbd> prev</span>
+      </div>
+    </div>
+  `;
+}
+
+// ---- Decisions -------------------------------------------------------------
+function setVerdict(v) {
+  const o = data.orgs[idx];
+  if (!decisions[o.id]) decisions[o.id] = {};
+  decisions[o.id].verdict = v;
+  saveProgress();
+  // update button states
+  Object.keys(VERDICTS).forEach(k => {
+    const btn = document.getElementById('vbtn-' + k);
+    if (btn) btn.classList.toggle('active', k === v);
+  });
+  // show/hide section picker
+  const sp = document.getElementById('section-picker');
+  if (sp) sp.classList.toggle('visible', v === 'section');
+  // toast
+  showToast(VERDICTS[v].label, VERDICTS[v].toast);
+  updateProgress();
+}
+
+function setSectionCorrection(val) {
+  const o = data.orgs[idx];
+  if (!decisions[o.id]) decisions[o.id] = {};
+  decisions[o.id].correct_section = val;
+  saveProgress();
+}
+
+function setNote(val) {
+  const o = data.orgs[idx];
+  if (!decisions[o.id]) decisions[o.id] = {};
+  decisions[o.id].note = val;
+  saveProgress();
+}
+
+function go(dir) {
+  idx = Math.max(0, Math.min(data.orgs.length, idx + dir));
+  saveProgress();
+  renderCard();
+  window.scrollTo(0, 0);
+}
+
+// ---- Progress --------------------------------------------------------------
+function updateProgress() {
+  if (!data) return;
+  const total = data.orgs.length;
+  const done = Object.keys(decisions).length;
+  const pct = total > 0 ? Math.round(done / total * 100) : 0;
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-label').textContent = done + ' / ' + total;
+
+  const counts = { aligned: 0, remove: 0, section: 0, enrich: 0, skip: 0 };
+  Object.values(decisions).forEach(d => { if (d.verdict) counts[d.verdict]++; });
+  document.getElementById('stat-aligned').textContent = counts.aligned;
+  document.getElementById('stat-remove').textContent = counts.remove;
+  document.getElementById('stat-section').textContent = counts.section;
+  document.getElementById('stat-enrich').textContent = counts.enrich;
+  document.getElementById('stat-skip').textContent = counts.skip;
+}
+
+// ---- Done screen -----------------------------------------------------------
+function showDone() {
+  document.getElementById('audit-view').style.display = 'none';
+  const done = document.getElementById('done-screen');
+  done.style.display = 'block';
+
+  const total = data.orgs.length;
+  const decided = Object.values(decisions).filter(d => d.verdict && d.verdict !== 'skip').length;
+  const aligned = Object.values(decisions).filter(d => d.verdict === 'aligned').length;
+  const remove = Object.values(decisions).filter(d => d.verdict === 'remove').length;
+
+  done.innerHTML = `
+    <div class="done-screen">
+      <h2>🪱 Audit complete</h2>
+      <p>
+        ${decided} of ${total} orgs reviewed.<br>
+        ${aligned} aligned &middot; ${remove} flagged for removal.<br>
+        Export your results and share with Simon.
+      </p>
+      <button class="export-btn" onclick="exportResults()">Download Results JSON</button>
+      <br><br>
+      <button class="nav-btn" onclick="go(-1)" style="max-width:200px;display:inline-block;margin-top:12px">← Go back</button>
+    </div>
+  `;
+}
+
+function exportResults() {
+  const output = {
+    region: regionId,
+    label: data.label,
+    exported: new Date().toISOString(),
+    total: data.orgs.length,
+    decisions_count: Object.keys(decisions).length,
+    decisions,
+    orgs: data.orgs.map(o => ({
+      ...o,
+      audit: decisions[o.id] || { verdict: null },
+    })),
+  };
+  const blob = new Blob([JSON.stringify(output, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'commonweave-audit-' + regionId + '-' + new Date().toISOString().slice(0,10) + '.json';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// ---- Toast -----------------------------------------------------------------
+let toastTimer = null;
+function showToast(msg, cls) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.className = 'toast ' + cls + ' show';
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('show'), 1400);
+}
+
+// ---- Keyboard --------------------------------------------------------------
+document.addEventListener('keydown', e => {
+  if (!data || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT' || e.target.tagName === 'INPUT') return;
+  if (e.key === '1') setVerdict('aligned');
+  else if (e.key === '2') setVerdict('remove');
+  else if (e.key === '3') setVerdict('section');
+  else if (e.key === '4') setVerdict('enrich');
+  else if (e.key === '5') setVerdict('skip');
+  else if (e.key === 'ArrowRight' || e.key === 'Enter') go(1);
+  else if (e.key === 'ArrowLeft') go(-1);
+});
+
+// ---- Init ------------------------------------------------------------------
+showRegionPicker();
+
+// Auto-load USA if ?region=usa in URL
+const urlRegion = new URLSearchParams(location.search).get('region');
+if (urlRegion) {
+  const r = REGIONS.find(x => x.id === urlRegion);
+  if (r) loadRegion(r);
+}
+</script>
+</body>
+</html>

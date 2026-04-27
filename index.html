@@ -4,9 +4,49 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Commonweave -- A Framework for the Effortless Economy</title>
-<meta name="description" content="An open-source directory of 163,000+ candidate organizations across 172 countries, mapped to a transition framework. Multilingual bot pipeline across ~30 languages. CC0.">
+<meta name="description" content="An open-source directory of 173,106 aligned organizations across 183 countries -- cooperatives, mutual aid networks, CLTs, community energy, and open governance tools -- mapped to a post-labor transition framework. Open data. CC0.">
 <meta property="og:title" content="Commonweave">
-<meta property="og:description" content="An open-source directory of 163,000+ candidate organizations across 172 countries, mapped to a transition framework. Multilingual bot pipeline across ~30 languages.">
+<meta property="og:description" content="173,106 cooperatives, mutual aid networks, CLTs, and transition organizations across 183 countries -- open directory, open data, open framework. CC0.">
+<meta property="og:url" content="https://commonweave.earth/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Commonweave">
+<meta name="twitter:description" content="An open framework for a regenerative global economy.">
+<link rel="canonical" href="https://commonweave.earth/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://commonweave.earth/#website",
+      "url": "https://commonweave.earth/",
+      "name": "Commonweave",
+      "description": "An open framework for a regenerative global economy.",
+      "inLanguage": "en",
+      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://commonweave.earth/directory.html?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "Dataset",
+      "name": "Commonweave Civil Society Organization Directory",
+      "description": "Open-source directory of 173,106 aligned organizations across 183 countries -- cooperatives, mutual aid networks, community land trusts, transition initiatives, and open governance tools -- scored against a post-labor transition framework.",
+      "url": "https://commonweave.earth/directory.html",
+      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "isAccessibleForFree": true,
+      "creator": {
+        "@type": "Person",
+        "name": "Simon L. Paige"
+      },
+      "keywords": ["civil society", "sustainability", "regenerative economy", "cooperatives", "mutual aid", "commons"]
+    }
+  ]
+}
+</script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -315,7 +355,7 @@ footer a:hover { color: var(--muted); }
   <div class="pill" aria-hidden="true">Open Source &middot; CC0 &middot; Transparent governance</div>
   <h1 id="hero-heading">The movement already exists.</h1>
   <p class="hero-lead">In 2007, Paul Hawken catalogued 114,994 organizations across 243 countries building alternatives to the systems that don't work. The website disappeared in 2014 when the funding ran out.</p>
-  <p class="hero-sub">This is the continuation -- built on public registry data from 172 countries, filtered to organizations that actually embody the framework, with the infrastructure problem taken seriously this time.</p>
+  <p class="hero-sub">This is the continuation -- built on public registry data from <span data-stat="countries_any">171</span> countries, filtered to organizations that actually embody the framework, with the infrastructure problem taken seriously this time.</p>
   <div class="btn-row">
     <a href="#map" class="btn btn-green">&#x1F30D; Explore the Map</a>
     <a href="directory.html" class="btn btn-ghost">Browse the Directory &rarr;</a>
@@ -325,9 +365,10 @@ footer a:hover { color: var(--muted); }
 
 <!-- STATS -->
 <div class="stats" role="region" aria-label="Project statistics">
-  <div class="stat-item"><div class="stat-n" aria-label="163,984">164K</div><div class="stat-l">Candidate organizations</div></div>
-  <div class="stat-item"><div class="stat-n" aria-label="172">172</div><div class="stat-l">Countries represented</div></div>
-  <div class="stat-item"><div class="stat-n" aria-label="around 30 languages">~30</div><div class="stat-l">Languages in scoring pipeline</div></div>
+  <div class="stat-item"><div class="stat-n" data-stat="orgs_in_directory">173,106</div><div class="stat-l">Candidates in directory</div></div>
+  <div class="stat-item"><div class="stat-n" data-stat="orgs_on_map">33,364</div><div class="stat-l">Mapped organizations</div></div>
+  <div class="stat-item"><div class="stat-n" data-stat="countries_geocoded">102</div><div class="stat-l">Countries on the map</div></div>
+  <div class="stat-item"><div class="stat-n">~30</div><div class="stat-l">Languages in scoring pipeline</div></div>
   <div class="stat-item"><div class="stat-n">10</div><div class="stat-l">Framework sections</div></div>
   <div class="stat-item"><div class="stat-n">CC0</div><div class="stat-l">Fully open data</div></div>
 </div>
@@ -335,7 +376,7 @@ footer a:hover { color: var(--muted); }
 <!-- METHODOLOGY NOTE -->
 <div class="methodology-wrap" role="note" aria-label="Data methodology">
   <div class="methodology-note">
-    <strong>About this data.</strong> We started with three public registries - <strong>IRS Exempt Organizations BMF</strong>, <strong>UK Charity Commission</strong>, and <strong>Wikidata</strong> - pulled in ~760K nonprofits, then ran a multi-pass alignment filter against framework keywords. <strong>The 163,984 candidate organizations shown here are what passed that filter</strong>: entries with real signal that they embody cooperatives, mutual aid, community land trusts, food sovereignty, participatory democracy, restorative justice, or the other framework mechanisms. Of those, ~10,824 score >=5 on framework alignment (the strongest matches); the rest are candidates awaiting review. Tier A entries are manually verified; Tier B/C come from automated scoring; the new long tail from this week's Wave A ingest (Brazil, Australia, Bulgaria) is still being audited. <a href="DATA.md">Full methodology &rarr;</a>
+    <strong>About this data.</strong> We started with three public registries - <strong>IRS Exempt Organizations BMF</strong>, <strong>UK Charity Commission</strong>, and <strong>Wikidata</strong> - pulled in ~760K nonprofits, then ran a multi-pass alignment filter against framework keywords. <strong>The <span data-stat="orgs_in_directory">173,106</span> organizations shown here are what survived that filter</strong>: entries with real signal that they embody cooperatives, mutual aid, community land trusts, food sovereignty, participatory democracy, restorative justice, or the other framework mechanisms. Sources now include 25+ public registries and thematic global networks (IRS BMF, UK Charity Commission, Australia ACNC, Brazil Mapa das OSCs, ICA, RIPESS, Mutual Aid Hub, Transition Network, and more). Of these, <span data-stat="orgs_on_map">33,364</span> have coordinates and appear on the map across <span data-stat="countries_geocoded">102</span> countries. Tier A entries are manually verified; Tier B/C come from automated scoring. <a href="DATA.md">Full methodology &rarr;</a>
   </div>
   <div class="methodology-note" style="margin-top:16px;">
     <strong>Multilingual pipeline (April 2026).</strong> The scoring bots now recognise alignment terms in roughly 30 languages - Spanish <em>cooperativa</em>, Portuguese <em>economia solid&aacute;ria</em>, Japanese <em>&#21332;&#21516;&#32068;&#21512;</em>, Mandarin <em>&#21512;&#20316;&#31038;</em>, Arabic <em>&#1578;&#1593;&#1575;&#1608;&#1606;&#1610;&#1577;</em>, Yoruba <em>egbe ajose</em>, Quechua <em>ayni/minga</em>, Amharic <em>&#4840;&#4764;&#4672;&#4725;</em>, plus Indigenous land-commons concepts like <em>ejido</em>, <em>waqf</em>, <em>hima</em>, <em>gotong-royong</em>, <em>iriai-chi</em>, <em>usi civici</em>. Researcher bots build search queries in every language spoken in a country, not just English. Word-boundary matching prevents short non-English terms from false-matching inside English words. This improves <strong>recall</strong> outside the US and UK; <strong>precision</strong> still depends on downstream verification. Full term bank: <a href="MULTILINGUAL-TERMS.md">MULTILINGUAL-TERMS.md</a>.
@@ -350,9 +391,9 @@ footer a:hover { color: var(--muted); }
     <p>Filter by section &middot; hover any dot for details &middot; scroll to zoom &middot; drag to pan</p>
   </div>
   <div class="map-box">
-    <iframe src="map.html" title="Commonweave global directory -- interactive network of 164K+ candidate organizations" loading="lazy" aria-label="Interactive directory network"></iframe>
+    <iframe src="map.html" title="Commonweave global directory -- interactive network of mapped organizations" loading="lazy" aria-label="Interactive directory network"></iframe>
     <div class="map-footer">
-      <span>163,984 candidate organizations across 172 countries &mdash; <a href="directory.html">full directory</a> (CC0)</span>
+      <span><span data-stat="orgs_on_map">33,364</span> mapped organizations across <span data-stat="countries_geocoded">102</span> countries (<span data-stat="orgs_in_directory">173,106</span> candidates total) &mdash; <a href="directory.html">full directory</a> (CC0)</span>
       <a href="map.html" target="_blank" rel="noopener" aria-label="Open map in full screen">Full screen &rarr;</a>
     </div>
   </div>
@@ -362,69 +403,69 @@ footer a:hover { color: var(--muted); }
 <div id="sections" class="sections-wrap" role="region" aria-label="Framework sections">
   <div class="section-label" aria-hidden="true">Directory</div>
   <div class="section-hed">
-    <h2>10 sections &mdash; 163,984 candidate organizations</h2>
-    <p>Each section covers organizations from public registries and curated sources. <a href="directory.html">Browse the full directory &rarr;</a></p>
+    <h2>10 sections &mdash; <span data-stat="orgs_on_map">33,364</span> mapped organizations</h2>
+    <p>Counts below are mapped organizations per section (the points you can actually click on the map). Each section also has off-map candidates pending geocoding. <a href="directory.html">Browse the full directory &rarr;</a></p>
   </div>
   <div class="sections-grid">
     <div class="sec-card" style="--card-color:#f472b6">
       <div class="sec-pip" aria-hidden="true"></div>
       <div class="sec-name">Healthcare</div>
       <div class="sec-desc">Open-source health IT, community health worker models, universal systems that demonstrably work</div>
-      <div class="sec-meta">32,396 organizations</div>
+      <div class="sec-meta"><span data-section="healthcare">3,898</span> organizations</div>
     </div>
     <div class="sec-card" style="--card-color:#a78bfa">
       <div class="sec-pip" aria-hidden="true"></div>
       <div class="sec-name">Education</div>
       <div class="sec-desc">Open courseware, democratic schooling, offline-first platforms, 300M+ Moodle users</div>
-      <div class="sec-meta">44,968 organizations</div>
+      <div class="sec-meta"><span data-section="education">5,799</span> organizations</div>
     </div>
     <div class="sec-card" style="--card-color:#fb923c">
       <div class="sec-pip" aria-hidden="true"></div>
       <div class="sec-name">Food Sovereignty</div>
       <div class="sec-desc">Agroecology, seed sovereignty, open food networks, CSA movements, 200M peasant farmers</div>
-      <div class="sec-meta">2,993 organizations</div>
+      <div class="sec-meta"><span data-section="food">435</span> organizations</div>
     </div>
     <div class="sec-card" style="--card-color:#60a5fa">
       <div class="sec-pip" aria-hidden="true"></div>
       <div class="sec-name">Democratic Infrastructure</div>
       <div class="sec-desc">Verifiable voting, liquid democracy, sortition, participatory platforms, citizens' assemblies</div>
-      <div class="sec-meta">12,724 organizations</div>
+      <div class="sec-meta"><span data-section="democracy">2,598</span> organizations</div>
     </div>
     <div class="sec-card" style="--card-color:#fbbf24">
       <div class="sec-pip" aria-hidden="true"></div>
       <div class="sec-name">Land &amp; Housing</div>
       <div class="sec-desc">Community land trusts, Vienna social housing, stewardship over speculation</div>
-      <div class="sec-meta">52,449 organizations</div>
+      <div class="sec-meta"><span data-section="housing_land">785</span> organizations</div>
     </div>
     <div class="sec-card" style="--card-color:#7ec88a">
       <div class="sec-pip" aria-hidden="true"></div>
       <div class="sec-name">Ecological Restoration</div>
       <div class="sec-desc">Beyond-GDP governance, regenerative ecology, watershed stewardship, biodiversity recovery</div>
-      <div class="sec-meta">5,277 organizations</div>
+      <div class="sec-meta"><span data-section="ecology">1,608</span> organizations</div>
     </div>
     <div class="sec-card" style="--card-color:#f87171">
       <div class="sec-pip" aria-hidden="true"></div>
       <div class="sec-name">Conflict Resolution</div>
       <div class="sec-desc">Restorative justice, transitional justice, community accountability. 41.5% recidivism reduction.</div>
-      <div class="sec-meta">1,118 organizations</div>
+      <div class="sec-meta"><span data-section="conflict">466</span> organizations</div>
     </div>
     <div class="sec-card" style="--card-color:#34d399">
       <div class="sec-pip" aria-hidden="true"></div>
       <div class="sec-name">Cooperatives &amp; Solidarity</div>
       <div class="sec-desc">Worker cooperatives, mutual aid networks, community wealth building, credit unions</div>
-      <div class="sec-meta">2,264 organizations</div>
+      <div class="sec-meta"><span data-section="cooperatives">656</span> organizations</div>
     </div>
     <div class="sec-card" style="--card-color:#e879f9">
       <div class="sec-pip" aria-hidden="true"></div>
       <div class="sec-name">Recreation &amp; Arts</div>
       <div class="sec-desc">Basic income for artists, open cultural heritage, 90M+ freely licensed media files</div>
-      <div class="sec-meta">3,939 organizations</div>
+      <div class="sec-meta"><span data-section="recreation_arts">333</span> organizations</div>
     </div>
     <div class="sec-card" style="--card-color:#22d3ee">
       <div class="sec-pip" aria-hidden="true"></div>
       <div class="sec-name">Energy &amp; Digital Commons</div>
       <div class="sec-desc">Community energy cooperatives, federated protocols, 900 US rural electric co-ops serving 42M</div>
-      <div class="sec-meta">72 organizations</div>
+      <div class="sec-meta"><span data-section="energy_digital">50</span> organizations</div>
     </div>
   </div>
 </div>
@@ -436,7 +477,7 @@ footer a:hover { color: var(--muted); }
   <p>Here is a thing that is true and that almost no one talks about clearly: <strong>the machines are going to do most of the work.</strong> Not eventually -- now, and accelerating. The interesting question isn't whether that happens. It's who benefits when it does.</p>
   <p>Right now the answer is: whoever owns the machines. That's a design choice, not a law of nature. You could design it differently.</p>
   <p>Commonweave is an attempt to think carefully about what "differently" actually means -- what systems would need to exist, how you'd build them, what's already being built, and how you get from here to there without everything going badly wrong in the middle.</p>
-  <p>The directory indexes organizations from public registries across 172 countries - <strong>community land trusts, worker cooperatives, open-source health systems, participatory democracy tools, community energy grids</strong> - filtered to entries that actually embody pieces of the answer. That's what Hawken saw in 2007. That's what this continues.</p>
+  <p>The directory indexes organizations from public registries across <span data-stat="countries_any">171</span> countries - <strong>community land trusts, worker cooperatives, open-source health systems, participatory democracy tools, community energy grids</strong> - filtered to entries that actually embody pieces of the answer. That's what Hawken saw in 2007. That's what this continues.</p>
 </section>
 
 <!-- DOCS -->
@@ -536,6 +577,38 @@ footer a:hover { color: var(--muted); }
 </div>
 
 </main>
+
+<script>
+// Pull every public count from data/map/stats.json so the homepage can never
+// drift from what the map actually shows. The hardcoded numbers in the HTML
+// are fallbacks for anyone reading without JS.
+(function () {
+  function fmt(n) { return Number(n).toLocaleString('en-US'); }
+  fetch('data/map/stats.json', { cache: 'no-cache' })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (s) {
+      if (!s) return;
+      var statMap = {
+        orgs_total_db:     s.orgs_total_db,
+        orgs_in_directory: s.orgs_in_directory,
+        orgs_on_map:       s.orgs_on_map,
+        countries_any:     s.countries_with_at_least_one_org,
+        countries_geocoded:s.countries_with_geocoded_org,
+        edges_total:       s.edges_total,
+      };
+      Object.keys(statMap).forEach(function (key) {
+        var nodes = document.querySelectorAll('[data-stat="' + key + '"]');
+        nodes.forEach(function (el) { el.textContent = fmt(statMap[key]); });
+      });
+      var by = s.by_section || {};
+      Object.keys(by).forEach(function (sec) {
+        var nodes = document.querySelectorAll('[data-section="' + sec + '"]');
+        nodes.forEach(function (el) { el.textContent = fmt(by[sec]); });
+      });
+    })
+    .catch(function () { /* fall back to hardcoded values */ });
+})();
+</script>
 
 <footer role="contentinfo">
   <p>

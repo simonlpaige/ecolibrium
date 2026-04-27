@@ -1,0 +1,1796 @@
+{
+  "region": "usa",
+  "label": "USA",
+  "mode": "outlier",
+  "generated": "2026-04-27",
+  "total": 60,
+  "sections": {
+    "healthcare": "Healthcare",
+    "education": "Education",
+    "food": "Food Sovereignty",
+    "democracy": "Democratic Infrastructure",
+    "housing_land": "Land & Housing",
+    "ecology": "Ecological Restoration",
+    "conflict": "Conflict Resolution",
+    "cooperatives": "Cooperatives & Solidarity",
+    "recreation_arts": "Recreation & Arts",
+    "energy_digital": "Energy & Digital Commons"
+  },
+  "orgs": [
+    {
+      "id": 909088,
+      "name": "The Crossing Church",
+      "country_code": "US",
+      "state_province": "IN",
+      "city": "Hobart",
+      "source": "mutual_aid_hub",
+      "framework_area": "democracy",
+      "alignment_score": 1,
+      "description": "community: Faith-based. category: Network. tags: Faith-based",
+      "website": "https://www.facebook.com/frontlineministrynwi/",
+      "registration_id": null,
+      "legibility": "informal",
+      "model_type": "mutual_aid",
+      "tags": "Faith-based",
+      "email": "",
+      "phone": "",
+      "source_label": "Mutual Aid Hub",
+      "section_label": "Democratic Infrastructure",
+      "tags_list": [
+        "Faith-based"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fn_risk",
+          "label": "🤝 Informal org, low score",
+          "detail": "Community/mutual aid orgs often lack digital presence and alignment keywords -- score may underestimate importance"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 909876,
+      "name": "Heart Land",
+      "country_code": "US",
+      "state_province": "California",
+      "city": "Campo",
+      "source": "ic_directory",
+      "framework_area": "housing_land",
+      "alignment_score": 0,
+      "description": "status: Established (At least 4+ adults, 2+ years. type: Unspecified, or Other. open to membership: Yes",
+      "website": "https://www.ic.org/directory/heart-land/",
+      "registration_id": null,
+      "legibility": "hybrid",
+      "model_type": "community_org",
+      "tags": "Unspecified, or Other",
+      "email": null,
+      "phone": null,
+      "source_label": "Intentional Communities Dir.",
+      "section_label": "Land & Housing",
+      "tags_list": [
+        "Unspecified",
+        "or Other"
+      ],
+      "outlier_flags": [
+        {
+          "type": "scoring_bug",
+          "label": "🐛 Trust source, score 0",
+          "detail": "ic_directory is a curated source -- score=0 suggests a scoring bug, not a bad org"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 210581,
+      "name": "HELEN WHEELER CENTER FOR COMMUNITY MENTAL HEALTH",
+      "country_code": "US",
+      "state_province": "IL",
+      "city": "KANKAKEE",
+      "source": "IRS_EO_BMF",
+      "framework_area": "healthcare",
+      "alignment_score": 3,
+      "description": null,
+      "website": null,
+      "registration_id": "362521946",
+      "legibility": "unknown",
+      "model_type": "research",
+      "tags": "tier_c",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Healthcare",
+      "tags_list": [
+        "tier_c"
+      ],
+      "outlier_flags": [],
+      "country_total": 12356
+    },
+    {
+      "id": 321798,
+      "name": "CONSTANTINE COMMUNITY FOOD PANTRY",
+      "country_code": "US",
+      "state_province": "MI",
+      "city": "CONSTANTINE",
+      "source": "IRS_EO_BMF",
+      "framework_area": "food",
+      "alignment_score": 5,
+      "description": null,
+      "website": null,
+      "registration_id": "462119650",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_c",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Food Sovereignty",
+      "tags_list": [
+        "tier_c"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 5",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 629338,
+      "name": "DOWNSTREET HOUSING & COMMUNITY DEVELOPMENT INC",
+      "country_code": "US",
+      "state_province": "VT",
+      "city": "BARRE",
+      "source": "IRS_EO_BMF",
+      "framework_area": "housing_land",
+      "alignment_score": 2,
+      "description": null,
+      "website": null,
+      "registration_id": "222843473",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_d",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Land & Housing",
+      "tags_list": [
+        "tier_d"
+      ],
+      "outlier_flags": [],
+      "country_total": 12356
+    },
+    {
+      "id": 902222,
+      "name": "Chinese Community Health Resource Center",
+      "country_code": "US",
+      "state_province": "CA",
+      "city": null,
+      "source": "wikidata",
+      "framework_area": "healthcare",
+      "alignment_score": 5,
+      "description": "nonprofit organization in San Francisco, United States",
+      "website": "https://www.cchrchealth.org/",
+      "registration_id": null,
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": null,
+      "email": null,
+      "phone": null,
+      "source_label": "Wikidata",
+      "section_label": "Healthcare",
+      "tags_list": [],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ High score, noisy source",
+          "detail": "Score 5 from wikidata -- verify this is genuinely aligned"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 355759,
+      "name": "COMMUNITY FOOD PANTRY",
+      "country_code": "US",
+      "state_province": "MO",
+      "city": "MARSHALL",
+      "source": "IRS_EO_BMF",
+      "framework_area": "food",
+      "alignment_score": 5,
+      "description": null,
+      "website": null,
+      "registration_id": "431889685",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_c",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Food Sovereignty",
+      "tags_list": [
+        "tier_c"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 5",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 630327,
+      "name": "STRAFFORD COMMUNITY FOOD SHELF LTD",
+      "country_code": "US",
+      "state_province": "VT",
+      "city": "S STRAFFORD",
+      "source": "IRS_EO_BMF",
+      "framework_area": "food",
+      "alignment_score": 5,
+      "description": null,
+      "website": null,
+      "registration_id": "810683586",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_c",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Food Sovereignty",
+      "tags_list": [
+        "tier_c"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 5",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 216366,
+      "name": "MURPHYSBORO FOOD PANTRY INC",
+      "country_code": "US",
+      "state_province": "IL",
+      "city": "MURPHYSBORO",
+      "source": "IRS_EO_BMF",
+      "framework_area": "food",
+      "alignment_score": 4,
+      "description": null,
+      "website": null,
+      "registration_id": "383666380",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_c",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Food Sovereignty",
+      "tags_list": [
+        "tier_c"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 4",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 449300,
+      "name": "SALUDA COMMUNITY LAND TRUST INC",
+      "country_code": "US",
+      "state_province": "NC",
+      "city": "SALUDA",
+      "source": "IRS_EO_BMF",
+      "framework_area": "ecology",
+      "alignment_score": 4,
+      "description": null,
+      "website": null,
+      "registration_id": "208869652",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_c",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Ecological Restoration",
+      "tags_list": [
+        "tier_c"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 4",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 903737,
+      "name": "Transition Bakersfield",
+      "country_code": "US",
+      "state_province": "CA",
+      "city": "Bakesfield",
+      "source": "transition_network",
+      "framework_area": "",
+      "alignment_score": 0,
+      "description": "",
+      "website": "https://maps.transitionnetwork.org/group/transition-bakersfield/",
+      "registration_id": null,
+      "legibility": "hybrid",
+      "model_type": "collective",
+      "tags": "Transition Group",
+      "email": "",
+      "phone": null,
+      "source_label": "Transition Network",
+      "section_label": "",
+      "tags_list": [
+        "Transition Group"
+      ],
+      "outlier_flags": [
+        {
+          "type": "scoring_bug",
+          "label": "🐛 Trust source, score 0",
+          "detail": "transition_network is a curated source -- score=0 suggests a scoring bug, not a bad org"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 358023,
+      "name": "HABITAT FOR HUMANITY INTERNATIONAL INC",
+      "country_code": "US",
+      "state_province": "MO",
+      "city": "SAINT LOUIS",
+      "source": "IRS_EO_BMF",
+      "framework_area": "housing_land",
+      "alignment_score": 9,
+      "description": null,
+      "website": null,
+      "registration_id": "581735543",
+      "legibility": "formal",
+      "model_type": "sweat_equity_program",
+      "tags": "tier_c,habitat_affiliate,sweat_equity",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Land & Housing",
+      "tags_list": [
+        "tier_c",
+        "habitat_affiliate",
+        "sweat_equity"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 9",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 903861,
+      "name": "Sacramento",
+      "country_code": "US",
+      "state_province": "CA",
+      "city": "Sacramento",
+      "source": "transition_network",
+      "framework_area": "",
+      "alignment_score": 0,
+      "description": "",
+      "website": "https://maps.transitionnetwork.org/group/sacramento/",
+      "registration_id": null,
+      "legibility": "hybrid",
+      "model_type": "collective",
+      "tags": "Transition Group",
+      "email": "",
+      "phone": null,
+      "source_label": "Transition Network",
+      "section_label": "",
+      "tags_list": [
+        "Transition Group"
+      ],
+      "outlier_flags": [
+        {
+          "type": "scoring_bug",
+          "label": "🐛 Trust source, score 0",
+          "detail": "transition_network is a curated source -- score=0 suggests a scoring bug, not a bad org"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 309598,
+      "name": "LIGHTPATH EDUCATION AND GLOBAL HEALTH OUTREACH INC",
+      "country_code": "US",
+      "state_province": "MA",
+      "city": "WORCESTER",
+      "source": "IRS_EO_BMF",
+      "framework_area": "healthcare",
+      "alignment_score": 2,
+      "description": null,
+      "website": null,
+      "registration_id": "922815081",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_d",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Healthcare",
+      "tags_list": [
+        "tier_d"
+      ],
+      "outlier_flags": [],
+      "country_total": 12356
+    },
+    {
+      "id": 149150,
+      "name": "DOUGLAS GARDENS COMMUNITY MENTAL HEALTH CENTER FOUNDATION INC",
+      "country_code": "US",
+      "state_province": "FL",
+      "city": "MIAMI BEACH",
+      "source": "IRS_EO_BMF",
+      "framework_area": "healthcare",
+      "alignment_score": 6,
+      "description": null,
+      "website": null,
+      "registration_id": "461625807",
+      "legibility": "unknown",
+      "model_type": "foundation",
+      "tags": "tier_c",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Healthcare",
+      "tags_list": [
+        "tier_c"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 6",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 605865,
+      "name": "MANNA FROM ABOVE COMMUNITY FOOD PANTRY",
+      "country_code": "US",
+      "state_province": "TX",
+      "city": "DAWSON",
+      "source": "IRS_EO_BMF",
+      "framework_area": "food",
+      "alignment_score": 5,
+      "description": null,
+      "website": null,
+      "registration_id": "832631923",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_c",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Food Sovereignty",
+      "tags_list": [
+        "tier_c"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 5",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 370742,
+      "name": "ACCEPTED FOOD BANK",
+      "country_code": "US",
+      "state_province": "NE",
+      "city": "OMAHA",
+      "source": "IRS_EO_BMF",
+      "framework_area": "food",
+      "alignment_score": 4,
+      "description": null,
+      "website": null,
+      "registration_id": "863701239",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_c",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Food Sovereignty",
+      "tags_list": [
+        "tier_c"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 4",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 253944,
+      "name": "HABITAT FOR HUMANITY INTERNATIONAL INC",
+      "country_code": "US",
+      "state_province": "KS",
+      "city": "LAWRENCE",
+      "source": "IRS_EO_BMF",
+      "framework_area": "housing_land",
+      "alignment_score": 9,
+      "description": null,
+      "website": null,
+      "registration_id": "481070953",
+      "legibility": "formal",
+      "model_type": "sweat_equity_program",
+      "tags": "tier_c,habitat_affiliate,sweat_equity",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Land & Housing",
+      "tags_list": [
+        "tier_c",
+        "habitat_affiliate",
+        "sweat_equity"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 9",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 357050,
+      "name": "COLUMBIA COMMUNITY HOUSING TRUST",
+      "country_code": "US",
+      "state_province": "MO",
+      "city": "COLUMBIA",
+      "source": "IRS_EO_BMF",
+      "framework_area": "housing_land",
+      "alignment_score": 2,
+      "description": null,
+      "website": null,
+      "registration_id": "463751945",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_d",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Land & Housing",
+      "tags_list": [
+        "tier_d"
+      ],
+      "outlier_flags": [],
+      "country_total": 12356
+    },
+    {
+      "id": 909768,
+      "name": "Emerald Grove Intentional Community",
+      "country_code": "US",
+      "state_province": "Oregon",
+      "city": "Springfield",
+      "source": "ic_directory",
+      "framework_area": "recreation_arts",
+      "alignment_score": 2,
+      "description": "status: Disbanded. type: Ecovillage (organized around ecology and sustainability.), Spiritual or Religious Community. open to membership: Not currently~ but there is a list or possibly in the future",
+      "website": "https://www.ic.org/directory/emerald-grove/",
+      "registration_id": null,
+      "legibility": "hybrid",
+      "model_type": "community_org",
+      "tags": "Ecovillage (organized around ecology and sustainability.), Spiritual or Religious Community",
+      "email": null,
+      "phone": null,
+      "source_label": "Intentional Communities Dir.",
+      "section_label": "Recreation & Arts",
+      "tags_list": [
+        "Ecovillage (organized around ecology and sustainability.)",
+        "Spiritual or Religious Community"
+      ],
+      "outlier_flags": [
+        {
+          "type": "section_mismatch",
+          "label": "🔄 Possible wrong section",
+          "detail": "Assigned: Recreation & Arts -- text signals suggest: Ecological Restoration"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 583375,
+      "name": "BLACKWOOD INSTITUTE FOR FOOD AND AGRICULTURE",
+      "country_code": "US",
+      "state_province": "TX",
+      "city": "HOUSTON",
+      "source": "IRS_EO_BMF",
+      "framework_area": "food",
+      "alignment_score": 2,
+      "description": null,
+      "website": null,
+      "registration_id": "413955031",
+      "legibility": "unknown",
+      "model_type": "research",
+      "tags": "tier_d",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Food Sovereignty",
+      "tags_list": [
+        "tier_d"
+      ],
+      "outlier_flags": [],
+      "country_total": 12356
+    },
+    {
+      "id": 511294,
+      "name": "WILLAMETTE COMMUNITY HEALTH SOLUTIONS",
+      "country_code": "US",
+      "state_province": "OR",
+      "city": "EUGENE",
+      "source": "IRS_EO_BMF",
+      "framework_area": "healthcare",
+      "alignment_score": 5,
+      "description": null,
+      "website": null,
+      "registration_id": "930421470",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_c",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Healthcare",
+      "tags_list": [
+        "tier_c"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 5",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 237654,
+      "name": "SOUTH BEND MUTUAL HOMES COOPERATIVE INC",
+      "country_code": "US",
+      "state_province": "IN",
+      "city": "SOUTH BEND",
+      "source": "IRS_EO_BMF",
+      "framework_area": "housing_land",
+      "alignment_score": 6,
+      "description": null,
+      "website": null,
+      "registration_id": "474212109",
+      "legibility": "unknown",
+      "model_type": "cooperative",
+      "tags": "tier_c",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Land & Housing",
+      "tags_list": [
+        "tier_c"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 6",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        },
+        {
+          "type": "section_mismatch",
+          "label": "🔄 Possible wrong section",
+          "detail": "Assigned: Land & Housing -- text signals suggest: Cooperatives & Solidarity"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 269040,
+      "name": "HABITAT FOR HUMANITY INTERNATIONAL INC",
+      "country_code": "US",
+      "state_province": "LA",
+      "city": "LAFAYETTE",
+      "source": "IRS_EO_BMF",
+      "framework_area": "housing_land",
+      "alignment_score": 9,
+      "description": null,
+      "website": null,
+      "registration_id": "721208936",
+      "legibility": "formal",
+      "model_type": "sweat_equity_program",
+      "tags": "tier_c,habitat_affiliate,sweat_equity",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Land & Housing",
+      "tags_list": [
+        "tier_c",
+        "habitat_affiliate",
+        "sweat_equity"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 9",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 454514,
+      "name": "ALAMANCE COMMUNITY & HEALTH FOUNDATION INC",
+      "country_code": "US",
+      "state_province": "NC",
+      "city": "GREENSBORO",
+      "source": "IRS_EO_BMF",
+      "framework_area": "healthcare",
+      "alignment_score": 4,
+      "description": null,
+      "website": null,
+      "registration_id": "462505818",
+      "legibility": "unknown",
+      "model_type": "foundation",
+      "tags": "tier_d",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Healthcare",
+      "tags_list": [
+        "tier_d"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 4",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 572832,
+      "name": "INTER-COOPERATIVE COUNCIL AT UNIVERSITY OF TEXAS INC",
+      "country_code": "US",
+      "state_province": "TX",
+      "city": "AUSTIN",
+      "source": "IRS_EO_BMF",
+      "framework_area": "housing_land",
+      "alignment_score": 6,
+      "description": null,
+      "website": null,
+      "registration_id": "237062502",
+      "legibility": "unknown",
+      "model_type": "cooperative",
+      "tags": "tier_c",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Land & Housing",
+      "tags_list": [
+        "tier_c"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 6",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        },
+        {
+          "type": "section_mismatch",
+          "label": "🔄 Possible wrong section",
+          "detail": "Assigned: Land & Housing -- text signals suggest: Cooperatives & Solidarity"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 903784,
+      "name": "Transition Howard County",
+      "country_code": "US",
+      "state_province": "MD",
+      "city": "Ellicott City",
+      "source": "transition_network",
+      "framework_area": "ecology",
+      "alignment_score": 0,
+      "description": "The mission of Transition Howard County is to promote practical solutions that support local, regenerative and thriving communities. Our current activities include Repair Cafés, local Fibershed/textile development, Maker Space support, and Inner Transition work.",
+      "website": "https://sites.google.com/view/transitionhowardcounty/home",
+      "registration_id": null,
+      "legibility": "hybrid",
+      "model_type": "collective",
+      "tags": "Transition Group, Art / creativity, Local economy or new economy projects, Wellbeing or Inner Transition, Share, Repair or reuse, Other",
+      "email": "",
+      "phone": null,
+      "source_label": "Transition Network",
+      "section_label": "Ecological Restoration",
+      "tags_list": [
+        "Transition Group",
+        "Art / creativity",
+        "Local economy or new economy projects",
+        "Wellbeing or Inner Transition",
+        "Share",
+        "Repair or reuse",
+        "Other"
+      ],
+      "outlier_flags": [
+        {
+          "type": "scoring_bug",
+          "label": "🐛 Trust source, score 0",
+          "detail": "transition_network is a curated source -- score=0 suggests a scoring bug, not a bad org"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 390012,
+      "name": "NEW JERSEY LEAGUE OF CONSERVATION VOTERS EDUCATION FUND",
+      "country_code": "US",
+      "state_province": "NJ",
+      "city": "TRENTON",
+      "source": "IRS_EO_BMF",
+      "framework_area": "ecology",
+      "alignment_score": 2,
+      "description": null,
+      "website": null,
+      "registration_id": "452995824",
+      "legibility": "unknown",
+      "model_type": "federation",
+      "tags": "tier_d",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Ecological Restoration",
+      "tags_list": [
+        "tier_d"
+      ],
+      "outlier_flags": [],
+      "country_total": 12356
+    },
+    {
+      "id": 910514,
+      "name": "Weaverville Cooperative for Vigorous Aging",
+      "country_code": "US",
+      "state_province": "North Carolina",
+      "city": "Weaverville",
+      "source": "ic_directory",
+      "framework_area": "housing_land",
+      "alignment_score": 8,
+      "description": "status: Forming. type: Ecovillage (organized around ecology and sustainability.), Cohousing (individual homes within group owned property.), Unspecified, or Other. open to membership: Yes",
+      "website": "https://www.ic.org/directory/weaverville-cooperative-for-vigorous-aging/",
+      "registration_id": null,
+      "legibility": "hybrid",
+      "model_type": "cooperative",
+      "tags": "Ecovillage (organized around ecology and sustainability.), Cohousing (individual homes within group owned property.), Unspecified, or Other",
+      "email": null,
+      "phone": null,
+      "source_label": "Intentional Communities Dir.",
+      "section_label": "Land & Housing",
+      "tags_list": [
+        "Ecovillage (organized around ecology and sustainability.)",
+        "Cohousing (individual homes within group owned property.)",
+        "Unspecified",
+        "or Other"
+      ],
+      "outlier_flags": [
+        {
+          "type": "section_mismatch",
+          "label": "🔄 Possible wrong section",
+          "detail": "Assigned: Land & Housing -- text signals suggest: Ecological Restoration"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 504589,
+      "name": "COMMUNITY HOUSING FUND",
+      "country_code": "US",
+      "state_province": "OR",
+      "city": "BEAVERTON",
+      "source": "IRS_EO_BMF",
+      "framework_area": "housing_land",
+      "alignment_score": 2,
+      "description": null,
+      "website": null,
+      "registration_id": "270049012",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_d",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Land & Housing",
+      "tags_list": [
+        "tier_d"
+      ],
+      "outlier_flags": [],
+      "country_total": 12356
+    },
+    {
+      "id": 246890,
+      "name": "RIVER HILLS COMMUNITY HEALTH CENTER INC",
+      "country_code": "US",
+      "state_province": "IA",
+      "city": "OTTUMWA",
+      "source": "IRS_EO_BMF",
+      "framework_area": "healthcare",
+      "alignment_score": 5,
+      "description": null,
+      "website": null,
+      "registration_id": "421489471",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_c",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Healthcare",
+      "tags_list": [
+        "tier_c"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 5",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 104665,
+      "name": "RESEARCH INSTITUTE FOR COMMUNITY-LED HOUSING",
+      "country_code": "US",
+      "state_province": "CA",
+      "city": "OAKLAND",
+      "source": "IRS_EO_BMF",
+      "framework_area": "democracy",
+      "alignment_score": 2,
+      "description": null,
+      "website": null,
+      "registration_id": "994867244",
+      "legibility": "unknown",
+      "model_type": "research",
+      "tags": "tier_d",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Democratic Infrastructure",
+      "tags_list": [
+        "tier_d"
+      ],
+      "outlier_flags": [],
+      "country_total": 12356
+    },
+    {
+      "id": 909889,
+      "name": "Heaven on Earth Sanctuary",
+      "country_code": "US",
+      "state_province": "Hawaii",
+      "city": "Pahoa",
+      "source": "ic_directory",
+      "framework_area": "recreation_arts",
+      "alignment_score": 7,
+      "description": "status: Forming. type: Commune (organized around sharing almost everything.), Ecovillage (organized around ecology and sustainability.), Cohousing (individual homes within group owned property.), Spiritual or Religious Community, Transition Town or Eco-Neighborhood (focused on energy/resource resiliency). open to membership: Yes",
+      "website": "https://www.ic.org/directory/equity-non-profit-healing-center/",
+      "registration_id": null,
+      "legibility": "hybrid",
+      "model_type": "cooperative",
+      "tags": "Commune (organized around sharing almost everything.), Ecovillage (organized around ecology and sustainability.), Cohousing (individual homes within group owned property.), Spiritual or Religious Community, Transition Town or Eco-Neighborhood (focused on energy/resource resiliency)",
+      "email": null,
+      "phone": null,
+      "source_label": "Intentional Communities Dir.",
+      "section_label": "Recreation & Arts",
+      "tags_list": [
+        "Commune (organized around sharing almost everything.)",
+        "Ecovillage (organized around ecology and sustainability.)",
+        "Cohousing (individual homes within group owned property.)",
+        "Spiritual or Religious Community",
+        "Transition Town or Eco-Neighborhood (focused on energy/resource resiliency)"
+      ],
+      "outlier_flags": [
+        {
+          "type": "section_mismatch",
+          "label": "🔄 Possible wrong section",
+          "detail": "Assigned: Recreation & Arts -- text signals suggest: Ecological Restoration"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 189089,
+      "name": "HOLISTIC COMMUNITY HEALTH INC",
+      "country_code": "US",
+      "state_province": "GA",
+      "city": "ATLANTA",
+      "source": "IRS_EO_BMF",
+      "framework_area": "healthcare",
+      "alignment_score": 5,
+      "description": null,
+      "website": null,
+      "registration_id": "822844524",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_c",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Healthcare",
+      "tags_list": [
+        "tier_c"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 5",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 908757,
+      "name": "Echo Park Mutual Aid",
+      "country_code": "US",
+      "state_province": "CA",
+      "city": "Los Angeles",
+      "source": "mutual_aid_hub",
+      "framework_area": "democracy",
+      "alignment_score": 6,
+      "description": "category: Network",
+      "website": "https://www.facebook.com/groups/265487081127673/",
+      "registration_id": null,
+      "legibility": "informal",
+      "model_type": "mutual_aid",
+      "tags": "",
+      "email": "",
+      "phone": "",
+      "source_label": "Mutual Aid Hub",
+      "section_label": "Democratic Infrastructure",
+      "tags_list": [],
+      "outlier_flags": [],
+      "country_total": 12356
+    },
+    {
+      "id": 376040,
+      "name": "PREMDAKSH AFFORDABLE HOUSING COMMUNITY",
+      "country_code": "US",
+      "state_province": "NV",
+      "city": "LAS VEGAS",
+      "source": "IRS_EO_BMF",
+      "framework_area": "housing_land",
+      "alignment_score": 5,
+      "description": null,
+      "website": null,
+      "registration_id": "921610545",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_c",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Land & Housing",
+      "tags_list": [
+        "tier_c"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 5",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 98231,
+      "name": "HOLLYWOOD COMMUNITY HOUSING CORPORATION",
+      "country_code": "US",
+      "state_province": "CA",
+      "city": "LOS ANGELES",
+      "source": "IRS_EO_BMF",
+      "framework_area": "housing_land",
+      "alignment_score": 2,
+      "description": null,
+      "website": null,
+      "registration_id": "954198215",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_d",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Land & Housing",
+      "tags_list": [
+        "tier_d"
+      ],
+      "outlier_flags": [],
+      "country_total": 12356
+    },
+    {
+      "id": 588003,
+      "name": "ANDREWS LEGAL AID SERVICES",
+      "country_code": "US",
+      "state_province": "TX",
+      "city": "RICHARDSON",
+      "source": "IRS_EO_BMF",
+      "framework_area": "conflict",
+      "alignment_score": 3,
+      "description": null,
+      "website": null,
+      "registration_id": "472732260",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_c",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Conflict Resolution",
+      "tags_list": [
+        "tier_c"
+      ],
+      "outlier_flags": [],
+      "country_total": 12356
+    },
+    {
+      "id": 904021,
+      "name": "Oklahoma City",
+      "country_code": "US",
+      "state_province": "OK",
+      "city": "Oklahoma City",
+      "source": "transition_network",
+      "framework_area": "",
+      "alignment_score": 0,
+      "description": "",
+      "website": "http://www.goinglocalokc.com/",
+      "registration_id": null,
+      "legibility": "hybrid",
+      "model_type": "collective",
+      "tags": "Transition Group",
+      "email": "",
+      "phone": null,
+      "source_label": "Transition Network",
+      "section_label": "",
+      "tags_list": [
+        "Transition Group"
+      ],
+      "outlier_flags": [
+        {
+          "type": "scoring_bug",
+          "label": "🐛 Trust source, score 0",
+          "detail": "transition_network is a curated source -- score=0 suggests a scoring bug, not a bad org"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 908626,
+      "name": "Mutual Aid Network of Southeast Queens and the Rockaways",
+      "country_code": "US",
+      "state_province": "NY",
+      "city": "New York City",
+      "source": "mutual_aid_hub",
+      "framework_area": "democracy",
+      "alignment_score": 6,
+      "description": "category: Network",
+      "website": "https://www.facebook.com/mutualaidseqrockaway/?ref=bookmarks",
+      "registration_id": null,
+      "legibility": "informal",
+      "model_type": "mutual_aid",
+      "tags": "",
+      "email": "",
+      "phone": "",
+      "source_label": "Mutual Aid Hub",
+      "section_label": "Democratic Infrastructure",
+      "tags_list": [],
+      "outlier_flags": [],
+      "country_total": 12356
+    },
+    {
+      "id": 520146,
+      "name": "PHOENIXVILLE FREE CLINIC",
+      "country_code": "US",
+      "state_province": "PA",
+      "city": "PHOENIXVILLE",
+      "source": "IRS_EO_BMF",
+      "framework_area": "healthcare",
+      "alignment_score": 3,
+      "description": null,
+      "website": null,
+      "registration_id": "233072363",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_c",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Healthcare",
+      "tags_list": [
+        "tier_c"
+      ],
+      "outlier_flags": [],
+      "country_total": 12356
+    },
+    {
+      "id": 22392,
+      "name": "PRESCOTT COMMUNITY CUPBOARD FOOD BANK INC",
+      "country_code": "US",
+      "state_province": "AZ",
+      "city": "PRESCOTT",
+      "source": "IRS_EO_BMF",
+      "framework_area": "food",
+      "alignment_score": 5,
+      "description": null,
+      "website": null,
+      "registration_id": "942765898",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_c",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Food Sovereignty",
+      "tags_list": [
+        "tier_c"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 5",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 688650,
+      "name": "Moab Area Community Land Trust",
+      "country_code": "US",
+      "state_province": "UT",
+      "city": "Moab",
+      "source": "ProPublica",
+      "framework_area": "housing_land",
+      "alignment_score": 4,
+      "description": null,
+      "website": null,
+      "registration_id": "454885063",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_b",
+      "email": null,
+      "phone": null,
+      "source_label": "ProPublica",
+      "section_label": "Land & Housing",
+      "tags_list": [
+        "tier_b"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 4",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 903966,
+      "name": "Bald Eagle Valley",
+      "country_code": "US",
+      "state_province": "PA",
+      "city": "Julian",
+      "source": "transition_network",
+      "framework_area": "",
+      "alignment_score": 0,
+      "description": "",
+      "website": "http://www.transitioncentre.org",
+      "registration_id": null,
+      "legibility": "hybrid",
+      "model_type": "collective",
+      "tags": "Transition Group",
+      "email": "",
+      "phone": null,
+      "source_label": "Transition Network",
+      "section_label": "",
+      "tags_list": [
+        "Transition Group"
+      ],
+      "outlier_flags": [
+        {
+          "type": "scoring_bug",
+          "label": "🐛 Trust source, score 0",
+          "detail": "transition_network is a curated source -- score=0 suggests a scoring bug, not a bad org"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 440901,
+      "name": "MARION FOOD PANTRY",
+      "country_code": "US",
+      "state_province": "NY",
+      "city": "MARION",
+      "source": "IRS_EO_BMF",
+      "framework_area": "food",
+      "alignment_score": 4,
+      "description": null,
+      "website": null,
+      "registration_id": "862239919",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_c",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Food Sovereignty",
+      "tags_list": [
+        "tier_c"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 4",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 75867,
+      "name": "HUMAN RIGHTS COUNCIL INC",
+      "country_code": "US",
+      "state_province": "CA",
+      "city": "BEVERLY HILLS",
+      "source": "IRS_EO_BMF",
+      "framework_area": "democracy",
+      "alignment_score": 2,
+      "description": null,
+      "website": null,
+      "registration_id": "844367662",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_d",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Democratic Infrastructure",
+      "tags_list": [
+        "tier_d"
+      ],
+      "outlier_flags": [],
+      "country_total": 12356
+    },
+    {
+      "id": 568129,
+      "name": "SMDC COMMUNITY LAND TRUST",
+      "country_code": "US",
+      "state_province": "TN",
+      "city": "WOODBURY",
+      "source": "IRS_EO_BMF",
+      "framework_area": "housing_land",
+      "alignment_score": 4,
+      "description": null,
+      "website": null,
+      "registration_id": "881516661",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_c",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Land & Housing",
+      "tags_list": [
+        "tier_c"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 4",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 176738,
+      "name": "MITCHELL COUNTY FOOD BANK AND HELP CENTER INC",
+      "country_code": "US",
+      "state_province": "GA",
+      "city": "PELHAM",
+      "source": "IRS_EO_BMF",
+      "framework_area": "food",
+      "alignment_score": 4,
+      "description": null,
+      "website": null,
+      "registration_id": "202905244",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_c",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Food Sovereignty",
+      "tags_list": [
+        "tier_c"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 4",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 291026,
+      "name": "MENTAL HEALTH EMERGENCY FUND",
+      "country_code": "US",
+      "state_province": "MD",
+      "city": "OWINGS MILLS",
+      "source": "IRS_EO_BMF",
+      "framework_area": "healthcare",
+      "alignment_score": 2,
+      "description": null,
+      "website": null,
+      "registration_id": "920450024",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_d",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Healthcare",
+      "tags_list": [
+        "tier_d"
+      ],
+      "outlier_flags": [],
+      "country_total": 12356
+    },
+    {
+      "id": 909218,
+      "name": "Upper Morningside Mutual Aid Network",
+      "country_code": "US",
+      "state_province": "NY",
+      "city": "New York City",
+      "source": "mutual_aid_hub",
+      "framework_area": "democracy",
+      "alignment_score": 6,
+      "description": "category: Network",
+      "website": "",
+      "registration_id": null,
+      "legibility": "informal",
+      "model_type": "mutual_aid",
+      "tags": "",
+      "email": "",
+      "phone": "",
+      "source_label": "Mutual Aid Hub",
+      "section_label": "Democratic Infrastructure",
+      "tags_list": [],
+      "outlier_flags": [],
+      "country_total": 12356
+    },
+    {
+      "id": 317825,
+      "name": "HABITAT FOR HUMANITY INTERNATIONAL INC",
+      "country_code": "US",
+      "state_province": "MI",
+      "city": "MANISTEE",
+      "source": "IRS_EO_BMF",
+      "framework_area": "housing_land",
+      "alignment_score": 9,
+      "description": null,
+      "website": null,
+      "registration_id": "383143981",
+      "legibility": "formal",
+      "model_type": "sweat_equity_program",
+      "tags": "tier_c,habitat_affiliate,sweat_equity",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Land & Housing",
+      "tags_list": [
+        "tier_c",
+        "habitat_affiliate",
+        "sweat_equity"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 9",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 903941,
+      "name": "MidCoast Maine Initiative",
+      "country_code": "US",
+      "state_province": "ME",
+      "city": "Waldoboro",
+      "source": "transition_network",
+      "framework_area": "",
+      "alignment_score": 0,
+      "description": "We are a temporary regional hub encompassing several towns in the MidCoast region of Maine. We currently have members from Camden, Hope, Lincolnville, Rockland, Warren, Union, Searsmont, Liberty, and possibly more. As each town gains enough steam we will break into smaller town-scale groups. We live in an area rich in existing groups that promote resilience and so we are networking and fumbling along. The immediate positive response to our initiative has been awesome! We are a robust initiating group of 13 after just 2 public events! Look for our official status soon! You can keep up-todate with our evolution by checking our Facebook page: http://www.facebook.com/home.php?#!/pages/Transition-Initiative-Rockland/120405051310609?ref=ts",
+      "website": "https://maps.transitionnetwork.org/group/midcoast-maine-initiative/",
+      "registration_id": null,
+      "legibility": "hybrid",
+      "model_type": "collective",
+      "tags": "Transition Group",
+      "email": "",
+      "phone": null,
+      "source_label": "Transition Network",
+      "section_label": "",
+      "tags_list": [
+        "Transition Group"
+      ],
+      "outlier_flags": [
+        {
+          "type": "scoring_bug",
+          "label": "🐛 Trust source, score 0",
+          "detail": "transition_network is a curated source -- score=0 suggests a scoring bug, not a bad org"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 909409,
+      "name": "Seed Commons: A Community Wealth Cooperative",
+      "country_code": "US",
+      "state_province": null,
+      "city": null,
+      "source": "nec_members",
+      "framework_area": "cooperatives",
+      "alignment_score": 10,
+      "description": "Seed Commons is a national network of locally-rooted, non-extractive loan funds that brings the power of big finance under community control. By taking guidance from the grassroots and sharing capital and resources to support local cooperative businesses, we are building the infrastructure necessary for a truly just, democratic and sustainable new economy.",
+      "website": "https://neweconomy.net/organization/seed-commons-a-community-wealth-cooperative/",
+      "registration_id": null,
+      "legibility": "formal",
+      "model_type": "cooperative",
+      "tags": null,
+      "email": null,
+      "phone": null,
+      "source_label": "New Economy Coalition",
+      "section_label": "Cooperatives & Solidarity",
+      "tags_list": [],
+      "outlier_flags": [],
+      "country_total": 12356
+    },
+    {
+      "id": 910222,
+      "name": "Rainforest Commons",
+      "country_code": "US",
+      "state_province": "Washington",
+      "city": "Forks",
+      "source": "ic_directory",
+      "framework_area": "housing_land",
+      "alignment_score": 9,
+      "description": "status: Re-forming. type: Commune (organized around sharing almost everything.), Ecovillage (organized around ecology and sustainability.), Cohousing (individual homes within group owned property.), Shared Housing, Cohouseholding, or Coliving (multiple individuals sharing a dwelling.), Transition Town or Eco-Neighborhood (focused on energy/resource resiliency). open to membership: Not currently~ but there is a list or possibly in the future",
+      "website": "https://www.ic.org/directory/rainforest-commons/",
+      "registration_id": null,
+      "legibility": "hybrid",
+      "model_type": "cooperative",
+      "tags": "Commune (organized around sharing almost everything.), Ecovillage (organized around ecology and sustainability.), Cohousing (individual homes within group owned property.), Shared Housing, Cohouseholding, or Coliving (multiple individuals sharing a dwelling.), Transition Town or Eco-Neighborhood (focused on energy/resource resiliency)",
+      "email": null,
+      "phone": null,
+      "source_label": "Intentional Communities Dir.",
+      "section_label": "Land & Housing",
+      "tags_list": [
+        "Commune (organized around sharing almost everything.)",
+        "Ecovillage (organized around ecology and sustainability.)",
+        "Cohousing (individual homes within group owned property.)",
+        "Shared Housing",
+        "Cohouseholding",
+        "or Coliving (multiple individuals sharing a dwelling.)",
+        "Transition Town or Eco-Neighborhood (focused on energy/resource resiliency)"
+      ],
+      "outlier_flags": [
+        {
+          "type": "section_mismatch",
+          "label": "🔄 Possible wrong section",
+          "detail": "Assigned: Land & Housing -- text signals suggest: Ecological Restoration"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 44644,
+      "name": "LADELS FOOD PANTRY",
+      "country_code": "US",
+      "state_province": "CA",
+      "city": "HEMET",
+      "source": "IRS_EO_BMF",
+      "framework_area": "food",
+      "alignment_score": 4,
+      "description": null,
+      "website": null,
+      "registration_id": "334642823",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_c",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Food Sovereignty",
+      "tags_list": [
+        "tier_c"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 4",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 253802,
+      "name": "MCPHERSON COUNTY FOOD BANK INC",
+      "country_code": "US",
+      "state_province": "KS",
+      "city": "MCPHERSON",
+      "source": "IRS_EO_BMF",
+      "framework_area": "food",
+      "alignment_score": 4,
+      "description": null,
+      "website": null,
+      "registration_id": "480996159",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_c",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Food Sovereignty",
+      "tags_list": [
+        "tier_c"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 4",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 420053,
+      "name": "SAG HARBOR COMMUNITY HOUSING TRUST INC",
+      "country_code": "US",
+      "state_province": "NY",
+      "city": "SAG HARBOR",
+      "source": "IRS_EO_BMF",
+      "framework_area": "housing_land",
+      "alignment_score": 2,
+      "description": null,
+      "website": null,
+      "registration_id": "262845161",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_d",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Land & Housing",
+      "tags_list": [
+        "tier_d"
+      ],
+      "outlier_flags": [],
+      "country_total": 12356
+    },
+    {
+      "id": 479691,
+      "name": "COMMUNITY HEALTH PROFESSIONALS INC",
+      "country_code": "US",
+      "state_province": "OH",
+      "city": "VAN WERT",
+      "source": "IRS_EO_BMF",
+      "framework_area": "healthcare",
+      "alignment_score": 5,
+      "description": null,
+      "website": null,
+      "registration_id": "341159395",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_c",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Healthcare",
+      "tags_list": [
+        "tier_c"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 5",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    },
+    {
+      "id": 315527,
+      "name": "CREDIT UNIONS CHARTERED IN THE STATE OF MICHIGAN",
+      "country_code": "US",
+      "state_province": "MI",
+      "city": "GRAND RAPIDS",
+      "source": "IRS_EO_BMF",
+      "framework_area": "democracy",
+      "alignment_score": 3,
+      "description": null,
+      "website": null,
+      "registration_id": "381544138",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_c",
+      "email": null,
+      "phone": null,
+      "source_label": "IRS EO BMF (USA)",
+      "section_label": "Democratic Infrastructure",
+      "tags_list": [
+        "tier_c"
+      ],
+      "outlier_flags": [],
+      "country_total": 12356
+    },
+    {
+      "id": 689059,
+      "name": "Lowell Community Health Center Inc",
+      "country_code": "US",
+      "state_province": "MA",
+      "city": "Lowell",
+      "source": "ProPublica",
+      "framework_area": "healthcare",
+      "alignment_score": 5,
+      "description": null,
+      "website": null,
+      "registration_id": "42881348",
+      "legibility": "unknown",
+      "model_type": "nonprofit",
+      "tags": "tier_b",
+      "email": null,
+      "phone": null,
+      "source_label": "ProPublica",
+      "section_label": "Healthcare",
+      "tags_list": [
+        "tier_b"
+      ],
+      "outlier_flags": [
+        {
+          "type": "fp_risk",
+          "label": "⚠️ No description, score 5",
+          "detail": "Scored on name only -- could be keyword coincidence"
+        }
+      ],
+      "country_total": 12356
+    }
+  ]
+}

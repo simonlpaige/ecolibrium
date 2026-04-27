@@ -1,0 +1,7 @@
+# robots.txt for commonweave.earth
+User-agent: *
+Allow: /
+Disallow: /data/
+
+# AI agent overview: /llms.txt
+Sitemap: https://commonweave.earth/sitemap.xml
