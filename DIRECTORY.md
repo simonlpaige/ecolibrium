@@ -1,6 +1,6 @@
 # 🌍 Commonweave Global Civil Society Directory
 
-*Last updated: 2026-04-26 15:42 UTC*
+*Last updated: 2026-04-27 00:06 UTC*
 
 
 ## Coverage
@@ -457,90 +457,13 @@
 
 # 🌐 United Arab Emirates (AE) Civil Society Directory
 
-*Compiled: 2026-04-16 | Source: Web research | Organizations: 16*
+*Compiled: 2026-04-26 | Source: Web research | Organizations: 0*
 
 ---
 
 ## Organizations
 
-### NGO Directory of UAE | arab.org
-Framework: democracy
-Model: nonprofit
-> Information of Civil Society Organizations operating in the United Arab Emirates. Click here to view the Abu Dhabi NGO Directory. Click here to view the Dubai NGO Directory.
-
-### NGOs, Charities and Non-profits in United Arab Emirates
-Framework: democracy
-Model: nonprofit
-> Comprehensive list of NGOs, Charities and Nonprofits in United Arab Emirates. Browse organizations by their focus work areas. Page 1 of 8
-
-### AE/united-arab-emirates-ngos
-Framework: democracy
-Model: nonprofit
-> Comprehensive list of NGOs, Charities and Nonprofits in United Arab Emirates. Browse organizations by their focus work areas. Page 1 of 8
-
-### PDF NGO DATABASE - addcd.gov.ae
-Framework: energy_digital
-Model: nonprofit
-> Licenses for civil society founda ons Licenses for Social Security Fund
-
-### Project/DCD/DCD
-Framework: democracy
-Model: nonprofit
-> Licenses for civil society founda ons Licenses for Social Security Fund
-
-### List of Non-profit organizations in United Arab Emirates in 2026
-Framework: energy_digital
-Model: nonprofit
-> There are 574 Non-profit organizations in United Arab Emirates as of March, 2026. Download latest business data with contact info, ratings & locations.
-
-### List of UAE Based NGOs - NGO Report
-Framework: democracy
-Model: nonprofit
-> List of UAE Based NGOs - NGO Report List of UAE Based NGOs
-
-### List of UAE Based NGOs
-Framework: democracy
-Model: nonprofit
-> ## Top 41 Nonprofit Organizations in UAE - Apr 2026 - yello.ae
-
-### Top 41 Nonprofit Organizations in UAE - Apr 2026 - yello.ae
-Framework: democracy
-Model: nonprofit
-> Search results of Top 41 Nonprofit Organizations in UAE, near me. Listings are verified with accurate business information.
-
-### Associations and NGO in the United Arab Emirates - Expat.com
-Framework: democracy
-Model: nonprofit
-> List of associations and NGOs in the United Arab Emirates, non-governmental organization in the United Arab Emirates, non-profit organizations in the United Arab Emirates. United Arab Emirates charity
-
-### NGOs in the United Arab Emirates, non
-Framework: democracy
-Model: nonprofit
-> ## السجل الوطني لمؤسسات النفع العام
-
-### السجل الوطني لمؤسسات النفع العام
-Framework: democracy
-Model: nonprofit
-> Access the National Registry for Non-Profit Organizations in the UAE to explore opportunities and resources for social development.
-
-### Access the National Registry for Non
-Framework: democracy
-Model: nonprofit
-> ## List of Charity Organizations in UAE - khaleejfeed
-
-### List of Charity Organizations in UAE - khaleejfeed
-Framework: democracy
-Model: nonprofit
-> Explore and support impactful causes with our guide to charity organizations in UAE. Discover a curated list of reputable charities, their missions, and how you can make a difference. Join the philant
-
-### NGO Directory | arab.org
-Framework: democracy
-Model: nonprofit
-> The Arab NGO Directory (part of NGO Portal) is the dynamic reference for Arab-based and Arab-destined third sector organizations (the part of an economy or society comprising non-governmental and non-
-
-### The Arab NGO Directory
-Framework: democracy
-Model: nonprofit
+_No evidence-backed organizations found in this pass._
 
 
 ---
@@ -1162,14 +1085,13 @@ _No evidence-backed organizations found in this pass._
 
 # 🌐 Cyprus (CY) Civil Society Directory
 
-*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-26 | Source: Web research | Organizations: 0*
 
 ---
 
 ## Organizations
 
-### Cyprus Civil Society Network
-> Primary civil society network in Cyprus
+_No evidence-backed organizations found in this pass._
 
 
 ---
@@ -1729,14 +1651,13 @@ _No evidence-backed organizations found in this pass._
 
 # 🌐 Iraq (IQ) Civil Society Directory
 
-*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-26 | Source: Web research | Organizations: 0*
 
 ---
 
 ## Organizations
 
-### Iraq Civil Society Network
-> Primary civil society network in Iraq
+_No evidence-backed organizations found in this pass._
 
 
 ---
@@ -1757,96 +1678,13 @@ _No evidence-backed organizations found in this pass._
 
 # 🌐 Iceland (IS) Civil Society Directory
 
-*Compiled: 2026-04-16 | Source: Web research | Organizations: 17*
+*Compiled: 2026-04-26 | Source: Web research | Organizations: 0*
 
 ---
 
 ## Organizations
 
-### Government of Iceland | Cooperation with Civil Society and NGOs
-Framework: democracy
-Model: cooperative
-> Cooperation with Civil Society and NGOs Icelandic non-governmental organizations (NGOs) play a significant role in implementing Iceland's policy on international development cooperation.
-
-### Cooperation with Civil Society and NGOs Icelandic non
-Framework: democracy
-Model: cooperative
-> ## List of NGOs, Charities and Nonprofits in Reykjavík
-
-### List of NGOs, Charities and Nonprofits in Reykjavík
-Framework: democracy
-Model: nonprofit
-> Below is a directory/list of Ngos, charities and non-profits working in Reykjavík. Total Results = 30 Sort NGOs By: Default (By Popularity) Ngo Name (A to Z) Year Established (Newest to oldest)
-
-### Below is a directory/list of Ngos, charities and non
-Framework: democracy
-Model: nonprofit
-> ## Non-Profit Organization Iceland - yelu.is
-
-### Non-Profit Organization Iceland - yelu.is
-Framework: democracy
-Model: nonprofit
-> List of Non-Profit Organization in Iceland. Search for Non-Profit Organization with Phone numbers, Locations, Reviews, Photos
-
-### List of Non
-Framework: democracy
-Model: nonprofit
-> ## Iceland | Nonprofits In Iceland | PWI - Project World Impact
-
-### Iceland | Nonprofits In Iceland | PWI - Project World Impact
-Framework: education
-Model: nonprofit
-> Find out about what is really going on in Iceland and learn how nonprofits are making a difference in Iceland everyday.
-
-### Find out about what
-Framework: democracy
-Model: nonprofit
-> ## Worldwide NGO Directory
-
-### Worldwide NGO Directory
-Framework: democracy
-Model: nonprofit
-> The Worldwide NGO Directory is a leading source of information on and resource for connecting with NGOs globally. It includes over 54,000 organizations in all fields of activity in more than 190 count
-
-### The Worldwide NGO Directory
-Framework: democracy
-Model: nonprofit
-> ## Top 10 Charity Organizations in Iceland (2024 Guide)
-
-### Top 10 Charity Organizations in Iceland (2024 Guide)
-Framework: education
-Model: nonprofit
-> Discover the top 10 charity organizations in Iceland. Learn where to donate, how to volunteer, and support meaningful causes across the country in 2024.
-
-### Non-Governmental Organizations - United Nations Western Europe
-Framework: democracy
-Model: nonprofit
-> The system provides online registration of general profiles for civil society organizations, including address, contacts, activities and meeting participation, facilitates the application procedure fo
-
-### Economic and Social Council
-Framework: democracy
-Model: nonprofit
-> ## Nonprofit Organizations in Iceland - ecohubmap.com
-
-### Nonprofit Organizations in Iceland - ecohubmap.com
-Framework: ecology
-Model: nonprofit
-> Choose one of the best Non-Governmental Organizations in Iceland. Find an organization that shares your views on ecology and environmental protection
-
-### Choose one of the best Non
-Framework: democracy
-Model: nonprofit
-> ## United Nations Civil Society Participation - Advanced Search
-
-### United Nations Civil Society Participation
-Framework: democracy
-Model: nonprofit
-> Advanced search for Civil Society Organizations Please use any of the search combinations below to find organizations in our database. You can also expand the headings "Areas of Expertise & Fields of 
-
-### Iceland | NGO Explorer
-Framework: democracy
-Model: nonprofit
-> Found 112 UK NGOs working in Iceland Figures refer to charities registered with the Chari
+_No evidence-backed organizations found in this pass._
 
 
 ---
@@ -2116,14 +1954,13 @@ _No evidence-backed organizations found in this pass._
 
 # 🌐 Kuwait (KW) Civil Society Directory
 
-*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-26 | Source: Web research | Organizations: 0*
 
 ---
 
 ## Organizations
 
-### Kuwait Civil Society Network
-> Primary civil society network in Kuwait
+_No evidence-backed organizations found in this pass._
 
 
 ---
@@ -2227,14 +2064,13 @@ _No evidence-backed organizations found in this pass._
 
 # 🌐 Luxembourg (LU) Civil Society Directory
 
-*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-26 | Source: Web research | Organizations: 0*
 
 ---
 
 ## Organizations
 
-### Luxembourg Civil Society Network
-> Primary civil society network in Luxembourg
+_No evidence-backed organizations found in this pass._
 
 
 ---
@@ -2282,28 +2118,26 @@ _No evidence-backed organizations found in this pass._
 
 # 🌐 Moldova (MD) Civil Society Directory
 
-*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-26 | Source: Web research | Organizations: 0*
 
 ---
 
 ## Organizations
 
-### Moldova Civil Society Network
-> Primary civil society network in Moldova
+_No evidence-backed organizations found in this pass._
 
 
 ---
 
 # 🌐 Montenegro (ME) Civil Society Directory
 
-*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-26 | Source: Web research | Organizations: 0*
 
 ---
 
 ## Organizations
 
-### Montenegro Civil Society Network
-> Primary civil society network in Montenegro
+_No evidence-backed organizations found in this pass._
 
 
 ---
@@ -2436,14 +2270,13 @@ Model: nonprofit
 
 # 🌐 Malta (MT) Civil Society Directory
 
-*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-26 | Source: Web research | Organizations: 0*
 
 ---
 
 ## Organizations
 
-### Malta Civil Society Network
-> Primary civil society network in Malta
+_No evidence-backed organizations found in this pass._
 
 
 ---
@@ -2792,14 +2625,13 @@ Model: nonprofit
 
 # 🌐 Oman (OM) Civil Society Directory
 
-*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-27 | Source: Web research | Organizations: 0*
 
 ---
 
 ## Organizations
 
-### Oman Civil Society Network
-> Primary civil society network in Oman
+_No evidence-backed organizations found in this pass._
 
 
 ---
@@ -3129,14 +2961,13 @@ _No evidence-backed organizations found in this pass._
 
 # 🌐 Saudi Arabia (SA) Civil Society Directory
 
-*Compiled: 2026-04-16 | Source: Web research | Organizations: 1*
+*Compiled: 2026-04-26 | Source: Web research | Organizations: 0*
 
 ---
 
 ## Organizations
 
-### Saudi Arabia Civil Society Network
-> Primary civil society network in Saudi Arabia
+_No evidence-backed organizations found in this pass._
 
 
 ---
