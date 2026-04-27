@@ -120,23 +120,39 @@ def matches_any(text, patterns):
 # Main
 # ---------------------------------------------------------------------------
 
+# Countries with fewer than this many orgs get no score cutline.
+# Removing their coverage because a description is thin makes the map worse.
+SCARCITY_THRESHOLD = 50
+
+
+def load_country_counts(conn):
+    """Return {country_code: active_org_count} for scarcity protection."""
+    c = conn.cursor()
+    c.execute("SELECT country_code, COUNT(*) FROM organizations WHERE status='active' GROUP BY country_code")
+    return {row[0]: row[1] for row in c.fetchall()}
+
+
 def run(source_filter=None, full_scan=False, dry_run=False):
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     c = conn.cursor()
 
     # Build query
+    cols = "id, name, source, alignment_score, description, status, country_code"
     if full_scan:
-        c.execute("SELECT id, name, source, alignment_score, description, status FROM organizations WHERE status='active'")
+        c.execute(f"SELECT {cols} FROM organizations WHERE status='active'")
     elif source_filter:
-        c.execute("SELECT id, name, source, alignment_score, description, status FROM organizations WHERE status='active' AND source=?", [source_filter])
+        c.execute(f"SELECT {cols} FROM organizations WHERE status='active' AND source=?", [source_filter])
     else:
         # Default: rows added in the last 36 hours
         cutoff = (datetime.now(timezone.utc) - timedelta(hours=36)).isoformat()
-        c.execute("SELECT id, name, source, alignment_score, description, status FROM organizations WHERE status='active' AND date_added >= ?", [cutoff])
+        c.execute(f"SELECT {cols} FROM organizations WHERE status='active' AND date_added >= ?", [cutoff])
 
-    orgs = list(c.fetchall())
+    orgs = [dict(r) for r in c.fetchall()]
     print(f'[post_ingest] Checking {len(orgs):,} orgs (dry_run={dry_run})')
+
+    country_counts = load_country_counts(conn)
+    scarcity_protected = 0
 
     removals = []
     for o in orgs:
@@ -164,15 +180,22 @@ def run(source_filter=None, full_scan=False, dry_run=False):
                 reason = f'desc_pattern: {pat}'
 
         # 3. Score cutline (skip trust sources and sources with None cutline)
+        # Also skip orgs from thin-coverage countries -- low score may mean
+        # "underdocumented" not "wrong org", and removal makes the map worse.
         if not reason and source not in TRUST_SOURCES:
-            cutline = get_cutline(source)
-            if cutline is not None and score < cutline:
-                reason = f'score_below_cutline: {score} < {cutline} (source={source})'
+            country = o.get('country_code') or ''
+            country_n = country_counts.get(country, 999)
+            if country_n <= SCARCITY_THRESHOLD:
+                scarcity_protected += 1
+            else:
+                cutline = get_cutline(source)
+                if cutline is not None and score < cutline:
+                    reason = f'score_below_cutline: {score} < {cutline} (source={source})'
 
         if reason:
             removals.append({'id': oid, 'name': name, 'source': source, 'score': score, 'reason': reason})
 
-    print(f'[post_ingest] {len(removals):,} orgs flagged for removal')
+    print(f'[post_ingest] {len(removals):,} orgs flagged for removal ({scarcity_protected:,} protected by scarcity rule)')
 
     # Apply removals
     if not dry_run and removals:
