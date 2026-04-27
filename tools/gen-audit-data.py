@@ -16,6 +16,90 @@ from collections import defaultdict
 
 DB      = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'data', 'commonweave_directory.db'))
 OUT_DIR = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'audit'))
+STATE_MAP_PATH = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'data', 'state_province_map.json'))
+
+
+# ---- Subregion variant resolution -------------------------------------------
+
+_STATE_MAP_CACHE = None
+
+def _load_state_map():
+    """Load and cache data/state_province_map.json. Returns the dict, or {} if missing."""
+    global _STATE_MAP_CACHE
+    if _STATE_MAP_CACHE is not None:
+        return _STATE_MAP_CACHE
+    if not os.path.exists(STATE_MAP_PATH):
+        _STATE_MAP_CACHE = {}
+        return _STATE_MAP_CACHE
+    try:
+        with open(STATE_MAP_PATH, 'r', encoding='utf-8') as f:
+            raw = json.load(f)
+        # Drop comment fields like _comment
+        _STATE_MAP_CACHE = {k: v for k, v in raw.items() if not k.startswith('_')}
+    except Exception:
+        _STATE_MAP_CACHE = {}
+    return _STATE_MAP_CACHE
+
+
+def resolve_subregion(subregion_input, country_code=None):
+    """Expand a single subregion input ("MO", "Missouri", etc.) into the full
+    list of variants from the state/province map.
+
+    Args:
+        subregion_input: free-text subregion as supplied by the caller.
+        country_code: optional 2-letter country code or list of codes; when given,
+            we prefer matches inside that country to break ambiguity (e.g. "PR"
+            could be Puerto Rico or Parana).
+
+    Returns:
+        A list of variant strings to use in OR LIKE queries. Falls back to
+        [subregion_input] if no match is found.
+    """
+    if not subregion_input:
+        return []
+    needle = subregion_input.strip().lower()
+    if not needle:
+        return [subregion_input]
+
+    iso_map = _load_state_map()
+    if not iso_map:
+        return [subregion_input]
+
+    # Normalise country_code to a set for membership tests.
+    if isinstance(country_code, str):
+        country_set = {country_code.strip().upper()}
+    elif country_code:
+        country_set = {str(cc).strip().upper() for cc in country_code if cc}
+    else:
+        country_set = None
+
+    matches = []  # list of (iso_code, variants)
+    for iso, variants in iso_map.items():
+        for v in variants:
+            if v.strip().lower() == needle:
+                matches.append((iso, variants))
+                break
+
+    if not matches:
+        return [subregion_input]
+
+    # If we have a country filter and at least one match agrees with it, keep
+    # only the in-country matches. This disambiguates short codes like "PR".
+    if country_set:
+        in_country = [m for m in matches if m[0].split('-', 1)[0] in country_set]
+        if in_country:
+            matches = in_country
+
+    # If multiple matches survive, union their variants.
+    out = []
+    seen = set()
+    for iso, variants in matches:
+        for v in variants:
+            key = v.strip().lower()
+            if key and key not in seen:
+                seen.add(key)
+                out.append(v)
+    return out or [subregion_input]
 
 SPANISH = ['MX','CO','AR','CL','PE','VE','EC','BO','PY','UY','DO','GT','HN','SV','NI','CR','PA','CU','ES','PR']
 
@@ -271,20 +355,36 @@ else:
 # When --subregion is set, we narrow the WHERE clause inside fetch_orgs and
 # build_outlier_sample below. The filter matches state_province OR city,
 # both with LIKE and case-insensitive (LOWER()) so an input like "MO" or
-# "Missouri" or "st. louis" all work.
+# "Missouri" or "st. louis" all work. We also expand the input through
+# resolve_subregion() so that --subregion MO matches "Missouri" and "Mo." too.
 SUBREGION = (args.subregion or '').strip()
-SUBREGION_LIKE = '%' + SUBREGION.lower() + '%' if SUBREGION else None
+if SUBREGION:
+    # Pass cc_list (e.g. ['US'] when region=usa) in as a country hint so short
+    # codes like "PR" or "GA" disambiguate to the correct subdivision.
+    SUBREGION_VARIANTS = resolve_subregion(SUBREGION, country_code=cc_list)
+else:
+    SUBREGION_VARIANTS = []
+SUBREGION_LIKES = ['%' + v.lower() + '%' for v in SUBREGION_VARIANTS]
 
 
 def _subregion_clause(prefix='AND '):
-    """Return ('AND (...)', [params]) for the active subregion filter, or ('', [])."""
-    if not SUBREGION_LIKE:
+    """Return ('AND (...)', [params]) for the active subregion filter, or ('', []).
+
+    Builds an OR-of-LIKEs: state_province LIKE %v1% OR state_province LIKE %v2%
+    OR city LIKE %v1% OR city LIKE %v2% ... so a single --subregion input
+    matches all known variants from data/state_province_map.json.
+    """
+    if not SUBREGION_LIKES:
         return '', []
-    clause = (
-        f"{prefix}(LOWER(COALESCE(state_province,'')) LIKE ? "
-        f"OR LOWER(COALESCE(city,'')) LIKE ?)"
-    )
-    return clause, [SUBREGION_LIKE, SUBREGION_LIKE]
+    parts = []
+    params = []
+    for like in SUBREGION_LIKES:
+        parts.append("LOWER(COALESCE(state_province,'')) LIKE ?")
+        params.append(like)
+        parts.append("LOWER(COALESCE(city,'')) LIKE ?")
+        params.append(like)
+    clause = prefix + '(' + ' OR '.join(parts) + ')'
+    return clause, params
 
 
 def _country_clause(field='country_code', prefix='AND '):
