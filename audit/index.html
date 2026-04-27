@@ -468,14 +468,16 @@ function showDone() {
   const decided = Object.values(decisions).filter(d => d.verdict && d.verdict !== 'skip').length;
   const aligned = Object.values(decisions).filter(d => d.verdict === 'aligned').length;
   const remove = Object.values(decisions).filter(d => d.verdict === 'remove').length;
+  const enrich = Object.values(decisions).filter(d => d.verdict === 'enrich').length;
 
   done.innerHTML = `
     <div class="done-screen">
       <h2>🪱 Audit complete</h2>
       <p>
         ${decided} of ${total} orgs reviewed.<br>
-        ${aligned} aligned &middot; ${remove} flagged for removal.<br>
-        Export your results and share with Simon.
+        ${aligned} aligned &middot; ${remove} flagged for removal${enrich > 0 ? ` &middot; ${enrich} queued for enrichment` : ''}.<br>
+        Export your results below.
+        ${enrich > 0 ? '<br><span style="color:var(--teal);font-size:13px">A separate enrichment-queue file will also download -- that feeds the contact-finding pipeline.</span>' : ''}
       </p>
       <button class="export-btn" onclick="exportResults()">Download Results JSON</button>
       <br><br>
@@ -485,17 +487,22 @@ function showDone() {
 }
 
 function exportResults() {
+  const enrichQueue = [];
+  const orgsWithDecisions = data.orgs.map(o => {
+    const audit = decisions[o.id] || { verdict: null };
+    if (audit.verdict === 'enrich') enrichQueue.push({ ...o, audit });
+    return { ...o, audit };
+  });
+
   const output = {
     region: regionId,
     label: data.label,
     exported: new Date().toISOString(),
     total: data.orgs.length,
     decisions_count: Object.keys(decisions).length,
+    enrich_count: enrichQueue.length,
     decisions,
-    orgs: data.orgs.map(o => ({
-      ...o,
-      audit: decisions[o.id] || { verdict: null },
-    })),
+    orgs: orgsWithDecisions,
   };
   const blob = new Blob([JSON.stringify(output, null, 2)], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
@@ -504,6 +511,15 @@ function exportResults() {
   a.download = 'commonweave-audit-' + regionId + '-' + new Date().toISOString().slice(0,10) + '.json';
   a.click();
   URL.revokeObjectURL(url);
+
+  // Also export enrichment queue separately if any
+  if (enrichQueue.length > 0) {
+    const eq = new Blob([JSON.stringify({ source_audit: regionId, exported: new Date().toISOString(), orgs: enrichQueue }, null, 2)], { type: 'application/json' });
+    const ea = document.createElement('a');
+    ea.href = URL.createObjectURL(eq);
+    ea.download = 'commonweave-enrich-queue-' + regionId + '-' + new Date().toISOString().slice(0,10) + '.json';
+    ea.click();
+  }
 }
 
 // ---- Toast -----------------------------------------------------------------
