@@ -590,10 +590,14 @@ html, body {
    the sidebar on wider screens; the sheet only carries the most
    common quick filters because narrow screens cannot hold all of
    it without becoming a dialog. */
-@media (max-width: 480px) {
+/* Phase 5 mobile: under 600px the sidebar collapses entirely and a draggable
+   bottom sheet takes over. The map fills the full viewport. The sheet holds
+   the same filters and search the sidebar would, just stacked. */
+@media (max-width: 600px) {
   :root { --sidebar-w: 0px; }
   #sidebar { display: none; }
   #canvas-container { left: 0; }
+  .viewport-health { left: 0; }
 
   #mobile-fab {
     display: flex; position: fixed; bottom: 24px; right: 20px; z-index: 30;
@@ -609,13 +613,53 @@ html, body {
   #mobile-sheet {
     position: fixed; bottom: 0; left: 0; right: 0; z-index: 25;
     background: var(--bg-base); border-top: 1px solid var(--border-bright);
-    border-radius: 20px 20px 0 0; max-height: 75vh;
+    border-radius: 20px 20px 0 0; max-height: 80vh;
     transform: translateY(100%); transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
     display: flex; flex-direction: column; overflow: hidden;
+    box-shadow: 0 -8px 30px rgba(0,0,0,0.45);
   }
   #mobile-sheet.open { transform: translateY(0); }
-  .sheet-handle { width: 36px; height: 4px; background: var(--border-bright); border-radius: 2px; margin: 10px auto; flex-shrink: 0; }
-  .sheet-content { padding: 6px 16px 28px; overflow-y: auto; flex: 1; }
+  .sheet-handle {
+    width: 42px; height: 4px; background: var(--border-bright);
+    border-radius: 2px; margin: 9px auto 4px; flex-shrink: 0;
+    cursor: grab;
+  }
+  .sheet-content { padding: 8px 16px 24px; overflow-y: auto; flex: 1; }
+  .sheet-section-label {
+    font-family: var(--f-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--text-muted); margin: 14px 0 6px;
+  }
+  .sheet-section-label:first-child { margin-top: 4px; }
+  .sheet-need-input {
+    width: 100%; padding: 8px 10px;
+    background: var(--bg-surface); border: 1px solid var(--border);
+    border-radius: 8px; color: var(--text-primary);
+    font-family: var(--f-body); font-size: 13px; line-height: 1.45;
+    outline: none; resize: vertical; min-height: 50px;
+  }
+  .sheet-need-row { display: flex; gap: 8px; margin-top: 6px; }
+  .sheet-need-btn {
+    padding: 7px 12px; border-radius: 8px;
+    border: 1px solid var(--border-bright); background: var(--bg-elevated);
+    color: var(--accent); font-family: var(--f-body);
+    font-size: 12px; font-weight: 600; cursor: pointer;
+  }
+  .sheet-tier-row { display: flex; gap: 5px; margin-top: 4px; }
+  .sheet-tier-btn {
+    flex: 1; padding: 7px 6px; border-radius: 7px;
+    border: 1px solid var(--border); background: var(--bg-surface);
+    color: var(--text-dim); font-family: var(--f-body);
+    font-size: 11px; font-weight: 700; cursor: pointer; text-align: center;
+  }
+  .sheet-tier-btn.active { background: var(--bg-elevated); }
+  .sheet-tier-btn[data-tier="A"].active { border-color: #4ade80; color: #4ade80; }
+  .sheet-tier-btn[data-tier="B"].active { border-color: var(--accent); color: var(--accent); }
+  .sheet-tier-btn[data-tier="C"].active { border-color: #7c9e6a; color: #7c9e6a; }
+}
+@media (max-width: 480px) {
+  /* Tighter spacing on the smallest screens. */
+  .vh-row { gap: 8px; font-size: 10px; }
 }
 @media (min-width: 481px) { #mobile-fab, #mobile-sheet { display: none !important; } }
 
@@ -1045,6 +1089,14 @@ function applyUrlStateAfterRender() {
       if (node) {
         selectedNode = node;
         showDetailPanel(node);
+        // Edges weren't loaded at boot (Phase 5 lazy). Pull them now and
+        // re-render the panel + the deck.gl edges once they arrive.
+        ensureEdgesLoaded().then(() => {
+          if (selectedNode && selectedNode.id === sid) {
+            showDetailPanel(node);
+            if (typeof updateDeckLayers === 'function') updateDeckLayers();
+          }
+        });
       }
     }
   } finally {
@@ -1070,16 +1122,12 @@ function animateCounter(el, target, duration = 700) {
 async function loadData() {
   setProgress(5);
 
-  // Phase 2: edges live at data/map/edges.json (richer schema with explanations
-  // and id-keyed endpoints). The legacy data/search/map_edges.json is only
-  // used as a fallback for older deployments where build_edges.py has not run.
-  const [pointsData, edgesData, edgesLegacy, statsData, coverageData] = await Promise.all([
+  // Phase 5: edges are lazy-loaded. Only points + stats + coverage hit the
+  // network at startup. Edges fetch on first selection. This is the biggest
+  // mobile win: ~8MB of JSON deferred until the user actually needs it.
+  const [pointsData, statsData, coverageData] = await Promise.all([
     fetch('data/search/map_points_v2.json').then(r => r.json()),
-    fetch('data/map/edges.json').then(r => r.ok ? r.json() : null).catch(() => null),
-    fetch('data/search/map_edges.json').then(r => r.ok ? r.json() : []).catch(() => []),
     fetch('data/map/stats.json').then(r => r.ok ? r.json() : null).catch(() => null),
-    // Audit coverage. Optional: missing file is fine, all pins fall back
-    // to solid. See tools/build-coverage-summary.py.
     fetch('audit/coverage-summary.json').then(r => r.ok ? r.json() : null).catch(() => null)
   ]);
 
@@ -1099,9 +1147,7 @@ async function loadData() {
   setProgress(18);
 
   allPoints = pointsData;
-  // Prefer the new edges file. Fall back to legacy.
-  const rawEdges = edgesData || edgesLegacy;
-  allEdges = Array.isArray(rawEdges) ? rawEdges : (rawEdges && rawEdges.edges) || [];
+  allEdges = [];  // populated lazily by ensureEdgesLoaded()
   mapStats = statsData;
 
   // Build coordHash and id index. The id index lets the URL hash and the
@@ -1111,27 +1157,7 @@ async function loadData() {
     if (p.id) pointsById.set(p.id, i);
   });
 
-  // Resolve edge endpoints. New edges have source_id/target_id (preferred);
-  // legacy edges have s/t coord pairs. Either way, we land on simNode indices
-  // so the canvas renderer can draw them.
-  allEdges.forEach((edge, ei) => {
-    if (edge.source_id !== undefined && edge.target_id !== undefined) {
-      edge._si = pointsById.get(edge.source_id);
-      edge._ti = pointsById.get(edge.target_id);
-    } else if (Array.isArray(edge.s) && Array.isArray(edge.t)) {
-      edge._si = coordHash.get(coordKey(edge.s[0], edge.s[1]));
-      edge._ti = coordHash.get(coordKey(edge.t[0], edge.t[1]));
-    }
-
-    if (edge._si !== undefined) {
-      if (!nodeEdgesMap.has(edge._si)) nodeEdgesMap.set(edge._si, []);
-      nodeEdgesMap.get(edge._si).push(ei);
-    }
-    if (edge._ti !== undefined) {
-      if (!nodeEdgesMap.has(edge._ti)) nodeEdgesMap.set(edge._ti, []);
-      nodeEdgesMap.get(edge._ti).push(ei);
-    }
-  });
+  // No edge resolution here: edges are lazy-loaded on demand.
 
   // Compute section counts
   allPoints.forEach(p => {
@@ -1234,10 +1260,10 @@ function setupCanvas() {
   ctx = canvas.getContext('2d');
 
   function doResize() {
-    // Below 480px the sidebar is hidden (mobile sheet takes over) so the
+    // Below 600px the sidebar is hidden (mobile sheet takes over) so the
     // canvas reclaims the full viewport. Keep this in sync with the
-    // breakpoint in the @media (max-width: 480px) block above.
-    const sidebarW = window.innerWidth > 480 ? 300 : 0;
+    // @media (max-width: 600px) block above.
+    const sidebarW = window.innerWidth > 600 ? 300 : 0;
     canvas.width = window.innerWidth - sidebarW;
     canvas.height = window.innerHeight;
     fitView(false);
@@ -1348,6 +1374,14 @@ function handleCanvasClick(e) {
 
   if (found) {
     selectedNode = found;
+    // Lazy edge load on first click; once edges arrive, refresh the panel
+    // so the connections list populates.
+    ensureEdgesLoaded().then(() => {
+      if (selectedNode === found) {
+        showDetailPanel(found);
+        render();
+      }
+    });
     showDetailPanel(found);
   } else {
     selectedNode = null;
@@ -1671,6 +1705,51 @@ const EDGE_TYPE_TIER = {
   shared_resource: 'C',
   user_need_match: 'V',
 };
+
+// Phase 5: lazy edge loader. Fetched once on first need (a node selection,
+// or a System Health bridge query). Cached for the rest of the session.
+let edgesLoaded = false;
+let edgesLoading = null;
+
+async function ensureEdgesLoaded() {
+  if (edgesLoaded) return;
+  if (edgesLoading) return edgesLoading;
+  edgesLoading = (async () => {
+    try {
+      let r = await fetch('data/map/edges.json');
+      if (!r.ok) r = await fetch('data/search/map_edges.json');
+      if (!r.ok) throw new Error('no edges file available');
+      const raw = await r.json();
+      allEdges = Array.isArray(raw) ? raw : (raw && raw.edges) || [];
+      // Resolve to simNode indices the same way loadData used to do at boot.
+      allEdges.forEach((edge, ei) => {
+        if (edge.source_id !== undefined && edge.target_id !== undefined) {
+          edge._si = pointsById.get(edge.source_id);
+          edge._ti = pointsById.get(edge.target_id);
+        } else if (Array.isArray(edge.s) && Array.isArray(edge.t)) {
+          edge._si = coordHash.get(coordKey(edge.s[0], edge.s[1]));
+          edge._ti = coordHash.get(coordKey(edge.t[0], edge.t[1]));
+        }
+        if (edge._si !== undefined) {
+          if (!nodeEdgesMap.has(edge._si)) nodeEdgesMap.set(edge._si, []);
+          nodeEdgesMap.get(edge._si).push(ei);
+        }
+        if (edge._ti !== undefined) {
+          if (!nodeEdgesMap.has(edge._ti)) nodeEdgesMap.set(edge._ti, []);
+          nodeEdgesMap.get(edge._ti).push(ei);
+        }
+      });
+      window.allEdges = allEdges;
+      edgesLoaded = true;
+    } catch (e) {
+      console.warn('lazy edge load failed:', e);
+      edgesLoaded = true;  // do not retry forever
+    } finally {
+      edgesLoading = null;
+    }
+  })();
+  return edgesLoading;
+}
 
 function getTopConnectionsForNode(node, max = 25) {
   if (!node || node.index === undefined) return [];
@@ -2300,6 +2379,8 @@ function initGeoMapIfNeeded() {
   });
   mlMap.on('moveend', () => {
     if (typeof updateViewportHealth === 'function') updateViewportHealth();
+    // Hex/point swap happens when zoom crosses ~3.5; cheap to call always.
+    updateDeckLayers();
     writeUrlState();
   });
 }
@@ -2362,9 +2443,36 @@ function edgesForGeoRender() {
   return { arcs, lines };
 }
 
+// Phase 5: hexbin density layer for low zoom. Loaded once on first geo
+// entry. Rendered at zoom <= 4 instead of the full point cloud, which
+// otherwise paints all 29K dots on a midrange phone every frame.
+let hexBins = null;
+async function ensureHexbinsLoaded() {
+  if (hexBins !== null) return;
+  try {
+    const r = await fetch('data/map/hexbins.json');
+    if (!r.ok) throw new Error('hexbins missing');
+    const j = await r.json();
+    hexBins = j.bins || [];
+  } catch (e) {
+    console.warn('hexbins unavailable:', e);
+    hexBins = [];
+  }
+}
+
 function updateDeckLayers() {
   if (!deckOverlay) return;
-  const points = visiblePointsForGeo();
+  // At very low zoom, swap the 29K point cloud for the 600-cell hexbin
+  // aggregate. This keeps the GPU/CPU budget feasible on phones.
+  const zoom = mlMap ? mlMap.getZoom() : 1;
+  const useHex = zoom <= 3.5 && hexBins && hexBins.length;
+  if (zoom <= 4 && hexBins === null) {
+    ensureHexbinsLoaded().then(() => {
+      // Once the bins arrive, repaint.
+      if (mlMap && mlMap.getZoom() <= 4) updateDeckLayers();
+    });
+  }
+  const points = useHex ? [] : visiblePointsForGeo();
   const { arcs, lines } = edgesForGeoRender();
 
   const layers = [];
@@ -2394,25 +2502,48 @@ function updateDeckLayers() {
       greatCircle: false,
     }));
   }
-  layers.push(new deck.ScatterplotLayer({
-    id: 'orgs',
-    data: points,
-    pickable: true,
-    stroked: true,
-    filled: true,
-    getPosition: d => [d.lo, d.la],
-    getRadius: d => radiusForNode(d),
-    radiusUnits: 'pixels',
-    getFillColor: d => colourForNode(d),
-    getLineColor: d => (selectedNode && selectedNode.id === d.id) ? [255, 255, 255, 255] : [0, 0, 0, 0],
-    getLineWidth: d => (selectedNode && selectedNode.id === d.id) ? 2 : 0,
-    lineWidthUnits: 'pixels',
-    updateTriggers: {
-      getLineColor: [selectedNode && selectedNode.id],
-      getLineWidth: [selectedNode && selectedNode.id],
-      getFillColor: [activeSection, [...activeTiers].join(',')],
-    },
-  }));
+  if (useHex) {
+    // Cluster bubbles whose radius scales with org count. Cheap to draw,
+    // gives a "where are the networks dense" answer at world zoom.
+    layers.push(new deck.ScatterplotLayer({
+      id: 'orgs-hex',
+      data: hexBins,
+      pickable: false,
+      stroked: true,
+      filled: true,
+      getPosition: d => [d.cx, d.cy],
+      getRadius: d => 4 + Math.min(40, Math.sqrt(d.n) * 1.2),
+      radiusUnits: 'pixels',
+      getFillColor: d => {
+        const v = d.verified_ratio || 0;
+        // Verified ratio drives the hue: more verified = more saturated.
+        return [106, 191, 108, 90 + Math.round(v * 110)];
+      },
+      getLineColor: [184, 196, 168, 200],
+      lineWidthUnits: 'pixels',
+      lineWidthMinPixels: 0.7,
+    }));
+  } else {
+    layers.push(new deck.ScatterplotLayer({
+      id: 'orgs',
+      data: points,
+      pickable: true,
+      stroked: true,
+      filled: true,
+      getPosition: d => [d.lo, d.la],
+      getRadius: d => radiusForNode(d),
+      radiusUnits: 'pixels',
+      getFillColor: d => colourForNode(d),
+      getLineColor: d => (selectedNode && selectedNode.id === d.id) ? [255, 255, 255, 255] : [0, 0, 0, 0],
+      getLineWidth: d => (selectedNode && selectedNode.id === d.id) ? 2 : 0,
+      lineWidthUnits: 'pixels',
+      updateTriggers: {
+        getLineColor: [selectedNode && selectedNode.id],
+        getLineWidth: [selectedNode && selectedNode.id],
+        getFillColor: [activeSection, [...activeTiers].join(',')],
+      },
+    }));
+  }
 
   // Phase 3: user_need_match highlight. A transient deck.gl layer that draws
   // a bright arc from the parsed query location to each top match. Cleared
@@ -2471,6 +2602,13 @@ function handleDeckClick(info) {
     showDetailPanel(info.object);
     updateDeckLayers();
     writeUrlState();
+    // Edges may not be loaded yet on first click; once they arrive, refresh.
+    ensureEdgesLoaded().then(() => {
+      if (selectedNode && selectedNode.id === info.object.id) {
+        showDetailPanel(info.object);
+        updateDeckLayers();
+      }
+    });
   } else if ((info.layer.id === 'edges-line' || info.layer.id === 'edges-arc') && info.object) {
     const otherId = info.object.otherId;
     if (otherId && pointsById.has(otherId)) {
@@ -2679,7 +2817,9 @@ function setupHealthDots() {
   if (textEl) textEl.textContent = `${count} of ${AREAS_ORDERED.length} sections in dataset`;
 }
 
-// Mobile FAB
+// Phase 5 mobile bottom sheet. Holds the need-pathway box, tier filters, and
+// section filters so a phone user can do everything the desktop sidebar
+// offers without unfolding a whole panel.
 function setupMobile() {
   const fab = document.getElementById('mobile-fab');
   const sheet = document.getElementById('mobile-sheet');
@@ -2688,25 +2828,113 @@ function setupMobile() {
     fab.classList.toggle('open');
     sheet.classList.toggle('open');
   });
-  // Build sheet content
   const content = document.getElementById('sheet-content');
-  if (content) {
-    content.innerHTML = '<div class="sheet-section-label">Tap section to filter</div>';
-    AREAS_ORDERED.forEach(area => {
-      const btn = document.createElement('button');
-      btn.style.cssText = `display:flex;align-items:center;gap:8px;width:100%;padding:8px 0;background:none;border:none;color:var(--text-secondary);font-family:inherit;font-size:12px;cursor:pointer;`;
-      btn.innerHTML = `<span style="width:9px;height:9px;border-radius:50%;background:${AREA_COLORS[area]};flex-shrink:0"></span>${AREA_SHORT[area]} <span style="margin-left:auto;color:var(--text-dim)">${(sectionCounts[area]||0).toLocaleString()}</span>`;
-      btn.addEventListener('click', () => {
-        activeSection = activeSection === area ? null : area;
-        rebuildQuadtree();
-        updateVisibleCount();
-        render();
-        fab.classList.remove('open');
-        sheet.classList.remove('open');
-      });
-      content.appendChild(btn);
-    });
+  if (!content) return;
+  while (content.firstChild) content.removeChild(content.firstChild);
+
+  function addLabel(text) {
+    const l = document.createElement('div');
+    l.className = 'sheet-section-label';
+    l.textContent = text;
+    content.appendChild(l);
+    return l;
   }
+
+  // ---- Need-pathway input (mirrors the desktop sidebar) ----
+  addLabel('What are you trying to do?');
+  const ta = document.createElement('textarea');
+  ta.className = 'sheet-need-input';
+  ta.id = 'sheet-need-input';
+  ta.rows = 2;
+  ta.placeholder = 'e.g. land trusts in Atlanta';
+  content.appendChild(ta);
+  const needRow = document.createElement('div');
+  needRow.className = 'sheet-need-row';
+  const goBtn = document.createElement('button');
+  goBtn.className = 'sheet-need-btn';
+  goBtn.type = 'button';
+  goBtn.textContent = 'Find';
+  needRow.appendChild(goBtn);
+  content.appendChild(needRow);
+  goBtn.addEventListener('click', () => {
+    const inp = document.getElementById('need-input');
+    if (inp) {
+      inp.value = ta.value;
+      if (window.CommonweaveSearch) window.CommonweaveSearch.run();
+    }
+    fab.classList.remove('open');
+    sheet.classList.remove('open');
+  });
+
+  // ---- Tier filter ----
+  addLabel('Data quality');
+  const tierRow = document.createElement('div');
+  tierRow.className = 'sheet-tier-row';
+  ['A', 'B', 'C'].forEach(t => {
+    const b = document.createElement('button');
+    b.className = 'sheet-tier-btn' + (activeTiers.has(t) ? ' active' : '');
+    b.dataset.tier = t;
+    b.type = 'button';
+    b.textContent = t + (t === 'A' ? ' Curated' : t === 'B' ? ' Verified' : ' Inferred');
+    b.addEventListener('click', () => {
+      if (activeTiers.has(t)) activeTiers.delete(t);
+      else activeTiers.add(t);
+      b.classList.toggle('active');
+      syncTierButtons();
+      syncHighConfidenceToggle();
+      rebuildQuadtree();
+      updateVisibleCount();
+      render();
+      writeUrlState();
+    });
+    tierRow.appendChild(b);
+  });
+  content.appendChild(tierRow);
+
+  // ---- Section filter ----
+  addLabel('Tap section to filter');
+  AREAS_ORDERED.forEach(area => {
+    const btn = document.createElement('button');
+    btn.style.cssText = 'display:flex;align-items:center;gap:8px;width:100%;padding:8px 4px;background:none;border:none;color:var(--text-secondary);font-family:inherit;font-size:13px;cursor:pointer;border-bottom:1px solid var(--border);';
+    const dot = document.createElement('span');
+    dot.style.cssText = `width:10px;height:10px;border-radius:50%;background:${AREA_COLORS[area]};flex-shrink:0`;
+    btn.appendChild(dot);
+    const lab = document.createTextNode(' ' + AREA_SHORT[area]);
+    btn.appendChild(lab);
+    const cnt = document.createElement('span');
+    cnt.style.cssText = 'margin-left:auto;color:var(--text-dim);font-size:11px';
+    cnt.textContent = (sectionCounts[area] || 0).toLocaleString();
+    btn.appendChild(cnt);
+    btn.addEventListener('click', () => {
+      activeSection = activeSection === area ? null : area;
+      rebuildQuadtree();
+      updateVisibleCount();
+      render();
+      writeUrlState();
+      fab.classList.remove('open');
+      sheet.classList.remove('open');
+    });
+    content.appendChild(btn);
+  });
+
+  // ---- View mode quick switch ----
+  addLabel('View mode');
+  const viewRow = document.createElement('div');
+  viewRow.style.cssText = 'display:flex;gap:6px;margin-top:4px';
+  [['network', 'Network'], ['geo', 'Geographic'], ['health', 'System Health']].forEach(([m, lab]) => {
+    const b = document.createElement('button');
+    b.className = 'sheet-need-btn';
+    b.style.cssText = 'flex:1';
+    b.type = 'button';
+    b.textContent = lab;
+    b.addEventListener('click', () => {
+      setViewMode(m);
+      fab.classList.remove('open');
+      sheet.classList.remove('open');
+    });
+    viewRow.appendChild(b);
+  });
+  content.appendChild(viewRow);
 }
 
 // ══════════════════════════════════════════════════════════════
