@@ -261,6 +261,47 @@ html, body {
 .need-result .nr-empty { font-style: italic; color: var(--text-dim); }
 .need-result .nr-summary { font-size: 10px; color: var(--text-dim); margin-bottom: 7px; }
 
+/* Phase 4: viewport System Health bar. Pinned to the bottom of the map area
+   in Geographic / System Health modes. Updates when the user pans/zooms. */
+.viewport-health {
+  position: fixed;
+  left: var(--sidebar-w); right: 0; bottom: 0;
+  background: rgba(13, 25, 13, 0.97); backdrop-filter: blur(12px);
+  border-top: 1px solid var(--border-bright);
+  z-index: 35; padding: 9px 16px;
+  font-family: var(--f-body); font-size: 11px; color: var(--text-secondary);
+}
+.viewport-health[hidden] { display: none; }
+.vh-row { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+.vh-cell { display: flex; flex-direction: column; gap: 1px; min-width: 70px; }
+.vh-cell.vh-missing { flex: 1; min-width: 200px; }
+.vh-num {
+  font-family: var(--f-display); font-style: italic;
+  font-size: 18px; font-weight: 400; color: var(--paper);
+  line-height: 1.05; font-variant-numeric: tabular-nums;
+}
+.vh-lab {
+  font-family: var(--f-mono); font-size: 9px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--text-dim);
+}
+.vh-list {
+  font-size: 11px; color: var(--clay-pale); line-height: 1.4;
+  margin-top: 2px;
+}
+.vh-close {
+  margin-left: auto; padding: 4px 9px;
+  background: transparent; border: 1px solid var(--border);
+  color: var(--text-dim); font-size: 14px; cursor: pointer;
+  border-radius: 6px; line-height: 1;
+}
+.vh-close:hover { color: var(--text-primary); border-color: var(--border-bright); }
+@media (max-width: 480px) {
+  .viewport-health { left: 0; }
+  .vh-row { gap: 10px; font-size: 10px; }
+  .vh-num { font-size: 15px; }
+}
+
 /* ═══════════ SIDEBAR ═══════════ */
 #sidebar {
   position: absolute; top: 0; left: 0; bottom: 0;
@@ -695,6 +736,7 @@ html, body {
       <div class="view-mode-wrap">
         <button class="view-btn active" id="btn-network">🕸 Network</button>
         <button class="view-btn" id="btn-geo">🌍 Geographic</button>
+        <button class="view-btn" id="btn-health">⚖️ System Health</button>
       </div>
       <div class="sb-label">Guided Views</div>
       <div id="presets"></div>
@@ -739,6 +781,31 @@ html, body {
 </div>
 <div id="detail-panel"></div>
 <div id="edge-tooltip" class="edge-tooltip"></div>
+
+<!-- Phase 4: viewport System Health bar. Updates on moveend with the
+     visible-bbox section composition, verified ratio, and a few suggested
+     bridge orgs. Only shown in geo / system-health modes. -->
+<div id="viewport-health" class="viewport-health" hidden>
+  <div class="vh-row">
+    <div class="vh-cell vh-count">
+      <span class="vh-num" id="vh-count">—</span>
+      <span class="vh-lab">orgs in view</span>
+    </div>
+    <div class="vh-cell vh-sections">
+      <span class="vh-num" id="vh-sections">—</span>
+      <span class="vh-lab">/ 10 sections</span>
+    </div>
+    <div class="vh-cell vh-verified">
+      <span class="vh-num" id="vh-verified">—</span>
+      <span class="vh-lab">verified ratio</span>
+    </div>
+    <div class="vh-cell vh-missing" id="vh-missing-cell">
+      <span class="vh-lab">missing</span>
+      <span class="vh-list" id="vh-missing">—</span>
+    </div>
+    <button class="vh-close" id="vh-close" type="button" title="Hide">×</button>
+  </div>
+</div>
 
 <script src="https://unpkg.com/d3@7/dist/d3.min.js"></script>
 <script src="https://unpkg.com/topojson-client@3/dist/topojson-client.min.js"></script>
@@ -952,7 +1019,7 @@ function applyUrlState() {
     if (q) searchTerm = q;
 
     const view = params.get('view');
-    if (view === 'geo' || view === 'network') viewMode = view;
+    if (view === 'geo' || view === 'network' || view === 'health') viewMode = view;
   } finally {
     isRestoringUrl = false;
   }
@@ -1432,7 +1499,114 @@ function showDetailPanel(node) {
 // When filters change, refresh the deck.gl layers if we're in geo mode. The
 // canvas renderer already handles its own redraw on filter change.
 function refreshGeoIfActive() {
-  if (viewMode === 'geo' && deckOverlay) updateDeckLayers();
+  if ((viewMode === 'geo' || viewMode === 'health') && deckOverlay) updateDeckLayers();
+}
+
+// ══════════════════════════════════════════════════════════════
+// PHASE 4: SYSTEM HEALTH CHOROPLETH + VIEWPORT BAR
+// ══════════════════════════════════════════════════════════════
+let regionsLoaded = false;
+let choroplethShown = false;
+
+async function ensureRegionsSource() {
+  if (!mlMap) return;
+  if (regionsLoaded) return;
+  try {
+    const r = await fetch('data/map/regions.geojson');
+    if (!r.ok) throw new Error('regions.geojson missing');
+    const fc = await r.json();
+    if (!mlMap.getSource('regions')) {
+      mlMap.addSource('regions', { type: 'geojson', data: fc });
+    }
+    // Choropleth fill: green ramp on completeness (0..100).
+    if (!mlMap.getLayer('regions-fill')) {
+      mlMap.addLayer({
+        id: 'regions-fill',
+        type: 'fill',
+        source: 'regions',
+        layout: { visibility: 'none' },
+        paint: {
+          'fill-color': [
+            'interpolate', ['linear'], ['get', 'completeness'],
+            0,   'rgba(15, 25, 15, 0.10)',
+            10,  'rgba(74, 107, 79, 0.32)',
+            30,  'rgba(106, 191, 108, 0.42)',
+            60,  'rgba(184, 196, 168, 0.55)',
+            90,  'rgba(123, 227, 138, 0.70)',
+          ],
+          'fill-outline-color': 'rgba(184, 196, 168, 0.35)',
+        },
+      }, 'orgs');  // before the deck layers ideally; if 'orgs' is not a layer id, MapLibre still adds it on top.
+    }
+    if (!mlMap.getLayer('regions-line')) {
+      mlMap.addLayer({
+        id: 'regions-line',
+        type: 'line',
+        source: 'regions',
+        layout: { visibility: 'none' },
+        paint: {
+          'line-color': 'rgba(184, 196, 168, 0.35)',
+          'line-width': 0.5,
+        },
+      });
+    }
+    regionsLoaded = true;
+  } catch (e) {
+    console.warn('regions.geojson unavailable:', e);
+  }
+}
+
+function applyChoropleth(show) {
+  if (!mlMap) return;
+  ensureRegionsSource().then(() => {
+    if (!mlMap.getLayer('regions-fill')) return;
+    mlMap.setLayoutProperty('regions-fill', 'visibility', show ? 'visible' : 'none');
+    mlMap.setLayoutProperty('regions-line', 'visibility', show ? 'visible' : 'none');
+    choroplethShown = !!show;
+  });
+}
+
+// Compute and render the bottom System Health bar from the current MapLibre
+// viewport. Cheap to call on every moveend; uses scoring.js's pure helper.
+function updateViewportHealth() {
+  if (!mlMap || !window.CommonweaveScoring) return;
+  const vh = document.getElementById('viewport-health');
+  if (!vh || vh.hidden) return;
+  const b = mlMap.getBounds();
+  const bbox = {
+    west: b.getWest(), south: b.getSouth(),
+    east: b.getEast(), north: b.getNorth(),
+  };
+  const visiblePoints = simNodes.filter(n => isNodeVisible(n));
+  const health = window.CommonweaveScoring.computeViewportHealth(bbox, visiblePoints, allEdges);
+  setText('vh-count', health.viewport_org_count.toLocaleString());
+  setText('vh-sections', health.sections_present);
+  setText('vh-verified', (health.viewport_org_count
+    ? Math.round(health.verified_ratio * 100) + '%'
+    : '—'));
+  const missingEl = document.getElementById('vh-missing');
+  if (missingEl) {
+    if (health.sections_missing.length === 0) {
+      missingEl.textContent = 'all 10 sections represented';
+      missingEl.style.color = 'var(--accent)';
+    } else {
+      missingEl.textContent = health.sections_missing.map(s => s.replace(/_/g, ' ')).join(', ');
+      missingEl.style.color = '';
+    }
+  }
+}
+
+function setText(id, val) {
+  const el = document.getElementById(id);
+  if (el) el.textContent = val;
+}
+
+function initViewportHealth() {
+  const close = document.getElementById('vh-close');
+  if (close) close.addEventListener('click', () => {
+    const vh = document.getElementById('viewport-health');
+    if (vh) vh.hidden = true;
+  });
 }
 
 // ══════════════════════════════════════════════════════════════
@@ -1943,6 +2117,8 @@ function setupSidebar(tierCounts) {
   // View mode
   document.getElementById('btn-network').addEventListener('click', () => setViewMode('network'));
   document.getElementById('btn-geo').addEventListener('click', () => setViewMode('geo'));
+  const btnHealth = document.getElementById('btn-health');
+  if (btnHealth) btnHealth.addEventListener('click', () => setViewMode('health'));
 
   // Narrative presets
   setupPresets();
@@ -1964,6 +2140,8 @@ function setupSidebar(tierCounts) {
   // Same for view-mode buttons.
   document.getElementById('btn-network').classList.toggle('active', viewMode === 'network');
   document.getElementById('btn-geo').classList.toggle('active', viewMode === 'geo');
+  const _btnH = document.getElementById('btn-health');
+  if (_btnH) _btnH.classList.toggle('active', viewMode === 'health');
   // Restore search input value if the URL hash specified one.
   const si2 = document.getElementById('search-input');
   if (si2 && searchTerm) si2.value = searchTerm;
@@ -2038,27 +2216,37 @@ function setViewMode(mode) {
   viewMode = mode;
   document.getElementById('btn-network').classList.toggle('active', mode === 'network');
   document.getElementById('btn-geo').classList.toggle('active', mode === 'geo');
+  const healthBtn = document.getElementById('btn-health');
+  if (healthBtn) healthBtn.classList.toggle('active', mode === 'health');
   setHoveredNode(null);
   hideTooltip();
   setupRegions();
 
-  // Toggle visibility between the canvas (network mode) and the MapLibre
-  // container (geographic mode). Lazy-init MapLibre on first geo entry.
+  // Toggle visibility between the canvas (network) and MapLibre (geo / health).
   const cnv = document.getElementById('viz-canvas');
   const ml = document.getElementById('ml-map');
-  if (mode === 'geo') {
+  const vh = document.getElementById('viewport-health');
+  const mapBased = (mode === 'geo' || mode === 'health');
+  if (mapBased) {
     if (cnv) cnv.style.display = 'none';
     if (ml) ml.style.display = 'block';
     initGeoMapIfNeeded();
+    // System Health mode toggles the choropleth on; Geographic mode toggles
+    // it back off. Both modes show the viewport health bar.
     if (mlMap) {
+      const showChoropleth = mode === 'health';
       requestAnimationFrame(() => {
         mlMap.resize();
+        applyChoropleth(showChoropleth);
         updateDeckLayers();
+        updateViewportHealth();
       });
     }
+    if (vh) vh.hidden = false;
   } else {
     if (cnv) cnv.style.display = 'block';
     if (ml) ml.style.display = 'none';
+    if (vh) vh.hidden = true;
     rebuildQuadtree();
     fitView(true);
     render();
