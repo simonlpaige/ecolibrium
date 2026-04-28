@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Commonweave</title>
-<meta name="description" content="Commonweave is an open framework for a regenerative global economy — mapping sustainability organizations, governance models, and evidence-based pathways toward ecological and social balance.">
-<meta property="og:description" content="Commonweave is an open framework for a regenerative global economy — mapping sustainability organizations, governance models, and evidence-based pathways toward ecological and social balance.">
-<meta property="og:title" content="Commonweave - Framework">
+<title>Commonweave: Documents</title>
+<meta name="description" content="Commonweave documents: the framework, the governance model, the data methodology, and the evidence base. Open framework, open data. CC0.">
+<meta property="og:description" content="Commonweave documents: the framework, the governance model, the data methodology, and the evidence base. Open framework, open data. CC0.">
+<meta property="og:title" content="Commonweave: Documents">
 <meta property="og:url" content="https://commonweave.earth/doc.html">
 <meta property="og:type" content="article">
 <meta name="twitter:card" content="summary_large_image">
@@ -17,365 +17,270 @@
   "@type": "Article",
   "headline": "Commonweave Framework",
   "url": "https://commonweave.earth/doc.html",
-  "description": "An open framework for a regenerative global economy.",
+  "description": "An open framework for healthier communities.",
   "author": { "@type": "Person", "name": "Simon L. Paige" },
   "publisher": { "@type": "Organization", "name": "Commonweave", "url": "https://commonweave.earth/" },
   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "isPartOf": { "@type": "WebSite", "name": "Commonweave", "url": "https://commonweave.earth/" },
-  "dateModified": "2026-04-26"
+  "isPartOf": { "@type": "WebSite", "name": "Commonweave", "url": "https://commonweave.earth/" }
 }
 </script>
 <script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/brand.css">
 <style>
-/* ── Reset & tokens ── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --bg:      #0d1a0d;
-  --surface: #132013;
-  --s2:      #192819;
-  --s3:      #1f321f;
-  --border:  #253825;
-  --border2: #30483a;
-  --text:    #cce8b0;
-  --muted:   #5e8a52;
-  --dim:     #3d5e35;
-  --accent:  #78c87a;
-  --a2:      #56a85a;
-  --warm:    #a8c87e;
-  --teal:    #4fc4b0;
-  --earth:   #c4a55d;
-  --focus:   #4fc4b0;
-}
-
 html { scroll-behavior: smooth; }
+:focus-visible { outline: 2px solid var(--clay); outline-offset: 3px; border-radius: 2px; }
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.7;
-  font-size: 16px;
-}
+body { line-height: 1.7; }
+a { color: var(--moss-deep); text-decoration: underline; text-underline-offset: 2px; }
+a:hover { color: var(--clay); }
 
-/* ── Skip link (ADA) ── */
 .skip-link {
-  position: absolute;
-  top: -100px;
-  left: 16px;
-  background: var(--accent);
-  color: #081208;
-  padding: 8px 16px;
-  border-radius: 0 0 8px 8px;
-  font-weight: 700;
-  font-size: 14px;
-  z-index: 200;
-  text-decoration: none;
-  transition: top 0.15s;
+  position: absolute; top: -100px; left: 16px;
+  background: var(--moss); color: var(--paper);
+  padding: 8px 16px; font-weight: 600; font-size: 14px; z-index: 200;
+  text-decoration: none; transition: top 0.15s;
 }
-.skip-link:focus { top: 0; outline: 3px solid var(--focus); }
+.skip-link:focus { top: 0; outline: 3px solid var(--clay); }
 
-/* ── Focus styles ── */
-:focus-visible {
-  outline: 2px solid var(--focus);
-  outline-offset: 3px;
-  border-radius: 3px;
-}
-
-a { color: var(--accent); }
-a:hover { color: var(--warm); }
-a:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
-
-/* ── Nav ── */
-nav {
+/* Nav */
+.site-nav {
   position: sticky; top: 0; z-index: 100;
-  background: rgba(13,26,13,0.95);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--border);
-  padding: 0 28px;
+  background: color-mix(in oklab, var(--paper) 88%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: var(--rule);
   display: flex; align-items: center; justify-content: space-between;
-  height: 52px;
+  padding: 14px clamp(20px, 4vw, 40px); gap: var(--s-5);
 }
-
-.nav-logo {
-  font-size: 14px; font-weight: 800;
-  letter-spacing: 0.06em; text-transform: lowercase;
-  color: var(--accent); text-decoration: none;
-}
-.nav-logo:hover { color: var(--warm); text-decoration: none; }
-.nav-logo:focus-visible { outline: 2px solid var(--focus); border-radius: 3px; }
-
-.nav-links { display: flex; gap: 0; }
+.nav-mark a { display: block; line-height: 0; text-decoration: none; }
+.nav-mark svg { display: block; height: 32px; width: auto; }
+.nav-links { display: flex; align-items: center; gap: var(--s-5); }
 .nav-links a {
-  padding: 0 13px; height: 52px;
-  display: flex; align-items: center;
-  font-size: 13px; color: var(--muted);
-  border-bottom: 2px solid transparent;
-  transition: color 0.15s, border-color 0.15s;
-  text-decoration: none;
+  font-family: var(--f-mono); font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink-muted); text-decoration: none;
+  padding: 4px 0; border-bottom: 1px solid transparent;
+  transition: color 0.18s, border-bottom-color 0.18s;
 }
-.nav-links a:hover { color: var(--text); text-decoration: none; border-bottom-color: var(--accent); }
-.nav-links a[aria-current="page"] { color: var(--accent); border-bottom-color: var(--accent); }
+.nav-links a:hover, .nav-links a.active { color: var(--moss-deep); border-bottom-color: var(--clay); }
 
-.nav-cta {
-  margin-left: 6px;
-  height: auto !important; padding: 6px 14px !important;
-  background: var(--s2); border: 1px solid var(--border2) !important;
-  border-radius: 6px; border-bottom: none !important;
-  color: var(--warm) !important; font-weight: 600;
-}
-.nav-cta:hover { background: var(--s3) !important; border-bottom: none !important; }
-
-/* ── Breadcrumb ── */
+/* Breadcrumb */
 .breadcrumb {
-  max-width: 860px; margin: 0 auto;
-  padding: 16px 28px 0;
-  font-size: 12px; color: var(--dim);
-  display: flex; gap: 6px; align-items: center;
-  flex-wrap: wrap;
+  max-width: 920px; margin: 0 auto;
+  padding: var(--s-5) clamp(20px, 4vw, 40px) 0;
+  font-family: var(--f-mono); font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+  display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
 }
-.breadcrumb a { color: var(--muted); text-decoration: none; }
-.breadcrumb a:hover { color: var(--accent); }
-.breadcrumb span { color: var(--dim); }
+.breadcrumb a { color: var(--ink-muted); text-decoration: none; }
+.breadcrumb a:hover { color: var(--clay); text-decoration: underline; }
 
-/* ── Main layout ── */
+/* Main layout */
 main {
-  max-width: 860px; margin: 0 auto;
-  padding: 32px 28px 80px;
+  max-width: 920px; margin: 0 auto;
+  padding: var(--s-5) clamp(20px, 4vw, 40px) var(--s-9);
 }
 
-/* ── Loading / error ── */
+/* Loading / error */
 #loading {
-  text-align: center; padding: 80px 28px;
-  color: var(--muted); font-size: 15px;
+  text-align: center; padding: var(--s-9) var(--s-5);
+  color: var(--ink-muted); font-size: 15px;
+  font-family: var(--f-mono); letter-spacing: 0.06em;
 }
 .error-box {
-  background: var(--surface); border: 1px solid var(--border2);
-  border-left: 3px solid var(--earth); border-radius: 10px;
-  padding: 24px; margin: 40px 0;
+  background: color-mix(in oklab, var(--paper-2) 50%, var(--paper));
+  border: var(--rule-soft); border-left: 3px solid var(--clay);
+  padding: var(--s-5); margin: var(--s-7) 0;
 }
-.error-box h2 { color: var(--earth); margin-bottom: 10px; font-size: 18px; }
-.error-box p { color: var(--muted); font-size: 14px; }
+.error-box h2 { color: var(--ink); margin-bottom: var(--s-3); font-size: 22px; font-style: italic; }
+.error-box p { color: var(--ink-soft); font-size: 14px; }
 
-/* ── Markdown content styles ── */
+/* Markdown content */
 #content h1 {
-  font-size: clamp(24px, 4vw, 38px);
-  font-weight: 800; line-height: 1.1;
-  letter-spacing: -0.02em; color: #dff5c0;
-  margin-bottom: 20px; margin-top: 0;
-  padding-bottom: 14px;
-  border-bottom: 1px solid var(--border);
+  font-family: var(--f-display); font-style: italic;
+  font-size: clamp(36px, 5vw, 64px); font-weight: 400;
+  line-height: 0.98; letter-spacing: -0.02em;
+  color: var(--ink); margin-bottom: var(--s-5); margin-top: 0;
+  padding-bottom: var(--s-4); border-bottom: var(--rule);
+  max-width: 22ch;
 }
-
 #content h2 {
-  font-size: clamp(18px, 2.5vw, 24px);
-  font-weight: 700; color: #c8e0a8;
-  margin: 48px 0 16px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--border);
+  font-family: var(--f-display); font-style: italic;
+  font-size: clamp(24px, 3vw, 36px); font-weight: 400;
+  color: var(--moss-deep); margin: var(--s-7) 0 var(--s-4);
+  padding-bottom: var(--s-2); border-bottom: var(--rule-soft);
 }
-
 #content h3 {
-  font-size: 18px; font-weight: 700;
-  color: var(--warm); margin: 32px 0 12px;
+  font-family: var(--f-display); font-style: italic;
+  font-size: 22px; font-weight: 400;
+  color: var(--ink); margin: var(--s-6) 0 var(--s-3);
 }
-
 #content h4 {
-  font-size: 15px; font-weight: 700;
-  color: var(--muted); margin: 24px 0 8px;
-  text-transform: uppercase; letter-spacing: 0.06em;
+  font-family: var(--f-mono); font-size: 11px; font-weight: 500;
+  color: var(--ink-muted); margin: var(--s-5) 0 var(--s-2);
+  text-transform: uppercase; letter-spacing: 0.14em;
 }
-
 #content p {
-  color: #7aaa6a;
-  margin-bottom: 18px;
-  font-size: 16px; line-height: 1.8;
+  color: var(--ink-soft); margin-bottom: var(--s-4);
+  font-size: 17px; line-height: 1.7; max-width: 64ch;
 }
+#content p strong { color: var(--ink); font-weight: 600; }
+#content p em { color: var(--moss-deep); font-style: italic; }
+#content a { color: var(--moss-deep); }
+#content a:hover { color: var(--clay); }
 
-#content p strong { color: var(--text); font-weight: 600; }
-#content p em { color: var(--warm); font-style: italic; }
-
-#content a { color: var(--accent); }
-#content a:hover { color: var(--warm); }
-
-/* Lists */
-#content ul, #content ol {
-  margin: 0 0 20px 0;
-  padding-left: 24px;
-}
+#content ul, #content ol { margin: 0 0 var(--s-4) 0; padding-left: var(--s-5); }
 #content li {
-  color: #7aaa6a;
-  font-size: 16px; line-height: 1.75;
-  margin-bottom: 6px;
+  color: var(--ink-soft); font-size: 16px;
+  line-height: 1.7; margin-bottom: 6px; max-width: 64ch;
 }
-#content li strong { color: var(--text); }
-
-/* Nested lists */
+#content li strong { color: var(--ink); }
 #content li > ul, #content li > ol { margin: 8px 0 4px; }
+#content input[type="checkbox"] { accent-color: var(--moss); margin-right: 6px; }
 
-/* Checkboxes */
-#content input[type="checkbox"] {
-  accent-color: var(--accent);
-  margin-right: 6px;
-}
-
-/* Blockquotes */
 #content blockquote {
-  border-left: 3px solid var(--earth);
-  background: var(--surface);
-  margin: 24px 0;
-  padding: 16px 20px;
-  border-radius: 0 8px 8px 0;
+  border-left: 3px solid var(--clay);
+  background: color-mix(in oklab, var(--paper-2) 50%, var(--paper));
+  margin: var(--s-5) 0; padding: var(--s-4) var(--s-5);
 }
 #content blockquote p {
-  color: var(--muted); font-style: italic;
-  margin-bottom: 0; font-size: 15px;
+  color: var(--ink-soft); font-style: italic;
+  margin-bottom: 0; font-size: 17px;
+  font-family: var(--f-display);
 }
 
-/* Code */
 #content code {
-  background: var(--s2);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  padding: 1px 6px;
-  font-size: 14px;
-  color: var(--teal);
-  font-family: 'SF Mono', 'Fira Code', Consolas, monospace;
+  background: var(--paper-2); border: var(--rule-soft);
+  padding: 1px 6px; font-size: 14px;
+  color: var(--moss-deep);
+  font-family: var(--f-mono);
 }
 #content pre {
-  background: var(--s2);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 20px;
-  overflow-x: auto;
-  margin: 20px 0;
+  background: var(--ink); color: var(--paper);
+  border: var(--rule);
+  padding: var(--s-5); overflow-x: auto;
+  margin: var(--s-5) 0;
 }
 #content pre code {
   background: none; border: none; padding: 0;
   font-size: 13px; line-height: 1.6;
-  color: var(--warm);
+  color: var(--paper); font-family: var(--f-mono);
 }
 
-/* Tables -- wrapped for mobile scroll */
 .table-wrap {
   width: 100%; overflow-x: auto;
-  margin: 24px 0;
-  border-radius: 8px;
-  border: 1px solid var(--border);
+  margin: var(--s-5) 0; border: var(--rule-soft);
   -webkit-overflow-scrolling: touch;
 }
-.table-wrap:focus-within { outline: 2px solid var(--focus); }
-
 #content table {
   width: 100%; border-collapse: collapse;
   font-size: 14px; min-width: 500px;
 }
-#content thead { background: var(--s2); }
+#content thead { background: color-mix(in oklab, var(--paper-2) 60%, var(--paper)); }
 #content th {
   padding: 10px 14px; text-align: left;
-  font-size: 11px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.08em;
-  color: var(--muted); border-bottom: 1px solid var(--border2);
+  font-family: var(--f-mono); font-size: 10px;
+  font-weight: 500; text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ink-muted); border-bottom: var(--rule-soft);
   white-space: nowrap;
 }
 #content td {
-  padding: 10px 14px; color: #7aaa6a;
-  border-bottom: 1px solid var(--border);
+  padding: 10px 14px; color: var(--ink-soft);
+  border-bottom: var(--rule-soft);
   vertical-align: top; line-height: 1.55;
 }
 #content tr:last-child td { border-bottom: none; }
-#content tr:hover td { background: var(--surface); }
-#content td strong { color: var(--text); }
-#content td a { color: var(--accent); font-size: 12px; }
+#content tr:hover td { background: color-mix(in oklab, var(--paper-2) 40%, var(--paper)); }
+#content td strong { color: var(--ink); }
+#content td a { color: var(--moss-deep); font-size: 13px; }
 
-/* HR */
-#content hr {
-  border: none; border-top: 1px solid var(--border);
-  margin: 40px 0;
-}
+#content hr { border: none; border-top: var(--rule-soft); margin: var(--s-7) 0; }
+#content img { max-width: 100%; }
 
-/* Images */
-#content img { max-width: 100%; border-radius: 8px; }
-
-/* ── TOC sidebar (desktop) ── */
+/* TOC */
 .doc-layout {
-  display: flex; gap: 40px; align-items: flex-start;
+  display: flex; gap: var(--s-7); align-items: flex-start;
+  max-width: 1180px; margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 40px);
 }
+.doc-layout main { padding-left: 0; padding-right: 0; max-width: 720px; }
+
 #toc {
-  position: sticky; top: 72px;
+  position: sticky; top: 80px;
   width: 220px; min-width: 220px;
   max-height: calc(100vh - 100px);
   overflow-y: auto; flex-shrink: 0;
-  padding: 0 0 20px;
+  padding: var(--s-5) 0 var(--s-5);
   scrollbar-width: thin;
-  scrollbar-color: var(--border) transparent;
 }
 #toc::-webkit-scrollbar { width: 4px; }
-#toc::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+#toc::-webkit-scrollbar-thumb { background: var(--paper-3); }
 
 #toc h2 {
-  font-size: 10px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.12em;
-  color: var(--dim); margin-bottom: 12px; padding-bottom: 0;
+  font-family: var(--f-mono); font-size: 10px;
+  font-weight: 500; text-transform: uppercase;
+  letter-spacing: 0.16em; color: var(--ink-muted);
+  margin-bottom: var(--s-3); padding-bottom: 0;
   border-bottom: none; margin-top: 0;
 }
 #toc ul { list-style: none; padding: 0; margin: 0; }
 #toc li { margin: 0; }
 #toc a {
-  display: block; padding: 4px 8px;
-  font-size: 12px; color: var(--muted);
-  border-left: 2px solid var(--border);
-  text-decoration: none; line-height: 1.5;
+  display: block; padding: 5px 10px;
+  font-size: 13px; color: var(--ink-soft);
+  border-left: 1px solid var(--paper-3);
+  text-decoration: none; line-height: 1.45;
   transition: color 0.15s, border-color 0.15s;
-  border-radius: 0 4px 4px 0;
 }
-#toc a:hover { color: var(--accent); border-left-color: var(--accent); }
-#toc a.toc-h3 { padding-left: 18px; font-size: 11px; color: var(--dim); }
-#toc a.toc-h3:hover { color: var(--muted); }
-#toc a.toc-active { color: var(--accent); border-left-color: var(--accent); }
+#toc a:hover { color: var(--moss-deep); border-left-color: var(--moss); }
+#toc a.toc-h3 { padding-left: 22px; font-size: 12px; color: var(--ink-muted); }
+#toc a.toc-active { color: var(--clay); border-left-color: var(--clay); font-style: italic; }
 
-/* ── Doc nav bottom ── */
+/* Doc nav */
 .doc-nav {
   display: flex; justify-content: space-between; flex-wrap: wrap;
-  gap: 12px; margin-top: 60px; padding-top: 32px;
-  border-top: 1px solid var(--border);
+  gap: var(--s-3); margin-top: var(--s-7); padding-top: var(--s-5);
+  border-top: var(--rule);
 }
 .doc-nav a {
   display: flex; align-items: center; gap: 6px;
-  padding: 10px 18px; border-radius: 8px;
-  background: var(--surface); border: 1px solid var(--border);
-  font-size: 13px; font-weight: 600; color: var(--text);
-  text-decoration: none; transition: all 0.15s;
+  padding: 10px 18px;
+  border: 1px solid var(--ink); background: transparent;
+  font-family: var(--f-mono); font-size: 11px;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink); text-decoration: none;
+  transition: background 0.18s, color 0.18s;
 }
-.doc-nav a:hover { background: var(--s2); border-color: var(--border2); color: var(--accent); text-decoration: none; }
+.doc-nav a:hover { background: var(--moss); color: var(--paper); border-color: var(--moss); }
 
-/* ── Footer ── */
-footer {
-  border-top: 1px solid var(--border);
-  padding: 24px 28px; text-align: center;
-  font-size: 11px; color: var(--dim);
+/* Footer */
+.site-foot {
+  border-top: var(--rule);
+  padding: var(--s-5) clamp(20px, 4vw, 40px); text-align: center;
+  font-family: var(--f-mono); font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--ink-muted);
 }
-footer a { color: var(--dim); }
-footer a:hover { color: var(--muted); }
+.site-foot a { color: var(--ink-muted); }
+.site-foot a:hover { color: var(--moss-deep); }
 
-/* ── Mobile ── */
 @media (max-width: 900px) {
   #toc { display: none; }
   .doc-layout { display: block; }
 }
-@media (max-width: 640px) {
-  nav { padding: 0 16px; }
-  .nav-links a { padding: 0 9px; font-size: 12px; }
-  main { padding: 24px 16px 60px; }
-  .breadcrumb { padding: 12px 16px 0; }
-  #content h1 { font-size: 24px; }
-  #content h2 { font-size: 19px; }
+@media (max-width: 600px) {
+  .nav-links a:not(.active) { display: none; }
+  #content h1 { font-size: 32px; }
+  #content h2 { font-size: 22px; }
   #content p, #content li { font-size: 15px; }
 }
 
-/* ── Print ── */
 @media print {
-  nav, .breadcrumb, #toc, .doc-nav, footer { display: none; }
+  .site-nav, .breadcrumb, #toc, .doc-nav, .site-foot { display: none; }
   body { background: white; color: black; font-size: 12pt; }
   #content h1, #content h2, #content h3 { color: black; }
   #content p, #content li { color: #333; }
@@ -387,19 +292,34 @@ footer a:hover { color: var(--muted); }
 
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<nav role="navigation" aria-label="Site navigation">
-  <a href="/commonweave/" class="nav-logo" aria-label="Commonweave home">commonweave</a>
+<nav class="site-nav" role="navigation" aria-label="Site navigation">
+  <div class="nav-mark">
+    <a href="/" aria-label="Commonweave home">
+      <svg viewBox="0 0 520 130" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="commonweave">
+        <g transform="translate(0,5)">
+          <circle cx="60" cy="60" r="56" fill="none" stroke="#16201A" stroke-width="1.6"/>
+          <line x1="6" y1="60" x2="114" y2="60" stroke="#16201A" stroke-width="0.8" opacity="0.4"/>
+          <path d="M 30 30 C 50 60, 70 60, 90 90" stroke="#2F4A33" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+          <path d="M 90 30 C 70 60, 50 60, 30 90" stroke="#2F4A33" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+          <circle cx="60" cy="60" r="3" fill="#B4593A"/>
+        </g>
+        <text x="140" y="80" font-family="Instrument Serif, Source Serif 4, Georgia, serif" font-style="italic" font-size="64" fill="#16201A" letter-spacing="-1.5">commonweave</text>
+      </svg>
+    </a>
+  </div>
   <div class="nav-links" role="list">
-    <a href="/commonweave/#map" role="listitem">Map</a>
-    <a href="/commonweave/#sections" role="listitem">Sections</a>
-    <a href="/commonweave/#docs" role="listitem">Docs</a>
-    <a href="/commonweave/#about" role="listitem">About</a>
-    <a href="/commonweave/directory.html" role="listitem" class="nav-cta">Directory →</a>
+    <a href="/#map" role="listitem">Map</a>
+    <a href="/#sections" role="listitem">Sections</a>
+    <a href="/#docs" role="listitem" class="active">Docs</a>
+    <a href="/#about" role="listitem">About</a>
+    <a href="/directory.html" role="listitem">Directory</a>
   </div>
 </nav>
 
 <nav aria-label="Breadcrumb" class="breadcrumb">
-  <a href="/commonweave/">Home</a>
+  <a href="/">Home</a>
+  <span aria-hidden="true">/</span>
+  <a href="/#docs">Docs</a>
   <span aria-hidden="true">/</span>
   <span id="breadcrumb-current" aria-current="page">Loading...</span>
 </nav>
@@ -416,15 +336,15 @@ footer a:hover { color: var(--muted); }
     </div>
     <noscript>
       <div style="max-width:660px;margin:40px auto;padding:0 28px;">
-        <h1 style="color:#dff5c0;font-size:28px;margin-bottom:20px;">Commonweave Framework</h1>
-        <p style="color:#7aaa6a;line-height:1.8;margin-bottom:16px;">This page renders markdown documents dynamically. For the best experience, enable JavaScript.</p>
-        <p style="color:#7aaa6a;line-height:1.8;margin-bottom:24px;">All documents are also available as plain markdown on GitHub:</p>
+        <h1>Commonweave Framework</h1>
+        <p>This page renders markdown documents dynamically. For the best experience, enable JavaScript.</p>
+        <p>All documents are also available as plain markdown on GitHub:</p>
         <ul style="list-style:none;padding:0;">
-          <li style="margin-bottom:12px;"><a href="https://github.com/simonlpaige/commonweave/blob/master/README.md" style="color:#78c87a;">README.md - Project Overview</a></li>
-          <li style="margin-bottom:12px;"><a href="https://github.com/simonlpaige/commonweave/blob/master/DEEP-DIVE.md" style="color:#78c87a;">DEEP-DIVE.md - Framework &amp; Evidence</a></li>
-          <li style="margin-bottom:12px;"><a href="https://github.com/simonlpaige/commonweave/blob/master/GOVERNANCE.md" style="color:#78c87a;">GOVERNANCE.md - Governance</a></li>
-          <li style="margin-bottom:12px;"><a href="https://github.com/simonlpaige/commonweave/blob/master/SUSTAINABILITY.md" style="color:#78c87a;">SUSTAINABILITY.md - Sustainability Plan</a></li>
-          <li style="margin-bottom:12px;"><a href="https://github.com/simonlpaige/commonweave/blob/master/WISEREARTH.md" style="color:#78c87a;">WISEREARTH.md - WiserEarth Analysis</a></li>
+          <li style="margin-bottom:12px;"><a href="https://github.com/simonlpaige/commonweave/blob/master/README.md">README.md: Project Overview</a></li>
+          <li style="margin-bottom:12px;"><a href="https://github.com/simonlpaige/commonweave/blob/master/DEEP-DIVE.md">DEEP-DIVE.md: Framework and Evidence</a></li>
+          <li style="margin-bottom:12px;"><a href="https://github.com/simonlpaige/commonweave/blob/master/GOVERNANCE.md">GOVERNANCE.md: Governance</a></li>
+          <li style="margin-bottom:12px;"><a href="https://github.com/simonlpaige/commonweave/blob/master/SUSTAINABILITY.md">SUSTAINABILITY.md: Sustainability Plan</a></li>
+          <li style="margin-bottom:12px;"><a href="https://github.com/simonlpaige/commonweave/blob/master/WISEREARTH.md">WISEREARTH.md: WiserEarth Analysis</a></li>
         </ul>
       </div>
     </noscript>
@@ -433,12 +353,12 @@ footer a:hover { color: var(--muted); }
   </main>
 </div>
 
-<footer role="contentinfo">
+<footer class="site-foot" role="contentinfo">
   <p>
     <a href="https://github.com/simonlpaige/commonweave" target="_blank" rel="noopener">github.com/simonlpaige/commonweave</a>
     &middot; Data: <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a>
     &middot; Framework: <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>
-    &middot; Inspired by <a href="https://web.archive.org/web/20140411042711/http://wiser.org/" target="_blank" rel="noopener">WiserEarth</a> (2007&ndash;2014)
+    &middot; Inspired by <a href="https://web.archive.org/web/20140411042711/http://wiser.org/" target="_blank" rel="noopener">WiserEarth</a> (2007 &ndash; 2014)
   </p>
 </footer>
 
@@ -462,7 +382,7 @@ const file = params.get("file") || "README";
 const meta = DOCS[file] || { title: file, prev: null, next: null };
 
 // Set page title
-document.title = `${meta.title} — Commonweave`;
+document.title = `${meta.title} | Commonweave`;
 
 // Breadcrumb
 document.getElementById("breadcrumb-current").textContent = meta.title;

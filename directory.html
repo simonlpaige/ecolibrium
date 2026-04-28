@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Commonweave — Global Directory</title>
-<meta name="description" content="Search 24,500+ aligned civil society organizations across 60 countries. CC0 open data.">
-<meta property="og:title" content="Commonweave - Global Directory">
-<meta property="og:description" content="Search 24,500+ aligned civil society organizations across 60 countries. CC0 open data.">
+<title>Commonweave: Global Directory</title>
+<meta name="description" content="Search the Commonweave directory. Aligned civil society organizations across many countries. CC0 open data.">
+<meta property="og:title" content="Commonweave Global Directory">
+<meta property="og:description" content="Search the Commonweave directory. Aligned civil society organizations across many countries. CC0 open data.">
 <meta property="og:url" content="https://commonweave.earth/directory.html">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
@@ -17,7 +17,7 @@
   "@type": "DataCatalog",
   "name": "Commonweave Global Directory",
   "url": "https://commonweave.earth/directory.html",
-  "description": "Searchable directory of 24,500+ aligned civil-society organizations across 60+ countries.",
+  "description": "Searchable directory of aligned civil-society organizations across many countries.",
   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
   "isAccessibleForFree": true,
   "isPartOf": {
@@ -27,190 +27,399 @@
   }
 }
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/brand.css">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#0d1a0d;--surface:#132013;--s2:#192819;--s3:#1f321f;
-  --border:#253825;--border2:#30483a;
-  --text:#cce8b0;--muted:#5e8a52;--dim:#3d5e35;
-  --accent:#78c87a;--a2:#56a85a;--warm:#a8c87e;--teal:#4fc4b0;--earth:#c4a55d;
+html { scroll-behavior: smooth; }
+:focus-visible { outline: 2px solid var(--clay); outline-offset: 3px; border-radius: 2px; }
+a { color: var(--moss-deep); text-decoration: underline; text-underline-offset: 2px; }
+a:hover { color: var(--clay); }
+
+/* Nav */
+.site-nav {
+  position: sticky; top: 0; z-index: 100;
+  background: color-mix(in oklab, var(--paper) 88%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: var(--rule);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px clamp(20px, 4vw, 40px); gap: var(--s-5);
 }
-html{scroll-behavior:smooth}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Georgia,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:15px;min-height:100vh}
-a{color:var(--accent);text-decoration:none}
-a:hover{color:var(--warm);text-decoration:underline}
+.nav-mark a { display: block; line-height: 0; text-decoration: none; }
+.nav-mark svg { display: block; height: 32px; width: auto; }
+.nav-links { display: flex; align-items: center; gap: var(--s-5); }
+.nav-links a {
+  font-family: var(--f-mono); font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink-muted); text-decoration: none;
+  padding: 4px 0; border-bottom: 1px solid transparent;
+  transition: color 0.18s, border-bottom-color 0.18s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--moss-deep); border-bottom-color: var(--clay); }
 
-/* NAV */
-nav{position:sticky;top:0;z-index:100;background:rgba(13,26,13,.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:50px}
-.nav-logo{font-size:14px;font-weight:800;letter-spacing:.06em;text-transform:lowercase;color:var(--accent);text-decoration:none}
-.nav-links{display:flex;gap:0;align-items:center}
-.nav-links a{padding:0 12px;height:50px;display:flex;align-items:center;font-size:13px;color:var(--muted);border-bottom:2px solid transparent;transition:color .15s,border-color .15s;text-decoration:none}
-.nav-links a:hover,.nav-links a.active{color:var(--text);border-bottom-color:var(--accent)}
+.page-head {
+  max-width: 1180px; margin: 0 auto;
+  padding: var(--s-8) clamp(20px, 4vw, 40px) var(--s-6);
+}
+.page-head .eyebrow { color: var(--clay); margin-bottom: var(--s-3); }
+.page-head h1 {
+  font-family: var(--f-display); font-style: italic;
+  font-size: clamp(40px, 6vw, 72px); line-height: 0.98;
+  letter-spacing: -0.02em; margin-bottom: var(--s-4);
+  max-width: 18ch;
+}
+.page-head .blurb {
+  font-family: var(--f-body); font-size: 17px;
+  color: var(--ink-soft); max-width: 60ch;
+}
 
-/* LAYOUT */
-.page{max-width:1200px;margin:0 auto;padding:24px 20px}
+.page {
+  max-width: 1180px; margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 40px) var(--s-9);
+}
 
-/* HERO STATS */
-.stats-bar{display:flex;gap:16px;margin-bottom:24px;flex-wrap:wrap}
-.stat{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 20px;flex:1;min-width:140px}
-.stat-num{font-size:24px;font-weight:800;color:var(--accent);letter-spacing:-.5px;font-variant-numeric:tabular-nums}
-.stat-label{font-size:11px;color:var(--muted);margin-top:2px;text-transform:uppercase;letter-spacing:.06em}
+/* Pipeline link rows */
+.pdf-link-row {
+  display: flex; align-items: center; gap: var(--s-4);
+  margin-bottom: var(--s-3);
+  padding: var(--s-3) var(--s-5);
+  border: var(--rule-soft); border-left: 3px solid var(--moss);
+  background: color-mix(in oklab, var(--paper-2) 50%, var(--paper));
+  font-size: 14px; color: var(--ink-soft); flex-wrap: wrap;
+}
+.pdf-link-row a {
+  font-family: var(--f-display); font-style: italic;
+  font-size: 18px; color: var(--moss-deep);
+  text-decoration: none; font-weight: 400;
+}
+.pdf-link-row a:hover { color: var(--clay); text-decoration: underline; }
+.pdf-link-row .pdf-ext {
+  font-family: var(--f-mono); font-size: 10px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink-muted); font-weight: 400;
+}
+.pdf-link-row .pdf-note {
+  font-family: var(--f-mono); font-size: 11px;
+  letter-spacing: 0.04em; color: var(--ink-muted);
+}
+@media (max-width: 600px) { .pdf-link-row .pdf-note { display: none; } }
 
-/* SEARCH & FILTERS */
-.search-row{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap}
-#search-input{flex:1;min-width:200px;background:var(--surface);border:1px solid var(--border2);border-radius:8px;padding:10px 14px;color:var(--text);font-size:14px;font-family:inherit;outline:none;transition:border-color .15s}
-#search-input:focus{border-color:var(--teal)}
-#search-input::placeholder{color:var(--dim)}
-.filter-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;align-items:center}
-.filter-label{font-size:12px;color:var(--muted);white-space:nowrap;margin-right:2px}
-select{background:var(--surface);border:1px solid var(--border2);border-radius:7px;padding:7px 12px;color:var(--text);font-size:13px;font-family:inherit;outline:none;cursor:pointer;transition:border-color .15s;appearance:none;-webkit-appearance:none;padding-right:28px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%235e8a52'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center}
-select:focus{border-color:var(--teal)}
-.clear-btn{background:transparent;border:1px solid var(--border);border-radius:7px;color:var(--muted);padding:7px 14px;cursor:pointer;font-size:13px;font-family:inherit;transition:all .15s}
-.clear-btn:hover{border-color:var(--border2);color:var(--text)}
+/* Stats */
+.stats-bar {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  border-top: var(--rule); border-bottom: var(--rule);
+  background: color-mix(in oklab, var(--paper-2) 60%, var(--paper));
+  margin-top: var(--s-5); margin-bottom: var(--s-6);
+}
+.stat {
+  padding: var(--s-5) var(--s-4);
+  border-right: var(--rule-soft);
+}
+.stat:last-child { border-right: none; }
+.stat-num {
+  font-family: var(--f-display); font-style: italic;
+  font-size: clamp(24px, 3.4vw, 40px); line-height: 1;
+  color: var(--moss-deep); letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.stat-label {
+  font-family: var(--f-mono); font-size: 10px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink-muted); margin-top: 6px;
+}
 
-/* RESULTS */
-.results-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
-.results-count{font-size:13px;color:var(--muted)}
-.results-count strong{color:var(--warm)}
-.sort-select{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:5px 28px 5px 10px;color:var(--muted);font-size:12px;font-family:inherit;outline:none;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%235e8a52'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 8px center}
+/* Search & filters */
+.search-row { display: flex; gap: var(--s-3); margin-bottom: var(--s-3); flex-wrap: wrap; }
+#search-input {
+  flex: 1; min-width: 200px;
+  background: var(--paper); border: 1px solid var(--ink);
+  padding: 11px 14px; color: var(--ink);
+  font-family: var(--f-body); font-size: 16px; outline: none;
+  transition: border-color 0.18s, box-shadow 0.18s;
+}
+#search-input:focus { border-color: var(--clay); box-shadow: 0 0 0 3px color-mix(in oklab, var(--clay) 18%, transparent); }
+#search-input::placeholder { color: var(--ink-muted); font-style: italic; }
 
-/* EMPTY / LOADING */
-.state-msg{text-align:center;padding:60px 20px;color:var(--muted)}
-.state-msg .big{font-size:36px;margin-bottom:10px}
-.state-msg p{font-size:14px;line-height:1.7;max-width:420px;margin:0 auto}
-.state-msg a{color:var(--accent)}
-.loader{display:flex;justify-content:center;padding:40px;color:var(--muted);font-size:13px}
-.loader::after{content:'';width:18px;height:18px;border:2px solid var(--border2);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite;margin-left:10px;display:inline-block}
-@keyframes spin{to{transform:rotate(360deg)}}
+.filter-row {
+  display: flex; gap: var(--s-3); flex-wrap: wrap;
+  align-items: center; margin-bottom: var(--s-6);
+}
+.filter-label {
+  font-family: var(--f-mono); font-size: 10px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink-muted); white-space: nowrap;
+}
+select, .sort-select {
+  background: var(--paper); border: 1px solid var(--ink-muted);
+  padding: 7px 28px 7px 12px; color: var(--ink);
+  font-family: var(--f-body); font-size: 14px; outline: none; cursor: pointer;
+  appearance: none; -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%235A6A5C'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 10px center;
+  transition: border-color 0.18s;
+}
+select:focus { border-color: var(--moss); }
+.clear-btn {
+  background: transparent; border: 1px solid var(--ink-muted);
+  color: var(--ink-soft); padding: 7px 14px; cursor: pointer;
+  font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+  transition: background 0.18s, color 0.18s, border-color 0.18s;
+}
+.clear-btn:hover { background: var(--paper-2); color: var(--ink); border-color: var(--ink); }
 
-/* ORG CARDS */
-#results-list{display:flex;flex-direction:column;gap:8px}
-.org-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px;cursor:default;transition:border-color .15s}
-.org-card:hover{border-color:var(--border2)}
-.org-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
-.org-name{font-size:14px;font-weight:700;color:var(--text);line-height:1.35}
-.org-name a{color:var(--text)}
-.org-name a:hover{color:var(--accent);text-decoration:none}
-.org-footer{margin-top:8px;padding-top:6px;border-top:1px solid var(--border)}
-.org-request-link{font-size:11px;color:var(--text-muted,#888);text-decoration:none;opacity:0.6}
-.org-request-link:hover{opacity:1;color:var(--accent)}
-.org-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:5px}
-.tag{font-size:10px;padding:2px 7px;border-radius:4px;font-weight:600;letter-spacing:.03em}
-.tag-country{background:#132b1a;color:#6abf7a;border:1px solid #1a4025}
-.tag-state{background:#0e1e2a;color:#5aadcf;border:1px solid #1a3045}
-.tag-ntee{background:#1e1a2a;color:#9a8adf;border:1px solid #2a2040}
-.tag-revenue{background:#1e1a10;color:#c4a55d;border:1px solid #35280a}
-.tag-source{background:#1a1a1a;color:#5e6e5e;border:1px solid #2a2a2a}
-.org-desc{font-size:12px;color:var(--muted);margin-top:5px;line-height:1.5;max-height:2.9em;overflow:hidden}
-.org-loc{font-size:11px;color:var(--dim);margin-top:3px}
-.org-link{font-size:11px;color:var(--accent);word-break:break-all}
+/* Results */
+.results-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: var(--s-3) 0;
+  border-bottom: var(--rule-soft); margin-bottom: var(--s-4);
+}
+.results-count {
+  font-family: var(--f-mono); font-size: 11px;
+  letter-spacing: 0.06em; color: var(--ink-muted);
+}
+.results-count strong { color: var(--moss-deep); font-weight: 500; }
 
-/* PAGINATION */
-.pagination{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:24px;padding-bottom:40px;flex-wrap:wrap}
-.page-btn{background:var(--surface);border:1px solid var(--border);border-radius:7px;color:var(--muted);padding:7px 14px;cursor:pointer;font-size:13px;font-family:inherit;transition:all .15s;min-width:40px;text-align:center}
-.page-btn:hover{border-color:var(--border2);color:var(--text)}
-.page-btn.active{background:var(--s3);border-color:var(--accent);color:var(--accent);font-weight:700}
-.page-btn:disabled{opacity:.35;cursor:not-allowed}
-.page-info{font-size:12px;color:var(--dim);padding:0 4px}
+/* States */
+.state-msg {
+  text-align: center; padding: var(--s-9) var(--s-5); color: var(--ink-muted);
+}
+.state-msg .big {
+  font-family: var(--f-display); font-style: italic;
+  font-size: 56px; color: var(--moss-deep); margin-bottom: var(--s-4); line-height: 1;
+}
+.state-msg p { font-size: 15px; line-height: 1.7; max-width: 50ch; margin: 0 auto; }
+.loader {
+  display: flex; justify-content: center; align-items: center;
+  padding: var(--s-7); color: var(--ink-muted);
+  font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+}
+.loader::after {
+  content: ''; width: 14px; height: 14px;
+  border: 1.5px solid var(--paper-3); border-top-color: var(--moss);
+  border-radius: 50%; animation: spin 0.8s linear infinite;
+  margin-left: 12px; display: inline-block;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
 
-/* COUNTRY PROMPT (show when no country selected) */
-.country-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:8px;margin-top:8px}
-.country-card{background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:12px 14px;cursor:pointer;transition:all .15s;text-align:left}
-.country-card:hover{border-color:var(--border2);background:var(--s2)}
-.country-card .cc-name{font-size:13px;font-weight:600;color:var(--text)}
-.country-card .cc-count{font-size:11px;color:var(--muted);margin-top:2px}
-.country-card .cc-source{font-size:10px;color:var(--dim);margin-top:1px}
+/* Org cards */
+#results-list { display: flex; flex-direction: column; gap: 0; border-top: var(--rule-soft); }
+.org-card {
+  background: var(--paper); border-bottom: var(--rule-soft);
+  padding: var(--s-4) var(--s-5);
+  transition: background 0.18s;
+}
+.org-card:hover { background: color-mix(in oklab, var(--paper-2) 50%, var(--paper)); }
+.org-top { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--s-4); }
+.org-name {
+  font-family: var(--f-display); font-style: italic;
+  font-size: 22px; line-height: 1.2; color: var(--ink);
+  margin-bottom: 6px;
+}
+.org-name a { color: var(--ink); text-decoration: none; }
+.org-name a:hover { color: var(--clay); text-decoration: underline; }
+.org-footer { margin-top: var(--s-3); padding-top: var(--s-2); }
+.org-request-link {
+  font-family: var(--f-mono); font-size: 10px;
+  letter-spacing: 0.1em; color: var(--ink-muted); text-decoration: none; opacity: 0.7;
+}
+.org-request-link:hover { opacity: 1; color: var(--clay); }
+.org-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+.tag {
+  font-family: var(--f-mono); font-size: 10px;
+  letter-spacing: 0.06em; padding: 2px 8px; border: 1px solid currentColor;
+  font-weight: 500;
+}
+.tag-country { color: var(--moss); }
+.tag-state { color: var(--ink-soft); }
+.tag-ntee { color: var(--clay); }
+.tag-revenue { color: var(--thread); }
+.tag-source { color: var(--ink-muted); }
+.org-desc {
+  font-family: var(--f-body); font-size: 14px;
+  color: var(--ink-soft); margin-top: var(--s-2); line-height: 1.6;
+  max-height: 2.9em; overflow: hidden; max-width: 70ch;
+}
+.org-loc { font-family: var(--f-mono); font-size: 11px; color: var(--ink-muted); margin-top: 3px; }
+.org-link { font-size: 12px; color: var(--moss-deep); word-break: break-all; }
 
-/* US state selector */
-.state-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:6px;margin-top:8px;max-height:300px;overflow-y:auto;padding-right:4px}
-.state-grid::-webkit-scrollbar{width:4px}
-.state-grid::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
-.state-btn{background:var(--surface);border:1px solid var(--border);border-radius:7px;padding:8px 10px;cursor:pointer;font-size:12px;font-family:inherit;color:var(--muted);transition:all .15s;text-align:left}
-.state-btn:hover{border-color:var(--border2);color:var(--text)}
-.state-btn.active{background:var(--s2);border-color:var(--accent);color:var(--accent)}
-.state-btn .sn{font-weight:600}
-.state-btn .sc{font-size:10px;color:var(--dim);display:block}
-.section-title{font-size:13px;color:var(--muted);font-weight:600;margin-bottom:8px;margin-top:4px;text-transform:uppercase;letter-spacing:.05em}
+/* Pagination */
+.pagination {
+  display: flex; justify-content: center; align-items: center; gap: var(--s-2);
+  margin-top: var(--s-6); padding-bottom: var(--s-7); flex-wrap: wrap;
+}
+.page-btn {
+  background: var(--paper); border: 1px solid var(--ink-muted);
+  color: var(--ink-soft); padding: 7px 14px; cursor: pointer;
+  font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em;
+  min-width: 40px; text-align: center;
+  transition: background 0.18s, color 0.18s, border-color 0.18s;
+}
+.page-btn:hover { background: var(--paper-2); color: var(--ink); border-color: var(--ink); }
+.page-btn.active { background: var(--moss); color: var(--paper); border-color: var(--moss); font-weight: 600; }
+.page-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.page-info {
+  font-family: var(--f-mono); font-size: 11px;
+  letter-spacing: 0.08em; color: var(--ink-muted); padding: 0 var(--s-2);
+}
 
-/* DATA NOTE */
-.data-note{background:var(--s2);border:1px solid var(--border);border-radius:10px;padding:12px 16px;margin-bottom:18px;font-size:12px;color:var(--muted);line-height:1.6}
-.data-note strong{color:var(--warm)}
+/* Country prompt grid */
+.country-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 0; margin-top: var(--s-3);
+  border-top: var(--rule-soft); border-left: var(--rule-soft);
+}
+.country-card {
+  background: var(--paper); border-right: var(--rule-soft); border-bottom: var(--rule-soft);
+  padding: var(--s-4) var(--s-5); cursor: pointer;
+  text-align: left; font-family: var(--f-body); color: var(--ink);
+  transition: background 0.18s;
+}
+.country-card:hover { background: color-mix(in oklab, var(--paper-2) 60%, var(--paper)); }
+.country-card .cc-name {
+  font-family: var(--f-display); font-style: italic;
+  font-size: 18px; line-height: 1.2; color: var(--ink);
+}
+.country-card .cc-count {
+  font-family: var(--f-mono); font-size: 11px;
+  letter-spacing: 0.08em; color: var(--ink-muted); margin-top: 4px;
+}
+.country-card .cc-source {
+  font-family: var(--f-mono); font-size: 10px;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--clay); margin-top: 2px;
+}
 
-/* FEATURED ORGS */
-.featured-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin-bottom:28px}
-.featured-card{cursor:default;display:flex;flex-direction:column;gap:4px}
-.featured-card .fc-name{font-size:14px;font-weight:700;color:var(--text)}
-.featured-card .fc-name a{color:var(--text)}
-.featured-card .fc-name a:hover{color:var(--accent);text-decoration:none}
-.featured-card .fc-desc{font-size:12px;color:var(--muted);line-height:1.5}
-.featured-card .fc-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:4px}
+/* US state grid */
+.state-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0; margin-top: var(--s-3); max-height: 360px; overflow-y: auto;
+  border-top: var(--rule-soft); border-left: var(--rule-soft);
+}
+.state-grid::-webkit-scrollbar { width: 4px; }
+.state-grid::-webkit-scrollbar-thumb { background: var(--paper-3); }
+.state-btn {
+  background: var(--paper); border-right: var(--rule-soft); border-bottom: var(--rule-soft);
+  padding: var(--s-3) var(--s-4); cursor: pointer; text-align: left;
+  font-family: var(--f-body); color: var(--ink-soft);
+  transition: background 0.18s, color 0.18s;
+}
+.state-btn:hover { background: color-mix(in oklab, var(--paper-2) 60%, var(--paper)); color: var(--ink); }
+.state-btn.active { background: var(--moss); color: var(--paper); }
+.state-btn .sn { font-family: var(--f-display); font-style: italic; font-size: 17px; }
+.state-btn .sc { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; color: inherit; opacity: 0.7; display: block; }
 
-/* PDF LINK ROW */
-.pdf-link-row{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding:10px 14px;background:var(--surface);border:1px solid var(--border);border-radius:8px;font-size:13px;flex-wrap:wrap}
-.pdf-link-row a{color:var(--accent);font-weight:600;text-decoration:none}
-.pdf-link-row a:hover{color:var(--warm);text-decoration:underline}
-.pdf-link-row .pdf-ext{color:var(--muted);font-weight:400;font-size:11px}
-.pdf-link-row .pdf-note{color:var(--muted);font-size:12px}
-@media(max-width:600px){.pdf-link-row .pdf-note{display:none}}
+.section-title {
+  font-family: var(--f-mono); font-size: 11px;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ink-muted); margin: var(--s-5) 0 var(--s-3);
+}
 
-/* RESPONSIVE */
-@media(max-width:600px){
-  .stats-bar{gap:8px}
-  .stat{padding:10px 14px;min-width:120px}
-  .stat-num{font-size:20px}
-  .search-row,.filter-row{gap:6px}
-  .country-grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}
+/* Data note */
+.data-note {
+  background: color-mix(in oklab, var(--paper-2) 50%, var(--paper));
+  border: var(--rule-soft); border-left: 3px solid var(--clay);
+  padding: var(--s-4) var(--s-5);
+  margin-bottom: var(--s-5);
+  font-size: 14px; color: var(--ink-soft); line-height: 1.65;
+}
+.data-note strong { color: var(--ink); font-weight: 600; }
+
+/* Featured grid */
+.featured-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 0; margin-bottom: var(--s-6);
+  border-top: var(--rule-soft); border-left: var(--rule-soft);
+}
+.featured-card {
+  border-right: var(--rule-soft); border-bottom: var(--rule-soft);
+  padding: var(--s-4) var(--s-5);
+  display: flex; flex-direction: column; gap: 6px;
+  background: var(--paper); transition: background 0.18s;
+}
+.featured-card:hover { background: color-mix(in oklab, var(--paper-2) 50%, var(--paper)); }
+.featured-card .fc-name {
+  font-family: var(--f-display); font-style: italic;
+  font-size: 22px; line-height: 1.2;
+}
+.featured-card .fc-name a { color: var(--ink); text-decoration: none; }
+.featured-card .fc-name a:hover { color: var(--clay); text-decoration: underline; }
+.featured-card .fc-desc { font-size: 13px; color: var(--ink-soft); line-height: 1.55; }
+.featured-card .fc-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+
+@media (max-width: 600px) {
+  .stats-bar { grid-template-columns: 1fr 1fr; }
+  .stat:nth-child(2n) { border-right: none; }
+  .nav-links a:not(.active) { display: none; }
+  .country-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
 }
 </style>
 </head>
 <body>
 <h1 style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">Commonweave Global Directory</h1>
-<nav>
-  <a class="nav-logo" href="index.html">commonweave</a>
-  <div class="nav-links">
+
+<nav class="site-nav" role="navigation" aria-label="Site navigation">
+  <div class="nav-mark">
+    <a href="index.html" aria-label="Commonweave home">
+      <svg viewBox="0 0 520 130" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="commonweave">
+        <g transform="translate(0,5)">
+          <circle cx="60" cy="60" r="56" fill="none" stroke="#16201A" stroke-width="1.6"/>
+          <line x1="6" y1="60" x2="114" y2="60" stroke="#16201A" stroke-width="0.8" opacity="0.4"/>
+          <path d="M 30 30 C 50 60, 70 60, 90 90" stroke="#2F4A33" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+          <path d="M 90 30 C 70 60, 50 60, 30 90" stroke="#2F4A33" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+          <circle cx="60" cy="60" r="3" fill="#B4593A"/>
+        </g>
+        <text x="140" y="80" font-family="Instrument Serif, Source Serif 4, Georgia, serif" font-style="italic" font-size="64" fill="#16201A" letter-spacing="-1.5">commonweave</text>
+      </svg>
+    </a>
+  </div>
+  <div class="nav-links" role="list">
     <a href="index.html#map">Map</a>
     <a href="index.html#sections">Sections</a>
     <a href="index.html#docs">Docs</a>
     <a href="index.html#about">About</a>
-    <a href="directory.html" class="active">Directory →</a>
+    <a href="directory.html" class="active">Directory</a>
   </div>
 </nav>
 
+<header class="page-head">
+  <div class="eyebrow">&sect; 02 &middot; Directory</div>
+  <h1>Browse the threads.</h1>
+  <p class="blurb">Search the directory by country, by US state, or by category. Each entry comes from a public registry or a curated source. Open data, CC0.</p>
+</header>
+
 <div class="page">
-  <!-- Pipeline explainer PDF link -->
   <div class="pdf-link-row">
-    <a href="pipeline.pdf">📄 How we find these organizations <span class="pdf-ext">(PDF)</span></a>
+    <a href="pipeline.pdf">How we find these organizations <span class="pdf-ext">PDF</span></a>
     <span class="pdf-note">the full pipeline, sources, and grading ladder explained plainly</span>
   </div>
 
-  <!-- Labor-for-housing field guide -->
   <div class="pdf-link-row">
-    <a href="labor-for-housing-guide.pdf">🏠 A Field Guide to Labor-for-Housing Cooperatives <span class="pdf-ext">(PDF)</span></a>
+    <a href="labor-for-housing-guide.pdf">A field guide to labor-for-housing cooperatives <span class="pdf-ext">PDF</span></a>
     <span class="pdf-note">how to stitch labor, land, and housing into one democratic pipeline</span>
   </div>
 
-  <!-- Stats -->
   <div class="stats-bar" id="stats-bar">
-    <div class="stat"><div class="stat-num" id="stat-total">—</div><div class="stat-label">Organizations</div></div>
-    <div class="stat"><div class="stat-num" id="stat-countries">—</div><div class="stat-label">Countries</div></div>
-    <div class="stat"><div class="stat-num" id="stat-loaded">—</div><div class="stat-label">Currently showing</div></div>
+    <div class="stat"><div class="stat-num" id="stat-total">&mdash;</div><div class="stat-label">Organizations</div></div>
+    <div class="stat"><div class="stat-num" id="stat-countries">&mdash;</div><div class="stat-label">Countries</div></div>
+    <div class="stat"><div class="stat-num" id="stat-loaded">&mdash;</div><div class="stat-label">Currently showing</div></div>
   </div>
 
-  <!-- Search & Filters -->
   <div class="search-row">
-    <label for="search-input" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">Search organizations</label><input type="search" id="search-input" placeholder="Search by name, city, category…" autocomplete="off" spellcheck="false" aria-label="Search organizations by name, city, or category">
-    <button class="clear-btn" id="clear-btn" style="display:none">✕ Clear</button>
+    <label for="search-input" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">Search organizations</label>
+    <input type="search" id="search-input" placeholder="Search by name, city, category..." autocomplete="off" spellcheck="false" aria-label="Search organizations by name, city, or category">
+    <button class="clear-btn" id="clear-btn" style="display:none">Clear</button>
   </div>
   <div class="filter-row">
     <span class="filter-label">Country:</span>
-    <select id="country-select"><option value="">— select country —</option></select>
+    <select id="country-select"><option value="">select country</option></select>
     <span id="state-wrap" style="display:none">
       <select id="state-select"><option value="">All states</option></select>
     </span>
     <select id="ntee-select" style="display:none"><option value="">All categories</option></select>
     <select id="sort-select">
-      <option value="name">Sort: Name A–Z</option>
-      <option value="revenue">Sort: Revenue ↓</option>
+      <option value="name">Sort: Name A&ndash;Z</option>
+      <option value="revenue">Sort: Revenue, high to low</option>
       <option value="relevance">Sort: Relevance</option>
     </select>
   </div>
@@ -241,7 +450,7 @@ const FEATURED_ORGS = [
   {
     name: 'Mondragon Corporation',
     url: 'https://www.mondragon-corporation.com',
-    desc: "World's largest worker cooperative federation — 80,000+ worker-owners across manufacturing, finance, and retail in Spain's Basque Country.",
+    desc: "World's largest worker cooperative federation. 80,000+ worker-owners across manufacturing, finance, and retail in Spain's Basque Country.",
     tags: ['Cooperative', 'Manufacturing', 'Spain']
   },
   {
@@ -259,7 +468,7 @@ const FEATURED_ORGS = [
   {
     name: 'Wikimedia Foundation',
     url: 'https://wikimediafoundation.org',
-    desc: 'Nonprofit operating Wikipedia and 14 free-knowledge projects — the largest open knowledge commons in history.',
+    desc: 'Nonprofit operating Wikipedia and 14 free-knowledge projects, the largest open knowledge commons in history.',
     tags: ['Knowledge', 'Nonprofit', 'USA']
   },
   {
@@ -271,7 +480,7 @@ const FEATURED_ORGS = [
   {
     name: 'NRECA (Rural Electric Co-ops)',
     url: 'https://www.electric.coop',
-    desc: '900+ US electric cooperatives serving 42M people in 48 states — member-owned energy infrastructure at scale.',
+    desc: '900+ US electric cooperatives serving 42M people in 48 states. Member-owned energy infrastructure at scale.',
     tags: ['Energy', 'Cooperative', 'USA']
   },
   {
@@ -307,7 +516,7 @@ async function loadIndex() {
     $('stat-loaded').textContent = '0';
     showPrompt();
   } catch(e) {
-    content.innerHTML = '<div class="state-msg"><div class="big">⚠️</div><p>Could not load directory index. Make sure <code>data/search/index.json</code> exists.</p></div>';
+    content.innerHTML = '<div class="state-msg"><div class="big">!</div><p>Could not load directory index. Make sure <code>data/search/index.json</code> exists.</p></div>';
   }
 }
 
@@ -324,11 +533,10 @@ function populateCountrySelect() {
     if (!aRes && bRes) return 1;
     return (countries[a].name||a).localeCompare(countries[b].name||b);
   });
-  // Research countries group
   const researchGroup = document.createElement('optgroup');
-  researchGroup.label = '🌐 Field Research';
+  researchGroup.label = 'Field research';
   const registryGroup = document.createElement('optgroup');
-  registryGroup.label = '📋 Official Registry';
+  registryGroup.label = 'Official registry';
   for (const code of codes) {
     const c = countries[code];
     const opt = document.createElement('option');
@@ -349,17 +557,15 @@ function showPrompt() {
   const countries = indexData.countries;
   const researchCodes = Object.keys(countries).filter(c => countries[c].source === 'research' || (countries[c].count < 5000 && c !== 'US'));
 
-  // Data transparency note
   let html = `<div class="data-note">
-    <strong>📊 Data transparency:</strong> This directory indexes <strong>24,500+ aligned civil society organizations</strong> selected from public registries (IRS, UK Charity Commission, Wikidata) via multi-pass keyword alignment scoring against the framework. Entries are being actively enriched with descriptions and links. An earlier snapshot included ~760K raw registry records; those have been filtered down to the set that actually embodies the framework's mechanisms (cooperatives, mutual aid, community land trusts, food sovereignty, participatory democracy, restorative justice, ecological restoration, community energy, open health/education).
+    <strong>About this data.</strong> The directory indexes aligned civil society organizations selected from public registries (IRS, UK Charity Commission, Wikidata) via multi-pass keyword alignment scoring against the framework. Entries are being actively enriched with descriptions and links. Headline counts on the homepage and the map are pulled from <code>data/map/stats.json</code> at runtime, so they reflect what is actually verified.
   </div>`;
 
-  // Featured organizations
-  html += '<div class="section-title">✨ Featured Organizations</div>';
+  html += '<div class="section-title">Featured organizations</div>';
   html += '<div class="featured-grid">';
   for (const org of FEATURED_ORGS) {
     const tagsHtml = org.tags.map(t => `<span class="tag tag-source">${escHtml(t)}</span>`).join('');
-    html += `<div class="org-card featured-card">
+    html += `<div class="featured-card">
       <div class="fc-name"><a href="${org.url}" target="_blank" rel="noopener">${escHtml(org.name)}</a></div>
       <div class="fc-desc">${escHtml(org.desc)}</div>
       <div class="fc-tags">${tagsHtml}</div>
@@ -367,22 +573,20 @@ function showPrompt() {
   }
   html += '</div>';
 
-  // Country grid
-  html += '<div class="section-title">🌍 Browse by Country</div><div class="country-grid">';
+  html += '<div class="section-title">Browse by country</div><div class="country-grid">';
   for (const code of researchCodes) {
     const c = countries[code];
     const n = c.count || c.research_count || 0;
     html += `<button class="country-card" onclick="selectCountry('${code}')">
       <div class="cc-name">${c.name || code}</div>
       <div class="cc-count">${n.toLocaleString()} orgs</div>
-      <div class="cc-source">🔬 Field research</div>
+      <div class="cc-source">Field research</div>
     </button>`;
   }
-  // US
   html += `<button class="country-card" onclick="selectCountry('US')">
-    <div class="cc-name">🇺🇸 United States</div>
+    <div class="cc-name">United States</div>
     <div class="cc-count">${(countries.US?.count||0).toLocaleString()} orgs</div>
-    <div class="cc-source">📋 IRS EO Registry</div>
+    <div class="cc-source">IRS EO Registry</div>
   </button>`;
   html += '</div>';
   content.innerHTML = html;
@@ -458,7 +662,7 @@ async function loadCountryData(code) {
     countryData = await r.json();
     applyFilters();
   } catch(e) {
-    content.innerHTML = `<div class="state-msg"><div class="big">📭</div><p>No data file found for ${code}. Research may be in progress.</p></div>`;
+    content.innerHTML = `<div class="state-msg"><p>No data file found for ${code}. Research may be in progress.</p></div>`;
   }
 }
 
@@ -529,11 +733,11 @@ function renderResults() {
     : (indexData?.countries?.[currentCountry]?.name || currentCountry);
 
   let html = `<div class="results-header">
-    <div class="results-count">Showing <strong>${start+1}–${end}</strong> of <strong>${total.toLocaleString()}</strong> orgs in ${countryLabel}</div>
+    <div class="results-count">Showing <strong>${start+1}&ndash;${end}</strong> of <strong>${total.toLocaleString()}</strong> orgs in ${escHtml(countryLabel)}</div>
   </div>`;
 
   if (total === 0) {
-    html += '<div class="state-msg"><div class="big">🔍</div><p>No organizations match your search. Try broader terms or clear filters.</p></div>';
+    html += '<div class="state-msg"><p>No organizations match your search. Try broader terms or clear filters.</p></div>';
     content.innerHTML = html;
     return;
   }
@@ -550,12 +754,12 @@ function renderResults() {
 
     let tags = '';
     if (currentCountry && currentCountry !== 'US') {
-      tags += `<span class="tag tag-country">${indexData?.countries?.[currentCountry]?.name||currentCountry}</span>`;
+      tags += `<span class="tag tag-country">${escHtml(indexData?.countries?.[currentCountry]?.name||currentCountry)}</span>`;
     }
-    if (currentState) tags += `<span class="tag tag-state">${currentState}</span>`;
-    if (city) tags += `<span class="tag tag-state">${city}</span>`;
-    if (nteeLabel) tags += `<span class="tag tag-ntee">${nteeLabel}</span>`;
-    if (revenue > 1000000) tags += `<span class="tag tag-revenue">$${(revenue/1000000).toFixed(1)}M/yr</span>`;
+    if (currentState) tags += `<span class="tag tag-state">${escHtml(currentState)}</span>`;
+    if (city) tags += `<span class="tag tag-state">${escHtml(city)}</span>`;
+    if (nteeLabel) tags += `<span class="tag tag-ntee">${escHtml(nteeLabel)}</span>`;
+    if (revenue > 1000000) tags += `<span class="tag tag-revenue">$${(revenue/1000000).toFixed(1)}M / yr</span>`;
 
     const displayName = website
       ? `<a href="${website.startsWith('http')?website:'https://'+website}" target="_blank" rel="noopener">${escHtml(name)}</a>`
@@ -583,20 +787,19 @@ function renderResults() {
   const totalPages = Math.ceil(total / PAGE_SIZE);
   if (totalPages > 1) {
     html += '<div class="pagination">';
-    html += `<button class="page-btn" onclick="goPage(${currentPage-1})" ${currentPage<=1?'disabled':''}>‹ Prev</button>`;
-    // Show up to 7 page buttons
+    html += `<button class="page-btn" onclick="goPage(${currentPage-1})" ${currentPage<=1?'disabled':''}>&lsaquo; Prev</button>`;
     const range = pageRange(currentPage, totalPages);
     let lastWas = false;
     for (const p of range) {
       if (p === '...') {
-        if (!lastWas) html += '<span class="page-info">…</span>';
+        if (!lastWas) html += '<span class="page-info">...</span>';
         lastWas = true;
       } else {
         html += `<button class="page-btn ${p===currentPage?'active':''}" onclick="goPage(${p})">${p}</button>`;
         lastWas = false;
       }
     }
-    html += `<button class="page-btn" onclick="goPage(${currentPage+1})" ${currentPage>=totalPages?'disabled':''}>Next ›</button>`;
+    html += `<button class="page-btn" onclick="goPage(${currentPage+1})" ${currentPage>=totalPages?'disabled':''}>Next &rsaquo;</button>`;
     html += `<span class="page-info">Page ${currentPage} of ${totalPages}</span>`;
     html += '</div>';
   }
