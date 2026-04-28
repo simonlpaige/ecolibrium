@@ -214,6 +214,53 @@ html, body {
 .conn-explain { font-size: 10px; color: var(--text-dim); margin-top: 3px; line-height: 1.4; }
 .conn-empty { font-size: 11px; color: var(--text-dim); font-style: italic; }
 
+/* Need-pathway panel */
+.sb-need { padding: 0 14px 14px; }
+.need-input {
+  width: 100%; padding: 8px 10px;
+  background: var(--bg-surface); border: 1px solid var(--border);
+  border-radius: 8px; color: var(--text-primary);
+  font-family: var(--f-body); font-size: 12px; line-height: 1.45;
+  outline: none; resize: vertical; min-height: 44px;
+  transition: border-color 0.18s, box-shadow 0.18s;
+}
+.need-input::placeholder { color: var(--text-muted); }
+.need-input:focus { border-color: var(--border-bright); box-shadow: 0 0 0 3px rgba(106,191,108,0.07); }
+.need-row { display: flex; gap: 6px; margin-top: 6px; }
+.need-btn, .need-clear {
+  padding: 6px 10px; border-radius: 7px;
+  font-family: var(--f-body); font-size: 11px; font-weight: 600;
+  cursor: pointer; border: 1px solid var(--border-bright);
+  background: var(--bg-elevated); color: var(--accent);
+}
+.need-btn:hover, .need-clear:hover { background: #1a2e1a; }
+.need-clear { color: var(--text-dim); border-color: var(--border); background: var(--bg-surface); }
+.need-hint { margin-top: 5px; font-size: 9px; color: var(--text-muted); line-height: 1.5; }
+.need-result {
+  margin-top: 9px; padding: 8px 10px;
+  background: var(--bg-surface); border: 1px solid var(--border);
+  border-radius: 7px; font-size: 11px; color: var(--text-secondary);
+  line-height: 1.5;
+}
+.need-result h4 {
+  font-family: var(--f-mono); font-size: 9px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--text-muted); margin: 8px 0 4px;
+}
+.need-result h4:first-child { margin-top: 0; }
+.need-result .nr-row {
+  display: block; padding: 5px 7px; margin-bottom: 3px;
+  background: var(--bg-base); border: 1px solid var(--border);
+  border-radius: 5px; cursor: pointer; text-decoration: none;
+  color: var(--text-secondary); transition: background 0.15s;
+}
+.need-result .nr-row:hover { background: var(--bg-elevated); color: var(--text-primary); }
+.need-result .nr-row .nr-name { font-weight: 600; font-size: 11px; }
+.need-result .nr-row .nr-meta { font-size: 9px; color: var(--text-dim); margin-top: 1px; }
+.need-result .nr-gaps { font-size: 10px; color: var(--clay-pale); }
+.need-result .nr-empty { font-style: italic; color: var(--text-dim); }
+.need-result .nr-summary { font-size: 10px; color: var(--text-dim); margin-bottom: 7px; }
+
 /* ═══════════ SIDEBAR ═══════════ */
 #sidebar {
   position: absolute; top: 0; left: 0; bottom: 0;
@@ -611,6 +658,22 @@ html, body {
           <input type="text" class="search-input" id="search-input" placeholder="Search organizations…" autocomplete="off" spellcheck="false">
         </div>
       </div>
+
+      <!-- Phase 3: Need-pathway panel. Plain language box that parses out a
+           location, sections, and offers/needs words. Returns ranked matches
+           plus complementary nearby orgs and local gaps. -->
+      <div class="sb-label">What are you trying to do?</div>
+      <div class="sb-need">
+        <textarea class="need-input" id="need-input"
+          placeholder="e.g. housing co-ops near Kansas City that need volunteers"
+          rows="2" autocomplete="off" spellcheck="false"></textarea>
+        <div class="need-row">
+          <button class="need-btn" id="need-go" type="button">Find</button>
+          <button class="need-clear" id="need-clear" type="button" hidden>Clear</button>
+        </div>
+        <div class="need-hint">Looks up city centroids, framework sections, and offers/needs words. No external geocoder.</div>
+        <div class="need-result" id="need-result" hidden></div>
+      </div>
       <div class="sb-label">Networks</div>
       <div id="filters"></div>
       <div class="sb-label">Data Quality</div>
@@ -679,6 +742,10 @@ html, body {
 
 <script src="https://unpkg.com/d3@7/dist/d3.min.js"></script>
 <script src="https://unpkg.com/topojson-client@3/dist/topojson-client.min.js"></script>
+<!-- Phase 3: need-pathway scoring + search panel. Pure functions; no DOM
+     work happens until init() is called from the main script. -->
+<script src="assets/js/map/scoring.js"></script>
+<script src="assets/js/map/search.js"></script>
 <script>
 'use strict';
 
@@ -812,6 +879,16 @@ function formatNum(n) {
 function debounce(fn, ms) {
   let t;
   return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); };
+}
+
+// Shim around the optional Phase 3 search module. If assets/js/map/search.js
+// did not load (offline / 404), we just skip; the rest of the map still works.
+function global_init_search() {
+  if (typeof window.CommonweaveSearch === 'object' && typeof window.CommonweaveSearch.init === 'function') {
+    window.CommonweaveSearch.init();
+    return true;
+  }
+  return false;
 }
 
 // ══════════════════════════════════════════════════════════════
@@ -1357,6 +1434,37 @@ function showDetailPanel(node) {
 function refreshGeoIfActive() {
   if (viewMode === 'geo' && deckOverlay) updateDeckLayers();
 }
+
+// ══════════════════════════════════════════════════════════════
+// PHASE 3: NEED-PATHWAY HIGHLIGHTS
+// ══════════════════════════════════════════════════════════════
+// State for the transient user_need_match layer. Set by the search module via
+// window._setNeedHighlight; cleared when the user clears the search box.
+let needHighlight = null;
+
+window._setNeedHighlight = function (h) {
+  needHighlight = h;
+  if (viewMode === 'geo') updateDeckLayers();
+  // The canvas renderer in network mode does not draw need edges; we only
+  // highlight matches by selecting them via the result list.
+};
+
+// Search-result row click handler used by search.js. Selects the org as if
+// the user had clicked the dot, restoring the same detail panel and edges.
+window._selectOrgById = function (orgId) {
+  if (!orgId || !pointsById.has(orgId)) return;
+  const idx = pointsById.get(orgId);
+  const node = simNodes[idx];
+  if (!node) return;
+  selectedNode = node;
+  showDetailPanel(node);
+  if (mlMap && viewMode === 'geo') {
+    mlMap.flyTo({ center: [node.lo, node.la], zoom: Math.max(mlMap.getZoom(), 7) });
+    updateDeckLayers();
+  }
+  render();
+  writeUrlState();
+};
 
 // Top-25 connections list. Phase 2 acceptance: clicking an org shows no more
 // than 25 most relevant connections, each with an explanation. We rank by
@@ -2118,6 +2226,47 @@ function updateDeckLayers() {
     },
   }));
 
+  // Phase 3: user_need_match highlight. A transient deck.gl layer that draws
+  // a bright arc from the parsed query location to each top match. Cleared
+  // when the user empties the search box.
+  if (needHighlight && needHighlight.location && needHighlight.matches) {
+    const loc = needHighlight.location;
+    const arcs = needHighlight.matches.map(m => ({
+      from: [loc.lon, loc.lat],
+      to: [m.org.lo, m.org.la],
+      score: m.score || 0,
+    })).filter(a => a.to[0] !== undefined && a.to[1] !== undefined);
+    if (arcs.length) {
+      layers.push(new deck.ArcLayer({
+        id: 'need-match-arcs',
+        data: arcs,
+        pickable: false,
+        getSourcePosition: d => d.from,
+        getTargetPosition: d => d.to,
+        // Bright clay (warm) colour for the user-facing highlight.
+        getSourceColor: () => [180, 89, 58, 220],
+        getTargetColor: () => [217, 167, 143, 240],
+        getWidth: d => 1.5 + (d.score || 0) * 2.5,
+        widthUnits: 'pixels',
+        greatCircle: false,
+      }));
+      // Pin marker at the query location.
+      layers.push(new deck.ScatterplotLayer({
+        id: 'need-match-pin',
+        data: [{ lo: loc.lon, la: loc.lat }],
+        pickable: false,
+        stroked: true,
+        filled: true,
+        getPosition: d => [d.lo, d.la],
+        getRadius: 9,
+        radiusUnits: 'pixels',
+        getFillColor: [180, 89, 58, 230],
+        getLineColor: [242, 235, 220, 255],
+        lineWidthMinPixels: 2,
+      }));
+    }
+  }
+
   deckOverlay.setProps({ layers });
 }
 
@@ -2397,6 +2546,19 @@ async function main() {
     rebuildQuadtree();
     updateVisibleCount();
     render();
+
+    // Phase 3 + 4: expose state for the modular search/scoring/health code.
+    // simNodes carries lo/la (added during buildSimulation) so the modules
+    // can read them as if they were the raw GeoJSON points.
+    window.allPoints = simNodes;
+    window.allEdges = allEdges;
+    window.simNodes = simNodes;
+    window.pointsById = pointsById;
+    window.mlMap = mlMap;
+    Object.defineProperty(window, 'viewMode', { get: () => viewMode, configurable: true });
+
+    if (global_init_search()) { /* CommonweaveSearch.init() handles the panel. */ }
+    if (typeof initViewportHealth === 'function') initViewportHealth();
 
     setProgress(100);
 
