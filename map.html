@@ -750,10 +750,10 @@ html, body {
     </div>
     <div class="sb-scroll">
       <div class="sb-stats">
-        <div class="stat-card"><div class="stat-value" id="stat-orgs">—</div><div class="stat-label">Organizations</div></div>
-        <div class="stat-card"><div class="stat-value" id="stat-edges">—</div><div class="stat-label">Shared-area links</div></div>
-        <div class="stat-card"><div class="stat-value" id="stat-visible">—</div><div class="stat-label">Visible</div></div>
-        <div class="stat-card"><div class="stat-value" id="stat-tiers">—</div><div class="stat-label">Tiers</div></div>
+        <div class="stat-card"><div class="stat-value" id="stat-orgs">-</div><div class="stat-label">Organizations</div></div>
+        <div class="stat-card"><div class="stat-value" id="stat-edges">-</div><div class="stat-label">Shared-area links</div></div>
+        <div class="stat-card"><div class="stat-value" id="stat-visible">-</div><div class="stat-label">Visible</div></div>
+        <div class="stat-card"><div class="stat-value" id="stat-tiers">-</div><div class="stat-label">Tiers</div></div>
       </div>
       <div class="sb-search">
         <div class="search-wrap">
@@ -808,13 +808,13 @@ html, body {
     <div class="sb-health">
       <div class="health-label">System Health: Section Coverage</div>
       <div class="health-dots" id="health-dots"></div>
-      <div class="health-text" id="health-text">— of 10 sections in dataset</div>
+      <div class="health-text" id="health-text">- of 10 sections in dataset</div>
     </div>
     <div class="sb-pdf"><a href="pipeline.pdf" title="How the directory gets built">📄 How we find these organizations (PDF)</a></div>
     <div class="sb-hint">scroll to zoom · drag to pan · click nodes for details</div>
     <div class="sb-built" id="sb-built">
-      <span>Data last built: <strong id="built-date">—</strong></span>
-      <span title="Number of organizations on the map / total candidates in the directory" id="built-counts">—</span>
+      <span>Data last built: <strong id="built-date">-</strong></span>
+      <span title="Number of organizations on the map / total candidates in the directory" id="built-counts">-</span>
     </div>
   </div>
 
@@ -850,20 +850,20 @@ html, body {
 <div id="viewport-health" class="viewport-health" hidden>
   <div class="vh-row">
     <div class="vh-cell vh-count">
-      <span class="vh-num" id="vh-count">—</span>
+      <span class="vh-num" id="vh-count">-</span>
       <span class="vh-lab">orgs in view</span>
     </div>
     <div class="vh-cell vh-sections">
-      <span class="vh-num" id="vh-sections">—</span>
+      <span class="vh-num" id="vh-sections">-</span>
       <span class="vh-lab">/ 10 sections</span>
     </div>
     <div class="vh-cell vh-verified">
-      <span class="vh-num" id="vh-verified">—</span>
+      <span class="vh-num" id="vh-verified">-</span>
       <span class="vh-lab">verified ratio</span>
     </div>
     <div class="vh-cell vh-missing" id="vh-missing-cell">
       <span class="vh-lab">missing</span>
-      <span class="vh-list" id="vh-missing">—</span>
+      <span class="vh-list" id="vh-missing">-</span>
     </div>
     <button class="vh-close" id="vh-close" type="button" title="Hide">×</button>
   </div>
@@ -1174,7 +1174,7 @@ function animateCounter(el, target, duration = 700) {
 // ══════════════════════════════════════════════════════════════
 // DATA LOADING
 // ══════════════════════════════════════════════════════════════
-// Parsed orgs.geojson FeatureCollection — kept around so the MapLibre cluster
+// Parsed orgs.geojson FeatureCollection - kept around so the MapLibre cluster
 // source can ingest it directly (no second fetch). Set by loadData().
 let orgsFeatureCollection = null;
 
@@ -1677,7 +1677,7 @@ function applyChoropleth(show) {
   if (!mlMap) return;
   // If we're hiding the choropleth and the regions source has never been
   // requested, skip the fetch entirely. regions.geojson is ~4MB and would
-  // otherwise pull on every geo-mode entry — a no-op cost on mobile.
+  // otherwise pull on every geo-mode entry - a no-op cost on mobile.
   if (!show && !regionsLoaded && !mlMap.getSource('regions')) {
     choroplethShown = false;
     return;
@@ -1707,7 +1707,7 @@ function updateViewportHealth() {
   setText('vh-sections', health.sections_present);
   setText('vh-verified', (health.viewport_org_count
     ? Math.round(health.verified_ratio * 100) + '%'
-    : '—'));
+    : '-'));
   const missingEl = document.getElementById('vh-missing');
   if (missingEl) {
     if (health.sections_missing.length === 0) {
@@ -2350,11 +2350,11 @@ function renderTierLegend() {
   if (!Object.keys(counts).length) {
     const live = { A: 0, B: 0, C: 0 };
     allPoints.forEach(p => { if (live[p.t] !== undefined) live[p.t]++; });
-    counts.A = live.A; counts.B = live.B; counts.C = live.C; counts.D = '—';
+    counts.A = live.A; counts.B = live.B; counts.C = live.C; counts.D = '-';
   }
   const rows = ['A', 'B', 'C', 'D'].map(tier => {
     const c = counts[tier];
-    const cStr = (typeof c === 'number') ? c.toLocaleString() : (c || '—');
+    const cStr = (typeof c === 'number') ? c.toLocaleString() : (c || '-');
     return `
       <div class="tier-legend-row tier-row-${tier}">
         <span class="tlr-tag">${tier}</span>
@@ -2372,7 +2372,7 @@ function renderBuiltFooter() {
   const dateEl = document.getElementById('built-date');
   const cntEl = document.getElementById('built-counts');
   if (!mapStats) return;
-  if (dateEl) dateEl.textContent = mapStats.last_built_date || (mapStats.last_built || '').slice(0, 10) || '—';
+  if (dateEl) dateEl.textContent = mapStats.last_built_date || (mapStats.last_built || '').slice(0, 10) || '-';
   if (cntEl && mapStats.orgs_on_map !== undefined) {
     const onMap = mapStats.orgs_on_map.toLocaleString();
     const dir = (mapStats.orgs_in_directory || 0).toLocaleString();
@@ -2453,7 +2453,7 @@ function initGeoMapIfNeeded() {
   });
   mlMap.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
 
-  // deck.gl overlay (for edges) is created lazily — only when we actually
+  // deck.gl overlay (for edges) is created lazily - only when we actually
   // need to draw arcs/lines. The bulk org points go through MapLibre's
   // native cluster source, so a fresh load can render the map without
   // pulling in the deck.gl bundle.
@@ -2628,7 +2628,7 @@ function addOrgClusterSource() {
 
 // Apply the active section + tier filters to the unclustered points layer.
 // Cluster aggregation stays at source level (we don't repartition clusters
-// per filter — the cluster bubbles always reflect the full dataset, which
+// per filter - the cluster bubbles always reflect the full dataset, which
 // matches the existing UX where cluster counts are a "where are the orgs"
 // answer rather than a filtered subset).
 function applyMaplibreFilters() {
@@ -2717,7 +2717,7 @@ function edgesForGeoRender() {
 // equivalent culling/aggregation for free, so the hexbin path is retired.
 
 function updateDeckLayers() {
-  // Bulk org points are rendered by MapLibre's native cluster source — this
+  // Bulk org points are rendered by MapLibre's native cluster source - this
   // function only paints the GPU edge layers + the need-match highlight,
   // which both require deck.gl. We only pull in the deck.gl bundle when we
   // actually have something to draw (selectedNode arcs/lines or a
@@ -3221,7 +3221,7 @@ async function main() {
   applyUrlState();
 
   // simNodes are needed for hover/click/search/detail panel regardless of
-  // mode. Building them is fast — running the d3 force ticks is what's slow,
+  // mode. Building them is fast - running the d3 force ticks is what's slow,
   // so we defer those until the loading screen is gone.
   const sim = buildSimulation();
   buildQuadtree();

@@ -4,6 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Commonweave Enrich Portal</title>
+<meta name="description" content="Review and enrich public Commonweave directory entries with safer source-backed details.">
+<link rel="canonical" href="https://commonweave.earth/audit/enrich.html">
+<meta property="og:title" content="Commonweave Enrich Portal">
+<meta property="og:description" content="Review and enrich public Commonweave directory entries with safer source-backed details.">
+<meta property="og:url" content="https://commonweave.earth/audit/enrich.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Commonweave Enrich Portal","url":"https://commonweave.earth/audit/enrich.html","description":"Review and enrich public Commonweave directory entries with safer source-backed details.","applicationCategory":"CivicTechnology"}</script>
 <style>
 :root {
   --bg:      #0d1a0d;
@@ -175,6 +183,7 @@ main { max-width: 760px; margin: 0 auto; padding: 24px 20px 100px; }
 </div>
 
 <main id="main">
+<h1>Commonweave Enrich Portal</h1>
   <div class="empty-state" id="loadingMsg"><h2>Loading proposals...</h2></div>
 </main>
 
@@ -359,11 +368,11 @@ function render() {
       <div class="edit-fields" id="editFields">
         <div class="edit-row">
           <label>Website</label>
-          <input type="url" id="editWebsite" placeholder="https://..." value="${p.proposed_website || ''}">
+          <input type="url" id="editWebsite" aria-label="Proposed website" placeholder="https://..." value="${p.proposed_website || ''}">
         </div>
         <div class="edit-row">
           <label>Email</label>
-          <input type="email" id="editEmail" placeholder="contact@..." value="${p.proposed_email || ''}">
+          <input type="email" id="editEmail" aria-label="Proposed email" placeholder="contact@..." value="${p.proposed_email || ''}">
         </div>
         <div class="edit-row">
           <label>Description</label>

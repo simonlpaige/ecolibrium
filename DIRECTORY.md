@@ -1,6 +1,6 @@
 # 🌍 Commonweave Global Civil Society Directory
 
-*Last updated: 2026-04-28 22:06 UTC*
+*Generated snapshot last updated: 2026-04-28 22:06 UTC. Current recovered working database verified 2026-05-04: 149,507 organizations, 29,422 mapped rows, 158 countries. This markdown export is stale until regenerated.*
 
 
 ## Coverage
@@ -167,9 +167,9 @@
 | 🌐 Zimbabwe (ZW) | 2 | Field Research | ✅ |
 | 🌐 Ecuador, Kenya, Bangladesh, Indonesia... | TBD | In progress | 🔄 |
 
-**Total: 168,650 organizations indexed** across 183 countries
+**Stale generated-export total: 168,650 organizations indexed** across 183 countries
  — **29,566 of those have coordinates and appear on [the map](map.html)** (Tier A/B/C only).
- *Counts from `data/map/stats.json`, last built 2026-04-28.*
+ *Counts from `data/map/stats.json`, last built 2026-04-28. Current recovered working database verified 2026-05-04: 149,507 organizations, 29,422 mapped rows, 158 countries. Rebuild this markdown export before using it as canonical.*
 
 
 ---

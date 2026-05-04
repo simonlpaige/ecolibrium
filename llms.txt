@@ -26,4 +26,4 @@ CC0 - public domain. Use it however you want.
 - Repo: github.com/simonlpaige/commonweave
 - Email: simon@simonlpaige.com
 
-Last updated: 2026-04-26
+Last updated: 2026-05-04

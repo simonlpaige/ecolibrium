@@ -1,14 +1,14 @@
-﻿# Commonweave: Directory and Framework for the Post-Labor Economy
+# Commonweave: Directory and Framework for the Post-Labor Economy
 
 > **Skeptics start here:** [CRITIQUE.md](CRITIQUE.md) is a section-by-section honest audit of where this framework is weak, magical, or incomplete. It's linked first on purpose. If you're looking for the case against this project, it's already written, and we'd rather you sharpened it than discovered it.
 
-**Official site:** simonlpaige.com/commonweave/
+**Official site:** https://commonweave.earth/
 
 ---
 
 ## The Idea
 
-Commonweave is two things: (1) an open directory of the existing transition network across 60 countries, and (2) a working framework explaining why that network matters and how it composes into a post-labor economy.
+Commonweave is two things: (1) an open directory of existing transition networks and commons-adjacent organizations, and (2) a working framework explaining why that network matters and how it composes into a post-labor economy.
 
 The directory is the concrete deliverable. The framework is the argument for it.
 
@@ -16,7 +16,7 @@ Here is a thing that is true and that almost no one talks about clearly: the mac
 
 Right now the answer is: whoever owns the machines. That's a design choice, not a law of nature. You could design it differently.
 
-The directory catalogs who is already designing it differently: cooperatives, community land trusts, mutual aid networks, open-source health platforms, participatory governance experiments, community energy grids -- 164,783 candidate organizations across 172 countries, filtered from public registry records through multi-pass keyword scoring against the framework's mechanisms. Of those, 10,824 score >=5 on framework alignment (the strongest matches); the rest are candidates awaiting review. The framework maps how those pieces fit together and what's still missing.
+The directory catalogs who is already designing it differently: cooperatives, community land trusts, mutual aid networks, open-source health platforms, participatory governance experiments, community energy grids, rural/off-grid resilience groups, and connector networks. The recovered working database was verified on 2026-05-04 at 149,507 organizations, 29,422 mapped rows, and 158 countries. The public static map/search export is older and must be rebuilt before its counters match the working database. The framework maps how those pieces fit together, what can compose into practical solution circuits, and what's still missing.
 
 It's not a manifesto. It's more like an engineering problem with a lot of political and historical constraints. The goal is to figure out what needs to be true for people to have food, shelter, healthcare, and a say in their own lives -- and then figure out how to make those things true.
 
@@ -43,11 +43,11 @@ The framework is designed to work under conditions of *partial* abundance and *p
 
 ## What Exists Today
 
-This section matches ambition to evidence. Here is the concrete state of the project as of April 2026.
+This section matches ambition to evidence. Here is the concrete state of the project as of 2026-05-04.
 
 ### The Directory
 
-The primary deliverable is a searchable database of organizations working in the framework's 10 areas. Numbers from `data/commonweave_directory.db`, verified 2026-04-23, filter: `WHERE merged_into IS NULL`:
+The primary deliverable is a searchable database of organizations working in the framework's 10 areas. Numbers from the recovered working database at `data/commonweave_directory.db`, verified 2026-05-04. The public static export under `data/search/` and `data/map/` is older and should not be treated as canonical until rebuilt:
 
 - **164,783 candidate organizations** across **172 countries** (verified 2026-04-25 against `data/commonweave_directory.db`)
 - **27,217 geocoded points** visible on the interactive map; network edges are regenerated periodically
@@ -56,14 +56,15 @@ The primary deliverable is a searchable database of organizations working in the
 - **Interactive map:** network visualization at `map.html`
 - **Framework area breakdown:** housing & land (52,449), education (44,968), healthcare (32,396), democracy (12,724), ecology (5,277), recreation & arts (3,939), food (2,993), cooperatives (2,264), conflict resolution (1,118), energy & digital (72). ~6,500 records have no framework area set yet.
 
-Honest breakdown of what 164,783 records means:
+Honest breakdown of what these records mean:
 
-- **17,054 are registry-backed (Tier B)** -- sourced from official charity registries or manually curated; 10,480 are unverified candidates (Tier D); the remaining 137,249 are in-flight from recent ingest waves and have no tier assigned yet.
-- **10,824 entries (~7%)** score >=5 on framework alignment -- the strongest keyword matches (community land trust, worker cooperative, mutual aid, food sovereignty, restorative justice).
-- **Geographic skew:** US/UK now account for **13.2%** of records (21,697 of 164,783), down from ~83% before the April 2026 ingest waves. Brazil (85,588), Australia (49,464), and Bulgaria (2,538) are now the top non-US/UK contributors. The new long tail still needs verification and review.
-- **Legibility data:** a `legibility` column (formal / hybrid / informal / unknown) was added 2026-04-22. As of 2026-04-25, **138,803 records read `formal`** (auto-classified from registry-backed sources during ingest) and **25,980 read `unknown`**. Backfill of the `unknown` subset and audit of the auto-classified `formal` records is the current legibility task.
+- **Candidate, not gospel.** A row means "worth review," not "endorsed by Commonweave."
+- **Legibility matters.** The working database tracks whether an organization is formal, hybrid, informal, or unknown so registry-backed groups do not crowd out rural, off-grid, Indigenous, mutual-aid, and social-first networks.
+- **Coverage repair is active.** A source-discovery loop now stages new leads every 30 minutes. A deterministic autoresearch scorecard checks recall, connector quality, source diversity, geography repair, legibility balance, and rural/off-grid model value.
+- **Solution composition is active.** A separate Solution Composer treats orgs, tools, policies, and funding mechanisms as primitives that can be combined into solution circuits. It is deliberately cautious: it recommends missing pieces and questions before it recommends solutions.
+- **Sensitive groups need protection.** Public-presence-only by default; human review before mapping/promoting sensitive rural, Indigenous, land-defense, migrant, or mutual-aid groups.
 
-The earlier 738K figure counted every non-removed row including 431K entries flagged as excluded by prior audit passes. The current 164,783 reflects what passed alignment scoring as of 2026-04-25, including the Wave A ingest (Brazil mapa_oscs, Australia ACNC, Bulgaria NPO Wikidata).
+Older exports in this repository may mention Apr 2026 totals such as 164,783, 168,650, or 173,928. Those are historical build snapshots, not the current recovered database truth.
 
 ### The Framework
 
